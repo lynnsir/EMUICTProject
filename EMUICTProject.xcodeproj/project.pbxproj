@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FE920202F9C00F39134 /* AppDelegate.swift */; };
 		85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FEB20202F9C00F39134 /* ViewController.swift */; };
 		85EF1FEF20202F9C00F39134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EF1FED20202F9C00F39134 /* Main.storyboard */; };
 		85EF1FF120202F9C00F39134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85EF1FF020202F9C00F39134 /* Assets.xcassets */; };
 		85EF1FF420202F9C00F39134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EF1FF220202F9C00F39134 /* LaunchScreen.storyboard */; };
+		85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FFB202030AF00F39134 /* LoginViewController.swift */; };
+		85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FFD2020420800F39134 /* StudentRegisterViewController.swift */; };
+		85EF20002020422400F39134 /* AlumniRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */; };
+		85EF20022020423200F39134 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF20012020423200F39134 /* StaffRegisterViewController.swift */; };
+		85EF20042020424800F39134 /* CompanyRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF20032020424800F39134 /* CompanyRegisterViewController.swift */; };
+		85EF2006202047A300F39134 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2005202047A300F39134 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EF1FE620202F9C00F39134 /* EMUICTProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMUICTProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EF1FE920202F9C00F39134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EF1FEB20202F9C00F39134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +30,14 @@
 		85EF1FF020202F9C00F39134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85EF1FF320202F9C00F39134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85EF1FF520202F9C00F39134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EF1FFB202030AF00F39134 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		85EF1FFD2020420800F39134 /* StudentRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegisterViewController.swift; sourceTree = "<group>"; };
+		85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniRegisterViewController.swift; sourceTree = "<group>"; };
+		85EF20012020423200F39134 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
+		85EF20032020424800F39134 /* CompanyRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyRegisterViewController.swift; sourceTree = "<group>"; };
+		85EF2005202047A300F39134 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A92112C1A72121355EBAB9E3 /* Pods-EMUICTProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMUICTProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMUICTProject/Pods-EMUICTProject.debug.xcconfig"; sourceTree = "<group>"; };
+		FB2A6FE6E43BB96E05D4B226 /* Pods-EMUICTProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMUICTProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-EMUICTProject/Pods-EMUICTProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BA7A7D176E3C95360C5CC2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		85EF1FDD20202F9C00F39134 = {
 			isa = PBXGroup;
 			children = (
 				85EF1FE820202F9C00F39134 /* EMUICTProject */,
 				85EF1FE720202F9C00F39134 /* Products */,
+				CEAE373AA4E9DCCED5D7D289 /* Pods */,
+				1BA7A7D176E3C95360C5CC2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +87,23 @@
 				85EF1FF020202F9C00F39134 /* Assets.xcassets */,
 				85EF1FF220202F9C00F39134 /* LaunchScreen.storyboard */,
 				85EF1FF520202F9C00F39134 /* Info.plist */,
+				85EF2005202047A300F39134 /* GoogleService-Info.plist */,
+				85EF1FFB202030AF00F39134 /* LoginViewController.swift */,
+				85EF1FFD2020420800F39134 /* StudentRegisterViewController.swift */,
+				85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */,
+				85EF20012020423200F39134 /* StaffRegisterViewController.swift */,
+				85EF20032020424800F39134 /* CompanyRegisterViewController.swift */,
 			);
 			path = EMUICTProject;
+			sourceTree = "<group>";
+		};
+		CEAE373AA4E9DCCED5D7D289 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A92112C1A72121355EBAB9E3 /* Pods-EMUICTProject.debug.xcconfig */,
+				FB2A6FE6E43BB96E05D4B226 /* Pods-EMUICTProject.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85EF1FF820202F9C00F39134 /* Build configuration list for PBXNativeTarget "EMUICTProject" */;
 			buildPhases = (
+				BCA4A3D5C1980D7F5314471D /* [CP] Check Pods Manifest.lock */,
 				85EF1FE220202F9C00F39134 /* Sources */,
 				85EF1FE320202F9C00F39134 /* Frameworks */,
 				85EF1FE420202F9C00F39134 /* Resources */,
+				3C7CCA4A65A52C0A5F39A0FF /* [CP] Embed Pods Frameworks */,
+				4B3DE5DC0AD6548C3B6670FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85EF1FF420202F9C00F39134 /* LaunchScreen.storyboard in Resources */,
+				85EF2006202047A300F39134 /* GoogleService-Info.plist in Resources */,
 				85EF1FF120202F9C00F39134 /* Assets.xcassets in Resources */,
 				85EF1FEF20202F9C00F39134 /* Main.storyboard in Resources */,
 			);
@@ -131,13 +177,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C7CCA4A65A52C0A5F39A0FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EMUICTProject/Pods-EMUICTProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EMUICTProject/Pods-EMUICTProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B3DE5DC0AD6548C3B6670FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EMUICTProject/Pods-EMUICTProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCA4A3D5C1980D7F5314471D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EMUICTProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		85EF1FE220202F9C00F39134 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85EF20022020423200F39134 /* StaffRegisterViewController.swift in Sources */,
+				85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */,
+				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
+				85EF20002020422400F39134 /* AlumniRegisterViewController.swift in Sources */,
+				85EF20042020424800F39134 /* CompanyRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,11 +383,13 @@
 		};
 		85EF1FF920202F9C00F39134 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92112C1A72121355EBAB9E3 /* Pods-EMUICTProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SEF4KAHA7J;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sirinda.EMUICTProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,11 +400,13 @@
 		};
 		85EF1FFA20202F9C00F39134 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB2A6FE6E43BB96E05D4B226 /* Pods-EMUICTProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SEF4KAHA7J;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sirinda.EMUICTProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
