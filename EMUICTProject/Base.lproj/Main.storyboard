@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -505,7 +504,7 @@
             </objects>
             <point key="canvasLocation" x="6592" y="3118"/>
         </scene>
-        <!--View Controller-->
+        <!--Report-->
         <scene sceneID="Zfy-9b-byt">
             <objects>
                 <viewController id="ppB-cm-SmW" sceneMemberID="viewController">
@@ -585,13 +584,13 @@
                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="IOc-PW-Cdh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uGz-1p-I5Z"/>
+                    <navigationItem key="navigationItem" title="Report" id="uGz-1p-I5Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBN-jT-rJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11287" y="3066"/>
         </scene>
-        <!--View Controller-->
+        <!--Account-->
         <scene sceneID="v5f-rM-P1P">
             <objects>
                 <viewController id="Y3t-NC-h6E" sceneMemberID="viewController">
@@ -669,7 +668,7 @@
                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="gH7-nm-uRW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NyF-so-CUS"/>
+                    <navigationItem key="navigationItem" title="Account" id="NyF-so-CUS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ce-uF-CTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -743,7 +742,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="insert"/>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Nf-Km-TAY">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Nf-Km-TAY">
                                                 <rect key="frame" x="142" y="24" width="131" height="131"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -915,7 +914,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4n-TA-hq0">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4n-TA-hq0">
                                                 <rect key="frame" x="142" y="40" width="131" height="131"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -1034,7 +1033,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZv-nI-ud9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6242" y="1954"/>
+            <point key="canvasLocation" x="-6239" y="1953"/>
         </scene>
         <!--Payment-->
         <scene sceneID="clK-a8-5pu">
@@ -1312,7 +1311,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOh-Rf-nDH">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOh-Rf-nDH">
                                                 <rect key="frame" x="142" y="27" width="131" height="131"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -1460,6 +1459,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Continue"/>
                                 <connections>
+                                    <action selector="ContinuePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="Dy9-MX-MeB"/>
                                     <segue destination="Zxo-xH-bG4" kind="show" id="jUI-Le-gAJ">
                                         <nil key="action"/>
                                     </segue>
@@ -1469,8 +1469,11 @@
                                 <rect key="frame" x="187" y="240" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="insert"/>
+                                <connections>
+                                    <action selector="insertImagePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="9hJ-Zr-u7C"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhA-1v-0em">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhA-1v-0em">
                                 <rect key="frame" x="142" y="101" width="131" height="131"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1479,6 +1482,17 @@
                         <viewLayoutGuide key="safeArea" id="tFl-qb-h9K"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="Cbs-V5-M1v"/>
+                    <connections>
+                        <outlet property="ContinueBtn" destination="Trh-bf-JnB" id="Xuh-0A-EbF"/>
+                        <outlet property="companyName" destination="tFf-jx-xqh" id="cAq-B5-cm1"/>
+                        <outlet property="conPassword" destination="OU3-6d-bL3" id="aut-cm-j4J"/>
+                        <outlet property="contactNumber" destination="8B3-ts-1fd" id="Tvj-s7-OLl"/>
+                        <outlet property="email" destination="sKR-Kt-l0D" id="Odd-3D-lk8"/>
+                        <outlet property="imageView" destination="MhA-1v-0em" id="ObP-rX-1Ow"/>
+                        <outlet property="insertImageBtn" destination="dv7-Yx-OzG" id="gi8-wk-9gl"/>
+                        <outlet property="password" destination="9qg-Et-c7m" id="q16-Jv-g65"/>
+                        <outlet property="username" destination="sME-40-dQx" id="KDN-us-dLQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONu-Fv-dN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3954,7 +3968,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MnB-EQ-lzC"/>
-        <segue reference="bua-ML-mOx"/>
+        <segue reference="jUI-Le-gAJ"/>
         <segue reference="IRC-pV-Uhx"/>
     </inferredMetricsTieBreakers>
 </document>
