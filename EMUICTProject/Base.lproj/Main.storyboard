@@ -698,7 +698,7 @@
         <!--Registration-->
         <scene sceneID="y9m-7d-0g9">
             <objects>
-                <viewController id="7Kv-Zb-fbr" customClass="StudentRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentRegis" id="7Kv-Zb-fbr" customClass="StudentRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0wA-rm-qt1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -868,7 +868,7 @@
         <!--Registration-->
         <scene sceneID="yrF-ik-qfS">
             <objects>
-                <viewController id="tjv-aj-MBz" customClass="AlumniRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlumniRegis" id="tjv-aj-MBz" customClass="AlumniRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="04f-AF-sXT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1038,7 +1038,7 @@
         <!--Payment-->
         <scene sceneID="clK-a8-5pu">
             <objects>
-                <viewController id="Zxo-xH-bG4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regisPayment" id="Zxo-xH-bG4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aRZ-5j-9bc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1251,7 +1251,7 @@
         <!--Registration-->
         <scene sceneID="RdS-FP-6pH">
             <objects>
-                <viewController id="dbO-YO-jW2" customClass="StaffRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StaffRegis" id="dbO-YO-jW2" customClass="StaffRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OoQ-Ae-c8q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1402,12 +1402,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZII-9i-dxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5207" y="1902"/>
+            <point key="canvasLocation" x="-5271" y="1904"/>
         </scene>
         <!--Registration-->
         <scene sceneID="YM7-kH-w1H">
             <objects>
-                <viewController id="tEO-pY-VyE" customClass="CompanyRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompanyRegis" id="tEO-pY-VyE" customClass="CompanyRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HXE-Nd-CKR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1496,7 +1496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONu-Fv-dN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4467" y="1798"/>
+            <point key="canvasLocation" x="-4336" y="1838"/>
         </scene>
         <!--Type-->
         <scene sceneID="70G-d4-cV4">
@@ -3967,8 +3967,8 @@
         <image name="watchlist" width="40" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MnB-EQ-lzC"/>
-        <segue reference="jUI-Le-gAJ"/>
+        <segue reference="T9Z-4D-UkQ"/>
+        <segue reference="0Th-ok-MY9"/>
         <segue reference="IRC-pV-Uhx"/>
     </inferredMetricsTieBreakers>
 </document>

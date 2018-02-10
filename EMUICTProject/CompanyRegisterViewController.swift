@@ -34,7 +34,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
         ref = Database.database().reference()
-        userStorage = storage.child("users")
+        userStorage = storage.child("Company user")
         
  
         
@@ -46,6 +46,8 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         picker.sourceType = .photoLibrary
         present(picker, animated: true, completion: nil)
     }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imageView.image = image
@@ -54,49 +56,64 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         self.dismiss(animated: true, completion:nil)
     }
     
-    /* @IBOutlet weak var companyName: UITextField!
-     @IBOutlet weak var username: UITextField!
-     @IBOutlet weak var password: UITextField!
-     @IBOutlet weak var conPassword: UITextField!
-     @IBOutlet weak var email: UITextField!
-     @IBOutlet weak var contactNumber: UITextField!
-     @IBOutlet weak var imageView: UIImageView!
-     @IBOutlet weak var insertImageBtn: UIButton!
-     @IBOutlet weak var ContinueBtn: UIButton!*/
-    
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
-        if companyName.text == nil || username.text == nil || password.text == nil ||
-            conPassword.text == nil || email.text == nil || contactNumber.text == nil
-        {
-            displyAlertMessage(userMessage: "Information is missing")
-        }
-            
-        
-        if password.text == conPassword.text
-        {
+
+        guard companyName.text != "", username.text != "", password.text != "",conPassword.text != "", email.text != "", contactNumber.text != ""
+            else { return }
+        if password.text == conPassword.text {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 
-                if let error = error
-                {
+                if let error = error{
                     print(error.localizedDescription)
                 }
-            
-                else
-                {
+                
+                if let user = user{
+                    let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
+                    changeRequest.displayName = self.companyName.text!
+                    changeRequest.commitChanges(completion: nil)
                     
+                    let imageRef = self.userStorage.child("\(user.uid).jpg")
+                    
+                    let data = UIImageJPEGRepresentation(self.imageView.image!, 0.5)
+                    
+                    let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
+                        if err != nil{
+                            print(err!.localizedDescription)
+                        }
+                        
+                        imageRef.downloadURL(completion: { (url, er) in
+                            if er != nil {
+                                print(er!.localizedDescription)
+                            }
+                            
+                            if let url = url {
+                                let userInfo: [String : Any] = [ "uid" : user.uid,
+                                                                 "Company name" : self.companyName.text!,
+                                                                 "Contact number": self.contactNumber.text!,
+                                                                 "urlToImage": url.absoluteString ]
+                                self.ref.child("Company user").child(user.uid).setValue(userInfo)
+                                let CompanyRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
+                                self.present(CompanyRegis, animated: true, completion: nil)
+                            }
+                            
+                        })
+                        
+                    })
+                    uploadTask.resume()
                 }
                 
-            })
+                })
+           
         }
             
-            else{
-            displyAlertMessage(userMessage:"Password doesn't match!")
-        
+            
+        else{
+            print("Password doesn't match!")
         }
         
-        
+     
     }
     
     
@@ -110,11 +127,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         self.present(myAlert,animated: true, completion:nil)
     }
     
-    
-    
-   
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -124,14 +137,5 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
