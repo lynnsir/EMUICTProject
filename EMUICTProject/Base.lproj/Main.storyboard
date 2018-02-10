@@ -741,6 +741,9 @@
                                                 <rect key="frame" x="187" y="163" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="insert"/>
+                                                <connections>
+                                                    <action selector="insertImagePressed:" destination="7Kv-Zb-fbr" eventType="touchUpInside" id="jGH-g9-c8K"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Nf-Km-TAY">
                                                 <rect key="frame" x="142" y="24" width="131" height="131"/>
@@ -800,9 +803,8 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" id="bua-ML-mOx">
-                                                        <nil key="action"/>
-                                                    </segue>
+                                                    <action selector="ContinuePressed:" destination="7Kv-Zb-fbr" eventType="touchUpInside" id="6ja-Fa-fdK"/>
+                                                    <segue destination="Zxo-xH-bG4" kind="show" id="bua-ML-mOx"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Month:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0b-XQ-oks">
@@ -860,6 +862,25 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="5cs-CE-b1j"/>
                     <size key="freeformSize" width="414" height="1020"/>
+                    <connections>
+                        <outlet property="birthdate" destination="0FX-cQ-JQY" id="9Bx-K6-zRD"/>
+                        <outlet property="birthmonth" destination="L0b-XQ-oks" id="Bh4-qM-IoD"/>
+                        <outlet property="birthyear" destination="MTe-ge-Org" id="g6S-r4-vaP"/>
+                        <outlet property="conPassword" destination="P6J-b8-Iep" id="Vat-Kh-BkS"/>
+                        <outlet property="contactNumber" destination="dDE-v6-yuk" id="XsJ-LI-Z6C"/>
+                        <outlet property="continueButton" destination="dee-8V-wmj" id="cB7-wf-Baq"/>
+                        <outlet property="email" destination="iO2-J2-o5b" id="kKQ-uH-Se9"/>
+                        <outlet property="firstName" destination="fP4-r9-wDp" id="KXD-Ax-iPo"/>
+                        <outlet property="idNumber" destination="Iie-yZ-gAx" id="ANS-sD-OSq"/>
+                        <outlet property="imageView" destination="4Nf-Km-TAY" id="4zq-vx-QxI"/>
+                        <outlet property="insertImageButton" destination="ear-bi-tzg" id="V7n-jE-4ZI"/>
+                        <outlet property="lastName" destination="ENa-mh-fSs" id="UHZ-R0-jz0"/>
+                        <outlet property="major" destination="Hvz-1p-Jhi" id="WAJ-ux-Qx2"/>
+                        <outlet property="password" destination="jQA-SC-2uM" id="Zfc-KZ-RVZ"/>
+                        <outlet property="studentID" destination="z3e-AF-caJ" id="0m0-ST-fYK"/>
+                        <outlet property="username" destination="JiJ-z3-2RG" id="s3y-Pp-ihc"/>
+                        <outlet property="year" destination="VWy-oR-T3A" id="VeR-dk-Sn1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYz-0b-t9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -971,6 +992,9 @@
                                                 <rect key="frame" x="187" y="179" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="insert"/>
+                                                <connections>
+                                                    <action selector="insertImagePressed:" destination="tjv-aj-MBz" eventType="touchUpInside" id="GZh-bj-FZq"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student ID:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xs-T1-0j6">
                                                 <rect key="frame" x="36" y="350" width="342" height="30"/>
@@ -998,9 +1022,8 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" identifier="Payment" id="YCm-SD-uyL">
-                                                        <nil key="action"/>
-                                                    </segue>
+                                                    <action selector="ContinuePressed:" destination="tjv-aj-MBz" eventType="touchUpInside" id="S0X-qg-CSQ"/>
+                                                    <segue destination="Zxo-xH-bG4" kind="show" identifier="Payment" id="YCm-SD-uyL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1030,6 +1053,25 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="6E1-5V-HBd"/>
                     <size key="freeformSize" width="414" height="1020"/>
+                    <connections>
+                        <outlet property="birthdate" destination="2I3-PO-KBh" id="w9r-zs-YPL"/>
+                        <outlet property="birthmonth" destination="4av-O4-EM2" id="ZPU-9j-Yut"/>
+                        <outlet property="birthyear" destination="yA4-2O-VFB" id="Xzn-cM-mTo"/>
+                        <outlet property="career" destination="hKH-wJ-YB1" id="gx5-CO-COw"/>
+                        <outlet property="conPassword" destination="GT3-xR-5Lc" id="GQi-Jp-Yye"/>
+                        <outlet property="contactNumber" destination="eSK-jM-68B" id="6Nn-JD-X2b"/>
+                        <outlet property="continueButton" destination="o8U-kB-xCX" id="PvU-dc-5Vy"/>
+                        <outlet property="email" destination="5eg-gd-38V" id="heZ-hB-cjn"/>
+                        <outlet property="firstName" destination="PfH-sf-g5T" id="fhq-DJ-cyQ"/>
+                        <outlet property="idNumber" destination="9OV-c1-dck" id="VI5-cB-PL8"/>
+                        <outlet property="imageView" destination="K4n-TA-hq0" id="iLF-Iz-uDh"/>
+                        <outlet property="insertImageButton" destination="CR9-he-yD9" id="fSJ-Ak-n6e"/>
+                        <outlet property="lastName" destination="r93-pe-BdV" id="lo9-ta-eIj"/>
+                        <outlet property="password" destination="s4U-rK-dCa" id="xlh-DV-xbA"/>
+                        <outlet property="position" destination="UW9-Z7-p7I" id="yTU-wv-Csx"/>
+                        <outlet property="studentID" destination="6xs-T1-0j6" id="tX0-aE-fqQ"/>
+                        <outlet property="username" destination="WIU-X2-Fky" id="T8B-gf-rwO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZv-nI-ud9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1340,6 +1382,9 @@
                                                 <rect key="frame" x="187" y="166" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="insert"/>
+                                                <connections>
+                                                    <action selector="insertImagePressed:" destination="dbO-YO-jW2" eventType="touchUpInside" id="kHD-bp-MAU"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N85-sb-Tcm">
                                                 <rect key="frame" x="36" y="337" width="342" height="30"/>
@@ -1367,9 +1412,8 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" identifier="" id="0Th-ok-MY9">
-                                                        <nil key="action"/>
-                                                    </segue>
+                                                    <action selector="ContinuePressed:" destination="dbO-YO-jW2" eventType="touchUpInside" id="MTG-hE-eTU"/>
+                                                    <segue destination="Zxo-xH-bG4" kind="show" identifier="" id="0Th-ok-MY9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1399,6 +1443,23 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="RgJ-LJ-woe"/>
                     <size key="freeformSize" width="414" height="900"/>
+                    <connections>
+                        <outlet property="ContactNumber" destination="u1P-i3-cCx" id="4HV-lV-C6c"/>
+                        <outlet property="ContinueButton" destination="2BC-dl-6Ch" id="uqU-g0-jFL"/>
+                        <outlet property="Email" destination="YZe-yG-QgO" id="tSW-33-n80"/>
+                        <outlet property="IDnumber" destination="FL2-ge-4fs" id="x3t-tt-V1R"/>
+                        <outlet property="LastName" destination="oSl-5u-krp" id="8Vo-ep-B5E"/>
+                        <outlet property="Position" destination="NQv-x8-581" id="VWK-Cx-w5g"/>
+                        <outlet property="Username" destination="N85-sb-Tcm" id="dHC-1O-hMz"/>
+                        <outlet property="conPassword" destination="CV9-9j-x65" id="r9E-Vm-GMv"/>
+                        <outlet property="date" destination="mQv-2w-Fma" id="Xo9-QB-BsY"/>
+                        <outlet property="firstName" destination="f97-72-KYL" id="ush-Sv-4es"/>
+                        <outlet property="imageView" destination="mOh-Rf-nDH" id="GcV-yP-7uu"/>
+                        <outlet property="insertImageButton" destination="wfJ-iO-9qm" id="1rQ-Rg-lPC"/>
+                        <outlet property="month" destination="Q6u-IC-G1x" id="sfP-tf-kYr"/>
+                        <outlet property="password" destination="h3k-Pd-dzx" id="lO4-jw-tYK"/>
+                        <outlet property="year" destination="moc-bP-YIV" id="dhY-Mq-kRY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZII-9i-dxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1460,9 +1521,7 @@
                                 <state key="normal" image="Continue"/>
                                 <connections>
                                     <action selector="ContinuePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="Dy9-MX-MeB"/>
-                                    <segue destination="Zxo-xH-bG4" kind="show" id="jUI-Le-gAJ">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="Zxo-xH-bG4" kind="show" id="jUI-Le-gAJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv7-Yx-OzG">
@@ -3968,7 +4027,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="T9Z-4D-UkQ"/>
-        <segue reference="0Th-ok-MY9"/>
+        <segue reference="YCm-SD-uyL"/>
         <segue reference="IRC-pV-Uhx"/>
     </inferredMetricsTieBreakers>
 </document>

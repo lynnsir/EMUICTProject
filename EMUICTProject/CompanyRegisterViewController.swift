@@ -37,7 +37,6 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         userStorage = storage.child("Company user")
         
  
-        
         // Do any additional setup after loading the view.
     }
     @IBAction func insertImagePressed(_ sender: Any) {
@@ -91,6 +90,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                             if let url = url {
                                 let userInfo: [String : Any] = [ "uid" : user.uid,
                                                                  "Company name" : self.companyName.text!,
+                                                                 "Username" : self.username.text!,
                                                                  "Contact number": self.contactNumber.text!,
                                                                  "urlToImage": url.absoluteString ]
                                 self.ref.child("Company user").child(user.uid).setValue(userInfo)

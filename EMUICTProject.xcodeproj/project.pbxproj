@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
+		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
 		85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FE920202F9C00F39134 /* AppDelegate.swift */; };
 		85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FEB20202F9C00F39134 /* ViewController.swift */; };
 		85EF1FEF20202F9C00F39134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EF1FED20202F9C00F39134 /* Main.storyboard */; };
@@ -16,13 +17,13 @@
 		85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FFB202030AF00F39134 /* LoginViewController.swift */; };
 		85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FFD2020420800F39134 /* StudentRegisterViewController.swift */; };
 		85EF20002020422400F39134 /* AlumniRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */; };
-		85EF20022020423200F39134 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF20012020423200F39134 /* StaffRegisterViewController.swift */; };
 		85EF20042020424800F39134 /* CompanyRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF20032020424800F39134 /* CompanyRegisterViewController.swift */; };
 		85EF2006202047A300F39134 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85EF2005202047A300F39134 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		85EF1FE620202F9C00F39134 /* EMUICTProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMUICTProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EF1FE920202F9C00F39134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EF1FEB20202F9C00F39134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		85EF1FFB202030AF00F39134 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		85EF1FFD2020420800F39134 /* StudentRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegisterViewController.swift; sourceTree = "<group>"; };
 		85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniRegisterViewController.swift; sourceTree = "<group>"; };
-		85EF20012020423200F39134 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		85EF20032020424800F39134 /* CompanyRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyRegisterViewController.swift; sourceTree = "<group>"; };
 		85EF2005202047A300F39134 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A92112C1A72121355EBAB9E3 /* Pods-EMUICTProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMUICTProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EMUICTProject/Pods-EMUICTProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 				85EF1FFB202030AF00F39134 /* LoginViewController.swift */,
 				85EF1FFD2020420800F39134 /* StudentRegisterViewController.swift */,
 				85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */,
-				85EF20012020423200F39134 /* StaffRegisterViewController.swift */,
 				85EF20032020424800F39134 /* CompanyRegisterViewController.swift */,
+				8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */,
 			);
 			path = EMUICTProject;
 			sourceTree = "<group>";
@@ -242,8 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85EF20022020423200F39134 /* StaffRegisterViewController.swift in Sources */,
 				85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */,
+				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
