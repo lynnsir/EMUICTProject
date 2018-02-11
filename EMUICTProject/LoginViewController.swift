@@ -7,9 +7,40 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+     @IBOutlet weak var email: UITextField!
+     @IBOutlet weak var password: UITextField!
+     @IBOutlet weak var loginButton: UIButton!
+    
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        if email.text != "" && password.text != ""
+        {
+            Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
+                if user != nil{
+                    print("Successful")
+                }
+                else{
+                    if let myError = error?.localizedDescription
+                    {
+                        print(myError)
+                    }
+                    else{
+                        print("Error")
+                        self.displyAlertMessage(userMessage:"Wrong password")
+                    }
+                }
+            })
+            
+        }
+       
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +56,14 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
+    }
 
     /*
     // MARK: - Navigation
