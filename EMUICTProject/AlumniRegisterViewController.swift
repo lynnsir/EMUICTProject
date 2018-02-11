@@ -41,7 +41,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
         ref = Database.database().reference()
-        userStorage = storage.child("Student user")
+        userStorage = storage.child("Alumni user")
         
         // Do any additional setup after loading the view.
     }
@@ -117,8 +117,9 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                     
                                 ]
                                 self.ref.child("Alumni user").child(user.uid).setValue(userInfo)
-                                let AlumniRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
-                                self.present(AlumniRegis, animated: true, completion: nil)
+                                
+                           /*     let AlumniRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
+                                self.present(AlumniRegis, animated: true, completion: nil) */
                             }
                             
                         })

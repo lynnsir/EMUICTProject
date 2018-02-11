@@ -119,8 +119,8 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                                     
                                 ]
                                 self.ref.child("Student user").child(user.uid).setValue(userInfo)
-                                let StudentRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
-                                self.present(StudentRegis, animated: true, completion: nil)
+                       /*         let StudentRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
+                                self.present(StudentRegis, animated: true, completion: nil) */
                             }
                             
                         })

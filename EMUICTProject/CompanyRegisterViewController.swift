@@ -94,8 +94,8 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                  "Contact number": self.contactNumber.text!,
                                                                  "urlToImage": url.absoluteString ]
                                 self.ref.child("Company user").child(user.uid).setValue(userInfo)
-                                let CompanyRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
-                                self.present(CompanyRegis, animated: true, completion: nil)
+                            /*    let CompanyRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
+                                self.present(CompanyRegis, animated: true, completion: nil) */
                             }
                             
                         })

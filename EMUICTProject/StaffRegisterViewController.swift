@@ -114,8 +114,8 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                                     
                                 ]
                                 self.ref.child("Staff user").child(user.uid).setValue(userInfo)
-                                let StaffRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
-                                self.present(StaffRegis, animated: true, completion: nil)
+                             /*   let StaffRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
+                                self.present(StaffRegis, animated: true, completion: nil) */
                             }
                             
                         })
