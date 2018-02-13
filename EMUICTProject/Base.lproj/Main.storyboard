@@ -590,7 +590,7 @@
         <!--Account-->
         <scene sceneID="v5f-rM-P1P">
             <objects>
-                <viewController id="Y3t-NC-h6E" sceneMemberID="viewController">
+                <viewController id="Y3t-NC-h6E" customClass="AccountMenuViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7z2-Wy-7oH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -656,6 +656,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="button:yL6-70-5NJ:image"/>
                                 <connections>
+                                    <action selector="LogoutButton:" destination="Y3t-NC-h6E" eventType="touchUpInside" id="4UP-J4-KaH"/>
                                     <segue destination="sch-8W-ej1" kind="presentation" id="HNH-zn-Ges"/>
                                 </connections>
                             </button>
