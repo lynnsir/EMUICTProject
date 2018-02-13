@@ -647,6 +647,9 @@
                                 <rect key="frame" x="270" y="152" width="82" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="order"/>
+                                <connections>
+                                    <segue destination="WF2-Bl-jSR" kind="show" id="Hgd-bF-E89"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL6-70-5NJ">
                                 <rect key="frame" x="291" y="341" width="77" height="85"/>
