@@ -10,6 +10,10 @@
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
 		856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */; };
+		856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E820348E1E00AC712A /* StudentReportViewController.swift */; };
+		856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */; };
+		856BC4ED20348E4400AC712A /* StaffReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4EC20348E4400AC712A /* StaffReportViewController.swift */; };
+		856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4EE20348E5600AC712A /* AlumniReportViewController.swift */; };
 		85950DC920335430002D4A0B /* StudentSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DC820335430002D4A0B /* StudentSearchViewController.swift */; };
 		85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */; };
 		85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCC20335450002D4A0B /* StaffSearchViewController.swift */; };
@@ -30,6 +34,10 @@
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
+		856BC4E820348E1E00AC712A /* StudentReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentReportViewController.swift; sourceTree = "<group>"; };
+		856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReportViewController.swift; sourceTree = "<group>"; };
+		856BC4EC20348E4400AC712A /* StaffReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffReportViewController.swift; sourceTree = "<group>"; };
+		856BC4EE20348E5600AC712A /* AlumniReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniReportViewController.swift; sourceTree = "<group>"; };
 		85950DC820335430002D4A0B /* StudentSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCC20335450002D4A0B /* StaffSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffSearchViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +116,10 @@
 				85950DCC20335450002D4A0B /* StaffSearchViewController.swift */,
 				85950DCE20335464002D4A0B /* CompanySearchViewController.swift */,
 				856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */,
+				856BC4E820348E1E00AC712A /* StudentReportViewController.swift */,
+				856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */,
+				856BC4EC20348E4400AC712A /* StaffReportViewController.swift */,
+				856BC4EE20348E5600AC712A /* AlumniReportViewController.swift */,
 			);
 			path = EMUICTProject;
 			sourceTree = "<group>";
@@ -259,14 +271,18 @@
 			files = (
 				85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */,
 				85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */,
+				856BC4ED20348E4400AC712A /* StaffReportViewController.swift in Sources */,
 				85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */,
 				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
+				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
+				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
 				856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */,
 				85EF20002020422400F39134 /* AlumniRegisterViewController.swift in Sources */,
 				85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */,
+				856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */,
 				85950DC920335430002D4A0B /* StudentSearchViewController.swift in Sources */,
 				85EF20042020424800F39134 /* CompanyRegisterViewController.swift in Sources */,
 			);

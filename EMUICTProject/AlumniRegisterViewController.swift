@@ -110,6 +110,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                                                  
                                 "Career" : self.career.text!,
                                                                  "Position" : self.position.text!,
+                                                                 "Email" : self.email.text!,
                                                                  "BirthDate-Date": self.birthdate.text!,
                                                                  "BirthDate-Month": self.birthmonth.text!,
                                                                  "BirthDate-Year": self.birthyear.text!,

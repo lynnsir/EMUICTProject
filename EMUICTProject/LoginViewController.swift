@@ -28,14 +28,20 @@ class LoginViewController: UIViewController {
                     if let myError = error?.localizedDescription
                     {
                         print(myError)
+                        
                     }
                     else{
+                         self.displyAlertMessage(userMessage:"Wrong password")
                         print("Error")
-                        self.displyAlertMessage(userMessage:"Wrong password")
+                       
                     }
                 }
             })
             
+        }
+        else if email.text == "" || password.text == ""
+        {
+            displyAlertMessage(userMessage:"Please sign in")
         }
        
     }

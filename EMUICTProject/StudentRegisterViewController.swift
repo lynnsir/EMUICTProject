@@ -112,6 +112,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                  
                                                                  "Year" : self.year.text!,
                                                                  "Major" : self.major.text!,
+                                                                 "Email" : self.email.text!,
                                                                  "BirthDate-Date": self.birthdate.text!,
                                                                  "BirthDate-Month": self.birthmonth.text!,
                                                                  "BirthDate-Year": self.birthyear.text!,

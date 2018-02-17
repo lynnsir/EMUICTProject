@@ -10,6 +10,12 @@ import UIKit
 
 class StaffSearchViewController: UIViewController {
 
+    @IBOutlet weak var firstname: UITextField!
+    @IBOutlet weak var lastname: UITextField!
+    @IBOutlet weak var position: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBAction func searchPressed(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

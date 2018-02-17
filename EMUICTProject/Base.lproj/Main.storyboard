@@ -2731,7 +2731,7 @@
         <!--Staff-->
         <scene sceneID="ffA-1G-p5D">
             <objects>
-                <viewController id="1i1-T7-xiM" sceneMemberID="viewController">
+                <viewController id="1i1-T7-xiM" customClass="StaffSearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hG6-K5-dfi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2762,6 +2762,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Search"/>
                                 <connections>
+                                    <action selector="searchPressed:" destination="1i1-T7-xiM" eventType="touchUpInside" id="h0n-TS-dGh"/>
                                     <segue destination="GZa-ag-mJf" kind="show" id="XS2-3X-MTI">
                                         <nil key="action"/>
                                     </segue>
@@ -2772,6 +2773,12 @@
                         <viewLayoutGuide key="safeArea" id="lhY-oP-bqc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Staff" id="OnU-LU-mBy"/>
+                    <connections>
+                        <outlet property="firstname" destination="Z6n-1g-8Bl" id="l5k-WN-ue4"/>
+                        <outlet property="lastname" destination="61A-2l-PDQ" id="wKm-QI-6TO"/>
+                        <outlet property="position" destination="c5d-Gz-k8H" id="MkL-o9-Irr"/>
+                        <outlet property="searchButton" destination="7fo-LW-Q4M" id="lP6-Nt-0K0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvE-xd-YzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3315,7 +3322,7 @@
         <!--Company-->
         <scene sceneID="Qzb-tK-MhL">
             <objects>
-                <viewController id="Rm6-Dr-Mde" sceneMemberID="viewController">
+                <viewController id="Rm6-Dr-Mde" customClass="CompanySearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x3g-xs-yDv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3346,6 +3353,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Search"/>
                                 <connections>
+                                    <action selector="searchPressed:" destination="Rm6-Dr-Mde" eventType="touchUpInside" id="ymh-R9-oAV"/>
                                     <segue destination="TNu-1o-dD5" kind="show" id="npq-P7-eio">
                                         <nil key="action"/>
                                     </segue>
@@ -3356,6 +3364,12 @@
                         <viewLayoutGuide key="safeArea" id="Jy0-xe-8iE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Company" id="bGd-bu-7xq"/>
+                    <connections>
+                        <outlet property="companyName" destination="uFI-80-lzY" id="I5Q-ys-1kM"/>
+                        <outlet property="companyType" destination="vbV-9E-tjm" id="wwe-53-OFa"/>
+                        <outlet property="representativeName" destination="JAy-e2-2Hs" id="8gf-wP-sSk"/>
+                        <outlet property="searchButton" destination="d4N-7X-1da" id="f75-w9-8tE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amb-Ma-dkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3364,7 +3378,7 @@
         <!--Alumni-->
         <scene sceneID="xJl-rC-jO6">
             <objects>
-                <viewController id="t8B-qb-KEV" sceneMemberID="viewController">
+                <viewController id="t8B-qb-KEV" customClass="AlumniSearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IB1-MX-L7V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3374,6 +3388,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Search"/>
                                 <connections>
+                                    <action selector="searchPressed:" destination="t8B-qb-KEV" eventType="touchUpInside" id="kre-16-Hhm"/>
                                     <segue destination="x4Q-SX-mWy" kind="show" id="JeM-QB-hhz">
                                         <nil key="action"/>
                                     </segue>
@@ -3426,6 +3441,15 @@
                         <viewLayoutGuide key="safeArea" id="vyR-hl-8nW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Alumni" id="LAt-1S-rwp"/>
+                    <connections>
+                        <outlet property="career" destination="pZT-4A-jYz" id="3v7-OK-siX"/>
+                        <outlet property="firstname" destination="Jo3-im-8jn" id="GyT-iG-TDB"/>
+                        <outlet property="lastname" destination="wJR-ow-DZ9" id="n5q-1O-xzv"/>
+                        <outlet property="major" destination="bMI-8S-PNG" id="jas-f2-z4n"/>
+                        <outlet property="position" destination="l06-PY-JKQ" id="IPv-Ky-BBL"/>
+                        <outlet property="searchButton" destination="sWw-LQ-BeC" id="0fD-Lb-lQC"/>
+                        <outlet property="studentID" destination="Uo7-lF-2MZ" id="Ie6-zJ-nIf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfG-lr-90t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3434,7 +3458,7 @@
         <!--Student-->
         <scene sceneID="Plf-kD-E8u">
             <objects>
-                <viewController id="aEe-qP-j6c" sceneMemberID="viewController">
+                <viewController id="aEe-qP-j6c" customClass="StudentSearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nzy-Bv-bkh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3479,6 +3503,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Search"/>
                                 <connections>
+                                    <action selector="SearchPressed:" destination="aEe-qP-j6c" eventType="touchUpInside" id="f5j-XH-8eB"/>
                                     <segue destination="92y-th-Fmz" kind="show" id="3KF-4J-QT7">
                                         <nil key="action"/>
                                     </segue>
@@ -3489,6 +3514,14 @@
                         <viewLayoutGuide key="safeArea" id="XID-kA-WpC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Student" id="1Zu-tP-7kL"/>
+                    <connections>
+                        <outlet property="firstname" destination="PKF-kP-gFm" id="wc6-JN-Pik"/>
+                        <outlet property="lastname" destination="WzK-dq-d2k" id="8LI-i1-mG9"/>
+                        <outlet property="major" destination="yLk-O2-qdp" id="lhF-Nl-snZ"/>
+                        <outlet property="searchButton" destination="Lwx-ws-nsd" id="pBZ-ZM-DHz"/>
+                        <outlet property="studentID" destination="EW3-bd-w8K" id="qAW-0D-nbf"/>
+                        <outlet property="year" destination="N7U-gW-VZ5" id="UIU-X9-Xgb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeZ-t4-zdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

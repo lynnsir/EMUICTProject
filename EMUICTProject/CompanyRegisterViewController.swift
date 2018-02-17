@@ -91,6 +91,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                 let userInfo: [String : Any] = [ "uid" : user.uid,
                                                                  "Company name" : self.companyName.text!,
                                                                  "Username" : self.username.text!,
+                                                                 "Email" : self.email.text!,
                                                                  "Contact number": self.contactNumber.text!,
                                                                  "urlToImage": url.absoluteString ]
                                 self.ref.child("Company user").child(user.uid).setValue(userInfo)

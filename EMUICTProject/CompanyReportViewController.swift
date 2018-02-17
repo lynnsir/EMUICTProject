@@ -1,5 +1,5 @@
 //
-//  StudentSearchViewController.swift
+//  CompanyReportViewController.swift
 //  EMUICTProject
 //
 //  Created by Lynn on 2/14/2561 BE.
@@ -8,18 +8,8 @@
 
 import UIKit
 
-class StudentSearchViewController: UIViewController {
+class CompanyReportViewController: UIViewController {
 
-    @IBOutlet weak var firstname: UITextField!
-    @IBOutlet weak var lastname: UITextField!
-    @IBOutlet weak var year: UITextField!
-    @IBOutlet weak var major: UITextField!
-    @IBOutlet weak var studentID: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
-    
-    
-    @IBAction func SearchPressed(_ sender: Any) {
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
