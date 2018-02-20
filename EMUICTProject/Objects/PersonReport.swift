@@ -9,7 +9,5 @@
 import UIKit
 
 class PersonReport: NSObject {
-    var userID: String!
-    var firstname : String!
-    var lastname : String!
+    var fullname : String!
 }

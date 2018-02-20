@@ -13,8 +13,7 @@ import FirebaseDatabase
 class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var insertImageButton: UIButton!
-    @IBOutlet weak var firstName: UITextField!
-    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var studentID: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -63,7 +62,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
 
     
     @IBAction func ContinuePressed(_ sender: Any) {
-        guard firstName.text != "", lastName.text != "",
+        guard fullName.text != "",
             studentID.text != "",
             username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != "", birthmonth.text != "", birthyear.text != ""
             
@@ -97,9 +96,8 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                             
                             if let url = url {
                                 let userInfo: [String : Any] = [ "uid" : user.uid,
-                                                                 "First name" : self.firstName.text!,
-                                                                 "Last name": self.lastName.text!,
-                                     
+                                                                 "Full name" : self.fullName.text!,
+                                    
                                                                  "Student ID": self.studentID.text!,
                                                                  
                                                                  "Username": self.username.text!,

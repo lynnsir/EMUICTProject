@@ -14,8 +14,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var insertImageButton: UIButton!
-    @IBOutlet weak var firstName: UITextField!
-    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var studentID: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -65,7 +64,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
-        guard firstName.text != "", lastName.text != "",
+        guard fullname.text != "",
             studentID.text != "",
             username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != "", birthmonth.text != "", birthyear.text != ""
             
@@ -99,8 +98,8 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                             
                             if let url = url {
                                 let userInfo: [String : Any] = [ "uid" : user.uid,
-                                                                 "First name" : self.firstName.text!,
-                                                                 "Last name": self.lastName.text!,
+                                                                 "Full name" : self.fullname.text!,
+                                                            
                                                                  
                                                                  "Student ID": self.studentID.text!,
                                                                  
@@ -143,10 +142,8 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

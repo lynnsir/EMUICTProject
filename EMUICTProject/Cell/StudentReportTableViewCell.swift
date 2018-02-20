@@ -10,8 +10,7 @@ import UIKit
 
 class StudentReportTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var firstname: UILabel!
-    @IBOutlet weak var lastname: UILabel!
+    @IBOutlet weak var fullname: UILabel!
     @IBOutlet weak var userButton: UIButton!
     
     @IBAction func userPressed(_ sender: Any) {

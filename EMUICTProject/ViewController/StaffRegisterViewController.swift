@@ -14,8 +14,7 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var insertImageButton: UIButton!
-    @IBOutlet weak var firstName: UITextField!
-    @IBOutlet weak var LastName: UITextField!
+    @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var Username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var conPassword: UITextField!
@@ -65,7 +64,7 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
-        guard firstName.text != "", LastName.text != "", Username.text != "", password.text != "", conPassword.text != "", IDnumber.text != "", ContactNumber.text != "", Email.text != "", Position.text != "", date.text != "", month.text != "", year.text != ""
+        guard fullname.text != "", Username.text != "", password.text != "", conPassword.text != "", IDnumber.text != "", ContactNumber.text != "", Email.text != "", Position.text != "", date.text != "", month.text != "", year.text != ""
             
             else { return }
         
@@ -97,9 +96,8 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                             
                             if let url = url {
                                 let userInfo: [String : Any] = [ "uid" : user.uid,
-                                                                 "First name" : self.firstName.text!,
-                                                                 "Last name": self.LastName.text!,
-                                                                 
+                                                                 "Full name" : self.fullname.text!,
+                                    
                                                                  "Username": self.Username.text!,
                                                                  
                                                                  "ID Number" : self.IDnumber.text!,
