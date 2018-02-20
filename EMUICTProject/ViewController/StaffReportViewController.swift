@@ -1,5 +1,5 @@
 //
-//  StudentReportViewController.swift
+//  StaffReportViewController.swift
 //  EMUICTProject
 //
 //  Created by Lynn on 2/14/2561 BE.
@@ -8,8 +8,12 @@
 
 import UIKit
 
-class StudentReportViewController: UIViewController {
+class StaffReportViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
