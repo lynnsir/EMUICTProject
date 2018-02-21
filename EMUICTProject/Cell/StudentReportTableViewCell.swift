@@ -11,13 +11,7 @@ import UIKit
 class StudentReportTableViewCell: UITableViewCell {
     
     @IBOutlet weak var fullname: UILabel!
-    @IBOutlet weak var userButton: UIButton!
-    
-    @IBAction func userPressed(_ sender: Any) {
-        
-        
-    }
-    
+ 
 
 
 }

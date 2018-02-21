@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class StudentRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var insertImageButton: UIButton!
     @IBOutlet weak var fullname: UITextField!

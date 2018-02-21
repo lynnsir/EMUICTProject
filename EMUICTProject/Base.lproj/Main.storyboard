@@ -2764,7 +2764,6 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCell" rowHeight="58" id="dm2-vo-fvL" customClass="StudentReportTableViewCell" customModule="EMUICTProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="58"/>
@@ -2776,32 +2775,16 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAB-7w-FO2" userLabel="Fullname">
                                                     <rect key="frame" x="15" y="8" width="76" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.99279254669999994" green="1" blue="0.94874161479999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgd-km-O0Z">
-                                                    <rect key="frame" x="7" y="41" width="400" height="6"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </view>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdL-D6-dv8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="userPressed:" destination="dm2-vo-fvL" eventType="touchUpInside" id="z5A-EO-0XH"/>
-                                                        <segue destination="nv9-nz-Ksm" kind="show" id="VKh-jU-Axm">
-                                                            <nil key="action"/>
-                                                        </segue>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="firstname" destination="fAB-7w-FO2" id="7St-eO-e3I"/>
                                             <outlet property="fullname" destination="fAB-7w-FO2" id="oE8-qp-3Mn"/>
-                                            <outlet property="userButton" destination="jdL-D6-dv8" id="UPR-na-uX4"/>
+                                            <segue destination="nv9-nz-Ksm" kind="show" trigger="accessoryAction" id="d2R-Qb-Rqc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2812,7 +2795,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ibL-VN-yRF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="XEO-Cz-faL"/>
@@ -2852,27 +2835,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAx-le-IXi">
-                                                    <rect key="frame" x="0.0" y="-6" width="414" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="userPressed:" destination="OXd-c1-QDo" eventType="touchUpInside" id="Fd7-l6-EEV"/>
-                                                        <segue destination="80p-s4-bJ6" kind="show" id="5eF-nP-tYh">
-                                                            <nil key="action"/>
-                                                        </segue>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PlK-vq-xMc">
-                                                    <rect key="frame" x="7" y="41" width="400" height="6"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="firstname" destination="Whf-pU-3nX" id="Cnz-P5-8Ib"/>
-                                            <outlet property="userButton" destination="qAx-le-IXi" id="l7a-uf-a0u"/>
+                                            <segue destination="80p-s4-bJ6" kind="show" id="ela-El-jSg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2917,23 +2885,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg2-Ig-BM1">
-                                                    <rect key="frame" x="0.0" y="-4" width="414" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <segue destination="5yE-R0-OMb" kind="show" id="2pJ-7E-Bbb">
-                                                            <nil key="action"/>
-                                                        </segue>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pEY-KU-Czu">
-                                                    <rect key="frame" x="7" y="47" width="400" height="6"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="5yE-R0-OMb" kind="show" id="p9w-DD-I0M"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -2974,23 +2931,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-7m-yJV">
-                                                    <rect key="frame" x="0.0" y="-6" width="414" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <segue destination="xYI-jf-8hj" kind="show" id="qbc-pc-b96">
-                                                            <nil key="action"/>
-                                                        </segue>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4mr-hQ-lOD">
-                                                    <rect key="frame" x="7" y="41" width="400" height="6"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xYI-jf-8hj" kind="show" id="qmF-mX-wkT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -3007,7 +2953,7 @@
         <!--Detail-->
         <scene sceneID="kf2-jB-GHR">
             <objects>
-                <viewController id="nv9-nz-Ksm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentProfile" id="nv9-nz-Ksm" customClass="StudentIndividualSearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PC9-L5-OqT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3063,6 +3009,15 @@
                         <viewLayoutGuide key="safeArea" id="2As-gD-eTS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="2vy-1x-gJZ"/>
+                    <connections>
+                        <outlet property="email" destination="r7s-4o-s1a" id="3S9-SF-Dlk"/>
+                        <outlet property="fullname" destination="tYe-p2-7xd" id="PlM-yR-i74"/>
+                        <outlet property="imageProfile" destination="b3I-nm-NQN" id="LhT-rj-mpZ"/>
+                        <outlet property="major" destination="pLT-3s-G1f" id="ikc-c7-rAf"/>
+                        <outlet property="studentID" destination="wjx-Oy-dbZ" id="5gZ-qh-lxh"/>
+                        <outlet property="telephoneNumber" destination="gTb-OC-fwy" id="Y5t-MJ-C0G"/>
+                        <outlet property="year" destination="yKj-dZ-AdV" id="dlk-q5-yVO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhZ-fF-r7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3071,7 +3026,7 @@
         <!--Detail-->
         <scene sceneID="pc1-kA-hyX">
             <objects>
-                <viewController id="80p-s4-bJ6" sceneMemberID="viewController">
+                <viewController id="80p-s4-bJ6" customClass="StaffIndividualSearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zu7-0b-WPd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3121,7 +3076,7 @@
         <!--Detail-->
         <scene sceneID="AmW-yP-Dv5">
             <objects>
-                <viewController id="5yE-R0-OMb" sceneMemberID="viewController">
+                <viewController id="5yE-R0-OMb" customClass="CompanyIndividualSearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oYM-P0-Ha7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3199,7 +3154,7 @@
         <!--Detail-->
         <scene sceneID="jfA-GW-7ON">
             <objects>
-                <viewController id="xYI-jf-8hj" sceneMemberID="viewController">
+                <viewController id="xYI-jf-8hj" customClass="AlumniIndividualSearchViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WY1-uh-Wz9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

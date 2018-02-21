@@ -9,5 +9,6 @@
 import UIKit
 
 class PersonReport: NSObject {
+   
     var fullname : String!
 }

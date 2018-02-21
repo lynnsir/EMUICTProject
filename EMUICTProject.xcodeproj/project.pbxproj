@@ -24,6 +24,10 @@
 		85D6B05C203AD208005AE477 /* CompanyReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B05B203AD208005AE477 /* CompanyReportTableViewCell.swift */; };
 		85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8210E203B093F00ADD576 /* CompanyReport.swift */; };
 		85E82111203B09C100ADD576 /* PersonReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E82110203B09C100ADD576 /* PersonReport.swift */; };
+		85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E82112203DB9A500ADD576 /* StudentIndividualSearchViewController.swift */; };
+		85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E82114203DB9F600ADD576 /* StaffIndividualSearchViewController.swift */; };
+		85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E82116203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift */; };
+		85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */; };
 		85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FE920202F9C00F39134 /* AppDelegate.swift */; };
 		85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EF1FEB20202F9C00F39134 /* ViewController.swift */; };
 		85EF1FEF20202F9C00F39134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85EF1FED20202F9C00F39134 /* Main.storyboard */; };
@@ -54,6 +58,10 @@
 		85D6B05B203AD208005AE477 /* CompanyReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReportTableViewCell.swift; sourceTree = "<group>"; };
 		85E8210E203B093F00ADD576 /* CompanyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReport.swift; sourceTree = "<group>"; };
 		85E82110203B09C100ADD576 /* PersonReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonReport.swift; sourceTree = "<group>"; };
+		85E82112203DB9A500ADD576 /* StudentIndividualSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIndividualSearchViewController.swift; sourceTree = "<group>"; };
+		85E82114203DB9F600ADD576 /* StaffIndividualSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffIndividualSearchViewController.swift; sourceTree = "<group>"; };
+		85E82116203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniIndividualSearchViewController.swift; sourceTree = "<group>"; };
+		85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyIndividualSearchViewController.swift; sourceTree = "<group>"; };
 		85EF1FE620202F9C00F39134 /* EMUICTProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMUICTProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85EF1FE920202F9C00F39134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85EF1FEB20202F9C00F39134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,15 +118,19 @@
 				85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */,
 				85EF20032020424800F39134 /* CompanyRegisterViewController.swift */,
 				8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */,
-				85950DCE20335464002D4A0B /* CompanySearchViewController.swift */,
 				85950DC820335430002D4A0B /* StudentSearchViewController.swift */,
 				85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */,
+				85950DCE20335464002D4A0B /* CompanySearchViewController.swift */,
 				85950DCC20335450002D4A0B /* StaffSearchViewController.swift */,
 				856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */,
 				856BC4E820348E1E00AC712A /* StudentReportViewController.swift */,
 				856BC4EC20348E4400AC712A /* StaffReportViewController.swift */,
 				856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */,
 				856BC4EE20348E5600AC712A /* AlumniReportViewController.swift */,
+				85E82112203DB9A500ADD576 /* StudentIndividualSearchViewController.swift */,
+				85E82114203DB9F600ADD576 /* StaffIndividualSearchViewController.swift */,
+				85E82116203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift */,
+				85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -317,11 +329,15 @@
 				85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */,
 				85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */,
 				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
+				85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */,
+				85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */,
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
+				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
 				85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */,
 				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
 				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
+				85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */,
 				85D6B05C203AD208005AE477 /* CompanyReportTableViewCell.swift in Sources */,
 				85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
