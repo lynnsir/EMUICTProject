@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class StudentRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class StudentRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var insertImageButton: UIButton!
@@ -32,9 +32,12 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
+    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         picker.delegate = self
         
@@ -42,8 +45,21 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
         
         ref = Database.database().reference()
         userStorage = storage.child("Student user")
+        
+        fullname.delegate = self
+        studentID.delegate = self
+        username.delegate = self
+        password.delegate = self
+        conPassword.delegate = self
+        idNumber.delegate = self
+        contactNumber.delegate = self
+        year.delegate = self
+        major.delegate = self
+        email.delegate = self
+        birthdate.delegate = self
+        birthmonth.delegate = self
+        birthyear.delegate = self
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func insertImagePressed(_ sender: Any) {
@@ -147,6 +163,12 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
  
 
     /*

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var companyName: UITextField!
     @IBOutlet weak var username: UITextField!
@@ -30,6 +30,12 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         super.viewDidLoad()
 
         picker.delegate = self
+        companyName.delegate = self
+        username.delegate = self
+        password.delegate = self
+        conPassword.delegate = self
+        email.delegate = self
+        contactNumber.delegate = self
         
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
@@ -129,14 +135,14 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
     }
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 
 }

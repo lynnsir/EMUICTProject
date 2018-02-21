@@ -105,19 +105,19 @@
 			isa = PBXGroup;
 			children = (
 				85EF1FEB20202F9C00F39134 /* ViewController.swift */,
+				85EF1FFB202030AF00F39134 /* LoginViewController.swift */,
 				85EF1FFD2020420800F39134 /* StudentRegisterViewController.swift */,
 				85EF1FFF2020422400F39134 /* AlumniRegisterViewController.swift */,
 				85EF20032020424800F39134 /* CompanyRegisterViewController.swift */,
 				8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */,
+				85950DCE20335464002D4A0B /* CompanySearchViewController.swift */,
 				85950DC820335430002D4A0B /* StudentSearchViewController.swift */,
 				85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */,
 				85950DCC20335450002D4A0B /* StaffSearchViewController.swift */,
 				856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */,
-				85EF1FFB202030AF00F39134 /* LoginViewController.swift */,
-				856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */,
 				856BC4E820348E1E00AC712A /* StudentReportViewController.swift */,
 				856BC4EC20348E4400AC712A /* StaffReportViewController.swift */,
-				85950DCE20335464002D4A0B /* CompanySearchViewController.swift */,
+				856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */,
 				856BC4EE20348E5600AC712A /* AlumniReportViewController.swift */,
 			);
 			path = ViewController;

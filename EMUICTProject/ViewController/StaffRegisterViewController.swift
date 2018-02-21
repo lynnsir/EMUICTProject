@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class StaffRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class StaffRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var insertImageButton: UIButton!
@@ -37,6 +37,17 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         
         picker.delegate = self
+        fullname.delegate = self
+        Username.delegate = self
+        password.delegate = self
+        conPassword.delegate = self
+        IDnumber.delegate = self
+        ContactNumber.delegate = self
+        Email.delegate = self
+        Position.delegate = self
+        date.delegate = self
+        month.delegate = self
+        year.delegate = self
         
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
@@ -145,6 +156,10 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     

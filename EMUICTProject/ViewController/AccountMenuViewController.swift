@@ -23,6 +23,8 @@ class AccountMenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Logout
     @IBAction func LogoutButton(_ sender: Any) {
         if Auth.auth().currentUser != nil
         {
