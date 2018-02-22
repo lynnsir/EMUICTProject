@@ -33,8 +33,26 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                         let user = PersonReport()
                         let uid = value["uid"] as? String ?? "not found"
                         let fullname = value["Full name"] as? String ?? "Full name not found"
+                        let studentID = value["Student ID"] as? String ?? "StudentID not found"
+                        let year = value["Year"] as? String ?? "Year not found"
+                        let Major = value["Major"] as? String ?? "Major not found"
+                        let email = value["Email"] as? String ?? "email not found"
+                        let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
+                        let imagePath = value["urlToImage"] as? NSURL
+                        
                         user.fullname = fullname
+                        user.uid = uid
+                        user.studentID = studentID
+                        user.year = year
+                        user.major = Major
+                        user.email = email
+                        user.telephoneNumber = tNumber
+                        user.imageProfile = imagePath
+    
                         print(uid)
+                        //print(imagePath)
+                        
+                    
                         self.studentReport.append(user)
                         DispatchQueue.main.async { self.tableView.reloadData() }
                     }
@@ -68,9 +86,19 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
+            let user = studentReport[indexPath.row]
+            vc.name = user.fullname
+            vc.uid = user.uid
+            vc.id = user.studentID
+            vc.yr = user.year
+            vc.mj = user.major
+            vc.mail = user.email
+            vc.number = user.telephoneNumber
+            vc.img = user.imageProfile
+            
         }
         
-        
+    
      
 
     }

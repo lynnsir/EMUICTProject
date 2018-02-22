@@ -11,6 +11,14 @@ import Firebase
 
 class StudentIndividualSearchViewController: UIViewController {
     
+    var img : NSURL!
+    var name: String!
+    var id : String!
+    var yr : String!
+    var mj : String!
+    var mail : String!
+    var number : String!
+    var uid: String!
     
     @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var fullname: UILabel!
@@ -22,7 +30,18 @@ class StudentIndividualSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fullname.text = name
+        studentID.text = id
+        year.text = yr
+        major.text = mj
+        email.text = mail
+        telephoneNumber.text = number
+       
+        
+  /*let image = try?
+            Data(contentsOf: img as! NSURL)
+        imageProfile.image = UIImage(data: image!)*/
+        
         // Do any additional setup after loading the view.
     }
 
