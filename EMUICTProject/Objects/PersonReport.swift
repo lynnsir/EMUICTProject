@@ -11,7 +11,7 @@ import UIKit
 class PersonReport: NSObject {
    
     var fullname : String!
-    var imageProfile : NSURL!
+    var imageProfile : String!
     var studentID : String!
     var year : String!
     var major : String!

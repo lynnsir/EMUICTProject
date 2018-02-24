@@ -38,7 +38,7 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                         let Major = value["Major"] as? String ?? "Major not found"
                         let email = value["Email"] as? String ?? "email not found"
                         let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
-                        let imagePath = value["urlToImage"] as? NSURL
+                        let imagePath = value["urlToImage"] as? String ?? "Image not found"
                         
                         user.fullname = fullname
                         user.uid = uid
