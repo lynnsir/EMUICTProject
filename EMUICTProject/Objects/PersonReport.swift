@@ -18,6 +18,10 @@ class PersonReport: NSObject {
     var email : String!
     var telephoneNumber : String!
     var uid: String!
+    
+    var career: String!
+    var position: String!
+    
 
 }
 

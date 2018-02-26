@@ -9,7 +9,12 @@
 import UIKit
 
 class CompanyReport: NSObject {
-    var userID: String!
+
     var companyName : String!
+  // var description: String!
+    var email : String!
+    var phone: String!
+    var contactName : String!
+    
 
 }

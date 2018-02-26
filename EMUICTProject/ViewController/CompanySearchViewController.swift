@@ -10,8 +10,6 @@ import UIKit
 
 class CompanySearchViewController: UIViewController {
     @IBOutlet weak var companyName: UITextField!
-    @IBOutlet weak var companyType: UITextField!
-    @IBOutlet weak var representativeName: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBAction func searchPressed(_ sender: Any) {
     }

@@ -20,6 +20,7 @@ class StudentIndividualSearchViewController: UIViewController {
     var number : String!
     var uid: String!
     
+    @IBOutlet weak var imageBG: UIView!
     @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var fullname: UILabel!
     @IBOutlet weak var studentID: UILabel!
@@ -39,14 +40,18 @@ class StudentIndividualSearchViewController: UIViewController {
         
         getImage(url: img) { photo in
             if photo != nil {
-              
                     DispatchQueue.main.async {
                         self.imageProfile.image = photo
                     }
-                
             }
         }
+        self.imageProfile.layer.cornerRadius = self.imageProfile.frame.size.width / 2
+          self.imageProfile.clipsToBounds = true
         
+        self.imageBG.layer.cornerRadius = self.imageBG.frame.size.width/2
+        self.imageBG.clipsToBounds = true
+        
+
 
     }
     
@@ -60,19 +65,7 @@ class StudentIndividualSearchViewController: UIViewController {
             }.resume()
     }}
         
-     /*
- 
- 
-         let storageRef = Storage.storage().reference(forURL: img)
-        storageRef.downloadURL { (url, error) in
-            let data = Data(contentsOf: img!)
-            let image = UIImage(data: data as Data)
-            self.imageProfile.image = image
-         
-         let image = try?
-         Data(contentsOf: img as! URL)
-         imageProfile.image = UIImage(data: image!)
-        } */
+
     
     
    

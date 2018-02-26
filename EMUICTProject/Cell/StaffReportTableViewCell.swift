@@ -10,24 +10,11 @@ import UIKit
 
 class StaffReportTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var firstname: UILabel!
-    @IBOutlet weak var lastname: UILabel!
-    @IBOutlet weak var userButton: UIButton!
+    @IBOutlet weak var fullname: UILabel!
+ 
     
-    @IBAction func userPressed(_ sender: Any) {
-        
-    }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
 
-        // Configure the view for the selected state
-    }
 
 }

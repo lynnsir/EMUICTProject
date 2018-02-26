@@ -10,8 +10,8 @@ import UIKit
 
 class StudentSearchViewController: UIViewController {
 
-    @IBOutlet weak var firstname: UITextField!
-    @IBOutlet weak var lastname: UITextField!
+
+    @IBOutlet weak var name: UITextField!
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var major: UITextField!
     @IBOutlet weak var studentID: UITextField!
@@ -19,6 +19,20 @@ class StudentSearchViewController: UIViewController {
     
     
     @IBAction func SearchPressed(_ sender: Any) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StudentReport") as? StudentReportViewController
+            
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+            vc.name = name.text!
+            vc.year = year.text!
+            vc.maj = major.text!
+            vc.sid = studentID.text!
+    
+            
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,17 +40,7 @@ class StudentSearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+  
 
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

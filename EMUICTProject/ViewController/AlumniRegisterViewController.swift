@@ -119,7 +119,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                                                  
                                                                  "Contact number": self.contactNumber.text!,
                                                                  
-                                "Career" : self.career.text!,
+                                                                 "Career" : self.career.text!,
                                                                  "Position" : self.position.text!,
                                                                  "Email" : self.email.text!,
                                                                  "BirthDate-Date": self.birthdate.text!,

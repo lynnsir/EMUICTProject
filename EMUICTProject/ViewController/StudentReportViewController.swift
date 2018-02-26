@@ -13,8 +13,18 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
 
     @IBOutlet weak var tableView: UITableView!
     
+    var name: String!
+    var year: String!
+    var maj : String!
+    var sid : String!
+
+    
+    
 
     var studentReport = [PersonReport]()
+
+
+
     var ref = Database.database().reference(withPath:"Student user")
     
     override func viewDidLoad() {
@@ -22,22 +32,33 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
         getUser()
     }
     
+    
     func getUser(){
 
         let rootRef = Database.database().reference()
             let query = rootRef.child("Student user")
-        
+    
+       
             query.observe(.value) { (snapshot) in
                 for child in snapshot.children.allObjects as! [DataSnapshot] {
                     if let value = child.value as? NSDictionary {
+                        
                         let user = PersonReport()
+                        
                         let uid = value["uid"] as? String ?? "not found"
+                        
                         let fullname = value["Full name"] as? String ?? "Full name not found"
+                        
                         let studentID = value["Student ID"] as? String ?? "StudentID not found"
+                        
                         let year = value["Year"] as? String ?? "Year not found"
+                        
                         let Major = value["Major"] as? String ?? "Major not found"
+                        
                         let email = value["Email"] as? String ?? "email not found"
+                        
                         let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
+                        
                         let imagePath = value["urlToImage"] as? String ?? "Image not found"
                         
                         user.fullname = fullname
@@ -48,15 +69,15 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                         user.email = email
                         user.telephoneNumber = tNumber
                         user.imageProfile = imagePath
-    
-                        print(uid)
-                        //print(imagePath)
-                        
-                    
+
                         self.studentReport.append(user)
+
+                        
                         DispatchQueue.main.async { self.tableView.reloadData() }
                     }
                 }
+                
+                
             }
         
         
@@ -73,6 +94,10 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "StudentCell")
         let user = studentReport[indexPath.row]
+  
+
+        
+        
         cell.textLabel?.text = user.fullname
         return cell
         

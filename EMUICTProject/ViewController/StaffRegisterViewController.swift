@@ -114,7 +114,7 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                                                                  "ID Number" : self.IDnumber.text!,
                                                                  
                                                                  "Contact number": self.ContactNumber.text!,
-                                                                 
+                                                                 "Email": self.Email.text!,
                                                                  "Position" : self.Position.text!,
                                                                  "BirthDate-Date": self.date.text!,
                                                                  "BirthDate-Month": self.month.text!,
