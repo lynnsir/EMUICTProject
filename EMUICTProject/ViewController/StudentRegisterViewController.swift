@@ -8,12 +8,12 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
 
 class StudentRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageBG: UIView!
     @IBOutlet weak var insertImageButton: UIButton!
     @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var studentID: UITextField!
@@ -29,6 +29,8 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var birthmonth: UITextField!
     @IBOutlet weak var birthyear: UITextField!
     @IBOutlet weak var continueButton: UIButton!
+    
+
     
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
@@ -60,8 +62,17 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
         birthdate.delegate = self
         birthmonth.delegate = self
         birthyear.delegate = self
+        
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2
+        self.imageView.clipsToBounds = true
+        
+        self.imageBG.layer.cornerRadius = self.imageBG.frame.size.width/2
+        self.imageBG.clipsToBounds = true
 
     }
+    
+    
+    
     
     @IBAction func insertImagePressed(_ sender: Any) {
         picker.allowsEditing = true
@@ -77,7 +88,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
         self.dismiss(animated: true, completion:nil)
     }
         
-    
+
     
     
     @IBAction func ContinuePressed(_ sender: Any) {

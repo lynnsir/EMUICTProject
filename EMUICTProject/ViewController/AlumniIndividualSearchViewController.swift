@@ -16,7 +16,6 @@ class AlumniIndividualSearchViewController: UIViewController {
     var id: String!
     var mj: String!
     var job: String!
-    var pos: String!
     var mail: String!
     var phonenum: String!
     var imageURL: String!
@@ -41,7 +40,6 @@ class AlumniIndividualSearchViewController: UIViewController {
         studentID.text = id
         major.text = mj
         career.text = job
-        position.text = pos
         email.text = mail
         phone.text = phonenum
         

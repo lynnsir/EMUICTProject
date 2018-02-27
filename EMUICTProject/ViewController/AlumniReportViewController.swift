@@ -98,7 +98,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
             vc.id = user.studentID
             vc.mj = user.major
             vc.job = user.career
-            vc.pos = user.position
             vc.mail = user.email
             vc.phonenum = user.telephoneNumber
             vc.imageURL = user.imageProfile

@@ -19,8 +19,12 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var contactNumber: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageBG: UIView!
+    @IBOutlet weak var companyDes: UITextField!
+    @IBOutlet weak var contactName: UITextField!
     @IBOutlet weak var insertImageBtn: UIButton!
     @IBOutlet weak var ContinueBtn: UIButton!
+
     
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
@@ -36,6 +40,8 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         conPassword.delegate = self
         email.delegate = self
         contactNumber.delegate = self
+        contactName.delegate = self
+        companyDes.delegate = self
         
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
@@ -43,7 +49,11 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         userStorage = storage.child("Company user")
         
  
-        // Do any additional setup after loading the view.
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2
+        self.imageView.clipsToBounds = true
+        
+        self.imageBG.layer.cornerRadius = self.imageBG.frame.size.width/2
+        self.imageBG.clipsToBounds = true
     }
     @IBAction func insertImagePressed(_ sender: Any) {
         
@@ -99,10 +109,13 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                  "Username" : self.username.text!,
                                                                  "Email" : self.email.text!,
                                                                  "Contact number": self.contactNumber.text!,
+                                                                 
+                                                                 "Company Description": self.companyDes.text!,
+                                                                 
+                                                                 "Contact Name": self.contactName.text!,
                                                                  "urlToImage": url.absoluteString ]
                                 self.ref.child("Company user").child(user.uid).setValue(userInfo)
-                            /*    let CompanyRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
-                                self.present(CompanyRegis, animated: true, completion: nil) */
+                           
                             }
                             
                         })

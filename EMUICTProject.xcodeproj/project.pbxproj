@@ -22,6 +22,9 @@
 		85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */; };
 		85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */; };
 		85D6B05C203AD208005AE477 /* CompanyReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B05B203AD208005AE477 /* CompanyReportTableViewCell.swift */; };
+		85D922C82045157200B94951 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D922C72045157200B94951 /* PaymentViewController.swift */; };
+		85D922CB204523CE00B94951 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D922CA204523CD00B94951 /* DLRadioButton.m */; };
+		85D922CF2045372500B94951 /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D922CE2045372500B94951 /* InvoiceViewController.swift */; };
 		85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E8210E203B093F00ADD576 /* CompanyReport.swift */; };
 		85E82111203B09C100ADD576 /* PersonReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E82110203B09C100ADD576 /* PersonReport.swift */; };
 		85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E82112203DB9A500ADD576 /* StudentIndividualSearchViewController.swift */; };
@@ -56,6 +59,11 @@
 		85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniReportTableViewCell.swift; sourceTree = "<group>"; };
 		85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffReportTableViewCell.swift; sourceTree = "<group>"; };
 		85D6B05B203AD208005AE477 /* CompanyReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReportTableViewCell.swift; sourceTree = "<group>"; };
+		85D922C72045157200B94951 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		85D922C9204523CD00B94951 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		85D922CA204523CD00B94951 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		85D922CD2045247D00B94951 /* EMUICTProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EMUICTProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		85D922CE2045372500B94951 /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
 		85E8210E203B093F00ADD576 /* CompanyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReport.swift; sourceTree = "<group>"; };
 		85E82110203B09C100ADD576 /* PersonReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonReport.swift; sourceTree = "<group>"; };
 		85E82112203DB9A500ADD576 /* StudentIndividualSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIndividualSearchViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +139,8 @@
 				85E82114203DB9F600ADD576 /* StaffIndividualSearchViewController.swift */,
 				85E82116203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift */,
 				85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */,
+				85D922C72045157200B94951 /* PaymentViewController.swift */,
+				85D922CE2045372500B94951 /* InvoiceViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -170,6 +180,9 @@
 				85D6B054203AD188005AE477 /* Cell */,
 				85EF1FE920202F9C00F39134 /* AppDelegate.swift */,
 				85EF1FED20202F9C00F39134 /* Main.storyboard */,
+				85D922C9204523CD00B94951 /* DLRadioButton.h */,
+				85D922CA204523CD00B94951 /* DLRadioButton.m */,
+				85D922CD2045247D00B94951 /* EMUICTProject-Bridging-Header.h */,
 				85EF1FF020202F9C00F39134 /* Assets.xcassets */,
 				85EF1FF220202F9C00F39134 /* LaunchScreen.storyboard */,
 				85EF1FF520202F9C00F39134 /* Info.plist */,
@@ -333,6 +346,8 @@
 				85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */,
 				85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */,
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
+				85D922CF2045372500B94951 /* InvoiceViewController.swift in Sources */,
+				85D922CB204523CE00B94951 /* DLRadioButton.m in Sources */,
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
 				85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */,
@@ -340,6 +355,7 @@
 				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
 				85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */,
 				85D6B05C203AD208005AE477 /* CompanyReportTableViewCell.swift in Sources */,
+				85D922C82045157200B94951 /* PaymentViewController.swift in Sources */,
 				85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
 				856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */,

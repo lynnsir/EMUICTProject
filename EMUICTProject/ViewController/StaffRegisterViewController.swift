@@ -13,6 +13,8 @@ import FirebaseDatabase
 class StaffRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
 
     @IBOutlet weak var imageView: UIImageView!
+ 
+    @IBOutlet weak var imageBG: UIView!
     @IBOutlet weak var insertImageButton: UIButton!
     @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var Username: UITextField!
@@ -54,7 +56,12 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
         ref = Database.database().reference()
         userStorage = storage.child("Staff user")
         
-        // Do any additional setup after loading the view.
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2
+        self.imageView.clipsToBounds = true
+        
+        self.imageBG.layer.cornerRadius = self.imageBG.frame.size.width/2
+        self.imageBG.clipsToBounds = true
+        
     }
     
     

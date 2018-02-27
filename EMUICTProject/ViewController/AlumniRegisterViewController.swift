@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageBG: UIView!
     @IBOutlet weak var insertImageButton: UIButton!
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var studentID: UITextField!
@@ -22,7 +23,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var contactNumber: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var career: UITextField!
-    @IBOutlet weak var position: UITextField!
+  
     @IBOutlet weak var birthdate: UITextField!
     @IBOutlet weak var birthmonth: UITextField!
     @IBOutlet weak var birthyear: UITextField!
@@ -45,7 +46,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         contactNumber.delegate = self
         email.delegate = self
         career.delegate = self
-        position.delegate = self
+   
         birthdate.delegate = self
         birthmonth.delegate = self
         birthyear.delegate = self
@@ -55,7 +56,11 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         ref = Database.database().reference()
         userStorage = storage.child("Alumni user")
         
-        // Do any additional setup after loading the view.
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2
+        self.imageView.clipsToBounds = true
+        
+        self.imageBG.layer.cornerRadius = self.imageBG.frame.size.width/2
+        self.imageBG.clipsToBounds = true
     }
     
     @IBAction func insertImagePressed(_ sender: Any) {
@@ -120,7 +125,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                                                  "Contact number": self.contactNumber.text!,
                                                                  
                                                                  "Career" : self.career.text!,
-                                                                 "Position" : self.position.text!,
+
                                                                  "Email" : self.email.text!,
                                                                  "BirthDate-Date": self.birthdate.text!,
                                                                  "BirthDate-Month": self.birthmonth.text!,

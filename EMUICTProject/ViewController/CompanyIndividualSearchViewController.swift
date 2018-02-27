@@ -10,6 +10,7 @@ import UIKit
 
 class CompanyIndividualSearchViewController: UIViewController {
     
+    
     var nameCompany: String!
     var des: String!
     var mail: String!
@@ -18,7 +19,7 @@ class CompanyIndividualSearchViewController: UIViewController {
     var imageURL: String!
 
     @IBOutlet weak var companyname: UILabel!
-  //  @IBOutlet weak var description: UITextView!
+    @IBOutlet weak var companyDes: UITextView!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var contactname: UILabel!

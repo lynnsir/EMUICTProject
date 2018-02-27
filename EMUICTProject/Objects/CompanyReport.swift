@@ -11,10 +11,12 @@ import UIKit
 class CompanyReport: NSObject {
 
     var companyName : String!
-  // var description: String!
+   var companyDes: String!
     var email : String!
     var phone: String!
     var contactName : String!
+        var imageProfile : String!
+        var uid: String!
     
 
 }

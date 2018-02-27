@@ -1,29 +1,25 @@
 //
-//  AlumniSearchViewController.swift
+//  InvoiceViewController.swift
 //  EMUICTProject
 //
-//  Created by Lynn on 2/14/2561 BE.
+//  Created by Lynn on 2/27/2561 BE.
 //  Copyright © 2561 Sirinda. All rights reserved.
 //
 
 import UIKit
 
-class AlumniSearchViewController: UIViewController {
-    @IBOutlet weak var fullname: UITextField!
-    @IBOutlet weak var studentID: UITextField!
-    @IBOutlet weak var major: UITextField!
-    @IBOutlet weak var career: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBAction func searchPressed(_ sender: Any) {
-    }
-     
+class InvoiceViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 
     /*
