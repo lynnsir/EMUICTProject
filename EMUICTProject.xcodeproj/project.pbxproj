@@ -139,8 +139,8 @@
 				85E82114203DB9F600ADD576 /* StaffIndividualSearchViewController.swift */,
 				85E82116203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift */,
 				85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */,
-				85D922C72045157200B94951 /* PaymentViewController.swift */,
 				85D922CE2045372500B94951 /* InvoiceViewController.swift */,
+				85D922C72045157200B94951 /* PaymentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

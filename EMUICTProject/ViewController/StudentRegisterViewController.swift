@@ -147,8 +147,22 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                                     
                                 ]
                                 self.ref.child("Student user").child(user.uid).setValue(userInfo)
-                       /*         let StudentRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
-                                self.present(StudentRegis, animated: true, completion: nil) */
+                                
+                                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
+                                    
+                                {
+                                    if let navigator = self.navigationController {
+                                        navigator.show(vc, sender: true)
+                                    }
+                                    
+                                    vc.name = self.fullname.text
+                                    vc.type = "Student"
+                                  
+                       
+                                    
+                                }
+                                
+
                             }
                             
                         })

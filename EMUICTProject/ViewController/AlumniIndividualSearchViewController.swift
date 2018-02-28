@@ -27,7 +27,6 @@ class AlumniIndividualSearchViewController: UIViewController {
     @IBOutlet weak var studentID: UILabel!
     @IBOutlet weak var major: UILabel!
     @IBOutlet weak var career: UILabel!
-    @IBOutlet weak var position: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phone: UILabel!
     

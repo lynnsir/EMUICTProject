@@ -130,8 +130,20 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                                     
                                 ]
                                 self.ref.child("Staff user").child(user.uid).setValue(userInfo)
-                             /*   let StaffRegis = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment")
-                                self.present(StaffRegis, animated: true, completion: nil) */
+
+                                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
+                                    
+                                {
+                                    if let navigator = self.navigationController {
+                                        navigator.show(vc, sender: true)
+                                    }
+                                    
+                                    vc.name = self.fullname.text
+                                    vc.type = "Staff"
+                                    
+                                    
+                                    
+                                }
                             }
                             
                         })

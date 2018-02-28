@@ -524,9 +524,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="student"/>
                                 <connections>
-                                    <segue destination="aEe-qP-j6c" kind="show" id="Ecf-kO-bA5">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="92y-th-Fmz" kind="show" id="guy-d5-yNh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzX-fa-XQR">
@@ -534,9 +532,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="alumni"/>
                                 <connections>
-                                    <segue destination="t8B-qb-KEV" kind="show" id="HYu-tt-0LH">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="x4Q-SX-mWy" kind="show" id="aGS-ZF-VwP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-6j-X7C">
@@ -544,9 +540,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="teacher"/>
                                 <connections>
-                                    <segue destination="1i1-T7-xiM" kind="show" id="wgz-ZY-Xc5">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="GZa-ag-mJf" kind="show" id="pWN-wa-fE1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08B-K7-B0i">
@@ -554,9 +548,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="company"/>
                                 <connections>
-                                    <segue destination="Rm6-Dr-Mde" kind="show" id="JRh-Li-bxn">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="TNu-1o-dD5" kind="show" id="KIx-Xb-w1B"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Student" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9j-Q7-QfR">
@@ -710,7 +702,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRc-Vb-jd4">
-                                <rect key="frame" x="0.0" y="64" width="414" height="956"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrL-8a-bTb">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
@@ -740,7 +732,7 @@
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="7Kv-Zb-fbr" eventType="touchUpInside" id="6ja-Fa-fdK"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" id="bua-ML-mOx"/>
+                                                    <segue destination="Zxo-xH-bG4" kind="show" id="H2j-S0-CEM"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fP4-r9-wDp" userLabel="fullname">
@@ -901,7 +893,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emw-82-ZKj">
-                                <rect key="frame" x="0.0" y="64" width="414" height="886"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="930"/>
                                 <subviews>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="S2c-fy-S3y">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
@@ -1022,7 +1014,7 @@
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="tjv-aj-MBz" eventType="touchUpInside" id="S0X-qg-CSQ"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" identifier="Payment" id="YCm-SD-uyL"/>
+                                                    <segue destination="Zxo-xH-bG4" kind="show" id="Wkv-BX-Ccg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1108,22 +1100,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-e5-iHq">
-                                        <rect key="frame" x="309" y="136" width="28" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="type" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyr-zL-b2v">
+                                        <rect key="frame" x="176" y="92" width="190" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="student" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyr-zL-b2v">
-                                        <rect key="frame" x="309" y="93" width="59" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYb-is-9De">
-                                        <rect key="frame" x="309" y="53" width="43" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYb-is-9De">
+                                        <rect key="frame" x="176" y="53" width="190" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1134,17 +1119,22 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.9409303617" green="0.69375048549999996" blue="0.64059239010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-e5-iHq">
+                                        <rect key="frame" x="176" y="135" width="190" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.87069172090000002" blue="0.81761466760000001" alpha="0.77525684930000005" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-vE-QAS">
-                                <rect key="frame" x="180" y="668" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-vE-QAS">
+                                <rect key="frame" x="148" y="659" width="119" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Confirm"/>
+                                <state key="normal" title="Confirm" image="Confirm"/>
                                 <connections>
-                                    <segue destination="lJa-UP-bRv" kind="show" id="T9Z-4D-UkQ">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <action selector="confirmPressed:" destination="Zxo-xH-bG4" eventType="touchUpInside" id="X9L-SJ-5MW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1152,6 +1142,12 @@
                         <viewLayoutGuide key="safeArea" id="J3y-9b-QXI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Payment" id="1CT-bw-s8F"/>
+                    <connections>
+                        <outlet property="confirm" destination="DhB-vE-QAS" id="oLD-Qj-kV3"/>
+                        <outlet property="fullname" destination="JYb-is-9De" id="GN9-3C-2aO"/>
+                        <outlet property="memberType" destination="Qyr-zL-b2v" id="ipI-Df-CNf"/>
+                        <outlet property="price" destination="Yj6-e5-iHq" id="FEd-j6-5cx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wb-BB-q3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1160,7 +1156,7 @@
         <!--Payment-->
         <scene sceneID="JxM-Bn-f0a">
             <objects>
-                <viewController id="lJa-UP-bRv" customClass="PaymentViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Payment" id="lJa-UP-bRv" customClass="PaymentViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XaI-SI-cZr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1176,8 +1172,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiE-07-w1y">
-                                        <rect key="frame" x="265" y="54" width="28" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiE-07-w1y">
+                                        <rect key="frame" x="239" y="54" width="82" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1249,15 +1245,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-qP-RFL">
-                                <rect key="frame" x="148" y="686" width="119" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Confirm Payment"/>
-                                <connections>
-                                    <action selector="confirmPressed:" destination="lJa-UP-bRv" eventType="touchUpInside" id="oYD-SW-jQf"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="NZb-Ci-Jfm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7Y-AM-VPh" customClass="DLRadioButton">
                                 <rect key="frame" x="20" y="262" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1278,6 +1265,15 @@
                                 <connections>
                                     <action selector="cardPressed:" destination="lJa-UP-bRv" eventType="touchUpInside" id="KZL-oE-pW7"/>
                                     <outletCollection property="otherButtons" destination="z7Y-AM-VPh" id="TfZ-M6-X7W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-qP-RFL">
+                                <rect key="frame" x="146" y="659" width="123" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm Payment" image="Confirm"/>
+                                <connections>
+                                    <action selector="confirmPressed:" destination="lJa-UP-bRv" eventType="touchUpInside" id="oYD-SW-jQf"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="NZb-Ci-Jfm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1312,7 +1308,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Hs-kzc">
-                                <rect key="frame" x="0.0" y="64" width="414" height="836"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="880"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLn-vs-bfd">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
@@ -1341,7 +1337,7 @@
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="dbO-YO-jW2" eventType="touchUpInside" id="MTG-hE-eTU"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" identifier="" id="0Th-ok-MY9"/>
+                                                    <segue destination="Zxo-xH-bG4" kind="show" id="TnA-jr-cBJ"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID number:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FL2-ge-4fs">
@@ -1487,7 +1483,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-Py-s4X">
-                                <rect key="frame" x="0.0" y="64" width="414" height="936"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="980"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeV-YW-xN9">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -1560,7 +1556,7 @@
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="Dy9-MX-MeB"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" id="jUI-Le-gAJ"/>
+                                                    <segue destination="Zxo-xH-bG4" kind="show" id="a9M-9i-Tj5"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact number:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8B3-ts-1fd">
@@ -2819,9 +2815,6 @@
                                 <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="searchPressed:" destination="1i1-T7-xiM" eventType="touchUpInside" id="h0n-TS-dGh"/>
-                                    <segue destination="GZa-ag-mJf" kind="show" id="XS2-3X-MTI">
-                                        <nil key="action"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-Gz-k8H">
@@ -3472,7 +3465,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoy-tp-svr">
-                                        <rect key="frame" x="127" y="38" width="374" height="30"/>
+                                        <rect key="frame" x="127" y="38" width="243" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -3498,9 +3491,9 @@
                         <outlet property="companyDes" destination="Jds-OW-HCf" id="7CK-Xy-gBJ"/>
                         <outlet property="companyname" destination="aoy-tp-svr" id="Gpi-p0-Dia"/>
                         <outlet property="contactname" destination="Sjh-gn-TDv" id="ySs-OJ-Twr"/>
-                        <outlet property="description" destination="Jds-OW-HCf" id="aLG-hX-cLl"/>
                         <outlet property="email" destination="2xE-Xa-mg6" id="HMs-6h-Kdn"/>
                         <outlet property="imageBG" destination="Ipa-hB-K71" id="G9l-k7-kK8"/>
+                        <outlet property="imageProfile" destination="BMz-Y9-gmk" id="zPd-ML-1gq"/>
                         <outlet property="phone" destination="SnJ-zC-hcU" id="Kca-kv-Cf8"/>
                     </connections>
                 </viewController>
@@ -3696,9 +3689,6 @@
                                 <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="searchPressed:" destination="Rm6-Dr-Mde" eventType="touchUpInside" id="ymh-R9-oAV"/>
-                                    <segue destination="TNu-1o-dD5" kind="show" id="npq-P7-eio">
-                                        <nil key="action"/>
-                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -3729,9 +3719,6 @@
                                 <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="searchPressed:" destination="t8B-qb-KEV" eventType="touchUpInside" id="kre-16-Hhm"/>
-                                    <segue destination="x4Q-SX-mWy" kind="show" id="JeM-QB-hhz">
-                                        <nil key="action"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jo3-im-8jn">
@@ -3793,7 +3780,6 @@
                                 <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="SearchPressed:" destination="aEe-qP-j6c" eventType="touchUpInside" id="f5j-XH-8eB"/>
-                                    <segue destination="92y-th-Fmz" kind="show" id="YUm-uq-W6I"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7U-gW-VZ5">
@@ -4345,6 +4331,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Confirm" width="108" height="57"/>
         <image name="Continue" width="152" height="90"/>
         <image name="Login" width="104" height="54"/>
         <image name="Register" width="105" height="56"/>
@@ -5163,9 +5150,9 @@ Si1KMEpCSkVKSgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAEpMA
         <image name="watchlist" width="40" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T9Z-4D-UkQ"/>
-        <segue reference="jUI-Le-gAJ"/>
+        <segue reference="Oz5-Ht-Ibv"/>
+        <segue reference="a9M-9i-Tj5"/>
         <segue reference="IRC-pV-Uhx"/>
-        <segue reference="kYY-rU-Yw3"/>
+        <segue reference="NZb-Ci-Jfm"/>
     </inferredMetricsTieBreakers>
 </document>

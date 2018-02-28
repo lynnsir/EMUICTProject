@@ -93,6 +93,7 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
+            
             let user = alumniReport[indexPath.row]
             vc.fullname = user.fullname
             vc.id = user.studentID

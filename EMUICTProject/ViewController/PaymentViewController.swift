@@ -9,6 +9,8 @@
 import UIKit
 
 class PaymentViewController: UIViewController,UITextFieldDelegate  {
+    
+    var totalPrice :String!
 
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var bank: DLRadioButton!
@@ -52,6 +54,8 @@ class PaymentViewController: UIViewController,UITextFieldDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        price.text = totalPrice
 
      
     }

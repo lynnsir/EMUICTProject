@@ -116,6 +116,20 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                  "urlToImage": url.absoluteString ]
                                 self.ref.child("Company user").child(user.uid).setValue(userInfo)
                            
+                                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
+                                    
+                                {
+                                    if let navigator = self.navigationController {
+                                        navigator.show(vc, sender: true)
+                                    }
+                                    
+                                    vc.name = self.companyName.text
+                                    vc.type = "Company"
+                                    
+                                    
+                                    
+                                }
+                                
                             }
                             
                         })

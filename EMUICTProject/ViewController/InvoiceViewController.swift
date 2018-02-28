@@ -10,26 +10,51 @@ import UIKit
 
 class InvoiceViewController: UIViewController {
 
+    var name:String!
+    var type:String!
+    
+    @IBOutlet weak var fullname: UILabel!
+    @IBOutlet weak var memberType: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var confirm: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.fullname.text = name
+        self.memberType.text = type
+        
+        if memberType.text == "Student"{
+            price.text = "150.00"
+        }
+        else if memberType.text == "Staff"{
+            price.text = "250.00"
+        }
+        else if memberType.text == "Alumni"{
+            price.text = "200.00"
+        }
+        else if memberType.text == "Company"{
+            price.text = "300.00"
+        }
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func confirmPressed(_ sender: Any) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Payment") as? PaymentViewController
+            
+        {
+            if let navigator = self.navigationController {
+                navigator.show(vc, sender: true)
+            }
+            
+            vc.totalPrice = price.text
+            
+            
+            
+            
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
