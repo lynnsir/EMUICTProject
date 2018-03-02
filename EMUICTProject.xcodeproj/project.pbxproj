@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */; };
+		0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */; };
+		0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */; };
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
 		856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAndEventsPostViewController.swift; sourceTree = "<group>"; };
+		0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessPostViewController.swift; sourceTree = "<group>"; };
+		0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobAndInternshipPostViewController.swift; sourceTree = "<group>"; };
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				85D922CE2045372500B94951 /* InvoiceViewController.swift */,
 				85D922C72045157200B94951 /* PaymentViewController.swift */,
 				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
+				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
+				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */,
 				85D6B05C203AD208005AE477 /* CompanyReportTableViewCell.swift in Sources */,
 				85D922C82045157200B94951 /* PaymentViewController.swift in Sources */,
+				0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */,
 				85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
 				856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */,
@@ -370,6 +377,7 @@
 				856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */,
 				85950DC920335430002D4A0B /* StudentSearchViewController.swift in Sources */,
 				85EF20042020424800F39134 /* CompanyRegisterViewController.swift in Sources */,
+				0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

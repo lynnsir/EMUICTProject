@@ -1,18 +1,17 @@
 //
-//  CreateNewsAndEventBoardViewController.swift
+//  CreateJobAndInternshipPostViewController.swift
 //  EMUICTProject
 //
-//  Created by Teeraphon Issaranuluk on 21/2/2561 BE.
+//  Created by Teeraphon Issaranuluk on 2/3/2561 BE.
 //  Copyright © 2561 Sirinda. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-//var imagePicker: UIImagePickerController!
-//var selectedImage: UIImage!
 
-class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+
+class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var BoardTitle: UITextField!
     @IBOutlet weak var BoardContent: UITextField!
@@ -31,8 +30,8 @@ class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerContr
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
         ref = Database.database().reference()
-        userStorage = storage.child("NewsAndEvent")
-
+        userStorage = storage.child("JobAndInternship")
+        
     }
     
     
@@ -82,7 +81,7 @@ class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerContr
                         "urlToImage": url.absoluteString
                         
                     ]
-                    Database.database().reference().child("NewAndEventPost").childByAutoId().setValue(postData)
+                    Database.database().reference().child("JobAndInternshipPost").childByAutoId().setValue(postData)
                     
                 }
                 
@@ -100,6 +99,3 @@ class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerContr
     }
     
 }
-
-
-

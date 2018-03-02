@@ -2373,10 +2373,10 @@
             </objects>
             <point key="canvasLocation" x="113" y="5614"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Job And Internship Post View Controller-->
         <scene sceneID="ZeC-Oq-HSZ">
             <objects>
-                <viewController id="KUv-wy-jGV" sceneMemberID="viewController">
+                <viewController id="KUv-wy-jGV" customClass="CreateJobAndInternshipPostViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sYw-wW-JuX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2389,11 +2389,17 @@
                                 <rect key="frame" x="68" y="111" width="278" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="insert"/>
+                                <connections>
+                                    <action selector="InsertPhotoButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="WCH-Ve-4hv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBw-Qr-Q84">
                                 <rect key="frame" x="192" y="619" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="BoardPostButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="JYt-68-cgr"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOo-aU-63t">
                                 <rect key="frame" x="35" y="352" width="345" height="30"/>
@@ -2417,6 +2423,11 @@
                     <navigationItem key="navigationItem" id="AXK-dv-fCN">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="fH5-DA-O9k"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="BoardContent" destination="s7D-da-TMD" id="yX7-Fw-sb8"/>
+                        <outlet property="BoardTitle" destination="iOo-aU-63t" id="fCF-lR-WDO"/>
+                        <outlet property="imgView" destination="VPp-Lf-Vg8" id="4RR-gx-Odz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IL0-oV-WPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2558,10 +2569,10 @@
             </objects>
             <point key="canvasLocation" x="1510" y="5601"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Business Post View Controller-->
         <scene sceneID="Bo2-GL-pgZ">
             <objects>
-                <viewController id="lPz-IW-nUd" sceneMemberID="viewController">
+                <viewController id="lPz-IW-nUd" customClass="CreateBusinessPostViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y7J-Qi-CiQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2574,11 +2585,17 @@
                                 <rect key="frame" x="68" y="110" width="278" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="insert"/>
+                                <connections>
+                                    <action selector="InsertPhotoButtom:" destination="lPz-IW-nUd" eventType="touchUpInside" id="BHg-63-U8o"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0U-Bo-QE1">
                                 <rect key="frame" x="192" y="618" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="BoardPostButtom:" destination="lPz-IW-nUd" eventType="touchUpInside" id="1gz-YK-Lxa"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6B-SE-zdH">
                                 <rect key="frame" x="35" y="339" width="345" height="30"/>
@@ -2602,6 +2619,11 @@
                     <navigationItem key="navigationItem" id="87z-Ul-sOv">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Dm0-NH-Tjo"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="BoardContent" destination="vOS-Gr-TR2" id="j9B-68-qIv"/>
+                        <outlet property="BoardTitle" destination="g6B-SE-zdH" id="HXz-8Y-fqt"/>
+                        <outlet property="imgView" destination="BHS-bs-Bu4" id="itP-nG-rDt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcQ-Or-emF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
