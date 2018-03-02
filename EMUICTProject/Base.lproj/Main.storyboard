@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8r-DR-yVz">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.17550638318061829" green="0.46970516443252563" blue="0.46376359462738037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -67,7 +67,9 @@
                         <color key="backgroundColor" red="0.99279254669999994" green="1" blue="0.94874161479999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Zek-Ym-4Of"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IfX-VC-sOe"/>
+                    <navigationItem key="navigationItem" id="IfX-VC-sOe">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="email" destination="Lb6-Mm-e8N" id="Ven-Tf-HlN"/>
                         <outlet property="loginButton" destination="bNq-aZ-aEw" id="dxq-EH-lFg"/>
@@ -702,7 +704,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRc-Vb-jd4">
-                                <rect key="frame" x="0.0" y="20" width="414" height="1000"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrL-8a-bTb">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
@@ -812,13 +814,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="birthdate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-rs-YgB">
-                                                <rect key="frame" x="36" y="806" width="75" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0FX-cQ-JQY">
                                                 <rect key="frame" x="120" y="801" width="75" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -833,6 +828,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="birthdate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-rs-YgB">
+                                                <rect key="frame" x="36" y="806" width="75" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -882,7 +884,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYz-0b-t9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7191" y="1954"/>
+            <point key="canvasLocation" x="-7216" y="1981"/>
         </scene>
         <!--Registration-->
         <scene sceneID="yrF-ik-qfS">
@@ -893,7 +895,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emw-82-ZKj">
-                                <rect key="frame" x="0.0" y="20" width="414" height="930"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="886"/>
                                 <subviews>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="S2c-fy-S3y">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
@@ -1273,7 +1275,6 @@
                                 <state key="normal" title="Confirm Payment" image="Confirm"/>
                                 <connections>
                                     <action selector="confirmPressed:" destination="lJa-UP-bRv" eventType="touchUpInside" id="oYD-SW-jQf"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="NZb-Ci-Jfm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1308,7 +1309,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Hs-kzc">
-                                <rect key="frame" x="0.0" y="20" width="414" height="880"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="836"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLn-vs-bfd">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
@@ -1472,7 +1473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZII-9i-dxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5271" y="1904"/>
+            <point key="canvasLocation" x="-5267" y="1932"/>
         </scene>
         <!--Registration-->
         <scene sceneID="YM7-kH-w1H">
@@ -1483,7 +1484,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-Py-s4X">
-                                <rect key="frame" x="0.0" y="20" width="414" height="980"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeV-YW-xN9">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -1617,7 +1618,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONu-Fv-dN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4333.3333333333339" y="1943.4782608695655"/>
+            <point key="canvasLocation" x="-4329" y="1972"/>
         </scene>
         <!--Type-->
         <scene sceneID="70G-d4-cV4">
@@ -3077,7 +3078,7 @@
                                         <rect key="frame" x="122" y="30" width="170" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3I-nm-NQN">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="b3I-nm-NQN">
                                                 <rect key="frame" x="10" y="10" width="150" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -3248,7 +3249,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.21455731989999999" green="0.50888794660000003" blue="0.50303840639999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-Br-yAZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-Br-yAZ">
                                 <rect key="frame" x="132" y="103" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -3369,7 +3370,7 @@
                                         <rect key="frame" x="122" y="30" width="170" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMz-Y9-gmk">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BMz-Y9-gmk">
                                                 <rect key="frame" x="10" y="10" width="150" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -3517,7 +3518,7 @@
                                         <rect key="frame" x="122" y="30" width="170" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T51-mI-YwL">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="T51-mI-YwL">
                                                 <rect key="frame" x="10" y="10" width="150" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -4358,8 +4359,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Oz5-Ht-Ibv"/>
-        <segue reference="a9M-9i-Tj5"/>
+        <segue reference="H2j-S0-CEM"/>
         <segue reference="IRC-pV-Uhx"/>
-        <segue reference="NZb-Ci-Jfm"/>
     </inferredMetricsTieBreakers>
 </document>
