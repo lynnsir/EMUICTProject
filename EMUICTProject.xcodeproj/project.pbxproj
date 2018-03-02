@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */; };
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
 		856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAndEventsPostViewController.swift; sourceTree = "<group>"; };
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */,
 				85D922CE2045372500B94951 /* InvoiceViewController.swift */,
 				85D922C72045157200B94951 /* PaymentViewController.swift */,
+				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */,
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
 				85D922CF2045372500B94951 /* InvoiceViewController.swift in Sources */,
+				0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */,
 				85D922CB204523CE00B94951 /* DLRadioButton.m in Sources */,
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
@@ -505,7 +509,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SEF4KAHA7J;
+				DEVELOPMENT_TEAM = J38H528F4A;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -525,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SEF4KAHA7J;
+				DEVELOPMENT_TEAM = J38H528F4A;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
