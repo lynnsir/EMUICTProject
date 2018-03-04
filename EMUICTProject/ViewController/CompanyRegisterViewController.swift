@@ -115,7 +115,8 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                  "Contact Name": self.contactName.text!,
                                                                  "urlToImage": url.absoluteString ]
                                 self.ref.child("Company user").child(user.uid).setValue(userInfo)
-                           
+                                //insert to alluser
+                                self.ref.child("Alluser").child(user.uid).setValue(userInfo)
                                 if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
                                     
                                 {
