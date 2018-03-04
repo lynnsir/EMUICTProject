@@ -10,6 +10,11 @@
 		0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */; };
 		0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */; };
 		0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */; };
+		0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */; };
+		0BCE4B24204A632B0066A55B /* PostBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B23204A632B0066A55B /* PostBoard.swift */; };
+		0BCE4B26204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */; };
+		0BCE4B28204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */; };
+		0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B29204BBD600066A55B /* NAEcomment.swift */; };
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
 		856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */; };
@@ -50,6 +55,11 @@
 		0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAndEventsPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobAndInternshipPostViewController.swift; sourceTree = "<group>"; };
+		0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAndEventsFeedViewController.swift; sourceTree = "<group>"; };
+		0BCE4B23204A632B0066A55B /* PostBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBoard.swift; sourceTree = "<group>"; };
+		0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAndEventFeedTableViewCell.swift; sourceTree = "<group>"; };
+		0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAndEventContentTableViewCell.swift; sourceTree = "<group>"; };
+		0BCE4B29204BBD600066A55B /* NAEcomment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAEcomment.swift; sourceTree = "<group>"; };
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +129,7 @@
 				85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */,
 				85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */,
 				85D6B05B203AD208005AE477 /* CompanyReportTableViewCell.swift */,
+				0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -150,6 +161,8 @@
 				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
 				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
 				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
+				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
+				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -159,6 +172,8 @@
 			children = (
 				85E8210E203B093F00ADD576 /* CompanyReport.swift */,
 				85E82110203B09C100ADD576 /* PersonReport.swift */,
+				0BCE4B23204A632B0066A55B /* PostBoard.swift */,
+				0BCE4B29204BBD600066A55B /* NAEcomment.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -348,8 +363,10 @@
 			files = (
 				85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */,
 				85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */,
+				0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */,
 				856BC4ED20348E4400AC712A /* StaffReportViewController.swift in Sources */,
 				85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */,
+				0BCE4B26204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift in Sources */,
 				85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */,
 				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
 				85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */,
@@ -357,13 +374,16 @@
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
 				85D922CF2045372500B94951 /* InvoiceViewController.swift in Sources */,
 				0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */,
+				0BCE4B24204A632B0066A55B /* PostBoard.swift in Sources */,
 				85D922CB204523CE00B94951 /* DLRadioButton.m in Sources */,
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
+				0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
 				85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */,
 				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
 				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
 				85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */,
+				0BCE4B28204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift in Sources */,
 				85D6B05C203AD208005AE477 /* CompanyReportTableViewCell.swift in Sources */,
 				85D922C82045157200B94951 /* PaymentViewController.swift in Sources */,
 				0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */,
