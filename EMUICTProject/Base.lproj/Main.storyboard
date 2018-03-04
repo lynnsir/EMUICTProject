@@ -207,9 +207,7 @@
                                             <color key="titleColor" red="0.97696655990000003" green="0.91360778659999997" blue="0.61669793279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4Ii-Uc-b6U" kind="show" id="faR-CH-3S7">
-                                                <nil key="action"/>
-                                            </segue>
+                                            <segue destination="4Ii-Uc-b6U" kind="show" id="EON-7O-Le3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -4341,7 +4339,7 @@
         <image name="watchlist" width="40" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oz5-Ht-Ibv"/>
+        <segue reference="MnB-EQ-lzC"/>
         <segue reference="Wkv-BX-Ccg"/>
         <segue reference="nR4-bk-sbo"/>
     </inferredMetricsTieBreakers>
