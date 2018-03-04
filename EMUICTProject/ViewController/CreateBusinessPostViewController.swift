@@ -61,7 +61,8 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         let content = Content
         
         let uid = Auth.auth().currentUser!.uid
-        let imageRef = self.userStorage.child("\(uid).jpg")
+        let postedId = Database.database().reference().child("BusinessPost").childByAutoId().key
+        let imageRef = self.userStorage.child("\(postedId).jpg")
         let data = UIImageJPEGRepresentation(self.imgView.image!, 0.5)
         let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
             if err != nil{
@@ -81,7 +82,7 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
                         "urlToImage": url.absoluteString
                         
                     ]
-                    Database.database().reference().child("BusinessPost").childByAutoId().setValue(postData)
+                    Database.database().reference().child("BusinessPost").child("\(postedId)").setValue(postData)
                     
                 }
                 
