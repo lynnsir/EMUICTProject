@@ -1933,7 +1933,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="JFR-cI-jSN" kind="showDetail" id="A0o-2h-iW6"/>
+                                            <segue destination="JFR-cI-jSN" kind="show" action="showDetailViewController:sender:" id="A0o-2h-iW6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
