@@ -42,6 +42,13 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     
     @IBAction func Addwatchlist(_ sender: Any) {
         
+        let userid = Auth.auth().currentUser!.uid
+        let boardid = boardId!
+        let addWatchlist : [String : Any] = [
+            "boardId": boardid as AnyObject,
+        ]
+        Database.database().reference().child("Watchlist").child("\(userid)").setValue(addWatchlist)
+        
     }
     
     
