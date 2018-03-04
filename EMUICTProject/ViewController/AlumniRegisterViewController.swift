@@ -16,6 +16,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var insertImageButton: UIButton!
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var studentID: UITextField!
+    @IBOutlet weak var major: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var conPassword: UITextField!
@@ -46,6 +47,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         contactNumber.delegate = self
         email.delegate = self
         career.delegate = self
+        major.delegate = self
    
         birthdate.delegate = self
         birthmonth.delegate = self
@@ -125,6 +127,9 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                                                  "Contact number": self.contactNumber.text!,
                                                                  
                                                                  "Career" : self.career.text!,
+                                                                 "Major": self.major.text!,
+                                                                 
+                                                                 "Career_Major": self.career.text! + "_" + self.major.text!,
 
                                                                  "Email" : self.email.text!,
                                                                  "BirthDate-Date": self.birthdate.text!,

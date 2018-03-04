@@ -50,8 +50,6 @@ class InvoiceViewController: UIViewController {
             vc.totalPrice = price.text
             
             
-            
-            
         }
     }
     

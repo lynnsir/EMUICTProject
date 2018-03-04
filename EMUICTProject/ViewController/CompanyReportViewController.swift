@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class CompanyReportViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var compName:String!
 
     @IBOutlet weak var tableView: UITableView!
      var companyReport = [CompanyReport]()
@@ -21,29 +23,35 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
         getUser()
 
     }
+    
 
+  
     func getUser(){
         
         let rootRef = Database.database().reference()
+        
         let query = rootRef.child("Company user")
         
-        
+   /*        if compName != nil {
+            
+       let query = rootRef.child("Company user").queryOrdered(byChild: "Company name").queryEqual(toValue: compName)
+        }
+         else {
+          let query = rootRef.child("Company user")
+        } */
+
+
         query.observe(.value) { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
+   
                 if let value = child.value as? NSDictionary {
-                    
                     let user = CompanyReport()
                     let uid = value["uid"] as? String ?? "not found"
-                    
                     let comName = value["Company name"] as? String ?? "Full name not found"
                     let comDes = value["Company Description"] as? String ?? "Not found"
                     let conname = value["Contact Name"] as? String ?? "Contact Name not found"
-                    
-                    
                     let email = value["Email"] as? String ?? "email not found"
-                    
                     let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
-                    
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     
                     user.companyName = comName
@@ -53,18 +61,13 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
                     user.email = email
                     user.phone = tNumber
                     user.imageProfile = imagePath
-                    
+   
                     self.companyReport.append(user)
-                    
                     
                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }
             }
-            
-            
         }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,8 +78,6 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CompanyCell")
         let user = companyReport[indexPath.row]
-        
-        
         
         cell.textLabel?.text = user.companyName
         return cell
