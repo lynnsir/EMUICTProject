@@ -12,6 +12,21 @@ class CompanySearchViewController: UIViewController {
     @IBOutlet weak var companyName: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBAction func searchPressed(_ sender: Any) {
+        
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CompanyReport") as? CompanyReportViewController
+            
+        {
+            if let navigator = self.navigationController {
+                navigator.show(vc, sender: true)
+            }
+            
+            vc.compName = companyName.text
+            
+            
+            
+            
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -20,20 +35,5 @@ class CompanySearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
