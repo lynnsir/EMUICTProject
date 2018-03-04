@@ -26,15 +26,16 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
         print(fname)
         print(pos)
         
-        if fname != nil{
+     /*   if fname != nil{
             getName()
-        }
-        else if fname == nil && pos != nil{
+        } */
+       if pos != nil{
             getPos()
         }
         else if fname == nil && pos == nil{
             getUser()
         }
+        
     }
     
     func getUser(){
