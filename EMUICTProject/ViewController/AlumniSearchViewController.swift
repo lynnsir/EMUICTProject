@@ -15,12 +15,13 @@ class AlumniSearchViewController: UIViewController {
     @IBOutlet weak var career: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBAction func searchPressed(_ sender: Any) {
+        
     }
      
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
     }
 
 
