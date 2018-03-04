@@ -40,6 +40,11 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
     }
     
+    @IBAction func Addwatchlist(_ sender: Any) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
