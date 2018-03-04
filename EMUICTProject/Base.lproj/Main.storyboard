@@ -2155,7 +2155,11 @@
                         <viewLayoutGuide key="safeArea" id="GjC-Pc-oV9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="iLC-Jm-lJH">
-                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="R5R-Jm-Zu6"/>
+                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="R5R-Jm-Zu6">
+                            <connections>
+                                <action selector="Addwatchlist:" destination="JFR-cI-jSN" id="y66-bD-2bc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1050"/>
                     <connections>
