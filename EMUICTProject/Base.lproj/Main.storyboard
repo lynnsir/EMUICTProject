@@ -3957,7 +3957,7 @@
         <!--Watchlist-->
         <scene sceneID="d0T-of-ZOu">
             <objects>
-                <viewController id="RE0-kD-eTM" sceneMemberID="viewController">
+                <viewController id="RE0-kD-eTM" customClass="WatchListViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="imQ-f5-pEb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3992,6 +3992,9 @@
                     <navigationItem key="navigationItem" title="Watchlist" id="8KD-mx-elC">
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="5fZ-R4-gRs"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="TableView" destination="PTG-Yp-afR" id="gFO-rq-Y0m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHa-AP-8cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,7 @@
 		0BCE4B26204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */; };
 		0BCE4B28204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */; };
 		0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B29204BBD600066A55B /* NAEcomment.swift */; };
+		0BCE4B2C204CCAAB0066A55B /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */; };
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
 		856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */; };
@@ -60,6 +61,7 @@
 		0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAndEventFeedTableViewCell.swift; sourceTree = "<group>"; };
 		0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAndEventContentTableViewCell.swift; sourceTree = "<group>"; };
 		0BCE4B29204BBD600066A55B /* NAEcomment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAEcomment.swift; sourceTree = "<group>"; };
+		0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
 				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
 				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
+				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				85EF20002020422400F39134 /* AlumniRegisterViewController.swift in Sources */,
 				85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */,
 				85D6B056203AD1D0005AE477 /* StudentReportTableViewCell.swift in Sources */,
+				0BCE4B2C204CCAAB0066A55B /* WatchListViewController.swift in Sources */,
 				85E82111203B09C100ADD576 /* PersonReport.swift in Sources */,
 				856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */,
 				85950DC920335430002D4A0B /* StudentSearchViewController.swift in Sources */,
