@@ -22,19 +22,20 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Start")
         print(fname)
         print(pos)
-        if fname != nil{
+        
+     /*   if fname != nil{
             getName()
-        }
-        else if pos != nil && fname == nil{
+        } */
+       if pos != nil{
             getPos()
         }
         else if fname == nil && pos == nil{
             getUser()
         }
         
- 
     }
     
     func getUser(){
