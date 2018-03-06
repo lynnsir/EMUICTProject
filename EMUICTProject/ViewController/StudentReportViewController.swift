@@ -35,24 +35,33 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
         print("major = "+maj)
         print("sid = "+sid)
 
+  
         if name == "" && year == "" && maj == "" && sid == "" {
             getUser()
+            print("getuser")
         }
-        else if name != nil && sid == "" && year == "" && maj == "" {
-            getName()
-        }
-        else if (sid != nil && name == "" ) || (sid != nil && name != nil ) {
+            
+        else if sid != "" {
             getSID()
+            print("getsid")
         }
-        else if year != nil && name == "" && sid == "" && maj == ""{
+        else if name != "" && sid == ""  {
+            getName()
+            print("getName")
+        }
+        else if year != "" && name == "" && sid == "" && maj == ""{
             getYear()
+            print("getYear")
         }
-        else if maj != nil && name == "" && sid == "" && year == "" {
+        else if maj != "" && name == "" && sid == "" && year == "" {
                 getMajor()
+            print("getMajor")
         }
-        else if maj != nil && name == "" && sid == "" && year != nil {
+        else if maj != "" && name == "" && sid == "" && year != "" {
                 getYearMaj()
-    }
+            print("getYearMajor")
+        }
+        
     }
     
     func getUser(){
