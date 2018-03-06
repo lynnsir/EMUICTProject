@@ -524,7 +524,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="student"/>
                                 <connections>
-                                    <segue destination="92y-th-Fmz" kind="show" id="guy-d5-yNh"/>
+                                    <segue destination="aEe-qP-j6c" kind="show" id="5ks-IC-Nfk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzX-fa-XQR">
@@ -532,7 +532,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="alumni"/>
                                 <connections>
-                                    <segue destination="x4Q-SX-mWy" kind="show" id="aGS-ZF-VwP"/>
+                                    <segue destination="t8B-qb-KEV" kind="show" id="CwZ-w1-Ma0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-6j-X7C">
@@ -2799,7 +2799,6 @@
                                 <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="searchPressed:" destination="1i1-T7-xiM" eventType="touchUpInside" id="h0n-TS-dGh"/>
-                                    <segue destination="GZa-ag-mJf" kind="show" id="dXJ-cq-ZNz"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-Gz-k8H">
