@@ -3673,7 +3673,6 @@
                                 <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="searchPressed:" destination="Rm6-Dr-Mde" eventType="touchUpInside" id="ymh-R9-oAV"/>
-                                    <segue destination="TNu-1o-dD5" kind="show" id="8b4-ws-Pqw"/>
                                 </connections>
                             </button>
                         </subviews>

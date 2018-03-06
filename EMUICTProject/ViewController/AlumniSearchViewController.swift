@@ -16,6 +16,20 @@ class AlumniSearchViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBAction func searchPressed(_ sender: Any) {
         
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlumniReport") as? AlumniReportViewController
+            
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+            vc.name = fullname.text!
+            vc.career = career.text!
+            vc.major = major.text!
+            vc.sid = studentID.text!
+            
+            
+        }
     }
      
     override func viewDidLoad() {
