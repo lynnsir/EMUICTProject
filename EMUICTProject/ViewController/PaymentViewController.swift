@@ -68,6 +68,8 @@ class PaymentViewController: UIViewController,UITextFieldDelegate  {
         textField.resignFirstResponder()
         return true
     }
+    
+    
     func displyAlertMessage(userMessage:String){
         let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)

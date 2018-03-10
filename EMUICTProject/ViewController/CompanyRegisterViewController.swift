@@ -29,6 +29,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
+    var type = "Company"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +114,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                  "Company Description": self.companyDes.text!,
                                                                  
                                                                  "Contact Name": self.contactName.text!,
+                                                                 "Type":self.type,
                                                                  "urlToImage": url.absoluteString ]
                                 self.ref.child("Company user").child(user.uid).setValue(userInfo)
                                 //insert to alluser
@@ -171,6 +173,6 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
         textField.resignFirstResponder()
         return true
     }
-
+    
 
 }

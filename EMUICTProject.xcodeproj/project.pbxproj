@@ -27,6 +27,7 @@
 		85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */; };
 		85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCC20335450002D4A0B /* StaffSearchViewController.swift */; };
 		85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCE20335464002D4A0B /* CompanySearchViewController.swift */; };
+		85C6C1FA205299C900772D90 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C6C1F9205299C900772D90 /* MyProfileViewController.swift */; };
 		85D6B056203AD1D0005AE477 /* StudentReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B055203AD1D0005AE477 /* StudentReportTableViewCell.swift */; };
 		85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */; };
 		85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */; };
@@ -73,6 +74,7 @@
 		85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCC20335450002D4A0B /* StaffSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCE20335464002D4A0B /* CompanySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySearchViewController.swift; sourceTree = "<group>"; };
+		85C6C1F9205299C900772D90 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		85D6B055203AD1D0005AE477 /* StudentReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentReportTableViewCell.swift; sourceTree = "<group>"; };
 		85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniReportTableViewCell.swift; sourceTree = "<group>"; };
 		85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffReportTableViewCell.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
 				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
 				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
+				85C6C1F9205299C900772D90 /* MyProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85C6C1FA205299C900772D90 /* MyProfileViewController.swift in Sources */,
 				85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */,
 				85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */,
 				0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */,

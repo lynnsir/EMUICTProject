@@ -83,7 +83,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jsB-Vc-Sq5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sch-8W-ej1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="root" automaticallyAdjustsScrollViewInsets="NO" id="sch-8W-ej1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Piw-AW-CQp">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -732,7 +732,6 @@
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="7Kv-Zb-fbr" eventType="touchUpInside" id="6ja-Fa-fdK"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" id="H2j-S0-CEM"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fP4-r9-wDp" userLabel="fullname">
@@ -805,34 +804,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Month:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0b-XQ-oks">
-                                                <rect key="frame" x="196" y="801" width="75" height="30"/>
+                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthdate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0FX-cQ-JQY">
+                                                <rect key="frame" x="36" y="801" width="342" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0FX-cQ-JQY">
-                                                <rect key="frame" x="120" y="801" width="75" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTe-ge-Org">
-                                                <rect key="frame" x="272" y="801" width="75" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="birthdate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-rs-YgB">
-                                                <rect key="frame" x="36" y="806" width="75" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -862,8 +840,6 @@
                     <size key="freeformSize" width="414" height="1020"/>
                     <connections>
                         <outlet property="birthdate" destination="0FX-cQ-JQY" id="9Bx-K6-zRD"/>
-                        <outlet property="birthmonth" destination="L0b-XQ-oks" id="Bh4-qM-IoD"/>
-                        <outlet property="birthyear" destination="MTe-ge-Org" id="g6S-r4-vaP"/>
                         <outlet property="conPassword" destination="P6J-b8-Iep" id="Vat-Kh-BkS"/>
                         <outlet property="contactNumber" destination="dDE-v6-yuk" id="XsJ-LI-Z6C"/>
                         <outlet property="continueButton" destination="dee-8V-wmj" id="cB7-wf-Baq"/>
@@ -882,7 +858,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYz-0b-t9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7216" y="1981"/>
+            <point key="canvasLocation" x="-7217.3913043478269" y="1980.9782608695655"/>
         </scene>
         <!--Registration-->
         <scene sceneID="yrF-ik-qfS">
@@ -931,8 +907,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2I3-PO-KBh">
-                                                <rect key="frame" x="119" y="770" width="75" height="30"/>
+                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthdate:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2I3-PO-KBh">
+                                                <rect key="frame" x="36" y="770" width="342" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -958,20 +934,6 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yA4-2O-VFB">
-                                                <rect key="frame" x="271" y="770" width="75" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Month:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4av-O4-EM2">
-                                                <rect key="frame" x="195" y="770" width="75" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIU-X2-Fky">
                                                 <rect key="frame" x="36" y="400" width="342" height="30"/>
@@ -1001,20 +963,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="birthdate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTm-dL-xwo">
-                                                <rect key="frame" x="36" y="775" width="75" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8U-kB-xCX">
                                                 <rect key="frame" x="164" y="839" width="86" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="tjv-aj-MBz" eventType="touchUpInside" id="S0X-qg-CSQ"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" id="Wkv-BX-Ccg"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iLJ-k3-UYY">
@@ -1053,8 +1007,6 @@
                     <size key="freeformSize" width="414" height="950"/>
                     <connections>
                         <outlet property="birthdate" destination="2I3-PO-KBh" id="w9r-zs-YPL"/>
-                        <outlet property="birthmonth" destination="4av-O4-EM2" id="ZPU-9j-Yut"/>
-                        <outlet property="birthyear" destination="yA4-2O-VFB" id="Xzn-cM-mTo"/>
                         <outlet property="career" destination="hKH-wJ-YB1" id="gx5-CO-COw"/>
                         <outlet property="conPassword" destination="GT3-xR-5Lc" id="GQi-Jp-Yye"/>
                         <outlet property="contactNumber" destination="eSK-jM-68B" id="6Nn-JD-X2b"/>
@@ -1344,7 +1296,6 @@
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="dbO-YO-jW2" eventType="touchUpInside" id="MTG-hE-eTU"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" id="TnA-jr-cBJ"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID number:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FL2-ge-4fs">
@@ -1354,22 +1305,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Month:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-IC-G1x">
-                                                <rect key="frame" x="196" y="696" width="75" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="birthdate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBW-8b-kaA">
-                                                <rect key="frame" x="36" y="701" width="75" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQv-2w-Fma">
-                                                <rect key="frame" x="120" y="696" width="75" height="30"/>
+                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthdate:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQv-2w-Fma">
+                                                <rect key="frame" x="36" y="696" width="342" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1412,13 +1349,6 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N85-sb-Tcm">
                                                 <rect key="frame" x="36" y="324" width="342" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moc-bP-YIV">
-                                                <rect key="frame" x="272" y="696" width="75" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1472,14 +1402,12 @@
                         <outlet property="imageBG" destination="kFe-1O-nsl" id="Qgb-nQ-YtI"/>
                         <outlet property="imageView" destination="mOh-Rf-nDH" id="GcV-yP-7uu"/>
                         <outlet property="insertImageButton" destination="wfJ-iO-9qm" id="1rQ-Rg-lPC"/>
-                        <outlet property="month" destination="Q6u-IC-G1x" id="sfP-tf-kYr"/>
                         <outlet property="password" destination="h3k-Pd-dzx" id="lO4-jw-tYK"/>
-                        <outlet property="year" destination="moc-bP-YIV" id="dhY-Mq-kRY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZII-9i-dxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5267" y="1932"/>
+            <point key="canvasLocation" x="-5268.115942028986" y="1931.2500000000002"/>
         </scene>
         <!--Registration-->
         <scene sceneID="YM7-kH-w1H">
@@ -1563,7 +1491,6 @@
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="Dy9-MX-MeB"/>
-                                                    <segue destination="Zxo-xH-bG4" kind="show" id="a9M-9i-Tj5"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact number:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8B3-ts-1fd">
@@ -3814,7 +3741,7 @@
         <!--Profile-->
         <scene sceneID="MUf-Ba-ywM">
             <objects>
-                <viewController id="dWT-sX-tHU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" title="Profile" id="dWT-sX-tHU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JaN-ug-ovW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1030"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4315,7 +4242,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MnB-EQ-lzC"/>
-        <segue reference="Wkv-BX-Ccg"/>
         <segue reference="nR4-bk-sbo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -25,18 +25,19 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var Email: UITextField!
     @IBOutlet weak var Position: UITextField!
     @IBOutlet weak var date: UITextField!
-    @IBOutlet weak var month: UITextField!
-    @IBOutlet weak var year: UITextField!
     @IBOutlet weak var ContinueButton: UIButton!
     
     
     let picker = UIImagePickerController()
+    let datePicker = UIDatePicker()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
+    var type = "Staff"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDatePicker()
         
         picker.delegate = self
         fullname.delegate = self
@@ -48,8 +49,7 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
         Email.delegate = self
         Position.delegate = self
         date.delegate = self
-        month.delegate = self
-        year.delegate = self
+
         
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
@@ -82,7 +82,7 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
-        guard fullname.text != "", Username.text != "", password.text != "", conPassword.text != "", IDnumber.text != "", ContactNumber.text != "", Email.text != "", Position.text != "", date.text != "", month.text != "", year.text != ""
+        guard fullname.text != "", Username.text != "", password.text != "", conPassword.text != "", IDnumber.text != "", ContactNumber.text != "", Email.text != "", Position.text != "", date.text != ""
             
             else { return }
         
@@ -123,9 +123,8 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                                                                  "Contact number": self.ContactNumber.text!,
                                                                  "Email": self.Email.text!,
                                                                  "Position" : self.Position.text!,
-                                                                 "BirthDate-Date": self.date.text!,
-                                                                 "BirthDate-Month": self.month.text!,
-                                                                 "BirthDate-Year": self.year.text!,
+                                                                 "BirthDate-Date": self.date.text!,                                                           
+                                                                 "Type": self.type,
                                                                  "urlToImage": url.absoluteString
                                     
                                 ]
@@ -181,17 +180,36 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
         textField.resignFirstResponder()
         return true
     }
+    func createDatePicker() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([done], animated: false)
+        
+        date.inputAccessoryView = toolbar
+        date.inputView = datePicker
+        
+        // format picker for date
+        datePicker.datePickerMode = .date
+    }
+    
+    @objc func donePressed() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: datePicker.date)
+        
+        date.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+ 
     
 }
 

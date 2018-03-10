@@ -26,16 +26,17 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var career: UITextField!
   
     @IBOutlet weak var birthdate: UITextField!
-    @IBOutlet weak var birthmonth: UITextField!
-    @IBOutlet weak var birthyear: UITextField!
     @IBOutlet weak var continueButton: UIButton!
 
     let picker = UIImagePickerController()
+    let datePicker = UIDatePicker()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
+    var type = "Alumni"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDatePicker()
         
         picker.delegate = self
         fullName.delegate = self
@@ -48,10 +49,8 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         email.delegate = self
         career.delegate = self
         major.delegate = self
-   
         birthdate.delegate = self
-        birthmonth.delegate = self
-        birthyear.delegate = self
+
         
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
@@ -84,7 +83,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
     @IBAction func ContinuePressed(_ sender: Any) {
         guard fullName.text != "",
             studentID.text != "",
-            username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != "", birthmonth.text != "", birthyear.text != ""
+            username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != ""
             
             else { return }
         
@@ -133,8 +132,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
 
                                                                  "Email" : self.email.text!,
                                                                  "BirthDate-Date": self.birthdate.text!,
-                                                                 "BirthDate-Month": self.birthmonth.text!,
-                                                                 "BirthDate-Year": self.birthyear.text!,
+                                                                 "Type": self.type,
                                                                  "urlToImage": url.absoluteString
                                     
                                 ]
@@ -191,16 +189,33 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         textField.resignFirstResponder()
         return true
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func createDatePicker() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([done], animated: false)
+        
+        birthdate.inputAccessoryView = toolbar
+        birthdate.inputView = datePicker
+        
+        // format picker for date
+        datePicker.datePickerMode = .date
     }
-    */
+    @objc func donePressed() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: datePicker.date)
+        
+        birthdate.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
+
+    
 
 }
