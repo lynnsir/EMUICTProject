@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AlumniSearchViewController: UIViewController {
+class AlumniSearchViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    let trackPicker = UIPickerView()
+    
     @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var studentID: UITextField!
     @IBOutlet weak var major: UITextField!
@@ -34,9 +38,28 @@ class AlumniSearchViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
+        trackPicker.delegate = self
+        trackPicker.dataSource = self
+        major.inputView = trackPicker
 
        
     }
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return track.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return track[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        major.text = track[row]
+        self.view.endEditing(false)
+    }
+    
 
 
     

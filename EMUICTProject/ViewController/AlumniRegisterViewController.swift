@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate , UIPickerViewDataSource, UIPickerViewDelegate{
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageBG: UIView!
     @IBOutlet weak var insertImageButton: UIButton!
@@ -33,10 +33,16 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
     var userStorage: StorageReference!
     var ref: DatabaseReference!
     var type = "Alumni"
+    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    
+    let trackPicker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
+        trackPicker.delegate = self
+        trackPicker.dataSource = self
+        major.inputView = trackPicker
         
         picker.delegate = self
         fullName.delegate = self
@@ -76,6 +82,21 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
             continueButton.isHidden = false
         }
         self.dismiss(animated: true, completion:nil)
+    }
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return track.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return track[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        major.text = track[row]
+        self.view.endEditing(false)
     }
     
 

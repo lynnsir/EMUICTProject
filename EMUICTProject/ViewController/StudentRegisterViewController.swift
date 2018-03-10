@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class StudentRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class StudentRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     @IBOutlet weak var imageView: UIImageView!
@@ -35,12 +35,17 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     var userStorage: StorageReference!
     var ref: DatabaseReference!
     var type = "Student"
-    
+    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    let trackPicker = UIPickerView()
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
+        
+        trackPicker.delegate = self
+        trackPicker.dataSource = self
+        major.inputView = trackPicker
         
         
         picker.delegate = self
@@ -86,7 +91,22 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
         }
         self.dismiss(animated: true, completion:nil)
     }
-        
+    
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return track.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return track[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        major.text = track[row]
+        self.view.endEditing(false)
+    }
 
     
     

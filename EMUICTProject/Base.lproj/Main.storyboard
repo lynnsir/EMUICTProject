@@ -797,7 +797,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWy-oR-T3A">
+                                            <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year:(1,2,3,4)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWy-oR-T3A">
                                                 <rect key="frame" x="36" y="638" width="342" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
@@ -4241,7 +4241,7 @@
         <image name="watchlist" width="40" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MnB-EQ-lzC"/>
+        <segue reference="Oz5-Ht-Ibv"/>
         <segue reference="nR4-bk-sbo"/>
     </inferredMetricsTieBreakers>
 </document>
