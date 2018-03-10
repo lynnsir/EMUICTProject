@@ -14,17 +14,13 @@ class CompanySearchViewController: UIViewController {
     @IBAction func searchPressed(_ sender: Any) {
         
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CompanyReport") as? CompanyReportViewController
-            
+    
         {
             if let navigator = self.navigationController {
                 navigator.show(vc, sender: true)
             }
-            
             vc.compName = companyName.text
-            
-            
-            
-            
+   
         }
         
     }
