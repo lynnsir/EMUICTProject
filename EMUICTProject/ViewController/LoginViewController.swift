@@ -47,6 +47,30 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func ForgetPwd(_ sender: Any) {
+        if email.text != ""{
+            Auth.auth().sendPasswordReset(withEmail: email.text!) { error in
+                
+                if error != nil
+                {
+                    print(error!)
+                }
+                else
+                {
+                    print("Send email!")
+                }
+                
+            }
+        }else{
+            
+             displyAlertMessage(userMessage: "Please fill in your email")
+        }
+        
+     
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

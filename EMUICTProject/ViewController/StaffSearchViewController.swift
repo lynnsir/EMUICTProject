@@ -31,7 +31,7 @@ class StaffSearchViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         fullname.delegate = self
-        position.delegate = self
+        position.delegate = self  
         
     }
 
