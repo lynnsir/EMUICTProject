@@ -128,9 +128,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                     
                                     vc.name = self.companyName.text
                                     vc.type = "Company"
-                                    
-                                    
-                                    
+   
                                 }
                                 
                             }

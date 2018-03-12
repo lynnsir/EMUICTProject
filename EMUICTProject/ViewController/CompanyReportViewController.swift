@@ -21,7 +21,7 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if compName != nil{
+        if compName != ""{
             getCompanyName()
         }
         else {

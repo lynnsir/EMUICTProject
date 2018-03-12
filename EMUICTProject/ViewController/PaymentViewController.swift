@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController,UITextFieldDelegate  {
+class PaymentViewController: UIViewController,UITextFieldDelegate,UINavigationControllerDelegate  {
     
     var totalPrice :String!
 
@@ -41,9 +41,7 @@ class PaymentViewController: UIViewController,UITextFieldDelegate  {
         let alert = UIAlertController(title: "Success", message:   "Payment is confirmed!", preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
-            self.present(nextViewController, animated: true, completion: nil)
+            _ = self.navigationController?.popToRootViewController(animated: true)
         })
         
         alert.addAction(OKAction)

@@ -60,7 +60,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         picker.delegate = self
         
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
-        
+
         ref = Database.database().reference()
         userStorage = storage.child("Alluser")
         
@@ -110,16 +110,14 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
                         print("Success:Change Password")
                     }
                 })
+            
+            updateUsersProfile()
+            
+            _ = navigationController?.popViewController(animated: true)
+            
         }
-        
-        
-
-            //update value to firebase
-        
-
-        
-        
-        
+       
+     
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -146,6 +144,65 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
             }
             }.resume()
     }
+    
+    func updateUsersProfile(){
+        //check to see if the user is logged in
+        if let user = Auth.auth().currentUser?.uid{
+            //create an access point for the Firebase storage
+            let imageRef = userStorage.child("\(user).jpg")
+            //get the image uploaded from photo library ***
+            //guard let image = imgPro.image else {return}
+
+            
+             let data = UIImageJPEGRepresentation(self.imgPro.image!, 0.5)
+            
+            let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
+                if err != nil{
+                    print(err!.localizedDescription)
+                }
+                //upload to firebase storage
+                
+                imageRef.downloadURL(completion: { (url, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    if let profilePhotoURL = url?.absoluteString{
+                        
+                        let newUpdatedProfile:[String : Any] =
+                            [
+                                "Company name": self.comname.text!,
+                                "Username": self.username.text!,
+                                "Contact number":self.ConNumber.text!,
+                                "Email":self.email.text!,
+                                "Contact Name":self.conName.text!,
+                                "Company Description":self.comdescription.text!,
+                                "urlToImage":profilePhotoURL
+                        ]
+                        //update the firebase database for that user
+                        self.ref.child("Alluser").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
+                            if error != nil{
+                                print(error!)
+                                return
+                            }
+                            print("Profile Successfully Update in All user")
+                        })
+                        self.ref.child("Company user").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
+                            if error != nil{
+                                print(error!)
+                                return
+                            }
+                            print("Profile Successfully Update in Company user")
+                        })
+                    }
+                })
+            })
+            uploadTask.resume()
+            
+        }
+    }
+
+ 
 
     
     func displyAlertMessage(userMessage:String){
@@ -168,6 +225,6 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
     }
     
     
- 
 
-}
+
+    }
