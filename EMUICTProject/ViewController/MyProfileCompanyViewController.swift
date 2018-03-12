@@ -26,19 +26,12 @@ class MyProfileCompanyViewController: UIViewController {
     @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var conName: UILabel!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getCompanyProfile()
 
-        
-        getImage(url: imageURL) { photo in
-            if photo != nil {
-                DispatchQueue.main.async {
-                    self.imgPro.image = photo
-                }
-            }
-        }
-        
         self.imgPro.layer.cornerRadius = self.imgPro.frame.size.width / 2
         self.imgPro.clipsToBounds = true
         
@@ -55,7 +48,7 @@ class MyProfileCompanyViewController: UIViewController {
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
-            vc.imageURL = imageURL
+            vc.imageUR = imageURL
             vc.compname = companyName.text
             vc.conNumb = phoneNumber.text
             vc.mail = email.text
@@ -66,8 +59,7 @@ class MyProfileCompanyViewController: UIViewController {
         }
     }
     
-    
-    
+ 
      func getCompanyProfile(){
      let rootRef = Database.database().reference()
      if let userID = Auth.auth().currentUser?.uid{
@@ -81,7 +73,16 @@ class MyProfileCompanyViewController: UIViewController {
      self.conName.text = values?["Contact Name"] as? String
      self.email.text = values?["Email"] as? String
      self.phoneNumber.text = values?["Contact number"] as? String
-     
+     self.imageURL = values?["urlToImage"] as? String
+  
+        self.getImage(url: self.imageURL) { photo in
+            if photo != nil {
+                DispatchQueue.main.async {
+                    self.imgPro.image = photo
+                }
+            }
+        }
+
      })
      
      }

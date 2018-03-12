@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class StudentSearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class StudentSearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate  {
     
     var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
     let trackPicker = UIPickerView()
@@ -46,6 +46,11 @@ class StudentSearchViewController: UIViewController, UIPickerViewDataSource, UIP
         trackPicker.delegate = self
         trackPicker.dataSource = self
         major.inputView = trackPicker
+        
+        name.delegate = self
+       year.delegate = self
+        major.delegate = self
+       studentID.delegate = self
     }
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -61,6 +66,15 @@ class StudentSearchViewController: UIViewController, UIPickerViewDataSource, UIP
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         major.text = track[row]
         self.view.endEditing(false)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 

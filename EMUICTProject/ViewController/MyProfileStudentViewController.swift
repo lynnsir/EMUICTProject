@@ -31,13 +31,7 @@ class MyProfileStudentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getImage(url: imageURL) { photo in
-            if photo != nil {
-                DispatchQueue.main.async {
-                    self.imgPro.image = photo
-                }
-            }
-        }
+        getProfile()
         
         self.imgPro.layer.cornerRadius = self.imgPro.frame.size.width / 2
         self.imgPro.clipsToBounds = true
@@ -55,6 +49,14 @@ class MyProfileStudentViewController: UIViewController {
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
+            vc.imageUR = imageURL
+            vc.fname = fullname.text
+            vc.uname = username.text
+            vc.conNumb = phoneNumber.text
+            vc.yr = year.text
+            vc.mj = major.text
+            vc.mail = email.text
+            vc.bd = birthday.text
   
         }
     }
@@ -62,7 +64,7 @@ class MyProfileStudentViewController: UIViewController {
     func getProfile(){
         let rootRef = Database.database().reference()
         if let userID = Auth.auth().currentUser?.uid{
-            rootRef.child("Student").child(userID).observe(.value, with: { (snapshot) in
+            rootRef.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
     
                 let values = snapshot.value as? NSDictionary
                 self.imageURL = values?["urlToImage"] as? String
@@ -75,7 +77,15 @@ class MyProfileStudentViewController: UIViewController {
                 self.major.text = values?["Major"] as? String
                 self.email.text = values?["Email"] as? String
                 self.phoneNumber.text = values?["Contact number"] as? String
-                self.birthday.text = values?["Birthdate"] as? String
+                self.birthday.text = values?["BirthDate"] as? String
+                
+                self.getImage(url: self.imageURL) { photo in
+                    if photo != nil {
+                        DispatchQueue.main.async {
+                            self.imgPro.image = photo
+                        }
+                    }
+                }
 
             })
             

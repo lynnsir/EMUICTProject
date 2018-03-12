@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StaffSearchViewController: UIViewController {
+class StaffSearchViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var position: UITextField!
@@ -29,20 +29,19 @@ class StaffSearchViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        fullname.delegate = self
+        position.delegate = self
+        
     }
 
-   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
-    */
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 }

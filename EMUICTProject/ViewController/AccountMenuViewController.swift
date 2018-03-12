@@ -68,7 +68,7 @@ class AccountMenuViewController: UIViewController {
          navigator.show(vc, sender: true)
          }
          vc.type = "Company"
-            vc.imageURL = imageURL
+         
          
          }
          

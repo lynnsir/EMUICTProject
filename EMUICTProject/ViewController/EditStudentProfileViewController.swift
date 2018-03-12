@@ -9,7 +9,26 @@
 import UIKit
 import Firebase
 
-class EditStudentProfileViewController: UIViewController {
+class EditStudentProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate  {
+    
+    let picker = UIImagePickerController()
+    let datePicker = UIDatePicker()
+    var userStorage: StorageReference!
+    var ref: DatabaseReference!
+    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    let trackPicker = UIPickerView()
+    
+    var imageUR:String!
+    var fname: String!
+    var uname: String!
+    var pwd: String!
+    var conPwd: String!
+    var conNumb: String!
+    var yr: String!
+    var mj: String!
+    var mail: String!
+    var bd: String!
+
     
     @IBOutlet weak var imgPro: UIImageView!
     @IBOutlet weak var imageBG: UIView!
@@ -27,20 +46,245 @@ class EditStudentProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createDatePicker()
+        
+        trackPicker.delegate = self
+        trackPicker.dataSource = self
+        major.inputView = trackPicker
+        
+        fullname.delegate = self
+        username.delegate = self
+        password.delegate = self
+        conPassword.delegate = self
+        ConNumber.delegate = self
+        year.delegate = self
+        major.delegate = self
+        email.delegate = self
+        birthdate.delegate = self
+        
+        fullname.text = fname
+        username.text = uname
+        password.text = "123456"
+        conPassword.text = "123456"
+        ConNumber.text = conNumb
+        year.text = yr
+        major.text = mj
+        email.text = mail
+        birthdate.text = bd
+        
+        getImage(url: imageUR) { photo in
+            if photo != nil {
+                DispatchQueue.main.async {
+                    self.imgPro.image = photo
+                }
+            }
+        }
+        picker.delegate = self
+        
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+        
+        ref = Database.database().reference()
+        userStorage = storage.child("Alluser")
+        
+        self.imgPro.layer.cornerRadius = self.imgPro.frame.size.width / 2
+        self.imgPro.clipsToBounds = true
+        
+        self.imageBG.layer.cornerRadius = self.imageBG.frame.size.width/2
+        self.imageBG.clipsToBounds = true
+        
 
-        // Do any additional setup after loading the view.
+        
     }
 
     @IBAction func insertImageButton(_ sender: Any) {
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func saveButton(_ sender: Any) {
+        if password.text != conPassword.text{
+            displyAlertMessage(userMessage: "Password doesn't match!")
+        }
+            
+        else{
+            //changeEmail
+            let user = Auth.auth().currentUser
+            
+            user?.updateEmail(to: email.text!
+                , completion: { error in
+                    if let error = error{
+                        print(error)
+                    }
+                    else{
+                        print("Success:Change Email")
+                    }
+            })
+            
+            
+            //changePassword
+            user?.updatePassword(to: password.text!, completion: { (error) in
+                if let error = error{
+                    print(error)
+                }
+                else{
+                    print("Success:Change Password")
+                }
+            })
+            
+            updateUsersProfile()
+            
+            _ = navigationController?.popViewController(animated: true)
+            
+            
+            
+        }
     }
     @IBAction func cancelButton(_ sender: Any) {
+         _ = navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func DeleteButton(_ sender: Any) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            self.imgPro.image = image
+        }
+        self.dismiss(animated: true, completion:nil)
     }
+    
+    func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
+        URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
+            if error == nil {
+                completion(UIImage(data: data!))
+            } else {
+                completion(nil)
+            }
+            }.resume()
+    }
+    
+    func updateUsersProfile(){
+        //check to see if the user is logged in
+        if let user = Auth.auth().currentUser?.uid{
+            //create an access point for the Firebase storage
+            let imageRef = userStorage.child("\(user).jpg")
+            //get the image uploaded from photo library ***
+            //guard let image = imgPro.image else {return}
+            
+            
+            let data = UIImageJPEGRepresentation(self.imgPro.image!, 0.5)
+            
+            let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
+                if err != nil{
+                    print(err!.localizedDescription)
+                }
+                //upload to firebase storage
+                
+                imageRef.downloadURL(completion: { (url, error) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                    if let imageURL = url?.absoluteString{
+                        
+                        let newUpdatedProfile:[String : Any] =
+                            [
+                                "Fullname": self.fullname.text!,
+                                "Username": self.username.text!,
+                                "Contact number":self.ConNumber.text!,
+                                "Email":self.email.text!,
+                                "Year":self.year.text!,
+                                "Major":self.major.text!,
+                                  "Year_Major":self.year.text! + "_" + self.major.text!,
+                                "BirthDate":self.birthdate.text!,
+                                "urlToImage":imageURL
+                        ]
+                        //update the firebase database for that user
+                        self.imageUR = imageURL
+                        
+                        self.ref.child("Alluser").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
+                            if error != nil{
+                                print(error!)
+                                return
+                            }
+                            print("Profile Successfully Update in All user")
+                        })
+                        self.ref.child("Student user").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
+                            if error != nil{
+                                print(error!)
+                                return
+                            }
+                            print("Profile Successfully Update in Student user")
+                        })
+                    }
+                })
+            })
+            uploadTask.resume()
+            
+        }
+    }
+    
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return track.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return track[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        major.text = track[row]
+        self.view.endEditing(false)
+    }
+    
+    func createDatePicker() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([done], animated: false)
+        
+        birthdate.inputAccessoryView = toolbar
+        birthdate.inputView = datePicker
+        
+        // format picker for date
+        datePicker.datePickerMode = .date
+    }
+    @objc func donePressed() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: datePicker.date)
+        
+        birthdate.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
+    
     
 
 }

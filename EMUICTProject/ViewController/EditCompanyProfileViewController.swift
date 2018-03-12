@@ -15,7 +15,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
     var userStorage: StorageReference!
     var ref: DatabaseReference!
     
-    var imageURL:String!
+    var imageUR:String!
     var compname: String!
     var uname: String!
     var pwd: String!
@@ -40,7 +40,16 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        comname.delegate = self
+        username.delegate = self
+        password.delegate = self
+        conPassword.delegate = self
+        ConNumber.delegate = self
+        email.delegate = self
+        conName.delegate = self
+        comdescription.delegate = self
+
          comname.text = compname
          username.text = uname
          password.text = "123456"
@@ -50,7 +59,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
          conName.text = contName
          comdescription.text = comdescrip
         
-         getImage(url: imageURL) { photo in
+         getImage(url: imageUR) { photo in
             if photo != nil {
                 DispatchQueue.main.async {
                     self.imgPro.image = photo
@@ -113,7 +122,9 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
             
             updateUsersProfile()
             
-            _ = navigationController?.popViewController(animated: true)
+          _ = navigationController?.popViewController(animated: true)
+            
+            
             
         }
        
@@ -121,11 +132,11 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
     }
     
     @IBAction func cancelButton(_ sender: Any) {
+
+         _ = navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func DeleteButton(_ sender: Any) {
-        
-    }
+
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -167,7 +178,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
                         print(error!)
                         return
                     }
-                    if let profilePhotoURL = url?.absoluteString{
+                    if let imageURL = url?.absoluteString{
                         
                         let newUpdatedProfile:[String : Any] =
                             [
@@ -177,9 +188,11 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
                                 "Email":self.email.text!,
                                 "Contact Name":self.conName.text!,
                                 "Company Description":self.comdescription.text!,
-                                "urlToImage":profilePhotoURL
+                                "urlToImage":imageURL
                         ]
                         //update the firebase database for that user
+                        self.imageUR = imageURL
+                        
                         self.ref.child("Alluser").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
                             if error != nil{
                                 print(error!)
@@ -201,10 +214,47 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
             
         }
     }
-
- 
-
     
+  /*  func deleteAccountinAlluser() {
+        let user = Auth.auth().currentUser!.uid
+  
+        // Remove the image from storage
+        let imageRef = userStorage.child("\(user).jpg")
+        imageRef.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Alluser: delete image from Storage")
+            }
+        })
+        
+   
+        // Remove the post from the DB
+        self.ref.child("Alluser").child(user).removeValue()
+        print("Alluser: Delete from DB")
+}
+    
+    func deleteAccountinCompanyuser() {
+        let user = Auth.auth().currentUser!.uid
+   
+        // Remove the image from storage
+        let imageRef = userStorage.child("\(user).jpg")
+        imageRef.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Company user: delete image from Storage")
+            }
+        })
+            
+      
+        // Remove the post from the DB
+        self.ref.child("Company user").child(user).removeValue()
+        print("Company user: Delete from DB")
+  
+    } */
+    
+ 
     func displyAlertMessage(userMessage:String){
         let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
@@ -223,8 +273,6 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         textField.resignFirstResponder()
         return true
     }
-    
-    
 
 
     }

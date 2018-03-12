@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CompanySearchViewController: UIViewController {
+class CompanySearchViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var companyName: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBAction func searchPressed(_ sender: Any) {
@@ -27,8 +27,18 @@ class CompanySearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        companyName.delegate = self
 
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
    

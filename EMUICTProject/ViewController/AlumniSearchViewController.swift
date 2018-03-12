@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlumniSearchViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate {
+class AlumniSearchViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate {
     
     var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
     let trackPicker = UIPickerView()
@@ -41,6 +41,11 @@ class AlumniSearchViewController: UIViewController , UIPickerViewDataSource, UIP
         trackPicker.delegate = self
         trackPicker.dataSource = self
         major.inputView = trackPicker
+        
+        fullname.delegate = self
+        studentID.delegate = self
+        major.delegate = self
+        career.delegate = self
 
        
     }
@@ -59,7 +64,14 @@ class AlumniSearchViewController: UIViewController , UIPickerViewDataSource, UIP
         major.text = track[row]
         self.view.endEditing(false)
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 
 }
