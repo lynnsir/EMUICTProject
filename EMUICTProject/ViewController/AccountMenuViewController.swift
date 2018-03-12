@@ -18,6 +18,7 @@ class AccountMenuViewController: UIViewController {
     @IBOutlet weak var logout: UIButton!
     
     var type:String!
+    var imageURL:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class AccountMenuViewController: UIViewController {
          navigator.show(vc, sender: true)
          }
          vc.type = "Company"
+            vc.imageURL = imageURL
          
          }
          
@@ -106,15 +108,12 @@ class AccountMenuViewController: UIViewController {
                 //create a dictionary of users profile data
                 let values = snapshot.value as? NSDictionary
                 self.type = values?["Type"] as? String
+                self.imageURL = values?["urlToImage"] as? String
             })
         }
     }
-  
-    
-
     
  
-    
   
 
 }

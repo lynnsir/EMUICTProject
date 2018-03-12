@@ -123,7 +123,7 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                                                                  "Contact number": self.ContactNumber.text!,
                                                                  "Email": self.Email.text!,
                                                                  "Position" : self.Position.text!,
-                                                                 "BirthDate-Date": self.date.text!,                                                           
+                                                                 "BirthDate": self.date.text!,                                                           
                                                                  "Type": self.type,
                                                                  "urlToImage": url.absoluteString
                                     

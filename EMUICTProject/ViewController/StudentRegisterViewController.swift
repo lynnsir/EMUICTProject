@@ -160,7 +160,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                  "Major" : self.major.text!,
                                                                  "Year_Major" : self.year.text! + "_" + self.major.text!,
                                                                  "Email" : self.email.text!,
-                                                                 "BirthDate-Date": self.birthdate.text!,
+                                                                 "BirthDate": self.birthdate.text!,
                                                                  "Type" : self.type,
                                                                  "urlToImage": url.absoluteString
                                     

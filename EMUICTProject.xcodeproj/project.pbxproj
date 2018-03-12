@@ -27,6 +27,10 @@
 		85836DEC205429D500117149 /* MyProfileAlumniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85836DEB205429D500117149 /* MyProfileAlumniViewController.swift */; };
 		85836DEE205429E300117149 /* MyProfileStaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85836DED205429E300117149 /* MyProfileStaffViewController.swift */; };
 		85836DF0205429F800117149 /* MyProfileCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85836DEF205429F800117149 /* MyProfileCompanyViewController.swift */; };
+		85836DF22055244300117149 /* EditStudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85836DF12055244300117149 /* EditStudentProfileViewController.swift */; };
+		85836DF42055247800117149 /* EditAlumniProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85836DF32055247800117149 /* EditAlumniProfileViewController.swift */; };
+		85836DF62055249700117149 /* EditStaffProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85836DF52055249700117149 /* EditStaffProfileViewController.swift */; };
+		85836DF8205524A800117149 /* EditCompanyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */; };
 		85950DC920335430002D4A0B /* StudentSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DC820335430002D4A0B /* StudentSearchViewController.swift */; };
 		85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */; };
 		85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCC20335450002D4A0B /* StaffSearchViewController.swift */; };
@@ -77,6 +81,10 @@
 		85836DEB205429D500117149 /* MyProfileAlumniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileAlumniViewController.swift; sourceTree = "<group>"; };
 		85836DED205429E300117149 /* MyProfileStaffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileStaffViewController.swift; sourceTree = "<group>"; };
 		85836DEF205429F800117149 /* MyProfileCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileCompanyViewController.swift; sourceTree = "<group>"; };
+		85836DF12055244300117149 /* EditStudentProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentProfileViewController.swift; sourceTree = "<group>"; };
+		85836DF32055247800117149 /* EditAlumniProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlumniProfileViewController.swift; sourceTree = "<group>"; };
+		85836DF52055249700117149 /* EditStaffProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStaffProfileViewController.swift; sourceTree = "<group>"; };
+		85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCompanyProfileViewController.swift; sourceTree = "<group>"; };
 		85950DC820335430002D4A0B /* StudentSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCC20335450002D4A0B /* StaffSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffSearchViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +186,10 @@
 				85836DEB205429D500117149 /* MyProfileAlumniViewController.swift */,
 				85836DED205429E300117149 /* MyProfileStaffViewController.swift */,
 				85836DEF205429F800117149 /* MyProfileCompanyViewController.swift */,
+				85836DF12055244300117149 /* EditStudentProfileViewController.swift */,
+				85836DF32055247800117149 /* EditAlumniProfileViewController.swift */,
+				85836DF52055249700117149 /* EditStaffProfileViewController.swift */,
+				85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -378,6 +390,7 @@
 			files = (
 				85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */,
 				85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */,
+				85836DF22055244300117149 /* EditStudentProfileViewController.swift in Sources */,
 				0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */,
 				856BC4ED20348E4400AC712A /* StaffReportViewController.swift in Sources */,
 				85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */,
@@ -386,6 +399,7 @@
 				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
 				85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */,
 				85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */,
+				85836DF62055249700117149 /* EditStaffProfileViewController.swift in Sources */,
 				85836DEC205429D500117149 /* MyProfileAlumniViewController.swift in Sources */,
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
 				85836DE82054296800117149 /* MyProfileStudentViewController.swift in Sources */,
@@ -399,6 +413,7 @@
 				85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */,
 				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
 				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
+				85836DF42055247800117149 /* EditAlumniProfileViewController.swift in Sources */,
 				85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */,
 				85836DF0205429F800117149 /* MyProfileCompanyViewController.swift in Sources */,
 				0BCE4B28204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift in Sources */,
@@ -407,6 +422,7 @@
 				0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */,
 				85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
+				85836DF8205524A800117149 /* EditCompanyProfileViewController.swift in Sources */,
 				856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */,
 				85EF20002020422400F39134 /* AlumniRegisterViewController.swift in Sources */,
 				85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */,
@@ -557,7 +573,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J38H528F4A;
+				DEVELOPMENT_TEAM = SEF4KAHA7J;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -577,7 +593,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J38H528F4A;
+				DEVELOPMENT_TEAM = SEF4KAHA7J;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

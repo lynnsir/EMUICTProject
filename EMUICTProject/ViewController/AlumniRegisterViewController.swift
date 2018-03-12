@@ -152,7 +152,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                                                  "Career_Major": self.career.text! + "_" + self.major.text!,
 
                                                                  "Email" : self.email.text!,
-                                                                 "BirthDate-Date": self.birthdate.text!,
+                                                                 "BirthDate": self.birthdate.text!,
                                                                  "Type": self.type,
                                                                  "urlToImage": url.absoluteString
                                     
