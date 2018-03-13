@@ -108,7 +108,6 @@ class AccountMenuViewController: UIViewController {
                 //create a dictionary of users profile data
                 let values = snapshot.value as? NSDictionary
                 self.type = values?["Type"] as? String
-                self.imageURL = values?["urlToImage"] as? String
             })
         }
     }

@@ -130,6 +130,44 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
         _ = navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func deleteButton(_ sender: Any) {
+        
+        let user = Auth.auth().currentUser
+        let user2 = Auth.auth().currentUser?.uid
+        let user3 = user2
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+        
+        let userStorage1 = storage.child("Staff user")
+        
+        let imageRef2 = userStorage1.child(user2!+".jpg")
+        print(user2!+".jpg")
+        imageRef2.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Staff user: delete image from Storage")
+            }
+        })
+        
+        user?.delete { error in
+            if let error = error {
+                print(error)
+            } else {
+                Database.database().reference(withPath: "Staff user").child(user3!).removeValue()
+                print("Staff:Delete db")
+                
+                // Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
+                //  print("Alluser:Delete db")
+                
+                print("delete account success")
+                
+                
+                
+            }
+        }
+        
+    }
+    
    
     
     

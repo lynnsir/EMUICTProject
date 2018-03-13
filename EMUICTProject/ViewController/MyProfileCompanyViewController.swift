@@ -31,7 +31,8 @@ class MyProfileCompanyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getCompanyProfile()
-
+        
+   
         self.imgPro.layer.cornerRadius = self.imgPro.frame.size.width / 2
         self.imgPro.clipsToBounds = true
         
@@ -68,25 +69,24 @@ class MyProfileCompanyViewController: UIViewController {
      let values = snapshot.value as? NSDictionary
      self.uid = values?["uid"] as? String
      self.companyName.text = values?["Company name"] as? String
-        self.username.text = values?["Username"] as? String
+     self.username.text = values?["Username"] as? String
      self.comDescription.text = values?["Company Description"] as? String
      self.conName.text = values?["Contact Name"] as? String
      self.email.text = values?["Email"] as? String
      self.phoneNumber.text = values?["Contact number"] as? String
      self.imageURL = values?["urlToImage"] as? String
-  
+        
         self.getImage(url: self.imageURL) { photo in
             if photo != nil {
                 DispatchQueue.main.async {
                     self.imgPro.image = photo
-                }
-            }
-        }
+                }}}
 
      })
-     
-     }
-     }
+  }
+ 
+    
+    }
     
     func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
         URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
@@ -94,6 +94,7 @@ class MyProfileCompanyViewController: UIViewController {
                 completion(UIImage(data: data!))
             } else {
                 completion(nil)
+                print(error!)
             }
             }.resume()
     }

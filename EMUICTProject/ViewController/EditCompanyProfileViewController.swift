@@ -139,17 +139,37 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
 
     @IBAction func deleteButton(_ sender: Any) {
         
-        deleteAccountinAlluser()
-        deleteAccountinCompanyuser()
-   
         let user = Auth.auth().currentUser
-        
+        let user2 = Auth.auth().currentUser?.uid
+        let user3 = user2
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+    
+        let userStorage1 = storage.child("Company user")
+    
+        let imageRef2 = userStorage1.child(user2!+".jpg")
+        print(user2!+".jpg")
+        imageRef2.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Company user: delete image from Storage")
+            }
+        })
+
         user?.delete { error in
             if let error = error {
                 print(error)
             } else {
+              Database.database().reference(withPath: "Company user").child(user3!).removeValue()
+             print("Company:Delete db")
+                
+              // Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
+              //  print("Alluser:Delete db")
+      
                 print("delete account success")
-                _ = self.navigationController?.popToRootViewController(animated: true)
+               
+                
+                
             }
         }
         
@@ -211,16 +231,16 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
                         self.imageUR = imageURL
                         
                         self.ref.child("Alluser").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
-                            if error != nil{
-                                print(error!)
-                                return
+                            if let error = error{
+                                print(error)
+                                //return
                             }
                             print("Profile Successfully Update in All user")
                         })
                         self.ref.child("Company user").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
-                            if error != nil{
-                                print(error!)
-                                return
+                            if let error = error{
+                                print(error)
+                                //return
                             }
                             print("Profile Successfully Update in Company user")
                         })
@@ -232,49 +252,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         }
     }
     
-    func deleteAccountinAlluser() {
-        let user = Auth.auth().currentUser!.uid
-        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
-        let userStorage = storage.child("Alluser")
-  
-        // Remove the image from storage
-        let imageRef = userStorage.child("\(user).jpg")
-        imageRef.delete(completion: { error in
-            if let error = error {
-                print(error)
-            } else {
-                print("Alluser: delete image from Storage")
-            }
-        })
-        
    
-        // Remove the post from the DB
-        self.ref.child("Alluser").child(user).removeValue()
-        print("Alluser: Delete from DB")
-}
-    
-    func deleteAccountinCompanyuser() {
-        let user = Auth.auth().currentUser!.uid
-        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
-         let userStorage1 = storage.child("Company user")
-   
-        // Remove the image from storage
-        let imageRef = userStorage1.child("\(user).jpg")
-        imageRef.delete(completion: { error in
-            if let error = error {
-                print(error)
-            } else {
-                print("Company user: delete image from Storage")
-            }
-        })
-            
-      
-        // Remove the post from the DB
-        self.ref.child("Company user").child(user).removeValue()
-        print("Company user: Delete from DB")
-  
-    } 
-    
  
     func displyAlertMessage(userMessage:String){
         let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);

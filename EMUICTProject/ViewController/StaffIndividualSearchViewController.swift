@@ -16,9 +16,7 @@ class StaffIndividualSearchViewController: UIViewController {
     var pos: String!
     var mail: String!
     var phonenum: String!
-    
-    
-    
+   
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullname: UILabel!
     @IBOutlet weak var position: UILabel!
@@ -44,9 +42,7 @@ class StaffIndividualSearchViewController: UIViewController {
         
         self.imageBG.layer.cornerRadius = self.imageBG.frame.size.width/2
         self.imageBG.clipsToBounds = true
-        
-        
-        
+
     }
     
     func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
@@ -58,9 +54,5 @@ class StaffIndividualSearchViewController: UIViewController {
             }
             }.resume()
     }
-
-
-
-
 
 }

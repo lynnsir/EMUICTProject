@@ -83,6 +83,7 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                 
                 if let error = error{
                     print(error.localizedDescription)
+                    self.displyAlertMessage(userMessage: error.localizedDescription)
                 }
                 
                 if let user = user{

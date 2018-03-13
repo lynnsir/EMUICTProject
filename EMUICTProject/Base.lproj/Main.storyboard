@@ -3791,6 +3791,17 @@
                                                     <action selector="cancelButton:" destination="OXg-A0-4zn" eventType="touchUpInside" id="ZyC-sO-KH3"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlh-mA-oyL">
+                                                <rect key="frame" x="182" y="888" width="45" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="deleteButton:" destination="OXg-A0-4zn" eventType="touchUpInside" id="3PY-FM-Xjo"/>
+                                                    <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="qlh-mA-oyL" id="oa8-PS-bUW">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -3836,7 +3847,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKt-Ie-rBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14679.710144927538" y="4853.804347826087"/>
+            <point key="canvasLocation" x="14664" y="4853"/>
         </scene>
         <!--My Profile Student View Controller-->
         <scene sceneID="dZ5-QC-mCT">
@@ -4794,6 +4805,17 @@
                                                     <action selector="cancelButton:" destination="nmd-vA-rwj" eventType="touchUpInside" id="8Xd-aX-vJX"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPX-T9-bML">
+                                                <rect key="frame" x="185" y="793" width="45" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="deleteButton:" destination="nmd-vA-rwj" eventType="touchUpInside" id="wsa-VC-2tH"/>
+                                                    <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="YPX-T9-bML" id="WMO-Uo-AKs">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -4838,7 +4860,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsR-b4-6TH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15513.04347826087" y="4824.864130434783"/>
+            <point key="canvasLocation" x="15496" y="4824"/>
         </scene>
         <!--Edit Staff Profile View Controller-->
         <scene sceneID="6dq-nP-Pz5">
@@ -4953,6 +4975,17 @@
                                                     <action selector="saveButton:" destination="r60-zV-e3I" eventType="touchUpInside" id="LjG-ws-7cb"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekd-Rh-c03">
+                                                <rect key="frame" x="188" y="869" width="45" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="deleteButton:" destination="r60-zV-e3I" eventType="touchUpInside" id="4So-yP-Vrw"/>
+                                                    <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="Ekd-Rh-c03" id="Fzk-NG-2wm">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -4997,7 +5030,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxm-u1-jA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16385.507246376812" y="4852.989130434783"/>
+            <point key="canvasLocation" x="16370" y="4851"/>
         </scene>
         <!--Edit Company Profile View Controller-->
         <scene sceneID="952-s7-aP4">
@@ -5119,6 +5152,9 @@
                                                 <state key="normal" title="Delete"/>
                                                 <connections>
                                                     <action selector="deleteButton:" destination="pjr-Rw-Fgw" eventType="touchUpInside" id="I7Z-wB-f7U"/>
+                                                    <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="q4a-bi-BHv" id="t6i-tO-Ti2">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -5533,5 +5569,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="MnB-EQ-lzC"/>
         <segue reference="nR4-bk-sbo"/>
+        <segue reference="Fzk-NG-2wm"/>
     </inferredMetricsTieBreakers>
 </document>
