@@ -54,13 +54,11 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
                     let fullname = value["Full name"] as? String ?? "Full name not found"
                     let Position = value["Position"] as? String ?? "Position not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
                     user.position = Position
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.staffReport.append(user)
                     
@@ -84,13 +82,11 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
                     let fullname = value["Full name"] as? String ?? "Full name not found"
                     let Position = value["Position"] as? String ?? "Position not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
                     user.position = Position
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.staffReport.append(user)
                     
@@ -114,13 +110,11 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
                     let fullname = value["Full name"] as? String ?? "Full name not found"
                     let Position = value["Position"] as? String ?? "Position not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
                     user.position = Position
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.staffReport.append(user)
                     
@@ -158,7 +152,6 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
             vc.name = user.fullname
             vc.pos = user.position
             vc.mail = user.email
-            vc.phonenum = user.telephoneNumber
             vc.imageURL = user.imageProfile
             
         }

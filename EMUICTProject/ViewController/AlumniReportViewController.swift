@@ -65,7 +65,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     let major = value["Major"] as? String ?? "Major not found"
                     let career = value["Career"] as? String ?? "Career not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -73,7 +72,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     user.major = major
                     user.career = career
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.alumniReport.append(user)
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -96,7 +94,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     let major = value["Major"] as? String ?? "Major not found"
                     let career = value["Career"] as? String ?? "Career not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -104,7 +101,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     user.major = major
                     user.career = career
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.alumniReport.append(user)
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -127,7 +123,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     let major = value["Major"] as? String ?? "Major not found"
                     let career = value["Career"] as? String ?? "Career not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -135,7 +130,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     user.major = major
                     user.career = career
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.alumniReport.append(user)
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -158,7 +152,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     let major = value["Major"] as? String ?? "Major not found"
                     let career = value["Career"] as? String ?? "Career not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -166,7 +159,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     user.major = major
                     user.career = career
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.alumniReport.append(user)
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -189,7 +181,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     let major = value["Major"] as? String ?? "Major not found"
                     let career = value["Career"] as? String ?? "Career not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -197,7 +188,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     user.major = major
                     user.career = career
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.alumniReport.append(user)
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -220,7 +210,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     let major = value["Major"] as? String ?? "Major not found"
                     let career = value["Career"] as? String ?? "Career not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -228,7 +217,6 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
                     user.major = major
                     user.career = career
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.alumniReport.append(user)
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -271,24 +259,11 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
             vc.mj = user.major
             vc.job = user.career
             vc.mail = user.email
-            vc.phonenum = user.telephoneNumber
             vc.imageURL = user.imageProfile
             
-            
-
-            
-           
-            
         }
-        
-        
-        
-        
+         
     }
-
-  
-    
-
 
 
 }

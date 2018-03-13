@@ -14,7 +14,6 @@ class CompanyReport: NSObject {
     var companyDes: String!
     var email : String!
     var phone: String!
-    var contactName : String!
     var imageProfile : String!
     var uid: String!
     

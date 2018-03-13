@@ -130,7 +130,8 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
         _ = navigationController?.popViewController(animated: true)
     }
     
-
+   
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {

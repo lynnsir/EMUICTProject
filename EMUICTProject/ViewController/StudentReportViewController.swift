@@ -77,7 +77,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                         let year = value["Year"] as? String ?? "Year not found"
                         let Major = value["Major"] as? String ?? "Major not found"
                         let email = value["Email"] as? String ?? "email not found"
-                        let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                         let imagePath = value["urlToImage"] as? String ?? "Image not found"
                         user.fullname = fullname
                         user.uid = uid
@@ -85,7 +84,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                         user.year = year
                         user.major = Major
                         user.email = email
-                        user.telephoneNumber = tNumber
                         user.imageProfile = imagePath
                         self.studentReport.append(user)
 
@@ -108,7 +106,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     let year = value["Year"] as? String ?? "Year not found"
                     let Major = value["Major"] as? String ?? "Major not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -116,7 +113,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     user.year = year
                     user.major = Major
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.studentReport.append(user)
                     
@@ -139,7 +135,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     let year = value["Year"] as? String ?? "Year not found"
                     let Major = value["Major"] as? String ?? "Major not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -147,7 +142,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     user.year = year
                     user.major = Major
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.studentReport.append(user)
                     
@@ -170,7 +164,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     let year = value["Year"] as? String ?? "Year not found"
                     let Major = value["Major"] as? String ?? "Major not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -178,7 +171,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     user.year = year
                     user.major = Major
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.studentReport.append(user)
                     
@@ -201,7 +193,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     let year = value["Year"] as? String ?? "Year not found"
                     let Major = value["Major"] as? String ?? "Major not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -209,7 +200,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     user.year = year
                     user.major = Major
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.studentReport.append(user)
                     
@@ -232,7 +222,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     let year = value["Year"] as? String ?? "Year not found"
                     let Major = value["Major"] as? String ?? "Major not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     user.fullname = fullname
                     user.uid = uid
@@ -240,7 +229,6 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
                     user.year = year
                     user.major = Major
                     user.email = email
-                    user.telephoneNumber = tNumber
                     user.imageProfile = imagePath
                     self.studentReport.append(user)
                     
@@ -285,21 +273,12 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
             vc.yr = user.year
             vc.mj = user.major
             vc.mail = user.email
-            vc.number = user.telephoneNumber
             vc.img = user.imageProfile
             
         }
-        
-    
-     
 
     }
-   
-    
-    
-
     
   
-   
 
 }

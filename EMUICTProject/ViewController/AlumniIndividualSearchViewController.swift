@@ -28,7 +28,6 @@ class AlumniIndividualSearchViewController: UIViewController {
     @IBOutlet weak var major: UILabel!
     @IBOutlet weak var career: UILabel!
     @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var phone: UILabel!
     
     
     
@@ -40,7 +39,6 @@ class AlumniIndividualSearchViewController: UIViewController {
         major.text = mj
         career.text = job
         email.text = mail
-        phone.text = phonenum
         
         getImage(url: imageURL) { photo in
             if photo != nil {

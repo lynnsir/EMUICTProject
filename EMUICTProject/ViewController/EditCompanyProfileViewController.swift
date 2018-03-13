@@ -137,6 +137,23 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
     }
     
 
+    @IBAction func deleteButton(_ sender: Any) {
+        
+        deleteAccountinAlluser()
+        deleteAccountinCompanyuser()
+   
+        let user = Auth.auth().currentUser
+        
+        user?.delete { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("delete account success")
+                _ = self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+        
+    }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -215,8 +232,10 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         }
     }
     
-  /*  func deleteAccountinAlluser() {
+    func deleteAccountinAlluser() {
         let user = Auth.auth().currentUser!.uid
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+        let userStorage = storage.child("Alluser")
   
         // Remove the image from storage
         let imageRef = userStorage.child("\(user).jpg")
@@ -236,9 +255,11 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
     
     func deleteAccountinCompanyuser() {
         let user = Auth.auth().currentUser!.uid
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+         let userStorage1 = storage.child("Company user")
    
         // Remove the image from storage
-        let imageRef = userStorage.child("\(user).jpg")
+        let imageRef = userStorage1.child("\(user).jpg")
         imageRef.delete(completion: { error in
             if let error = error {
                 print(error)
@@ -252,7 +273,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         self.ref.child("Company user").child(user).removeValue()
         print("Company user: Delete from DB")
   
-    } */
+    } 
     
  
     func displyAlertMessage(userMessage:String){

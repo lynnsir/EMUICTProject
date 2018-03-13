@@ -46,19 +46,14 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
                     let uid = value["uid"] as? String ?? "not found"
                     let comName = value["Company name"] as? String ?? "Full name not found"
                     let comDes = value["Company Description"] as? String ?? "Not found"
-                    let conname = value["Contact Name"] as? String ?? "Contact Name not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     
                     user.companyName = comName
                     user.uid = uid
                     user.companyDes = comDes
-                    user.contactName = conname
                     user.email = email
-                    user.phone = tNumber
                     user.imageProfile = imagePath
-                    
                     self.companyReport.append(user)
                     
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -81,19 +76,14 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
                     let uid = value["uid"] as? String ?? "not found"
                     let comName = value["Company name"] as? String ?? "Full name not found"
                     let comDes = value["Company Description"] as? String ?? "Not found"
-                    let conname = value["Contact Name"] as? String ?? "Contact Name not found"
                     let email = value["Email"] as? String ?? "email not found"
-                    let tNumber = value["Contact number"] as? String ?? "Contact Number not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     
                     user.companyName = comName
                     user.uid = uid
                     user.companyDes = comDes
-                    user.contactName = conname
                     user.email = email
-                    user.phone = tNumber
                     user.imageProfile = imagePath
-                    
                     self.companyReport.append(user)
                     
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -128,9 +118,7 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
             let user = companyReport[indexPath.row]
             vc.nameCompany = user.companyName
             vc.des = user.companyDes
-            vc.conname = user.contactName
             vc.mail = user.email
-            vc.phonenum = user.phone
             vc.imageURL = user.imageProfile
             
             

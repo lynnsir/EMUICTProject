@@ -17,7 +17,6 @@ class StudentIndividualSearchViewController: UIViewController {
     var yr : String!
     var mj : String!
     var mail : String!
-    var number : String!
     var uid: String!
     
     @IBOutlet weak var imageBG: UIView!
@@ -27,7 +26,6 @@ class StudentIndividualSearchViewController: UIViewController {
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var major: UILabel!
     @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var telephoneNumber: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +34,6 @@ class StudentIndividualSearchViewController: UIViewController {
         year.text = yr
         major.text = mj
         email.text = mail
-        telephoneNumber.text = number
         
         getImage(url: img) { photo in
             if photo != nil {
