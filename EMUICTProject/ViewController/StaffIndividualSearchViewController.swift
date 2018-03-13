@@ -23,7 +23,6 @@ class StaffIndividualSearchViewController: UIViewController {
     @IBOutlet weak var fullname: UILabel!
     @IBOutlet weak var position: UILabel!
     @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var imageBG: UIView!
     
     override func viewDidLoad() {
@@ -32,7 +31,6 @@ class StaffIndividualSearchViewController: UIViewController {
         fullname.text = name
         position.text = pos
         email.text = mail
-        phone.text = phonenum
         
         getImage(url: imageURL) { photo in
             if photo != nil {

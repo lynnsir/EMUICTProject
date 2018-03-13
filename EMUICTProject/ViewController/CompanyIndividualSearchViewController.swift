@@ -35,7 +35,7 @@ class CompanyIndividualSearchViewController: UIViewController {
         companyDes.text = des
         contactname.text = conname
         email.text = mail
-        phone.text = phonenum
+
         
         getImage(url: imageURL) { photo in
             if photo != nil {

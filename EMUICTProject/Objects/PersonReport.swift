@@ -16,7 +16,6 @@ class PersonReport: NSObject {
     var year : String!
     var major : String!
     var email : String!
-    var telephoneNumber : String!
     var uid: String!
     
     var career: String!
