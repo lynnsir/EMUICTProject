@@ -44,19 +44,20 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         
         let userid = Auth.auth().currentUser!.uid
         let boardid = boardId!
-        let bimg = img!
+//        let bimg = img!
         let title = Title!
-        let bcontent = content!
-        let bcreator = creator!
+//        let bcontent = content!
+//        let bcreator = creator!
+        let boardType = "NewAndEventPost"
         
         let addWatchlist : [String : Any] = [
-            "boardId": boardid as AnyObject,
             "BoardTitle": title as AnyObject,
-            "BoardContent": bcontent as AnyObject,
-            "BoardCreator": bcreator as AnyObject,
-            "BoardImgURL": bimg as AnyObject
+//            "BoardContent": bcontent as AnyObject,
+//            "BoardCreator": bcreator as AnyObject,
+//            "BoardImgURL": bimg as AnyObject,
+            "BoardType" : boardType as AnyObject
         ]
-        Database.database().reference().child("Watchlist").child("\(userid)").setValue(addWatchlist)
+        Database.database().reference().child("Watchlist").child("\(userid)").child("\(boardid)").setValue(addWatchlist)
         //add all data of post to watch list child
     }
     
