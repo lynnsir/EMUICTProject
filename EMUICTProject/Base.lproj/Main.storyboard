@@ -611,14 +611,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGy-n3-Sup">
-                                <rect key="frame" x="73" y="343" width="80" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="profile"/>
-                                <connections>
-                                    <action selector="ProfileButton:" destination="Y3t-NC-h6E" eventType="touchUpInside" id="Zyf-cT-0wZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpv-dJ-F8u">
                                 <rect key="frame" x="291" y="428" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -641,9 +633,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ba-6Y-9fj">
-                                <rect key="frame" x="66" y="140" width="95" height="104"/>
+                                <rect key="frame" x="62" y="129" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="watchlist"/>
+                                <state key="normal" image="watchlist-icon"/>
                                 <connections>
                                     <segue destination="RE0-kD-eTM" kind="show" id="cfw-AK-89x">
                                         <nil key="action"/>
@@ -651,20 +643,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndb-t7-t06">
-                                <rect key="frame" x="270" y="152" width="82" height="81"/>
+                                <rect key="frame" x="270" y="129" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="order"/>
                                 <connections>
                                     <segue destination="WF2-Bl-jSR" kind="show" id="Hgd-bF-E89"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL6-70-5NJ">
-                                <rect key="frame" x="291" y="341" width="77" height="85"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL6-70-5NJ">
+                                <rect key="frame" x="270" y="321" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="logout-icon"/>
                                 <connections>
                                     <action selector="LogoutPressd:" destination="Y3t-NC-h6E" eventType="touchUpInside" id="ooP-n0-ZV2"/>
                                     <segue destination="sch-8W-ej1" kind="presentation" id="HNH-zn-Ges"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGy-n3-Sup">
+                                <rect key="frame" x="62" y="321" width="95" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="profile"/>
+                                <connections>
+                                    <action selector="ProfileButton:" destination="Y3t-NC-h6E" eventType="touchUpInside" id="Zyf-cT-0wZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3774,16 +3774,16 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clO-Dt-4go">
-                                                <rect key="frame" x="252" y="807" width="34" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clO-Dt-4go">
+                                                <rect key="frame" x="246" y="801" width="105" height="49"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Save" image="save"/>
                                                 <connections>
                                                     <action selector="saveButton:" destination="OXg-A0-4zn" eventType="touchUpInside" id="7mj-x5-cSl"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvK-qY-4u3">
-                                                <rect key="frame" x="71" y="794" width="111" height="57"/>
+                                                <rect key="frame" x="64" y="795" width="111" height="55"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Cancel" image="Cancel"/>
                                                 <connections>
@@ -3791,9 +3791,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlh-mA-oyL">
-                                                <rect key="frame" x="182" y="888" width="45" height="30"/>
+                                                <rect key="frame" x="155" y="886" width="105" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Delete"/>
+                                                <state key="normal" title="Delete Account">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="deleteButton:" destination="OXg-A0-4zn" eventType="touchUpInside" id="3PY-FM-Xjo"/>
                                                     <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="qlh-mA-oyL" id="oa8-PS-bUW">
@@ -3846,7 +3848,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKt-Ie-rBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14664" y="4853"/>
+            <point key="canvasLocation" x="14663.76811594203" y="4852.989130434783"/>
         </scene>
         <!--My Profile Student View Controller-->
         <scene sceneID="dZ5-QC-mCT">
@@ -4788,16 +4790,16 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b27-IS-9b6">
-                                                <rect key="frame" x="250" y="700" width="34" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b27-IS-9b6">
+                                                <rect key="frame" x="244" y="720" width="105" height="49"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Save" image="save"/>
                                                 <connections>
                                                     <action selector="saveButton:" destination="nmd-vA-rwj" eventType="touchUpInside" id="QRa-Jm-Qvi"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHX-XZ-COj">
-                                                <rect key="frame" x="73" y="687" width="109" height="57"/>
+                                                <rect key="frame" x="66" y="716" width="109" height="57"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Cancel" image="Cancel"/>
                                                 <connections>
@@ -4805,9 +4807,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPX-T9-bML">
-                                                <rect key="frame" x="185" y="793" width="45" height="30"/>
+                                                <rect key="frame" x="155" y="807" width="105" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Delete"/>
+                                                <state key="normal" title="Delete Account">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="deleteButton:" destination="nmd-vA-rwj" eventType="touchUpInside" id="wsa-VC-2tH"/>
                                                     <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="YPX-T9-bML" id="WMO-Uo-AKs">
@@ -4959,25 +4963,27 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McO-Fs-Y0V">
-                                                <rect key="frame" x="63" y="758" width="119" height="57"/>
+                                                <rect key="frame" x="60" y="760" width="119" height="57"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Cancel" image="Cancel"/>
                                                 <connections>
                                                     <action selector="cancelButton:" destination="r60-zV-e3I" eventType="touchUpInside" id="EU9-Rb-e1Y"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2x-mR-Vg3">
-                                                <rect key="frame" x="294" y="772" width="34" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2x-mR-Vg3">
+                                                <rect key="frame" x="250" y="768" width="105" height="49"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Save" image="save"/>
                                                 <connections>
                                                     <action selector="saveButton:" destination="r60-zV-e3I" eventType="touchUpInside" id="LjG-ws-7cb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekd-Rh-c03">
-                                                <rect key="frame" x="188" y="869" width="45" height="30"/>
+                                                <rect key="frame" x="155" y="838" width="105" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Delete"/>
+                                                <state key="normal" title="Delete Account">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="deleteButton:" destination="r60-zV-e3I" eventType="touchUpInside" id="4So-yP-Vrw"/>
                                                     <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="Ekd-Rh-c03" id="Fzk-NG-2wm">
@@ -5129,31 +5135,33 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnR-hA-t4b">
-                                                <rect key="frame" x="258" y="834" width="34" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Save"/>
-                                                <connections>
-                                                    <action selector="saveButton:" destination="pjr-Rw-Fgw" eventType="touchUpInside" id="bjo-4S-iL6"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS3-ki-Ob4">
-                                                <rect key="frame" x="65" y="821" width="108" height="57"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Cancel" image="Cancel"/>
-                                                <connections>
-                                                    <action selector="cancelButton:" destination="pjr-Rw-Fgw" eventType="touchUpInside" id="7kA-lu-ZMP"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4a-bi-BHv">
-                                                <rect key="frame" x="182" y="914" width="45" height="30"/>
+                                                <rect key="frame" x="152" y="914" width="105" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Delete"/>
+                                                <state key="normal" title="Delete Account">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="deleteButton:" destination="pjr-Rw-Fgw" eventType="touchUpInside" id="I7Z-wB-f7U"/>
                                                     <segue destination="sch-8W-ej1" kind="popoverPresentation" popoverAnchorView="q4a-bi-BHv" id="t6i-tO-Ti2">
                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                     </segue>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnR-hA-t4b">
+                                                <rect key="frame" x="250" y="833" width="105" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Save" image="save"/>
+                                                <connections>
+                                                    <action selector="saveButton:" destination="pjr-Rw-Fgw" eventType="touchUpInside" id="bjo-4S-iL6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS3-ki-Ob4">
+                                                <rect key="frame" x="60" y="825" width="108" height="57"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Cancel" image="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButton:" destination="pjr-Rw-Fgw" eventType="touchUpInside" id="7kA-lu-ZMP"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -5553,21 +5561,23 @@
         <image name="invoice" width="128" height="128"/>
         <image name="job" width="64" height="64"/>
         <image name="logo" width="2654" height="1967"/>
-        <image name="logout-icon" width="64" height="64"/>
+        <image name="logout-icon" width="872" height="874"/>
         <image name="message" width="32" height="32"/>
         <image name="news" width="64" height="64"/>
         <image name="order" width="64" height="64"/>
         <image name="picture-icon" width="256" height="256"/>
         <image name="profile" width="64" height="64"/>
         <image name="report" width="32" height="32"/>
+        <image name="save" width="152" height="82"/>
         <image name="student" width="512" height="512"/>
         <image name="teacher" width="512" height="512"/>
         <image name="user-icon" width="256" height="256"/>
         <image name="watchlist" width="40" height="36"/>
+        <image name="watchlist-icon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MnB-EQ-lzC"/>
         <segue reference="nR4-bk-sbo"/>
-        <segue reference="Fzk-NG-2wm"/>
+        <segue reference="HNH-zn-Ges"/>
     </inferredMetricsTieBreakers>
 </document>
