@@ -32,12 +32,8 @@ class LoginViewController: UIViewController {
         else if email.text != "" && password.text != ""
         {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
-                if user != nil{
-                    print("Successful")
-
-                }
-                else{
-                      self.displyAlertMessage(userMessage:"Wrong password")
+                if error != nil{
+                    self.displyAlertMessage(userMessage:"Wrong password")
                     if let myError = error?.localizedDescription
                     {
                         print(myError)
@@ -48,6 +44,10 @@ class LoginViewController: UIViewController {
                         print("Error")
                         
                     }
+ 
+                }
+                else{
+                        print("Successful")
                 }
             })
             
