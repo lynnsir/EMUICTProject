@@ -178,6 +178,13 @@
 				85D922CE2045372500B94951 /* InvoiceViewController.swift */,
 				85D922C72045157200B94951 /* PaymentViewController.swift */,
 				856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */,
+				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
+				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
+				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
+				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
+				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
+				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
+				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
 				85836DE72054296800117149 /* MyProfileStudentViewController.swift */,
 				85836DEB205429D500117149 /* MyProfileAlumniViewController.swift */,
 				85836DED205429E300117149 /* MyProfileStaffViewController.swift */,
@@ -186,13 +193,6 @@
 				85836DF32055247800117149 /* EditAlumniProfileViewController.swift */,
 				85836DF52055249700117149 /* EditStaffProfileViewController.swift */,
 				85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */,
-				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
-				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
-				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
-				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
-				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
-				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
-				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

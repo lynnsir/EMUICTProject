@@ -64,7 +64,7 @@ class MyProfileStudentViewController: UIViewController {
     func getProfile(){
         let rootRef = Database.database().reference()
         if let userID = Auth.auth().currentUser?.uid{
-            rootRef.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
+            rootRef.child("Student user").child(userID).observe(.value, with: { (snapshot) in
     
                 let values = snapshot.value as? NSDictionary
                 self.imageURL = values?["urlToImage"] as? String
@@ -79,12 +79,12 @@ class MyProfileStudentViewController: UIViewController {
                 self.phoneNumber.text = values?["Contact number"] as? String
                 self.birthday.text = values?["BirthDate"] as? String
                 
-                self.getImage(url: self.imageURL) { photo in
-                    if photo != nil {
-                        DispatchQueue.main.async {
-                            self.imgPro.image = photo
-                        }
-                    }
+                if self.imageURL != nil{
+                    self.getImage(url: self.imageURL!) { photo in
+                        if photo != nil {
+                            DispatchQueue.main.async {
+                                self.imgPro.image = photo
+                            }}}
                 }
 
             })
