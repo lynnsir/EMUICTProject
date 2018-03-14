@@ -9,6 +9,13 @@
 import UIKit
 
 class WatchListContentViewController: UIViewController {
+    
+    
+    var img : String!
+    var Title: String!
+    var content: String!
+    var creator: String!
+    var boardId: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()

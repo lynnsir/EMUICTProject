@@ -106,7 +106,7 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NAEcontent") as? NewsAndEventContentTableViewCell
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NAEcontent") as? WatchListContentViewController
             
         {
             if let navigator = navigationController {
@@ -119,6 +119,8 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
             vc.content = post.content
             vc.creator = post.creator
             vc.boardId = post.postId
+            
+            
         }
     }
     
