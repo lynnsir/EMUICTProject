@@ -61,7 +61,7 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
                                 self.board.append(post)
                                 DispatchQueue.main.async { self.tableView.reloadData() }
                             }
-                    })
+                    }) 
                     self.board.append(post)
                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }

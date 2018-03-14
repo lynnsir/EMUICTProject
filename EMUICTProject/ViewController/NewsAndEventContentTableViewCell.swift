@@ -48,7 +48,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         let title = Title!
 //        let bcontent = content!
 //        let bcreator = creator!
-        let boardType = "NewAndEventPost"
+        let boardType = "NewAndEventPost" // change to another board tyype
         
         let addWatchlist : [String : Any] = [
             "BoardTitle": title as AnyObject,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2592D72058AFF70012693E /* WatchListContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2592D62058AFF70012693E /* WatchListContentViewController.swift */; };
 		0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */; };
 		0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */; };
 		0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B2592D62058AFF70012693E /* WatchListContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListContentViewController.swift; sourceTree = "<group>"; };
 		0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAndEventsPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobAndInternshipPostViewController.swift; sourceTree = "<group>"; };
@@ -175,12 +177,6 @@
 				85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */,
 				85D922CE2045372500B94951 /* InvoiceViewController.swift */,
 				85D922C72045157200B94951 /* PaymentViewController.swift */,
-				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
-				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
-				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
-				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
-				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
-				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
 				856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */,
 				85836DE72054296800117149 /* MyProfileStudentViewController.swift */,
 				85836DEB205429D500117149 /* MyProfileAlumniViewController.swift */,
@@ -190,6 +186,13 @@
 				85836DF32055247800117149 /* EditAlumniProfileViewController.swift */,
 				85836DF52055249700117149 /* EditStaffProfileViewController.swift */,
 				85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */,
+				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
+				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
+				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
+				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
+				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
+				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
+				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
 				0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
+				0B2592D72058AFF70012693E /* WatchListContentViewController.swift in Sources */,
 				85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */,
 				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
 				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
