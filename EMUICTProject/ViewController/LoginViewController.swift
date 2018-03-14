@@ -23,24 +23,39 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil{
                     print("Successful")
+                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
+                        
+                    {
+                        if let navigator = self.navigationController {
+                            navigator.show(vc, sender: true)
+                        }
+                
+                        
+                    }
+       
+   
                 }
                 else{
+                    
                     if let myError = error?.localizedDescription
                     {
+                        self.displyAlertMessage(userMessage: "Please sign in again")
                         print(myError)
                         
                     }
                     else{
-                         self.displyAlertMessage(userMessage:"Wrong password")
+                        self.displyAlertMessage(userMessage:"Wrong password")
                         print("Error")
-                       
+                        
                     }
                 }
             })
-            
         }
         else if email.text == "" || password.text == ""
         {
+            displyAlertMessage(userMessage:"Please sign in")
+        }
+        else if email.text == "" && password.text == "" {
             displyAlertMessage(userMessage:"Please sign in")
         }
        
@@ -95,14 +110,5 @@ class LoginViewController: UIViewController {
         self.present(myAlert,animated: true, completion:nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
