@@ -1,14 +1,15 @@
 //
-//  NewsAndEventContentTableViewCell.swift
+//  WatchListContentViewController.swift
 //  EMUICTProject
 //
-//  Created by Teeraphon Issaranuluk on 4/3/2561 BE.
+//  Created by Teeraphon Issaranuluk on 14/3/2561 BE.
 //  Copyright © 2561 Sirinda. All rights reserved.
+//
 
 import UIKit
 import Firebase
 
-class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class WatchListContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     var img : String!
@@ -16,9 +17,10 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     var content: String!
     var creator: String!
     var boardId: String!
-    
+    // passing more var (board type) to get comment
+
     var comment = [NAEcomment]()
-   
+    
     @IBOutlet weak var TableView: UITableView!
     
     @IBOutlet weak var postedImg: UIImageView!
@@ -36,30 +38,30 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         let postComment : [String : Any] = [
             "Commentuid": commentOwner as AnyObject,
             "Comment": comment as AnyObject
-                 ]
+        ]
         Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
     }
     
-    @IBAction func Addwatchlist(_ sender: Any) {
-        
-        let userid = Auth.auth().currentUser!.uid
-        let boardid = boardId!
-//        let bimg = img!
-        let title = Title!
-//        let bcontent = content!
-//        let bcreator = creator!
-        let boardType = "NewAndEventPost" // change to another board tyype
-        
-        let addWatchlist : [String : Any] = [
-            "BoardTitle": title as AnyObject,
-//            "BoardContent": bcontent as AnyObject,
-//            "BoardCreator": bcreator as AnyObject,
-//            "BoardImgURL": bimg as AnyObject,
-            "BoardType" : boardType as AnyObject
-        ]
-        Database.database().reference().child("Watchlist").child("\(userid)").child("\(boardid)").setValue(addWatchlist)
-        //add all data of post to watch list child
-    }
+//    @IBAction func Addwatchlist(_ sender: Any) {
+//
+//        let userid = Auth.auth().currentUser!.uid
+//        let boardid = boardId!
+//        //        let bimg = img!
+//        let title = Title!
+//        //        let bcontent = content!
+//        //        let bcreator = creator!
+//        let boardType = "NewAndEventPost" // change to another board tyype
+//
+//        let addWatchlist : [String : Any] = [
+//            "BoardTitle": title as AnyObject,
+//            //            "BoardContent": bcontent as AnyObject,
+//            //            "BoardCreator": bcreator as AnyObject,
+//            //            "BoardImgURL": bimg as AnyObject,
+//            "BoardType" : boardType as AnyObject
+//        ]
+//        Database.database().reference().child("Watchlist").child("\(userid)").child("\(boardid)").setValue(addWatchlist)
+//        //add all data of post to watch list child
+//    }
     
     
     override func viewDidLoad() {
@@ -82,22 +84,21 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     }
     // get comment and owner name
     func getcomment(){
+        
         let boardid = boardId!
         let rootRef = Database.database().reference()
+        // get board type NewAndEventPost --> boardType
         let query = rootRef.child("NewAndEventPost").child("\(boardid)").child("comment")
-        //let query2 = rootRef.child("Alluser").child
-        
-        
+
         query.observe(.value) { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     
                     let pcomment = NAEcomment()
                     
-
-                      let creatorid = value["Commentuid"] as? String ?? "Creator not found"
-                      let commentContent = value["Comment"] as? String ?? "Title not found"
-
+                    let creatorid = value["Commentuid"] as? String ?? "Creator not found"
+                    let commentContent = value["Comment"] as? String ?? "Title not found"
+                    
                     pcomment.comment = commentContent
                     pcomment.userid = creatorid
                     
@@ -133,7 +134,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comment.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "")
