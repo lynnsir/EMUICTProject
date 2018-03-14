@@ -82,6 +82,9 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
+        if fullname.text! == "" || Username.text! == "" || password.text! == "" || conPassword.text! == "" || IDnumber.text! == "" || ContactNumber.text! == "" || Email.text! == "" || Position.text! == "" || date.text! == "" {
+            self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
+        }
         guard fullname.text != "", Username.text != "", password.text != "", conPassword.text != "", IDnumber.text != "", ContactNumber.text != "", Email.text != "", Position.text != "", date.text != ""
             
             else { return }
@@ -206,6 +209,14 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
         
         date.text = "\(dateString)"
         self.view.endEditing(true)
+    }
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
     }
     
     

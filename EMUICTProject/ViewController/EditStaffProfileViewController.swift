@@ -74,7 +74,7 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
         ref = Database.database().reference()
-        userStorage = storage.child("Alluser")
+        userStorage = storage.child("Staff user")
         
         self.imgPro.layer.cornerRadius = self.imgPro.frame.size.width / 2
         self.imgPro.clipsToBounds = true
@@ -135,13 +135,10 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
         let user = Auth.auth().currentUser
         let user2 = Auth.auth().currentUser?.uid
         let user3 = user2
-        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
-        let userStorage1 = storage.child("Staff user")
-        
-        let imageRef2 = userStorage1.child(user2!+".jpg")
+        let imageRef = userStorage.child(user2!+".jpg")
         print(user2!+".jpg")
-        imageRef2.delete(completion: { error in
+        imageRef.delete(completion: { error in
             if let error = error {
                 print(error)
             } else {

@@ -75,6 +75,9 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
+        if companyName.text! == "" || username.text! == "" || password.text! == "" || conPassword.text! == "" || email.text! == "" || contactNumber.text! == "" {
+            self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
+        }
 
         guard companyName.text != "", username.text != "", password.text != "",conPassword.text != "", email.text != "", contactNumber.text != ""
             else { return }

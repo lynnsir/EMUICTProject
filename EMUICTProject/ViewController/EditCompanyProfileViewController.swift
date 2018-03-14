@@ -71,7 +71,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
 
         ref = Database.database().reference()
-        userStorage = storage.child("Alluser")
+        userStorage = storage.child("Company user")
         
         self.imgPro.layer.cornerRadius = self.imgPro.frame.size.width / 2
         self.imgPro.clipsToBounds = true
@@ -142,13 +142,10 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         let user = Auth.auth().currentUser
         let user2 = Auth.auth().currentUser?.uid
         let user3 = user2
-        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
-    
-        let userStorage1 = storage.child("Company user")
-    
-        let imageRef2 = userStorage1.child(user2!+".jpg")
+   
+        let imageRef = userStorage.child(user2!+".jpg")
         print(user2!+".jpg")
-        imageRef2.delete(completion: { error in
+        imageRef.delete(completion: { error in
             if let error = error {
                 print(error)
             } else {
@@ -163,8 +160,8 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
               Database.database().reference(withPath: "Company user").child(user3!).removeValue()
              print("Company:Delete db")
                 
-              // Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
-              //  print("Alluser:Delete db")
+               Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
+                print("Alluser:Delete db")
       
                 print("delete account success")
                

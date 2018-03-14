@@ -18,31 +18,41 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        if email.text != "" && password.text != ""
+        
+        if email.text == "" || password.text == ""
+        {
+            displyAlertMessage(userMessage:"Please sign in")
+        }
+        
+        else if email.text == "" && password.text == ""
+        {
+            displyAlertMessage(userMessage:"Please sign in")
+        }
+        
+        else if email.text != "" && password.text != ""
         {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil{
                     print("Successful")
+
                 }
                 else{
+                      self.displyAlertMessage(userMessage:"Wrong password")
                     if let myError = error?.localizedDescription
                     {
                         print(myError)
                         
                     }
                     else{
-                         self.displyAlertMessage(userMessage:"Wrong password")
+                        self.displyAlertMessage(userMessage:"Wrong password")
                         print("Error")
-                       
+                        
                     }
                 }
             })
             
         }
-        else if email.text == "" || password.text == ""
-        {
-            displyAlertMessage(userMessage:"Please sign in")
-        }
+       
        
     }
     

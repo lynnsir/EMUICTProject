@@ -111,6 +111,10 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
+        if fullname.text! == "" || studentID.text! == "" || username.text! == "" || password.text! == "" || conPassword.text! == "" || idNumber.text! == "" || contactNumber.text! == "" || email.text! == "" || birthdate.text! == "" {
+            self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
+        }
+        
         guard fullname.text != "",
             studentID.text != "",
             username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != ""
@@ -214,6 +218,15 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
     }
     
     func createDatePicker() {

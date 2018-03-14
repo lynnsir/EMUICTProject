@@ -55,7 +55,7 @@
                                 <state key="normal" image="Login"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tHR-El-kbu"/>
-                                    <segue destination="diD-gY-BBK" kind="presentation" id="Xl0-Cj-9zU"/>
+                                    <segue destination="diD-gY-BBK" kind="show" id="VMX-WE-eR7"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8r-DR-yVz">
@@ -687,7 +687,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Mfh-e5-7xu">
             <objects>
-                <tabBarController id="diD-gY-BBK" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" id="diD-gY-BBK" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zpo-ua-NvJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

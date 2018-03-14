@@ -109,6 +109,9 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
             else { return }
         
         if password.text == conPassword.text {
+            if fullName.text == "" || studentID.text == "" || username.text == "" || password.text == "" || conPassword.text == "" || idNumber.text == "" || contactNumber.text == "" || email.text == "" ||  birthdate.text == "" {
+                self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
+            }
             Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 
                 if let error = error{
@@ -235,6 +238,14 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         
         birthdate.text = "\(dateString)"
         self.view.endEditing(true)
+    }
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
     }
 
     
