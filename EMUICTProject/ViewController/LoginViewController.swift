@@ -32,7 +32,16 @@ class LoginViewController: UIViewController {
         else if email.text != "" && password.text != ""
         {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
-                if error != nil{
+                if user != nil{
+                    print("Successful")
+           
+                    let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    
+                    appDelegate.window?.rootViewController = myTabBar
+                }
+                else{
+            
                     self.displyAlertMessage(userMessage:"Wrong password")
                     if let myError = error?.localizedDescription
                     {
@@ -45,10 +54,6 @@ class LoginViewController: UIViewController {
                         print("Error")
                         
                     }
- 
-                }
-                else{
-                        print("Successful")
                 }
             })
         }
