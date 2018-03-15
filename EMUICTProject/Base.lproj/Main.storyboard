@@ -1926,6 +1926,7 @@
                                 <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="BoardPostButtom:" destination="AWY-xx-kqF" eventType="touchUpInside" id="r4y-nk-QpV"/>
+                                    <segue destination="8gc-Mf-94l" kind="show" identifier="NAEFeed" id="NGD-N2-7zG"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDA-Oq-F0Q">
@@ -5576,6 +5577,7 @@
         <image name="watchlist-icon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NGD-N2-7zG"/>
         <segue reference="MnB-EQ-lzC"/>
         <segue reference="nR4-bk-sbo"/>
         <segue reference="HNH-zn-Ges"/>

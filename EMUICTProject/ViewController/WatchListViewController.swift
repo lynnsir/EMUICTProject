@@ -19,9 +19,12 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
         getPost()
         tableView.dataSource = self
         tableView.delegate = self
+        
     }
     
     

@@ -40,6 +40,8 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         let content = BoardContent.text
         
         postBoardContent(Title: title!,Content: content!)
+        
+        performSegue(withIdentifier: "NAEFeed", sender: nil)
     }
     
     @IBAction func InsertPhotoButtom(_ sender: Any) {

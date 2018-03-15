@@ -18,6 +18,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         getPost()
         tableView.dataSource = self
         tableView.delegate = self
@@ -31,6 +32,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
         
         
         query.observe(.value) { (snapshot) in
+            self.board.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     
@@ -48,7 +50,8 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                     post.creator = creatorid
                     post.postId = postid
                     
-                    self.board.append(post)
+                   
+                   self.board.append(post)
                    DispatchQueue.main.async { self.tableView.reloadData() }
                 }
             }
