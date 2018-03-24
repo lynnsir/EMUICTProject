@@ -11,14 +11,16 @@ import Firebase
 class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
     
+    let cellId = "NewsAndEventPostCell"
+
     var board = [PostBoard]()
     var ref = Database.database().reference(withPath:"NewAndEventPost")
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
         getPost()
         tableView.dataSource = self
         tableView.delegate = self
@@ -49,8 +51,8 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                     post.content = bContent
                     post.creator = creatorid
                     post.postId = postid
+      
                     
-                   
                    self.board.append(post)
                    DispatchQueue.main.async { self.tableView.reloadData() }
                 }
@@ -64,33 +66,22 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "NewsAndEventPostCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
         let post = board[indexPath.row]
         
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.content
-        
-        
-//        if let postimgUrl = post.imagePost{
-//            let url = URL(string: postimgUrl)
-//            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-//                if error != nil{print(error.debugDescription)}
-//                DispatchQueue.main.async {
-//                    cell.imageView?.image = UIImage(data: data!)
-//                }
-//            }).resume()
-//        }
-        
-        getImage(url: post.imagePost) { photo in
-            if photo != nil {
+        if let postimgUrl = post.imagePost{
+            let url = URL(string: postimgUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                if error != nil{print(error.debugDescription)}
                 DispatchQueue.main.async {
-                    cell.imageView?.image = photo
+                    cell.textLabel?.text = post.title
+                    cell.detailTextLabel?.text = post.content
+                    cell.imageView?.image = UIImage(data: data!)
+                    
                 }
-            }
+            }).resume()
         }
-        
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -122,4 +113,3 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
     }
     
 }
-

@@ -5577,6 +5577,7 @@
         <image name="watchlist-icon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="60C-Gi-WMz"/>
         <segue reference="NGD-N2-7zG"/>
         <segue reference="MnB-EQ-lzC"/>
         <segue reference="nR4-bk-sbo"/>

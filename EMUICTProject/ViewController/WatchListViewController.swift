@@ -60,12 +60,14 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
                                 post.content = bContent
                                 post.creator = creatorid
                                 post.postId = postid
-                                
+
+//                                let post = PostBoard(PostId: postid, ImageURL: imagePath, Title: bTitle, Content: bContent, BoardCreator: creatorid)
+
                                 self.board.append(post)
                                 DispatchQueue.main.async { self.tableView.reloadData() }
                             }
                     }) 
-                    self.board.append(post)
+                    //self.board.append(post)
                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }
             }

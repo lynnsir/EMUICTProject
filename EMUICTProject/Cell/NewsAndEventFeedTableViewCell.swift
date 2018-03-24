@@ -9,7 +9,8 @@
 import UIKit
 
 class NewsAndEventFeedTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var postedImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,11 +22,13 @@ class NewsAndEventFeedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    override init(style: UITableViewCellStyle, reuseIdentifier: String?){
-//        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-//    }
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?){
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+    }
 
 }
