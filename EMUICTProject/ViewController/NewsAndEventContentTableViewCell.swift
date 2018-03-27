@@ -10,7 +10,7 @@ import Firebase
 
 class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
+    let cellId = "CommentCell"
     var img : String!
     var Title: String!
     var content: String!
@@ -44,27 +44,20 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         
         let userid = Auth.auth().currentUser!.uid
         let boardid = boardId!
-//        let bimg = img!
         let title = Title!
-//        let bcontent = content!
-//        let bcreator = creator!
         let boardType = "NewAndEventPost" // change to another board tyype
         
         let addWatchlist : [String : Any] = [
             "BoardTitle": title as AnyObject,
-//            "BoardContent": bcontent as AnyObject,
-//            "BoardCreator": bcreator as AnyObject,
-//            "BoardImgURL": bimg as AnyObject,
             "BoardType" : boardType as AnyObject
         ]
         Database.database().reference().child("Watchlist").child("\(userid)").child("\(boardid)").setValue(addWatchlist)
-        //add all data of post to watch list child
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
         getImage(url: img) { photo in
             if photo != nil {
@@ -85,10 +78,9 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         let boardid = boardId!
         let rootRef = Database.database().reference()
         let query = rootRef.child("NewAndEventPost").child("\(boardid)").child("comment")
-        //let query2 = rootRef.child("Alluser").child
-        
         
         query.observe(.value) { (snapshot) in
+            self.comment.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     
@@ -98,16 +90,16 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                       let creatorid = value["Commentuid"] as? String ?? "Creator not found"
                       let commentContent = value["Comment"] as? String ?? "Title not found"
 
-                    pcomment.comment = commentContent
-                    pcomment.userid = creatorid
+                        pcomment.comment = commentContent
+                        pcomment.userid = creatorid
                     
-                    let query2 = rootRef.child("Alluser").child("\(creatorid)")
-                    query2.observe(.value, with: {(snapshot2) in
+                      let query2 = rootRef.child("Alluser").child("\(creatorid)")
+                       query2.observe(.value, with: {(snapshot2) in
                         
                         if let userinfo = snapshot2.value as? [String : Any]{
-                            let userName = userinfo["FullName"] as? String ?? "Not found user name"
+                            let userName = userinfo["Full name"] as? String ?? "Not found user name"
                             
-                            pcomment.userName = userName
+                                pcomment.userName = userName
                         }
                     })
                     
@@ -116,8 +108,6 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                 }
             }
         }
-        
-        
     }
     
     func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
@@ -136,13 +126,24 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "")
+        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! commentCell
         let usercomment = comment[indexPath.row]
-        
-        cell.textLabel?.text = usercomment.userName
-        cell.detailTextLabel?.text = usercomment.comment
-        
+        DispatchQueue.main.async {
+            cell.textLabel?.text = usercomment.userName
+            cell.detailTextLabel?.text = usercomment.comment
+        }
         return cell
     }
 
+}
+class commentCell: UITableViewCell {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+    }
 }

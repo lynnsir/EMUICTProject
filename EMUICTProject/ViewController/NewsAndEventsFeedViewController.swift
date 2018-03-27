@@ -76,7 +76,6 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                 DispatchQueue.main.async {
                     cell.textLabel?.text = post.title
                     cell.detailTextLabel?.text = post.content
-                    //cell.imageView?.image = UIImage(data: data!)
                     cell.postedImg.image = UIImage(data: data!)
                     
                 }
@@ -106,15 +105,4 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                vc.boardId = post.postId
         }
     }
-    
-    func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
-        URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
-            if error == nil {
-                completion(UIImage(data: data!))
-            } else {
-                completion(nil)
-            }
-            }.resume()
-    }
-    
 }
