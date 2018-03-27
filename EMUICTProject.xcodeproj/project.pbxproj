@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B16D873206A894F004CE7FB /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B16D872206A894F004CE7FB /* HomePageViewController.swift */; };
+		0B16D875206A8B0D004CE7FB /* HomePageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B16D874206A8B0D004CE7FB /* HomePageContentViewController.swift */; };
 		0B2592D72058AFF70012693E /* WatchListContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2592D62058AFF70012693E /* WatchListContentViewController.swift */; };
 		0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */; };
 		0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */; };
@@ -62,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B16D872206A894F004CE7FB /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		0B16D874206A8B0D004CE7FB /* HomePageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageContentViewController.swift; sourceTree = "<group>"; };
 		0B2592D62058AFF70012693E /* WatchListContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListContentViewController.swift; sourceTree = "<group>"; };
 		0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAndEventsPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessPostViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
 				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
 				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
+				0B16D872206A894F004CE7FB /* HomePageViewController.swift */,
+				0B16D874206A8B0D004CE7FB /* HomePageContentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				85D922CF2045372500B94951 /* InvoiceViewController.swift in Sources */,
 				0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */,
 				0BCE4B24204A632B0066A55B /* PostBoard.swift in Sources */,
+				0B16D875206A8B0D004CE7FB /* HomePageContentViewController.swift in Sources */,
 				85D922CB204523CE00B94951 /* DLRadioButton.m in Sources */,
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
 				0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */,
@@ -435,6 +442,7 @@
 				85E82111203B09C100ADD576 /* PersonReport.swift in Sources */,
 				856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */,
 				85836DEE205429E300117149 /* MyProfileStaffViewController.swift in Sources */,
+				0B16D873206A894F004CE7FB /* HomePageViewController.swift in Sources */,
 				85950DC920335430002D4A0B /* StudentSearchViewController.swift in Sources */,
 				85EF20042020424800F39134 /* CompanyRegisterViewController.swift in Sources */,
 				0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */,
