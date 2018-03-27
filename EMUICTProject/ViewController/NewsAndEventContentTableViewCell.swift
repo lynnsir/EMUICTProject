@@ -86,25 +86,23 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                     
                     let pcomment = NAEcomment()
                     
-
                       let creatorid = value["Commentuid"] as? String ?? "Creator not found"
                       let commentContent = value["Comment"] as? String ?? "Title not found"
 
-                        pcomment.comment = commentContent
-                        pcomment.userid = creatorid
+                                pcomment.comment = commentContent
+                                pcomment.userid = creatorid
                     
                       let query2 = rootRef.child("Alluser").child("\(creatorid)")
                        query2.observe(.value, with: {(snapshot2) in
                         
-                        if let userinfo = snapshot2.value as? [String : Any]{
+                        if let userinfo = snapshot2.value as? NSDictionary{
                             let userName = userinfo["Full name"] as? String ?? "Not found user name"
                             
                                 pcomment.userName = userName
+                                self.comment.append(pcomment)
+                                DispatchQueue.main.async { self.TableView.reloadData() }
                         }
                     })
-                    
-                    self.comment.append(pcomment)
-                    DispatchQueue.main.async { self.TableView.reloadData() }
                 }
             }
         }
@@ -126,9 +124,9 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! commentCell
         let usercomment = comment[indexPath.row]
+        
         DispatchQueue.main.async {
             cell.textLabel?.text = usercomment.userName
             cell.detailTextLabel?.text = usercomment.comment
