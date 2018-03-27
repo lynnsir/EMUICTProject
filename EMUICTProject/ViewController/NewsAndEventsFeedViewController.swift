@@ -76,12 +76,17 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                 DispatchQueue.main.async {
                     cell.textLabel?.text = post.title
                     cell.detailTextLabel?.text = post.content
-                    cell.imageView?.image = UIImage(data: data!)
+                    //cell.imageView?.image = UIImage(data: data!)
+                    cell.postedImg.image = UIImage(data: data!)
                     
                 }
             }).resume()
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
