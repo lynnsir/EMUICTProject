@@ -17,7 +17,7 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
     var content: String!
     var creator: String!
     var boardId: String!
-    // passing more var (board type) to get comment
+    var boardType: String!
 
     var comment = [NAEcomment]()
     
@@ -42,7 +42,7 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
             "Commentuid": commentOwner as AnyObject,
             "Comment": comment as AnyObject
         ]
-        Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
+        Database.database().reference().child("\(boardType)").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
     }
     
     override func viewDidLoad() {

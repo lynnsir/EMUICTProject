@@ -16,6 +16,7 @@ class PostBoard: NSObject {
     var content : String!
     var creator : String!
     var image : UIImage?
+    var boardType : String!
     
 //    init(PostId: String, ImageURL: String, Title: String, Content: String, BoardCreator: String) {
 //        postId = PostId

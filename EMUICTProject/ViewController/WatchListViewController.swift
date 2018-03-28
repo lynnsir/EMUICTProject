@@ -59,6 +59,7 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
                                 post.content = bContent
                                 post.creator = creatorid
                                 post.postId = postid
+                                post.boardType = boardtype
 
                                 self.board.append(post)
                                 DispatchQueue.main.async { self.tableView.reloadData() }
@@ -108,6 +109,7 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
             vc.content = post.content
             vc.creator = post.creator
             vc.boardId = post.postId
+            vc.boardType = post.boardType
             
             
         }
