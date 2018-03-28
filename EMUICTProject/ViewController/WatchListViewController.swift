@@ -13,14 +13,13 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    let cellId = "NewsAndEventPostCell"
     var board = [PostBoard]()
-    var ref = Database.database().reference(withPath:"NewAndEventPost")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
         getPost()
         tableView.dataSource = self
         tableView.delegate = self
@@ -47,13 +46,13 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
                     
                     query2.observe(.value, with: {(snapshot2) in
 
-                            if let value = child.value as? NSDictionary {
+                            if let value2 = snapshot2.value as? NSDictionary {
                                 
                                 let postid = child.key
-                                let creatorid = value["creator"] as? String ?? "Creator not found"
-                                let bTitle = value["Title"] as? String ?? "Title not found"
-                                let bContent = value["Content"] as? String ?? "Content not found"
-                                let imagePath = value["urlToImage"] as? String ?? "Image not found"
+                                let creatorid = value2["creator"] as? String ?? "Creator not found"
+                                let bTitle = value2["Title"] as? String ?? "Title not found"
+                                let bContent = value2["Content"] as? String ?? "Content not found"
+                                let imagePath = value2["urlToImage"] as? String ?? "Image not found"
                                 
                                 post.imagePost = imagePath
                                 post.title = bTitle
@@ -61,14 +60,10 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
                                 post.creator = creatorid
                                 post.postId = postid
 
-//                                let post = PostBoard(PostId: postid, ImageURL: imagePath, Title: bTitle, Content: bContent, BoardCreator: creatorid)
-
                                 self.board.append(post)
                                 DispatchQueue.main.async { self.tableView.reloadData() }
                             }
-                    }) 
-                    //self.board.append(post)
-                    DispatchQueue.main.async { self.tableView.reloadData() }
+                    })
                 }
             }
         }
@@ -79,39 +74,28 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "NewsAndEventPostCell")
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
         let post = board[indexPath.row]
         
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.content
-        
-        
-        //        if let postimgUrl = post.imagePost{
-        //            let url = URL(string: postimgUrl)
-        //            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-        //                if error != nil{print(error.debugDescription)}
-        //                DispatchQueue.main.async {
-        //                    cell.imageView?.image = UIImage(data: data!)
-        //                }
-        //            }).resume()
-        //        }
-        
-        getImage(url: post.imagePost) { photo in
-            if photo != nil {
+        if let postimgUrl = post.imagePost{
+            let url = URL(string: postimgUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                if error != nil{print(error.debugDescription)}
                 DispatchQueue.main.async {
-                    cell.imageView?.image = photo
+                    cell.textLabel?.text = post.title
+                    cell.detailTextLabel?.text = post.content
+                    cell.postedImg.image = UIImage(data: data!)
+
                 }
-            }
+            }).resume()
         }
-        
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NAEcontent") as? WatchListContentViewController
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Watchlistcontent") as? WatchListContentViewController
             
         {
             if let navigator = navigationController {
@@ -129,14 +113,8 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
-        URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
-            if error == nil {
-                completion(UIImage(data: data!))
-            } else {
-                completion(nil)
-            }
-            }.resume()
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
 
 

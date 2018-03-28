@@ -52,6 +52,8 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
             "BoardType" : boardType as AnyObject
         ]
         Database.database().reference().child("Watchlist").child("\(userid)").child("\(boardid)").setValue(addWatchlist)
+        
+        displyAlertMessage(userMessage: "Add to Wacthlist successful")
     }
     
     
@@ -132,6 +134,15 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
             cell.detailTextLabel?.text = usercomment.comment
         }
         return cell
+    }
+    
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
     }
 
 }

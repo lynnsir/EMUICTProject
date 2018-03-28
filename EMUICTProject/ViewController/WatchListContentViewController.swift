@@ -31,6 +31,9 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         //For Admin
     }
     
+    @IBAction func deleteFromWacthlist(_ sender: Any) {
+        //code
+    }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
         let commentOwner = Auth.auth().currentUser!.uid
@@ -41,28 +44,6 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         ]
         Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
     }
-    
-//    @IBAction func Addwatchlist(_ sender: Any) {
-//
-//        let userid = Auth.auth().currentUser!.uid
-//        let boardid = boardId!
-//        //        let bimg = img!
-//        let title = Title!
-//        //        let bcontent = content!
-//        //        let bcreator = creator!
-//        let boardType = "NewAndEventPost" // change to another board tyype
-//
-//        let addWatchlist : [String : Any] = [
-//            "BoardTitle": title as AnyObject,
-//            //            "BoardContent": bcontent as AnyObject,
-//            //            "BoardCreator": bcreator as AnyObject,
-//            //            "BoardImgURL": bimg as AnyObject,
-//            "BoardType" : boardType as AnyObject
-//        ]
-//        Database.database().reference().child("Watchlist").child("\(userid)").child("\(boardid)").setValue(addWatchlist)
-//        //add all data of post to watch list child
-//    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,14 +87,13 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
                     query2.observe(.value, with: {(snapshot2) in
                         
                         if let userinfo = snapshot2.value as? [String : Any]{
-                            let userName = userinfo["FullName"] as? String ?? "Not found user name"
+                            let userName = userinfo["Full name"] as? String ?? "Not found user name"
                             
                             pcomment.userName = userName
+                            self.comment.append(pcomment)
+                            DispatchQueue.main.async { self.TableView.reloadData() }
                         }
                     })
-                    
-                    self.comment.append(pcomment)
-                    DispatchQueue.main.async { self.TableView.reloadData() }
                 }
             }
         }
