@@ -26,6 +26,9 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    @IBAction func clearButtom(_ sender: Any) {
+        //clear all data in watch list
+    }
     
     func getPost(){
         

@@ -11,6 +11,7 @@ import Firebase
 class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var InsertNAEPost: UIBarButtonItem!
     
     let cellId = "NewsAndEventPostCell"
 
@@ -22,10 +23,13 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
        
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
         getPost()
+        checkInsertPriority()
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
+    func checkInsertPriority(){
+        // set admin priority
+    }
     
     func getPost(){
         

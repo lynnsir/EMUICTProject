@@ -27,12 +27,40 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var postContent: UITextView!
     @IBOutlet weak var commentText: UITextField!
     
-    @IBAction func reportBut(_ sender: Any) {
-        //For Admin
+    @IBOutlet weak var ReportPostBut: UIButton!
+    @IBOutlet weak var ReportPost: UILabel!
+    
+    @IBOutlet weak var deleteFromWatchlistBut: UIButton!
+    
+    @IBAction func ReportPostBut(_ sender: Any) {
+        // for gen user
+        ReportPostBut.isHidden = true
+        ReportPost.isHidden = false
+        
+        let BoardId = boardId!
+        let BoardTitle = Title!
+        let Boardtype = boardType!
+        let BoardCreator = creator!
+        let BoardReport : [String : Any] = [
+            "BoardTitle": BoardTitle as AnyObject,
+            "BoardType": Boardtype as AnyObject,
+            "BoardCreator": BoardCreator as AnyObject
+        ]
+        Database.database().reference().child("BoardReport").child("\(BoardId)").setValue(BoardReport)
+        displyAlertMessage(userMessage: "Our system recieve your Report")
     }
     
-    @IBAction func deleteFromWacthlist(_ sender: Any) {
+    @IBAction func deleteFromWatchlist(_ sender: Any) {
         //code
+
+        let uid = Auth.auth().currentUser!.uid
+        let ref = Database.database().reference().child("Watchlist").child("\(uid)").child("\(boardId)")
+        ref.removeValue(completionBlock: {(error, ref) in
+            if(error != nil){
+                print(error.debugDescription)
+            }
+        })
+        
     }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
@@ -47,6 +75,8 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //hide lable
+        ReportPost.isHidden = true
         
         postContent.text = content
         getImage(url: img) { photo in
@@ -69,7 +99,7 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         let boardid = boardId!
         let rootRef = Database.database().reference()
         // get board type NewAndEventPost --> boardType
-        let query = rootRef.child("NewAndEventPost").child("\(boardid)").child("comment")
+        let query = rootRef.child("\(boardType)").child("\(boardid)").child("comment")
 
         query.observe(.value) { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
@@ -124,6 +154,14 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         cell.detailTextLabel?.text = usercomment.comment
         
         return cell
+    }
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
     }
 
 }
