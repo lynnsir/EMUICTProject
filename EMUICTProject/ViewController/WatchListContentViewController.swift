@@ -128,8 +128,7 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
                             let userName = userinfo["Full name"] as? String ?? "Not found user name"
                            
                             pcomment.userName = userName
-                            
-                            print(snapshot2)
+    
                             self.comment.append(pcomment)
                             DispatchQueue.main.async { self.TableView.reloadData() }
                         }
