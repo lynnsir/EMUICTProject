@@ -13,6 +13,10 @@
 		0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */; };
 		0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */; };
 		0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */; };
+		0BC13C39206CAF4F0036F66D /* BusinessFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC13C38206CAF4F0036F66D /* BusinessFeedViewController.swift */; };
+		0BC13C3B206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC13C3A206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift */; };
+		0BC13C3D206CB0040036F66D /* BusinessContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC13C3C206CB0040036F66D /* BusinessContentViewController.swift */; };
+		0BC13C3F206CB03B0036F66D /* JobAndInternshipContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC13C3E206CB03B0036F66D /* JobAndInternshipContentViewController.swift */; };
 		0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */; };
 		0BCE4B24204A632B0066A55B /* PostBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B23204A632B0066A55B /* PostBoard.swift */; };
 		0BCE4B26204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */; };
@@ -70,6 +74,10 @@
 		0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAndEventsPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobAndInternshipPostViewController.swift; sourceTree = "<group>"; };
+		0BC13C38206CAF4F0036F66D /* BusinessFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessFeedViewController.swift; sourceTree = "<group>"; };
+		0BC13C3A206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobAndInternshipFeedViewController.swift; sourceTree = "<group>"; };
+		0BC13C3C206CB0040036F66D /* BusinessContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessContentViewController.swift; sourceTree = "<group>"; };
+		0BC13C3E206CB03B0036F66D /* JobAndInternshipContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobAndInternshipContentViewController.swift; sourceTree = "<group>"; };
 		0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAndEventsFeedViewController.swift; sourceTree = "<group>"; };
 		0BCE4B23204A632B0066A55B /* PostBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBoard.swift; sourceTree = "<group>"; };
 		0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAndEventFeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +146,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BC13C41206CB08F0036F66D /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
+				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
+				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
+				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
+				0BC13C38206CAF4F0036F66D /* BusinessFeedViewController.swift */,
+				0BC13C3A206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift */,
+				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
+				0BC13C3C206CB0040036F66D /* BusinessContentViewController.swift */,
+				0BC13C3E206CB03B0036F66D /* JobAndInternshipContentViewController.swift */,
+				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
+				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
+				0B16D872206A894F004CE7FB /* HomePageViewController.swift */,
+				0B16D874206A8B0D004CE7FB /* HomePageContentViewController.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
 		1BA7A7D176E3C95360C5CC2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,15 +218,7 @@
 				85836DF32055247800117149 /* EditAlumniProfileViewController.swift */,
 				85836DF52055249700117149 /* EditStaffProfileViewController.swift */,
 				85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */,
-				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
-				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
-				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
-				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
-				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
-				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
-				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
-				0B16D872206A894F004CE7FB /* HomePageViewController.swift */,
-				0B16D874206A8B0D004CE7FB /* HomePageContentViewController.swift */,
+				0BC13C41206CB08F0036F66D /* Board */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -397,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC13C3D206CB0040036F66D /* BusinessContentViewController.swift in Sources */,
 				85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */,
 				85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */,
 				85836DF22055244300117149 /* EditStudentProfileViewController.swift in Sources */,
@@ -405,6 +426,7 @@
 				85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */,
 				0BCE4B26204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift in Sources */,
 				85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */,
+				0BC13C3F206CB03B0036F66D /* JobAndInternshipContentViewController.swift in Sources */,
 				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
 				85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */,
 				85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */,
@@ -420,6 +442,7 @@
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
 				0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
+				0BC13C3B206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift in Sources */,
 				0B2592D72058AFF70012693E /* WatchListContentViewController.swift in Sources */,
 				85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */,
 				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
@@ -439,6 +462,7 @@
 				85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */,
 				85D6B056203AD1D0005AE477 /* StudentReportTableViewCell.swift in Sources */,
 				0BCE4B2C204CCAAB0066A55B /* WatchListViewController.swift in Sources */,
+				0BC13C39206CAF4F0036F66D /* BusinessFeedViewController.swift in Sources */,
 				85E82111203B09C100ADD576 /* PersonReport.swift in Sources */,
 				856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */,
 				85836DEE205429E300117149 /* MyProfileStaffViewController.swift in Sources */,
