@@ -11,7 +11,7 @@ import Firebase
 
 class WatchListContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
+    let cellId = "CommentCell"
     var img : String!
     var Title: String!
     var content: String!
@@ -30,10 +30,10 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var ReportPostBut: UIButton!
     @IBOutlet weak var ReportPost: UILabel!
     
-    @IBOutlet weak var deleteFromWatchlistBut: UIButton!
     
     @IBAction func ReportPostBut(_ sender: Any) {
         // for gen user
+        ReportPostBut.isEnabled = false
         ReportPostBut.isHidden = true
         ReportPost.isHidden = false
         
@@ -47,14 +47,15 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
             "BoardCreator": BoardCreator as AnyObject
         ]
         Database.database().reference().child("BoardReport").child("\(BoardId)").setValue(BoardReport)
-        displyAlertMessage(userMessage: "Our system recieve your Report")
+        displyAlertMessage(userMessage: "Our system recieved your Report")
+        
     }
     
     @IBAction func deleteFromWatchlist(_ sender: Any) {
         //code
-
+        let boardid = boardId!
         let uid = Auth.auth().currentUser!.uid
-        let ref = Database.database().reference().child("Watchlist").child("\(uid)").child("\(boardId)")
+        let ref = Database.database().reference().child("Watchlist").child("\(uid)").child("\(boardid)")
         ref.removeValue(completionBlock: {(error, ref) in
             if(error != nil){
                 print(error.debugDescription)
@@ -66,17 +67,17 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         let comment = commentText.text
         let commentOwner = Auth.auth().currentUser!.uid
         let BoardId = boardId!
+        let boardtype = boardType!
         let postComment : [String : Any] = [
             "Commentuid": commentOwner as AnyObject,
             "Comment": comment as AnyObject
         ]
-        Database.database().reference().child("\(boardType)").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
+        Database.database().reference().child("\(boardtype)").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //hide lable
-        ReportPost.isHidden = true
+        TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         
         postContent.text = content
         getImage(url: img) { photo in
@@ -93,13 +94,20 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        //hide lable
+        ReportPost.isHidden = true
+       
+    }
+    
     // get comment and owner name
     func getcomment(){
         
         let boardid = boardId!
+        let boardtype = boardType!
         let rootRef = Database.database().reference()
         // get board type NewAndEventPost --> boardType
-        let query = rootRef.child("\(boardType)").child("\(boardid)").child("comment")
+        let query = rootRef.child("\(boardtype)").child("\(boardid)").child("comment")
 
         query.observe(.value) { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
@@ -118,8 +126,10 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
                         
                         if let userinfo = snapshot2.value as? [String : Any]{
                             let userName = userinfo["Full name"] as? String ?? "Not found user name"
-                            
+                           
                             pcomment.userName = userName
+                            
+                            print(snapshot2)
                             self.comment.append(pcomment)
                             DispatchQueue.main.async { self.TableView.reloadData() }
                         }
@@ -146,12 +156,14 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "")
+
+        let cell = TableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! commentCell
         let usercomment = comment[indexPath.row]
         
-        cell.textLabel?.text = usercomment.userName
-        cell.detailTextLabel?.text = usercomment.comment
+        DispatchQueue.main.async {
+            cell.textLabel?.text = usercomment.userName
+            cell.detailTextLabel?.text = usercomment.comment
+        }
         
         return cell
     }
