@@ -16,7 +16,6 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
     let cellId = "NewsAndEventPostCell"
 
     var board = [PostBoard]()
-    var ref = Database.database().reference(withPath:"NewAndEventPost")
     
     override func viewDidLoad() {
         super.viewDidLoad()
