@@ -2013,6 +2013,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Send Message"/>
                                                 <connections>
+                                                    <action selector="SendMessageBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="x9l-5U-CZB"/>
                                                     <segue destination="Y9X-Wt-Lm3" kind="show" id="nR4-bk-sbo">
                                                         <nil key="action"/>
                                                     </segue>
@@ -2026,6 +2027,28 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7u-rm-gHm">
+                                                <rect key="frame" x="10" y="416" width="45" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="DeleteBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="LRG-Q9-Edb"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSb-EY-BQN">
+                                                <rect key="frame" x="8" y="420" width="47" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bv-Gp-xzh">
+                                                <rect key="frame" x="10" y="420" width="56" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2060,6 +2083,10 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1050"/>
                     <connections>
+                        <outlet property="DeleteBut" destination="D7u-rm-gHm" id="kc5-yr-yT2"/>
+                        <outlet property="DeleteLab" destination="5Bv-Gp-xzh" id="CcL-0e-l9O"/>
+                        <outlet property="ReportBut" destination="v4a-5n-IvZ" id="TKo-wZ-iav"/>
+                        <outlet property="ReportLab" destination="LSb-EY-BQN" id="AT2-i0-mLb"/>
                         <outlet property="TableView" destination="hGZ-sB-Ycz" id="W2r-PI-wgT"/>
                         <outlet property="commentText" destination="2LP-28-5Tp" id="fKR-Bb-uxS"/>
                         <outlet property="postContent" destination="n8b-l6-wqq" id="4f6-ko-8Fd"/>

@@ -17,6 +17,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     var creator: String!
     var boardId: String!
     
+    
     var comment = [NAEcomment]()
    
     @IBOutlet weak var TableView: UITableView!
@@ -25,10 +26,33 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var postContent: UITextView!
     @IBOutlet weak var commentText: UITextField!
     
-    @IBAction func reportBut(_ sender: Any) {
-        //For Admin
-    }
+    @IBOutlet weak var ReportBut: UIButton!
+    @IBOutlet weak var ReportLab: UILabel!
     
+    @IBOutlet weak var DeleteBut: UIButton!
+    @IBOutlet weak var DeleteLab: UILabel!
+    
+    @IBAction func reportBut(_ sender: Any) {
+        //For Gen user
+        ReportBut.isEnabled = false
+        ReportBut.isHidden = true
+        ReportLab.isHidden = false
+        
+        let BoardId = boardId!
+        let BoardTitle = Title!
+        let Boardtype = "NewAndEventPost"
+        let BoardCreator = creator!
+        let BoardReport : [String : Any] = [
+            "BoardTitle": BoardTitle as AnyObject,
+            "BoardType": Boardtype as AnyObject,
+            "BoardCreator": BoardCreator as AnyObject
+        ]
+        Database.database().reference().child("BoardReport").child("\(BoardId)").setValue(BoardReport)
+        displyAlertMessage(userMessage: "Our system recieved your Report")    }
+    
+    @IBAction func DeleteBut(_ sender: Any) {
+        //delete post for admin
+    }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
         let commentOwner = Auth.auth().currentUser!.uid
@@ -38,6 +62,10 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
             "Comment": comment as AnyObject
                  ]
         Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
+    }
+    
+    @IBAction func SendMessageBut(_ sender: Any) {
+        // send message to board creator
     }
     
     @IBAction func Addwatchlist(_ sender: Any) {
@@ -73,6 +101,36 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         TableView.dataSource = self
         TableView.delegate = self
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let uid = Auth.auth().currentUser!.uid
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child("\(uid)")
+        var usertype: String!
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                usertype = uservalue["Type"] as? String ?? "Type not found"
+                
+                if(usertype == "admin"){
+                    //user is admin
+                    self.ReportBut.isHidden = true
+                    self.ReportLab.isHidden = true
+                    self.DeleteLab.isHidden = true
+                    
+                }else{
+                    //user is gen user
+                    self.DeleteBut.isHidden = true
+                    self.DeleteLab.isHidden = true
+                    self.ReportLab.isHidden = true
+                }
+               
+            }
+            
+        }
         
     }
     // get comment and owner name

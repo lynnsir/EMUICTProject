@@ -54,6 +54,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                     post.content = bContent
                     post.creator = creatorid
                     post.postId = postid
+                    
       
                     
                    self.board.append(post)
@@ -106,6 +107,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                vc.content = post.content
                vc.creator = post.creator
                vc.boardId = post.postId
+               
         }
     }
 }
