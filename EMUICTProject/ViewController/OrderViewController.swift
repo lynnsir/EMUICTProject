@@ -16,7 +16,7 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
     var totalPrice = 0.00
 
     
-    var order = [Order]()
+    var product = [Product]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var price: UILabel!
@@ -62,12 +62,12 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
         
       
         query.observe(.value) { (snapshot) in
-            self.order.removeAll()
+            self.product.removeAll()
             self.totalPrice = 0.00
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 
                 if let value = child.value as? NSDictionary {
-                    let orders = Order()
+                    let products = Product()
                     let pdname = value["ProductName"] as? String
                     let quant = value["Quantity"] as? String
                     let prices = value["Price"] as? String
@@ -75,12 +75,12 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
                     self.totalPrice = self.totalPrice + Double(prices!)!
                     print(self.totalPrice)
                     self.price.text = String(self.totalPrice)
-                    orders.name = pdname
-                    orders.quantity = quant
-                    orders.price = prices
+                    products.name = pdname
+                    products.quantity = quant
+                    products.price = prices
                   
                     
-                    self.order.append(orders)
+                    self.product.append(products)
                      DispatchQueue.main.async { self.tableView.reloadData() }
                 }
                 
@@ -93,17 +93,17 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return order.count
+        return product.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as! OrderTableViewCell
-        let orders = order[indexPath.row]
+        let products = product[indexPath.row]
         
-        cell.name.text = orders.name
-        cell.quantity.text = orders.quantity
-        cell.price.text = orders.price
+        cell.name.text = products.name
+        cell.quantity.text = products.quantity
+        cell.price.text = products.price
         
       
         return cell

@@ -14,7 +14,7 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
     var oid:String!
     var bid:String!
     var sid:String!
-    var order = [Order]()
+    var product = [Product]()
     var totalPrice = 0.00
     
     @IBOutlet weak var tableView: UITableView!
@@ -40,13 +40,7 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
     
     @IBAction func confirmPressed(_ sender: Any) {
         updateStatus()
-//        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductPayment") as? ProductPaymentViewController
-//        {
-//            if let navigator = navigationController {
-//                navigator.show(vc, sender: true)
-//            }
-//            //vc.orderid = orderID
-//        }
+        _ = navigationController?.popViewController(animated: true)
     }
     
     //getProduct
@@ -58,12 +52,12 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
         let query = rootRef.child("Order").child("\(OrderID)").child("Product")
 
         query.observe(.value) { (snapshot) in
-            self.order.removeAll()
+            self.product.removeAll()
             self.totalPrice = 0.00
             for child in snapshot.children.allObjects as! [DataSnapshot] {
 
                 if let value = child.value as? NSDictionary {
-                    let orders = Order()
+                    let products = Product()
                     let pdname = value["ProductName"] as? String
                     let quant = value["Quantity"] as? String
                     let prices = value["Price"] as? String
@@ -71,12 +65,12 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
                     self.totalPrice = self.totalPrice + Double(prices!)!
                     print(self.totalPrice)
                     self.price.text = String(self.totalPrice)
-                    orders.name = pdname
-                    orders.quantity = quant
-                    orders.price = prices
+                    products.name = pdname
+                    products.quantity = quant
+                    products.price = prices
 
 
-                    self.order.append(orders)
+                    self.product.append(products)
                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }}}}
 
@@ -84,18 +78,18 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return order.count
+        return product.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmOrderCell") as! ConfirmOrderTableViewCell
         
-        let orders = order[indexPath.row]
+        let products = product[indexPath.row]
         
-        cell.name.text = orders.name
-        cell.quantity.text = orders.quantity
-        cell.price.text = orders.price
+        cell.name.text = products.name
+        cell.quantity.text = products.quantity
+        cell.price.text = products.price
         
         return cell
     }
@@ -103,10 +97,12 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
 
     func updateStatus(){
         let rootRef = Database.database().reference()
+        print(totalPrice)
 
         let newUpdateStatus: [String : Any] = [
-            "status": "CF",
-            "s_b_o": sid! + "_" + bid! + "_" + "CF"
+            "status": "Confirmed Order",
+            "s_b_o": sid! + "_" + bid! + "_" + "CF",
+            "totalPrice": totalPrice
         ]
         
         rootRef.child("Order").child("\(oid!)").updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in

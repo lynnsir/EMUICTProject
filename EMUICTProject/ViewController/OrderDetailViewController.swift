@@ -14,6 +14,8 @@ class OrderDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var okbutton: UIButton!
     
 

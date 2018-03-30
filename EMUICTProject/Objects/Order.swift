@@ -9,8 +9,14 @@
 import UIKit
 
 class Order: NSObject {
+    
     var name: String!
-    var quantity: String!
-    var price: String!
+    var total: String!
+    var orderID: String!
+    var sellerID: String!
+    var buyerID: String!
+    var status: String!
+    var s_b_o: String!
+    var date: String!
 
 }

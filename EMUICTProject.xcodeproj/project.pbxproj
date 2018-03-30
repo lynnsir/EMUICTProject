@@ -33,6 +33,7 @@
 		855DBD01206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCFF206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift */; };
 		855DBD02206E3CA6000A76B7 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBD00206E3CA6000A76B7 /* OrderTableViewCell.swift */; };
 		855DBD04206E3CB5000A76B7 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBD03206E3CB5000A76B7 /* Order.swift */; };
+		855DBD06206E6D77000A76B7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBD05206E6D77000A76B7 /* Product.swift */; };
 		856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */; };
 		856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E820348E1E00AC712A /* StudentReportViewController.swift */; };
 		856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */; };
@@ -108,6 +109,7 @@
 		855DBCFF206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmOrderTableViewCell.swift; sourceTree = "<group>"; };
 		855DBD00206E3CA6000A76B7 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		855DBD03206E3CB5000A76B7 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		855DBD05206E6D77000A76B7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
 		856BC4E820348E1E00AC712A /* StudentReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentReportViewController.swift; sourceTree = "<group>"; };
 		856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReportViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				85E82110203B09C100ADD576 /* PersonReport.swift */,
 				0BCE4B23204A632B0066A55B /* PostBoard.swift */,
 				0BCE4B29204BBD600066A55B /* NAEcomment.swift */,
+				855DBD05206E6D77000A76B7 /* Product.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				85C5BDD4206E24B80097BE9A /* OrderListTableViewCell.swift in Sources */,
 				85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */,
 				85836DF22055244300117149 /* EditStudentProfileViewController.swift in Sources */,
+				855DBD06206E6D77000A76B7 /* Product.swift in Sources */,
 				0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */,
 				855DBD04206E3CB5000A76B7 /* Order.swift in Sources */,
 				856BC4ED20348E4400AC712A /* StaffReportViewController.swift in Sources */,

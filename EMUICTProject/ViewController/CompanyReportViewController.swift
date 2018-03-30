@@ -120,10 +120,7 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
             vc.des = user.companyDes
             vc.mail = user.email
             vc.imageURL = user.imageProfile
-            
-            
-            
-            
+
         }
         
         
