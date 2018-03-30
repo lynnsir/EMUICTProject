@@ -96,12 +96,22 @@ class OrderDetailPayViewController: UIViewController, UINavigationControllerDele
     
     
     @IBAction func cancelPressed(_ sender: Any) {
-        
+        let OrderID = oid!
+        Database.database().reference().child("Order").child("\(OrderID)").removeValue()
+        _ = navigationController?.popViewController(animated: true)
         
     }
     
     @IBAction func payPressed(_ sender: Any) {
         
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductPayment") as? ProductPaymentViewController
+        {
+            if let navigator = self.navigationController {
+                navigator.show(vc, sender: true)
+            }
+            vc.total = totalPrice
+            print(totalPrice)
+        }
         
     }
     
