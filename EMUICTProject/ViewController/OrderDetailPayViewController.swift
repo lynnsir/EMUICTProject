@@ -11,15 +11,29 @@ import UIKit
 class OrderDetailPayViewController: UIViewController {
 
     var order = [Order]()
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var paybutton: UIButton!
+    @IBOutlet weak var cancelBut: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    @IBOutlet weak var payPressed: UIButton!
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        
+        
+    }
+    
+    @IBAction func payPressed(_ sender: Any) {
+        
+        
+    }
+    
+  
     
 }

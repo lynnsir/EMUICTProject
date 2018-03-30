@@ -9,35 +9,37 @@
 import UIKit
 import Firebase
 
-class OrderListViewController: UIViewController,UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class OrderListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     var order = [Order]()
-    var i = 1
-    var n = 1
     var total:String!
     var status:String!
     var oid:String!
     var date:String!
     var role:String!
-    
-    @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getSellerOrder()
+     
 
     }
 
+    
     @IBAction func segmentPressed(_ sender: Any) {
         switch segmentControl.selectedSegmentIndex
         {
         case 0:
             print("SellerSelected")
             getSellerOrder()
+            
         case 1:
-             print("BuyerSelected")
+            print("BuyerSelected")
             getBuyerOrder()
+            
         default:
             break
         }
@@ -64,11 +66,9 @@ class OrderListViewController: UIViewController,UINavigationControllerDelegate, 
                     self.role = "seller"
                     print(orderid)
                     self.order.append(orders)
-                     DispatchQueue.main.async { self.tableView.reloadData() }
-                }}}
-        
-
-    }
+                                  DispatchQueue.main.async { self.tableView.reloadData() }
+                }}}}
+    
     
     func getBuyerOrder(){
         
@@ -91,68 +91,31 @@ class OrderListViewController: UIViewController,UINavigationControllerDelegate, 
                     self.role = "buyer"
                     print(orderid)
                     self.order.append(orders)
-                     DispatchQueue.main.async { self.tableView.reloadData() }
+                                 DispatchQueue.main.async { self.tableView.reloadData() }
                     
-                }}}
-    }
-    
+                }}}}
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return order.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListCell") as! OrderListTableViewCell
-        
-        let orders = order[indexPath.row]
-        
-        cell.img.image = #imageLiteral(resourceName: "orderimg")
-        cell.status.text = orders.status
-        cell.total.text = orders.total
-        cell.date.text = orders.date
-
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        let orders = order[indexPath.row]
-        if orders.status == "Confirmed Order" && role == "buyer"{
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController
-                
-            {
-                if let navigator = navigationController {
-                    navigator.show(vc, sender: true)
-                }
-                
-                // send date and order id and status
-                
-            }
-        }
-        else{
-            
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailPay") as? OrderDetailPayViewController
-                
-            {
-                if let navigator = navigationController {
-                    navigator.show(vc, sender: true)
-                }
-                
-                // send date and order id and status
-                
-            }
-        }
-        
-
-    }
-    
-    
-        
       
+                return order.count
+        
+            }
+    
+            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+                let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListCell") as! OrderListTableViewCell
+      
+        
+                cell.img.image = #imageLiteral(resourceName: "orderimg")
+                cell.status.text = status
+                print(status)
+                cell.total.text = total
+                cell.date.text = date
+        
+                return cell
+            }
     
     
-    
+ 
     
 }

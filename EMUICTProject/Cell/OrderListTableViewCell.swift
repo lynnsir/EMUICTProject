@@ -10,8 +10,6 @@ import UIKit
 
 class OrderListTableViewCell: UITableViewCell {
 
- 
-  
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var date: UILabel!
