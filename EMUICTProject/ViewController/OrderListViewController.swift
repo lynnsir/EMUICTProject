@@ -116,6 +116,46 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+        {
+            
+            if status == "Confirmed Order" && role == "buyer"{
+                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailPay") as? OrderDetailPayViewController
+    
+                {
+                    if let navigator = navigationController {
+                        navigator.show(vc, sender: true)
+                    }
+    
+                    vc.Orderdate = date
+                    vc.Orderstatus = status
+                    vc.oid = oid
+                    vc.totalPrice = total
+                    
+    
+                }
+            }
+            else{
+    
+                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController
+    
+                {
+                    if let navigator = navigationController {
+                        navigator.show(vc, sender: true)
+                    }
+    
+                    vc.Orderdate = date
+                    vc.Orderstatus = status
+                    vc.oid = oid
+                    vc.totalPrice = total
+    
+                }
+            }
+    
+    
+        }
+    
+    
  
     
 }

@@ -11,6 +11,10 @@ import UIKit
 class OrderDetailViewController: UIViewController {
 
     var order = [Order]()
+    var Orderdate:String!
+    var Orderstatus:String!
+    var totalPrice:String!
+    var oid:String!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var price: UILabel!
@@ -21,8 +25,12 @@ class OrderDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        print("DetailView")
+        print(Orderdate)
+        print(Orderstatus)
+        print(totalPrice)
+        print(oid)
+ 
     }
 
   
