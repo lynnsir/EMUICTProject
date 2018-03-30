@@ -14,6 +14,7 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
     
     var orderID : String!
     var totalPrice = 0.00
+     var totalMoney:String!
 
     
     var product = [Product]()
@@ -40,6 +41,7 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
     }
     
     @IBAction func confirmPressed(_ sender: Any) {
+        addTotal()
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -86,6 +88,26 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
                 
             }
         }
+        
+    }
+    
+    func addTotal(){
+        let rootRef = Database.database().reference()
+        print(totalPrice)
+        self.totalMoney = String(totalPrice)
+        
+        let newUpdateStatus: [String : Any] = [
+   
+            "totalPrice": self.totalMoney
+        ]
+        
+        rootRef.child("Order").child("\(orderID!)").updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in
+            if let error = error{
+                print(error)
+                //return
+            }
+            print("Confirm success")
+        })
         
     }
     

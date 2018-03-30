@@ -151,7 +151,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     }
                 }
                 
-                else if status == "NCF" {
+                else if status == "Not confirmed order" {
                     if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
                         
                     {
