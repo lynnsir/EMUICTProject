@@ -62,7 +62,9 @@ class OrderListViewController: UIViewController,UINavigationControllerDelegate, 
                     self.status = status
                     self.date = date
                     self.role = "seller"
+                    print(orderid)
                     self.order.append(orders)
+                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }}}
         
 
@@ -87,8 +89,9 @@ class OrderListViewController: UIViewController,UINavigationControllerDelegate, 
                     self.status = status
                     self.date = date
                     self.role = "buyer"
-                    
+                    print(orderid)
                     self.order.append(orders)
+                     DispatchQueue.main.async { self.tableView.reloadData() }
                     
                 }}}
     }
