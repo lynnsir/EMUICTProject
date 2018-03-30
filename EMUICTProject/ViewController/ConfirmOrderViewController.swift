@@ -16,6 +16,7 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
     var sid:String!
     var product = [Product]()
     var totalPrice = 0.00
+    var totalMoney:String!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var price: UILabel!
@@ -65,6 +66,7 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
                     self.totalPrice = self.totalPrice + Double(prices!)!
                     print(self.totalPrice)
                     self.price.text = String(self.totalPrice)
+                    
                     products.name = pdname
                     products.quantity = quant
                     products.price = prices
@@ -98,11 +100,12 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
     func updateStatus(){
         let rootRef = Database.database().reference()
         print(totalPrice)
+         self.totalMoney = String(totalPrice)
 
         let newUpdateStatus: [String : Any] = [
             "status": "Confirmed Order",
             "s_b_o": sid! + "_" + bid! + "_" + "Confirmed Order",
-            "totalPrice": totalPrice
+            "totalPrice": self.totalMoney
         ]
         
         rootRef.child("Order").child("\(oid!)").updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in

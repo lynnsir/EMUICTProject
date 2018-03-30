@@ -12,6 +12,7 @@ import Firebase
 class OrderListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     var order = [Order]()
+    var order2 = [Order]()
     var total:String!
     var status:String!
     var oid:String!
@@ -30,19 +31,18 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     
     @IBAction func segmentPressed(_ sender: Any) {
-        switch segmentControl.selectedSegmentIndex
-        {
-        case 0:
+        if segmentControl.selectedSegmentIndex == 0 {
+            tableView.reloadData()
             print("SellerSelected")
             getSellerOrder()
+        }
             
-        case 1:
+        else  {
+            tableView.reloadData()
             print("BuyerSelected")
             getBuyerOrder()
-            
-        default:
-            break
         }
+
     }
     
     func getSellerOrder(){
@@ -51,6 +51,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         let rootRef = Database.database().reference()
         let query = rootRef.child("Order").queryOrdered(byChild: "sellerID").queryEqual(toValue:uid)
         query.observe(.value) { (snapshot) in
+            self.order.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     let orders = Order()
@@ -65,6 +66,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.date = date
                     self.role = "seller"
                     print(orderid)
+                    print(total)
                     self.order.append(orders)
                                   DispatchQueue.main.async { self.tableView.reloadData() }
                 }}}}
@@ -76,6 +78,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         let rootRef = Database.database().reference()
         let query = rootRef.child("Order").queryOrdered(byChild: "buyerID").queryEqual(toValue:uid)
         query.observe(.value) { (snapshot) in
+              self.order2.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     let orders = Order()
@@ -90,15 +93,20 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.date = date
                     self.role = "buyer"
                     print(orderid)
-                    self.order.append(orders)
+                    self.order2.append(orders)
                                  DispatchQueue.main.async { self.tableView.reloadData() }
                     
                 }}}}
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
-                return order.count
+        if segmentControl.selectedSegmentIndex == 1{
+            return order2.count
+        }
+        else{
+            return order.count
+        }
         
+
             }
     
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,9 +138,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     vc.Orderdate = date
                     vc.Orderstatus = status
                     vc.oid = oid
-                    vc.totalPrice = total
-                    
-    
+
                 }
             }
             else{
@@ -147,12 +153,10 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     vc.Orderdate = date
                     vc.Orderstatus = status
                     vc.oid = oid
-                    vc.totalPrice = total
-    
+
                 }
             }
-    
-    
+
         }
     
     
