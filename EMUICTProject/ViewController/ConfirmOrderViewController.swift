@@ -90,7 +90,7 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
         let products = product[indexPath.row]
         
         cell.name.text = products.name
-        cell.quantity.text = products.quantity
+        cell.quantity.text = "x" + products.quantity
         cell.price.text = products.price
         
         return cell

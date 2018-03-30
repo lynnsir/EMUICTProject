@@ -16,6 +16,8 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     var total:String!
     var status:String!
     var oid:String!
+    var sid:String!
+    var bid:String!
     var date:String!
     var role:String!
 
@@ -59,7 +61,11 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     let total = value["totalPrice"] as? String ?? "not found"
                     let status = value["status"] as? String ?? "not found"
                     let date = value["Date"] as? String ?? "not found"
+                    let bid = value["buyerID"] as? String ?? "not found"
+                    let sid = value["sellerID"] as? String ?? "not found"
                     
+                    self.sid = sid
+                    self.bid = bid
                     self.oid = orderid
                     self.total = total
                     self.status = status
@@ -127,19 +133,56 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
         {
             
-            if status == "Confirmed Order" && role == "buyer"{
-                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailPay") as? OrderDetailPayViewController
-    
-                {
-                    if let navigator = navigationController {
-                        navigator.show(vc, sender: true)
+            if role == "buyer"{
+                
+                if status == "Confirmed Order" {
+                    
+                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailPay") as? OrderDetailPayViewController
+                        
+                    {
+                        if let navigator = navigationController {
+                            navigator.show(vc, sender: true)
+                        }
+                        
+                        vc.Orderdate = date
+                        vc.Orderstatus = status
+                        vc.oid = oid
+                        
                     }
-    
-                    vc.Orderdate = date
-                    vc.Orderstatus = status
-                    vc.oid = oid
-
                 }
+                
+                else if status == "NCF" {
+                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
+                        
+                    {
+                        if let navigator = navigationController {
+                            navigator.show(vc, sender: true)
+                        }
+                        
+                        vc.oid = oid
+                        vc.sid = sid
+                        vc.bid = bid
+                        
+                        
+                    }
+                }
+                
+                else {
+                    
+                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController
+                        
+                    {
+                        if let navigator = navigationController {
+                            navigator.show(vc, sender: true)
+                        }
+                        
+                        vc.Orderdate = date
+                        vc.Orderstatus = status
+                        vc.oid = oid
+                        
+                    }
+                }
+             
             }
             else{
     
@@ -153,6 +196,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     vc.Orderdate = date
                     vc.Orderstatus = status
                     vc.oid = oid
+
 
                 }
             }

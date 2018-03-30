@@ -86,7 +86,7 @@ class OrderDetailPayViewController: UIViewController, UINavigationControllerDele
         print(products.price)
         
         cell.name.text = products.name!
-        cell.quantity.text = products.quantity!
+        cell.quantity.text = "x" + products.quantity!
         cell.price.text = products.price!
         
         return cell
@@ -98,6 +98,7 @@ class OrderDetailPayViewController: UIViewController, UINavigationControllerDele
     @IBAction func cancelPressed(_ sender: Any) {
         let OrderID = oid!
         Database.database().reference().child("Order").child("\(OrderID)").removeValue()
+        Database.database().reference().child("ConfirmedOrder").child("\(OrderID)").removeValue()
         _ = navigationController?.popViewController(animated: true)
         
     }
