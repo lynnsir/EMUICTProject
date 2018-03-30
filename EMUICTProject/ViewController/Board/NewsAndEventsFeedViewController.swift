@@ -11,7 +11,8 @@ import Firebase
 class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var InsertNAEPost: UIBarButtonItem!
+   
+    @IBOutlet var InsertNAEpost: UIBarButtonItem!
     
     let cellId = "NewsAndEventPostCell"
 
@@ -22,13 +23,38 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
        
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
         getPost()
-        checkInsertPriority()
         tableView.dataSource = self
         tableView.delegate = self
     }
-    func checkInsertPriority(){
-        // set admin priority
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let uid = Auth.auth().currentUser!.uid
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child("\(uid)")
+        var usertype: String!
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                usertype = uservalue["Type"] as? String ?? "Type not found"
+                
+                if(usertype == "admin"){
+                    //user is admin
+                    self.InsertNAEpost.isEnabled = true
+                    
+                }else{
+                    //user is gen user
+                    self.InsertNAEpost.isEnabled = false
+              
+                }
+                
+            }
+            
+        }
+        
     }
+
     
     func getPost(){
         
