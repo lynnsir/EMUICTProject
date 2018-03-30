@@ -25,6 +25,14 @@
 		0BCE4B2C204CCAAB0066A55B /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */; };
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
+		855DBCF6206E3C3E000A76B7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */; };
+		855DBCFB206E3C8C000A76B7 /* GenOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */; };
+		855DBCFC206E3C8C000A76B7 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF8206E3C8C000A76B7 /* OrderViewController.swift */; };
+		855DBCFD206E3C8C000A76B7 /* ProductPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF9206E3C8C000A76B7 /* ProductPaymentViewController.swift */; };
+		855DBCFE206E3C8C000A76B7 /* ConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCFA206E3C8C000A76B7 /* ConfirmOrderViewController.swift */; };
+		855DBD01206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCFF206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift */; };
+		855DBD02206E3CA6000A76B7 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBD00206E3CA6000A76B7 /* OrderTableViewCell.swift */; };
+		855DBD04206E3CB5000A76B7 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBD03206E3CB5000A76B7 /* Order.swift */; };
 		856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */; };
 		856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4E820348E1E00AC712A /* StudentReportViewController.swift */; };
 		856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */; };
@@ -42,14 +50,6 @@
 		85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */; };
 		85950DCD20335450002D4A0B /* StaffSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCC20335450002D4A0B /* StaffSearchViewController.swift */; };
 		85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85950DCE20335464002D4A0B /* CompanySearchViewController.swift */; };
-		85C5BDC5206DFD9D0097BE9A /* ConfirmOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDC3206DFD9C0097BE9A /* ConfirmOrderTableViewCell.swift */; };
-		85C5BDC6206DFD9D0097BE9A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDC4206DFD9D0097BE9A /* OrderTableViewCell.swift */; };
-		85C5BDCB206DFDC40097BE9A /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDC7206DFDC20097BE9A /* OrderViewController.swift */; };
-		85C5BDCC206DFDC40097BE9A /* ConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDC8206DFDC30097BE9A /* ConfirmOrderViewController.swift */; };
-		85C5BDCD206DFDC40097BE9A /* ProductPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDC9206DFDC30097BE9A /* ProductPaymentViewController.swift */; };
-		85C5BDCE206DFDC40097BE9A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDCA206DFDC30097BE9A /* ChatViewController.swift */; };
-		85C5BDD0206E00480097BE9A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDCF206E00480097BE9A /* Order.swift */; };
-		85C5BDD2206E01080097BE9A /* GenOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDD1206E01080097BE9A /* GenOrderViewController.swift */; };
 		85C5BDD4206E24B80097BE9A /* OrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDD3206E24B80097BE9A /* OrderListTableViewCell.swift */; };
 		85C5BDD6206E251F0097BE9A /* OrderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDD5206E251F0097BE9A /* OrderDetailTableViewCell.swift */; };
 		85C5BDDA206E26CE0097BE9A /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDD9206E26CE0097BE9A /* OrderListViewController.swift */; };
@@ -100,6 +100,14 @@
 		0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
+		855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenOrderViewController.swift; sourceTree = "<group>"; };
+		855DBCF8206E3C8C000A76B7 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		855DBCF9206E3C8C000A76B7 /* ProductPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPaymentViewController.swift; sourceTree = "<group>"; };
+		855DBCFA206E3C8C000A76B7 /* ConfirmOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmOrderViewController.swift; sourceTree = "<group>"; };
+		855DBCFF206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmOrderTableViewCell.swift; sourceTree = "<group>"; };
+		855DBD00206E3CA6000A76B7 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		855DBD03206E3CB5000A76B7 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewController.swift; sourceTree = "<group>"; };
 		856BC4E820348E1E00AC712A /* StudentReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentReportViewController.swift; sourceTree = "<group>"; };
 		856BC4EA20348E3400AC712A /* CompanyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReportViewController.swift; sourceTree = "<group>"; };
@@ -117,14 +125,6 @@
 		85950DCA20335440002D4A0B /* AlumniSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCC20335450002D4A0B /* StaffSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffSearchViewController.swift; sourceTree = "<group>"; };
 		85950DCE20335464002D4A0B /* CompanySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySearchViewController.swift; sourceTree = "<group>"; };
-		85C5BDC3206DFD9C0097BE9A /* ConfirmOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmOrderTableViewCell.swift; path = "../../../EMUICTProject 2/EMUICTProject/Cell/ConfirmOrderTableViewCell.swift"; sourceTree = "<group>"; };
-		85C5BDC4206DFD9D0097BE9A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderTableViewCell.swift; path = "../../../EMUICTProject 2/EMUICTProject/Cell/OrderTableViewCell.swift"; sourceTree = "<group>"; };
-		85C5BDC7206DFDC20097BE9A /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderViewController.swift; path = "../../../EMUICTProject 2/EMUICTProject/ViewController/OrderViewController.swift"; sourceTree = "<group>"; };
-		85C5BDC8206DFDC30097BE9A /* ConfirmOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmOrderViewController.swift; path = "../../../EMUICTProject 2/EMUICTProject/ViewController/ConfirmOrderViewController.swift"; sourceTree = "<group>"; };
-		85C5BDC9206DFDC30097BE9A /* ProductPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductPaymentViewController.swift; path = "../../../EMUICTProject 2/EMUICTProject/ViewController/ProductPaymentViewController.swift"; sourceTree = "<group>"; };
-		85C5BDCA206DFDC30097BE9A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = "../../../EMUICTProject 2/EMUICTProject/ViewController/ChatViewController.swift"; sourceTree = "<group>"; };
-		85C5BDCF206E00480097BE9A /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = "../../../EMUICTProject 2/EMUICTProject/Objects/Order.swift"; sourceTree = "<group>"; };
-		85C5BDD1206E01080097BE9A /* GenOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenOrderViewController.swift; path = "../../../EMUICTProject 2/EMUICTProject/ViewController/GenOrderViewController.swift"; sourceTree = "<group>"; };
 		85C5BDD3206E24B80097BE9A /* OrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewCell.swift; sourceTree = "<group>"; };
 		85C5BDD5206E251F0097BE9A /* OrderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewCell.swift; sourceTree = "<group>"; };
 		85C5BDD9206E26CE0097BE9A /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
@@ -207,8 +207,8 @@
 			children = (
 				85D6B055203AD1D0005AE477 /* StudentReportTableViewCell.swift */,
 				85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */,
-				85C5BDC3206DFD9C0097BE9A /* ConfirmOrderTableViewCell.swift */,
-				85C5BDC4206DFD9D0097BE9A /* OrderTableViewCell.swift */,
+				855DBCFF206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift */,
+				855DBD00206E3CA6000A76B7 /* OrderTableViewCell.swift */,
 				85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */,
 				85D6B05B203AD208005AE477 /* CompanyReportTableViewCell.swift */,
 				0BCE4B25204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift */,
@@ -251,11 +251,11 @@
 				85836DF32055247800117149 /* EditAlumniProfileViewController.swift */,
 				85836DF52055249700117149 /* EditStaffProfileViewController.swift */,
 				85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */,
-				85C5BDCA206DFDC30097BE9A /* ChatViewController.swift */,
-				85C5BDC8206DFDC30097BE9A /* ConfirmOrderViewController.swift */,
-				85C5BDC7206DFDC20097BE9A /* OrderViewController.swift */,
-				85C5BDD1206E01080097BE9A /* GenOrderViewController.swift */,
-				85C5BDC9206DFDC30097BE9A /* ProductPaymentViewController.swift */,
+				855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */,
+				855DBCFA206E3C8C000A76B7 /* ConfirmOrderViewController.swift */,
+				855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */,
+				855DBCF8206E3C8C000A76B7 /* OrderViewController.swift */,
+				855DBCF9206E3C8C000A76B7 /* ProductPaymentViewController.swift */,
 				85C5BDD9206E26CE0097BE9A /* OrderListViewController.swift */,
 				85C5BDDB206E26EA0097BE9A /* OrderDetailViewController.swift */,
 				85C5BDDD206E28F70097BE9A /* OrderDetailPayViewController.swift */,
@@ -268,7 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				85E8210E203B093F00ADD576 /* CompanyReport.swift */,
-				85C5BDCF206E00480097BE9A /* Order.swift */,
+				855DBD03206E3CB5000A76B7 /* Order.swift */,
 				85E82110203B09C100ADD576 /* PersonReport.swift */,
 				0BCE4B23204A632B0066A55B /* PostBoard.swift */,
 				0BCE4B29204BBD600066A55B /* NAEcomment.swift */,
@@ -465,6 +465,7 @@
 				85950DCF20335464002D4A0B /* CompanySearchViewController.swift in Sources */,
 				85836DF22055244300117149 /* EditStudentProfileViewController.swift in Sources */,
 				0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */,
+				855DBD04206E3CB5000A76B7 /* Order.swift in Sources */,
 				856BC4ED20348E4400AC712A /* StaffReportViewController.swift in Sources */,
 				85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */,
 				0BCE4B26204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift in Sources */,
@@ -477,37 +478,35 @@
 				85C5BDDA206E26CE0097BE9A /* OrderListViewController.swift in Sources */,
 				85836DF62055249700117149 /* EditStaffProfileViewController.swift in Sources */,
 				85836DEC205429D500117149 /* MyProfileAlumniViewController.swift in Sources */,
-				85C5BDCE206DFDC40097BE9A /* ChatViewController.swift in Sources */,
 				85EF1FFE2020420800F39134 /* StudentRegisterViewController.swift in Sources */,
-				85C5BDC6206DFD9D0097BE9A /* OrderTableViewCell.swift in Sources */,
-				85C5BDCC206DFDC40097BE9A /* ConfirmOrderViewController.swift in Sources */,
 				85836DE82054296800117149 /* MyProfileStudentViewController.swift in Sources */,
 				85D922CF2045372500B94951 /* InvoiceViewController.swift in Sources */,
+				855DBCFE206E3C8C000A76B7 /* ConfirmOrderViewController.swift in Sources */,
 				0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */,
+				855DBCFB206E3C8C000A76B7 /* GenOrderViewController.swift in Sources */,
 				0BCE4B24204A632B0066A55B /* PostBoard.swift in Sources */,
 				0B16D875206A8B0D004CE7FB /* HomePageContentViewController.swift in Sources */,
-				85C5BDD2206E01080097BE9A /* GenOrderViewController.swift in Sources */,
+				855DBD01206E3CA6000A76B7 /* ConfirmOrderTableViewCell.swift in Sources */,
 				85D922CB204523CE00B94951 /* DLRadioButton.m in Sources */,
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
+				855DBD02206E3CA6000A76B7 /* OrderTableViewCell.swift in Sources */,
 				0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
-				85C5BDCD206DFDC40097BE9A /* ProductPaymentViewController.swift in Sources */,
 				0BC13C3B206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift in Sources */,
 				0B2592D72058AFF70012693E /* WatchListContentViewController.swift in Sources */,
 				85E8210F203B093F00ADD576 /* CompanyReport.swift in Sources */,
 				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
-				85C5BDC5206DFD9D0097BE9A /* ConfirmOrderTableViewCell.swift in Sources */,
-				85C5BDCB206DFDC40097BE9A /* OrderViewController.swift in Sources */,
 				85C5BDDE206E28F70097BE9A /* OrderDetailPayViewController.swift in Sources */,
 				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
+				855DBCFC206E3C8C000A76B7 /* OrderViewController.swift in Sources */,
 				85836DF42055247800117149 /* EditAlumniProfileViewController.swift in Sources */,
 				85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */,
 				85836DF0205429F800117149 /* MyProfileCompanyViewController.swift in Sources */,
 				0BCE4B28204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift in Sources */,
 				85D6B05C203AD208005AE477 /* CompanyReportTableViewCell.swift in Sources */,
+				855DBCFD206E3C8C000A76B7 /* ProductPaymentViewController.swift in Sources */,
 				85D922C82045157200B94951 /* PaymentViewController.swift in Sources */,
 				85C5BDE0206E29520097BE9A /* OrderDetailPayTableViewCell.swift in Sources */,
-				85C5BDD0206E00480097BE9A /* Order.swift in Sources */,
 				0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */,
 				85C5BDDC206E26EA0097BE9A /* OrderDetailViewController.swift in Sources */,
 				85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */,
@@ -521,6 +520,7 @@
 				0BC13C39206CAF4F0036F66D /* BusinessFeedViewController.swift in Sources */,
 				85E82111203B09C100ADD576 /* PersonReport.swift in Sources */,
 				856BC4E920348E1E00AC712A /* StudentReportViewController.swift in Sources */,
+				855DBCF6206E3C3E000A76B7 /* ChatViewController.swift in Sources */,
 				85836DEE205429E300117149 /* MyProfileStaffViewController.swift in Sources */,
 				0B16D873206A894F004CE7FB /* HomePageViewController.swift in Sources */,
 				85950DC920335430002D4A0B /* StudentSearchViewController.swift in Sources */,
