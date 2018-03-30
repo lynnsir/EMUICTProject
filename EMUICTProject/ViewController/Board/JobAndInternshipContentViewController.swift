@@ -4,7 +4,7 @@
 //
 //  Created by Teeraphon Issaranuluk on 29/3/2561 BE.
 //  Copyright © 2561 Sirinda. All rights reserved.
-//
+//  JobAndInternshipPost
 
 import UIKit
 import Firebase
@@ -18,6 +18,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     var creator: String!
     var boardId: String!
     
+    
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!
@@ -26,10 +27,41 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     @IBOutlet weak var postContent: UITextView!
     @IBOutlet weak var commentText: UITextField!
     
-    @IBAction func reportBut(_ sender: Any) {
-        //For Admin
-    }
+    @IBOutlet weak var ReportBut: UIButton!
+    @IBOutlet weak var ReportLab: UILabel!
     
+    @IBOutlet weak var DeleteBut: UIButton!
+    @IBOutlet weak var DeleteLab: UILabel!
+    
+    @IBAction func reportBut(_ sender: Any) {
+        //For Gen user
+        ReportBut.isEnabled = false
+        ReportBut.isHidden = true
+        ReportLab.isHidden = false
+        
+        let BoardId = boardId!
+        let BoardTitle = Title!
+        let Boardtype = "JobAndInternshipPost"
+        let BoardCreator = creator!
+        let BoardReport : [String : Any] = [
+            "BoardTitle": BoardTitle as AnyObject,
+            "BoardType": Boardtype as AnyObject,
+            "BoardCreator": BoardCreator as AnyObject
+        ]
+        Database.database().reference().child("BoardReport").child("\(BoardId)").setValue(BoardReport)
+        displyAlertMessage(userMessage: "Our system recieved your Report")    }
+    
+    @IBAction func DeleteBut(_ sender: Any) {
+        //delete post for admin
+        let boardid = boardId!
+        let boardtype = "JobAndInternshipPost"
+        let ref = Database.database().reference().child("\(boardtype)").child("\(boardid)")
+        ref.removeValue(completionBlock: {(error, ref) in
+            if(error != nil){
+                print(error.debugDescription)
+            }
+        })
+    }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
         let commentOwner = Auth.auth().currentUser!.uid
@@ -39,6 +71,10 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
             "Comment": comment as AnyObject
         ]
         Database.database().reference().child("JobAndInternshipPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
+    }
+    
+    @IBAction func SendMessageBut(_ sender: Any) {
+        // send message to board creator
     }
     
     @IBAction func Addwatchlist(_ sender: Any) {
@@ -74,6 +110,36 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
         TableView.dataSource = self
         TableView.delegate = self
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let uid = Auth.auth().currentUser!.uid
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child("\(uid)")
+        var usertype: String!
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                usertype = uservalue["Type"] as? String ?? "Type not found"
+                
+                if(usertype == "admin"){
+                    //user is admin
+                    self.ReportBut.isHidden = true
+                    self.ReportLab.isHidden = true
+                    self.DeleteLab.isHidden = true
+                    
+                }else{
+                    //user is gen user
+                    self.DeleteBut.isHidden = true
+                    self.DeleteLab.isHidden = true
+                    self.ReportLab.isHidden = true
+                }
+                
+            }
+            
+        }
         
     }
     // get comment and owner name

@@ -1655,7 +1655,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="InsertNAEPost" destination="WIU-ye-yD7" id="42H-be-7ch"/>
+                        <outlet property="InsertNAEpost" destination="WIU-ye-yD7" id="8aP-jZ-R7t"/>
                         <outlet property="tableView" destination="ABc-LT-XnQ" id="vp8-82-Uvd"/>
                     </connections>
                 </viewController>
