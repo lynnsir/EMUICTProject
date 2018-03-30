@@ -52,6 +52,14 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     
     @IBAction func DeleteBut(_ sender: Any) {
         //delete post for admin
+        let boardid = boardId!
+        let boardtype = "NewAndEventPost"
+        let ref = Database.database().reference().child("\(boardtype)").child("\(boardid)")
+        ref.removeValue(completionBlock: {(error, ref) in
+            if(error != nil){
+                print(error.debugDescription)
+            }
+        })
     }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
