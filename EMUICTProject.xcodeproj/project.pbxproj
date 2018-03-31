@@ -25,8 +25,6 @@
 		0BCE4B2C204CCAAB0066A55B /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */; };
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
-		85422CDC206F00CE009163FD /* OrderNCFTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85422CDB206F00CE009163FD /* OrderNCFTableViewCell.swift */; };
-		85422CDE206F00EA009163FD /* OrderNCFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85422CDD206F00EA009163FD /* OrderNCFViewController.swift */; };
 		855DBCF6206E3C3E000A76B7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */; };
 		855DBCFB206E3C8C000A76B7 /* GenOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */; };
 		855DBCFC206E3C8C000A76B7 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF8206E3C8C000A76B7 /* OrderViewController.swift */; };
@@ -103,8 +101,6 @@
 		0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
-		85422CDB206F00CE009163FD /* OrderNCFTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNCFTableViewCell.swift; sourceTree = "<group>"; };
-		85422CDD206F00EA009163FD /* OrderNCFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNCFViewController.swift; sourceTree = "<group>"; };
 		855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenOrderViewController.swift; sourceTree = "<group>"; };
 		855DBCF8206E3C8C000A76B7 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -221,7 +217,6 @@
 				85C5BDD3206E24B80097BE9A /* OrderListTableViewCell.swift */,
 				85C5BDD5206E251F0097BE9A /* OrderDetailTableViewCell.swift */,
 				85C5BDDF206E29520097BE9A /* OrderDetailPayTableViewCell.swift */,
-				85422CDB206F00CE009163FD /* OrderNCFTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -266,7 +261,6 @@
 				85C5BDD9206E26CE0097BE9A /* OrderListViewController.swift */,
 				85C5BDDB206E26EA0097BE9A /* OrderDetailViewController.swift */,
 				85C5BDDD206E28F70097BE9A /* OrderDetailPayViewController.swift */,
-				85422CDD206F00EA009163FD /* OrderNCFViewController.swift */,
 				0BC13C41206CB08F0036F66D /* Board */,
 			);
 			path = ViewController;
@@ -484,7 +478,6 @@
 				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
 				85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */,
 				85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */,
-				85422CDC206F00CE009163FD /* OrderNCFTableViewCell.swift in Sources */,
 				85C5BDD6206E251F0097BE9A /* OrderDetailTableViewCell.swift in Sources */,
 				85C5BDDA206E26CE0097BE9A /* OrderListViewController.swift in Sources */,
 				85836DF62055249700117149 /* EditStaffProfileViewController.swift in Sources */,
@@ -521,7 +514,6 @@
 				0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */,
 				85C5BDDC206E26EA0097BE9A /* OrderDetailViewController.swift in Sources */,
 				85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */,
-				85422CDE206F00EA009163FD /* OrderNCFViewController.swift in Sources */,
 				85EF1FEA20202F9C00F39134 /* AppDelegate.swift in Sources */,
 				85836DF8205524A800117149 /* EditCompanyProfileViewController.swift in Sources */,
 				856BC4E720335D9B00AC712A /* AccountMenuViewController.swift in Sources */,
