@@ -22,10 +22,75 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
-        getPost()
+        
+        // admin check
+        let uid = Auth.auth().currentUser!.uid
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child("\(uid)")
+        var usertype: String!
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                usertype = uservalue["Type"] as? String ?? "Type not found"
+                
+                if(usertype == "admin"){
+                    //user is admin
+                    self.navigationItem.title = "Board Reported"
+                    self.getReport()
+                    
+                }else{
+                    //user is gen user
+                    self.getPost()
+                }
+                
+            }
+            
+        }
+      
         tableView.dataSource = self
         tableView.delegate = self
     }
+    func getReport(){
+        
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("BoardReport")
+        
+        query.observe(.value) { (snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                if let value = child.value as? NSDictionary {
+                    
+                    let post = PostBoard()
+                    
+                    let boardid = child.key
+                    let boardtype = value["BoardType"] as? String ?? "board type not found"
+                    
+                    let query2 = Database.database().reference().child("\(boardtype)").child("\(boardid)")
+                    
+                    query2.observe(.value, with: {(snapshot2) in
+                        
+                        if let value2 = snapshot2.value as? NSDictionary {
+                            
+                            let postid = child.key
+                            let creatorid = value2["creator"] as? String ?? "Creator not found"
+                            let bTitle = value2["Title"] as? String ?? "Title not found"
+                            let bContent = value2["Content"] as? String ?? "Content not found"
+                            let imagePath = value2["urlToImage"] as? String ?? "Image not found"
+                            
+                            post.imagePost = imagePath
+                            post.title = bTitle
+                            post.content = bContent
+                            post.creator = creatorid
+                            post.postId = postid
+                            post.boardType = boardtype
+                            
+                            self.board.append(post)
+                            DispatchQueue.main.async { self.tableView.reloadData() }
+                        }
+                    })
+                }
+            }
+        }    }
     
     
     func getPost(){
