@@ -111,18 +111,41 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
+        
+
         if fullname.text! == "" || studentID.text! == "" || username.text! == "" || password.text! == "" || conPassword.text! == "" || idNumber.text! == "" || contactNumber.text! == "" || email.text! == "" || birthdate.text! == "" {
             self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
         }
-        
+   
         guard fullname.text != "",
             studentID.text != "",
             username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != ""
             
             else { return }
+        // Secound Auth
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("FacMembers").child(idNumber.text!)
+        var userIdnumber: String!
         
-        if password.text == conPassword.text {
-            Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                let useridnumber = uservalue["idnum"] as? String ?? "id not found"
+                print(snapshot)
+                userIdnumber = useridnumber
+            }
+            
+        }
+        print("\(userIdnumber)")
+        guard userIdnumber != nil else{
+            displyAlertMessage(userMessage: "Not have data in fac database")
+            return
+        }
+        
+        
+        if self.password.text == self.conPassword.text {
+            Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!, completion: { (user, error) in
                 
                 if let error = error{
                     print(error.localizedDescription)
@@ -150,7 +173,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                             if let url = url {
                                 let userInfo: [String : Any] = [ "uid" : user.uid,
                                                                  "Full name" : self.fullname.text!,
-                                                            
+                                                                 
                                                                  
                                                                  "Student ID": self.studentID.text!,
                                                                  
@@ -182,30 +205,17 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                                     
                                     vc.name = self.fullname.text
                                     vc.type = "Student"
-                                  
-                       
-                                    
                                 }
-                                
-
                             }
-                            
                         })
-                        
                     })
                     uploadTask.resume()
                 }
-                
             })
-            
         }
-            
-            
         else{
             print("Password doesn't match!")
         }
-        
-        
         
     }
 

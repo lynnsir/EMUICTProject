@@ -88,7 +88,26 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
         guard fullname.text != "", Username.text != "", password.text != "", conPassword.text != "", IDnumber.text != "", ContactNumber.text != "", Email.text != "", Position.text != "", date.text != ""
             
             else { return }
+        // Secound Auth
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("FacMembers").child(IDnumber.text!)
+        var userIdnumber: String!
         
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                let useridnumber = uservalue["idnum"] as? String ?? "id not found"
+                print(snapshot)
+                userIdnumber = useridnumber
+            }
+            
+        }
+        print("\(userIdnumber)")
+        guard userIdnumber != nil else{
+            displyAlertMessage(userMessage: "Not have data in fac database")
+            return
+        }
         if password.text == conPassword.text {
             Auth.auth().createUser(withEmail: Email.text!, password: password.text!, completion: { (user, error) in
                 

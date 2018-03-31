@@ -108,6 +108,26 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
             
             else { return }
         
+        // Secound Auth
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("FacMembers").child(idNumber.text!)
+        var userIdnumber: String!
+        
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                let useridnumber = uservalue["idnum"] as? String ?? "id not found"
+                print(snapshot)
+                userIdnumber = useridnumber
+            }
+            
+        }
+        print("\(userIdnumber)")
+        guard userIdnumber != nil else{
+            displyAlertMessage(userMessage: "Not have data in fac database")
+            return
+        }
         if password.text == conPassword.text {
             if fullName.text == "" || studentID.text == "" || username.text == "" || password.text == "" || conPassword.text == "" || idNumber.text == "" || contactNumber.text == "" || email.text == "" ||  birthdate.text == "" {
                 self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
@@ -247,7 +267,5 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
         
         self.present(myAlert,animated: true, completion:nil)
     }
-
-    
-
+   
 }
