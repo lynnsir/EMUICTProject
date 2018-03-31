@@ -92,6 +92,24 @@ class AccountMenuViewController: UIViewController {
     }
     
     
+    
+//    @IBAction func OrderPressed(_ sender: Any) {
+//        if self.type == "Company"{
+//            displyAlertMessage(userMessage: "Can't access this menu")
+//        }
+//        else {
+//
+//            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderList") as? OrderListViewController
+//
+//            {
+//                if let navigator = self.navigationController {
+//                    navigator.show(vc, sender: true)
+//                }
+//            }
+//        }
+//    }
+    
+    
     @IBAction func LogoutPressd(_ sender: Any) {
         if Auth.auth().currentUser != nil
         {
@@ -110,6 +128,14 @@ class AccountMenuViewController: UIViewController {
                 self.type = values?["Type"] as? String
             })
         }
+    }
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
     }
     
  

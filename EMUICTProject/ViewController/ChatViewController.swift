@@ -14,6 +14,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
     var orderID:String!
     var buyerId:String!
     var sellerId:String!
+    var ordate:String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,15 +26,20 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/YYY"
         let date = formatter.string(from: Date())
+        self.ordate = date
         
         // change!! when msg completes
+//        let sellerID = Auth.auth().currentUser!.uid
+//        let buyerID = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" //com001
+        
         let sellerID = Auth.auth().currentUser!.uid
-        let buyerID = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83"
+        let buyerID = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" //Lynn001@test
+        
         let postOrder: [String:Any] = [
             "orderID" : OrderID as AnyObject,
             "sellerID" : sellerID as AnyObject,
             "buyerID": buyerID as AnyObject,
-            "status": "NCF"  as AnyObject,
+            "status": "Not confirmed order"  as AnyObject,
             "s_b_o": sellerID + "_" + buyerID + "_" + "NCF"  as AnyObject,
              "Date": date as AnyObject
         ]
@@ -67,7 +73,11 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
     func getorderID(){
         
         let bid = Auth.auth().currentUser?.uid
-        let sid = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" // lynn001@test.com
+        let sid = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" // com001@test.com
+        
+//        let bid = Auth.auth().currentUser?.uid
+//        let sid = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" // lynn001@test.com
+        
         let sbo = sid + "_" + bid! + "_" + "NCF"
 
         let rootRef = Database.database().reference()
@@ -91,7 +101,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
                 }
                 vc.oid = self.orderID
                 vc.sid = self.sellerId
-                vc.bid = self.buyerId
+                vc.bid = self.buyerId   
                 print(self.orderID)
             }
         }

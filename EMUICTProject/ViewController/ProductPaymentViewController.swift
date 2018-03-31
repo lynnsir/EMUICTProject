@@ -9,9 +9,16 @@
 import UIKit
 
 class ProductPaymentViewController: UIViewController {
-
+    
+var total = 0.00
+var totalText:String!
+    
+    @IBOutlet weak var price: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        totalText = String(total)
+        price.text = totalText
 
     
     }
