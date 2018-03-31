@@ -74,7 +74,7 @@ class AccountMenuViewController: UIViewController {
          
          }
          
-         else if self.type == "Staff"{
+         else if self.type == "Staff" || self.type == "Admin"{
             print("Staff")
          if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyProfileStaff") as? MyProfileStaffViewController
          
@@ -97,6 +97,16 @@ class AccountMenuViewController: UIViewController {
 //        if self.type == "Company"{
 //            displyAlertMessage(userMessage: "Can't access this menu")
 //        }
+//        else if self.type == "Admin"{
+//          if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "....") as? ......ViewController
+//
+//                {
+//                    if let navigator = self.navigationController {
+//                        navigator.show(vc, sender: true)
+//                    }
+//                }
+//            }
+//    }
 //        else {
 //
 //            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderList") as? OrderListViewController
