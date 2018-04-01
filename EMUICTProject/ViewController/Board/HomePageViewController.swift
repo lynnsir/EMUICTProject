@@ -32,7 +32,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
             
             if let uservalue = snapshot.value as? NSDictionary{
                 
-                usertype = uservalue["Type"] as? String ?? "Type not found"
+                usertype = uservalue["Position"] as? String ?? "Type not found"
                 
                 if(usertype == "admin"){
                     //user is admin

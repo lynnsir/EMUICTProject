@@ -74,6 +74,22 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     
     @IBAction func SendMessageBut(_ sender: Any) {
         // send message to board creator
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+            
+            let senderid = Auth.auth().currentUser!.uid
+            let recieverid = creator!
+            let boardid = boardId!
+            
+            vc.senderid = senderid
+            vc.recieverid = recieverid
+            vc.boardid = boardid
+            
+        }
     }
     
     @IBAction func Addwatchlist(_ sender: Any) {

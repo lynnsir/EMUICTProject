@@ -15,10 +15,75 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
     var buyerId:String!
     var sellerId:String!
     var ordate:String!
+    
+    var boardid:String!
+    var senderid: String! //sender
+    var recieverid: String! //reciever
+    
+    @IBOutlet var messageText: UITextField! //message text
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        showRecieverName()
+       // navigationItem.title = displayNameReciever
     }
+    
+    func showRecieverName(){
+        //let recieveid = recieverid!
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child(recieverid!)
+        //var displayNameReciever: String!
+        print(recieverid!)
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                let recieverName = uservalue["Full name"] as? String ?? "Type not found"
+                print(snapshot)
+                //displayNameReciever = recieverName
+                self.navigationItem.title = recieverName
+                
+            }
+        }
+    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        //let recieveId = recieverid!
+//        print(recieverid!)
+//        let rootRef = Database.database().reference()
+//        let query = rootRef.child("Alluser").child(recieverid!)
+//        var displayNameReciever: String!
+//
+//        query.observe(.value) { (snapshot) in
+//
+//            if let uservalue = snapshot.value as? NSDictionary{
+//
+//                let recieverName = uservalue["Full name"] as? String ?? "Type not found"
+//                print(snapshot)
+//                displayNameReciever = recieverName
+//
+//            }
+//        }
+//        navigationItem.title = displayNameReciever
+//    }
+    
+    @IBAction func sendMessageButt(_ sender: Any) {
+        
+        //send message
+        // store message in database
+        let toid = sellerId! //reciever
+        let fromid = buyerId! //sender
+        let timestamp = Int(Date().timeIntervalSince1970)
+        let messagetext = messageText.text
+        let messagevalue: [String : Any] = ["textmessage": messagetext as AnyObject,
+                            "toid": toid as AnyObject,
+                            "fromid": fromid as AnyObject,
+                            "timestamp": timestamp as AnyObject
+            ] 
+        Database.database().reference().child("messages").childByAutoId().updateChildValues(messagevalue)
+    
+    }
+    
 
     @IBAction func seller(_ sender: Any) {
 
@@ -54,11 +119,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
             }
             vc.orderID = OrderID
         }
-        
     }
-    
-    
-    
     @IBAction func buyer(_ sender: Any) {
         print("Start getting OrderID")
         confirmOrder()
@@ -105,12 +166,6 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
                 print(self.orderID)
             }
         }
-      
-            
-        
-        
-     
-        
     }
     func run(after seconds: Int, completion: @escaping () -> Void){
         let deadline = DispatchTime.now() + .seconds(seconds)
@@ -118,8 +173,4 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
             completion()
         }
     }
-    
-    
-    
-    
 }
