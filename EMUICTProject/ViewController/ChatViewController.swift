@@ -33,17 +33,18 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
         //let recieveid = recieverid!
         let rootRef = Database.database().reference()
         let query = rootRef.child("Alluser").child(recieverid!)
-        //var displayNameReciever: String!
-        print(recieverid!)
-        query.observe(.value) { (snapshot) in
-            
-            if let uservalue = snapshot.value as? NSDictionary{
+        if recieverid! != "" {
+            print(recieverid!)
+            query.observe(.value) { (snapshot) in
                 
-                let recieverName = uservalue["Full name"] as? String ?? "Type not found"
-                print(snapshot)
-                //displayNameReciever = recieverName
-                self.navigationItem.title = recieverName
-                
+                if let uservalue = snapshot.value as? NSDictionary{
+                    
+                    let recieverName = uservalue["Full name"] as? String ?? "Type not found"
+                    print(snapshot)
+                    //displayNameReciever = recieverName
+                    self.navigationItem.title = recieverName
+                    
+                }
             }
         }
     }
