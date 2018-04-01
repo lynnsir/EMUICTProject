@@ -23,57 +23,41 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
     @IBOutlet var messageText: UITextField! //message text
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        showRecieverName()
-       // navigationItem.title = displayNameReciever
+        //showRecieverName()
+        
+       
     }
     
-    func showRecieverName(){
-        //let recieveid = recieverid!
+    override func viewWillAppear(_ animated: Bool) {
         let rootRef = Database.database().reference()
         let query = rootRef.child("Alluser").child(recieverid!)
+        
         if recieverid! != "" {
             print(recieverid!)
             query.observe(.value) { (snapshot) in
                 
                 if let uservalue = snapshot.value as? NSDictionary{
                     
-                    let recieverName = uservalue["Full name"] as? String ?? "Type not found"
+                    let recieverName = uservalue["Username"] as? String ?? "Type not found"
                     print(snapshot)
-                    //displayNameReciever = recieverName
+                    
                     self.navigationItem.title = recieverName
                     
                 }
             }
         }
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        //let recieveId = recieverid!
-//        print(recieverid!)
-//        let rootRef = Database.database().reference()
-//        let query = rootRef.child("Alluser").child(recieverid!)
-//        var displayNameReciever: String!
-//
-//        query.observe(.value) { (snapshot) in
-//
-//            if let uservalue = snapshot.value as? NSDictionary{
-//
-//                let recieverName = uservalue["Full name"] as? String ?? "Type not found"
-//                print(snapshot)
-//                displayNameReciever = recieverName
-//
-//            }
-//        }
-//        navigationItem.title = displayNameReciever
-//    }
+    
     
     @IBAction func sendMessageButt(_ sender: Any) {
         
         //send message
         // store message in database
-        let toid = sellerId! //reciever
-        let fromid = buyerId! //sender
+        let toid = recieverid! //reciever
+        let fromid = senderid! //sender
         let timestamp = Int(Date().timeIntervalSince1970)
         let messagetext = messageText.text
         let messagevalue: [String : Any] = ["textmessage": messagetext as AnyObject,
