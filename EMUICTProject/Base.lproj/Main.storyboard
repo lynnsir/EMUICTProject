@@ -1814,9 +1814,6 @@
                                                 <state key="normal" title="Send Message"/>
                                                 <connections>
                                                     <action selector="SendMessageBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="x9l-5U-CZB"/>
-                                                    <segue destination="Y9X-Wt-Lm3" kind="show" id="nR4-bk-sbo">
-                                                        <nil key="action"/>
-                                                    </segue>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n8b-l6-wqq">
@@ -6137,7 +6134,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="cfw-AK-89x"/>
         <segue reference="NGD-N2-7zG"/>
-        <segue reference="nR4-bk-sbo"/>
+        <segue reference="IRC-pV-Uhx"/>
         <segue reference="HNH-zn-Ges"/>
     </inferredMetricsTieBreakers>
 </document>
