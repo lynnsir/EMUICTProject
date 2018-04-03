@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456.52173913043481" y="198.91304347826087"/>
+            <point key="canvasLocation" x="112" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jsB-Vc-Sq5">
@@ -466,14 +466,14 @@
             <objects>
                 <viewController storyboardIdentifier="StudentRegis" id="7Kv-Zb-fbr" customClass="StudentRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0wA-rm-qt1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRc-Vb-jd4">
-                                <rect key="frame" x="0.0" y="64" width="414" height="956"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="1236"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrL-8a-bTb">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ear-bi-tzg">
                                                 <rect key="frame" x="187" y="208" width="40" height="30"/>
@@ -582,7 +582,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1020" id="hOR-8q-F25"/>
+                                            <constraint firstAttribute="height" constant="1300" id="hOR-8q-F25"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -605,7 +605,7 @@
                         <viewLayoutGuide key="safeArea" id="Pob-oG-TyY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="5cs-CE-b1j"/>
-                    <size key="freeformSize" width="414" height="1020"/>
+                    <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="birthdate" destination="0FX-cQ-JQY" id="9Bx-K6-zRD"/>
                         <outlet property="conPassword" destination="P6J-b8-Iep" id="Vat-Kh-BkS"/>
@@ -633,14 +633,14 @@
             <objects>
                 <viewController storyboardIdentifier="AlumniRegis" id="tjv-aj-MBz" customClass="AlumniRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="04f-AF-sXT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="950"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emw-82-ZKj">
-                                <rect key="frame" x="0.0" y="64" width="414" height="886"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="1186"/>
                                 <subviews>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="S2c-fy-S3y">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1020"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50N-Nb-HJf">
                                                 <rect key="frame" x="122" y="30" width="170" height="170"/>
@@ -749,7 +749,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1020" id="7mG-YS-bsY"/>
+                                            <constraint firstAttribute="height" constant="1250" id="7mG-YS-bsY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -772,7 +772,7 @@
                         <viewLayoutGuide key="safeArea" id="pYg-j2-gMw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="6E1-5V-HBd"/>
-                    <size key="freeformSize" width="414" height="950"/>
+                    <size key="freeformSize" width="414" height="1250"/>
                     <connections>
                         <outlet property="birthdate" destination="2I3-PO-KBh" id="w9r-zs-YPL"/>
                         <outlet property="career" destination="hKH-wJ-YB1" id="gx5-CO-COw"/>
@@ -879,16 +879,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wb-BB-q3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5623.188405797102" y="3669.29347826087"/>
+            <point key="canvasLocation" x="-5728" y="3064"/>
         </scene>
         <!--Payment-->
         <scene sceneID="JxM-Bn-f0a">
             <objects>
                 <viewController storyboardIdentifier="Payment" id="lJa-UP-bRv" customClass="PaymentViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XaI-SI-cZr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvf-TF-oGb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlH-t9-T9g">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <color key="backgroundColor" red="0.99309235809999996" green="1" blue="0.94821459050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="FBj-p1-jnj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tlH-t9-T9g" firstAttribute="leading" secondItem="jvf-TF-oGb" secondAttribute="leading" id="6Qx-Ub-XuY"/>
+                                    <constraint firstAttribute="trailing" secondItem="tlH-t9-T9g" secondAttribute="trailing" id="UIl-Zm-xAz"/>
+                                    <constraint firstItem="tlH-t9-T9g" firstAttribute="top" secondItem="jvf-TF-oGb" secondAttribute="top" id="awn-MH-fg2"/>
+                                    <constraint firstAttribute="bottom" secondItem="tlH-t9-T9g" secondAttribute="bottom" id="qP4-ph-RHj"/>
+                                </constraints>
+                            </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XB-1R-h4Y">
                                 <rect key="frame" x="43" y="95" width="329" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1005,9 +1023,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99279254669999994" green="1" blue="0.94874161479999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jvf-TF-oGb" firstAttribute="top" secondItem="XaI-SI-cZr" secondAttribute="top" id="0fs-gZ-h5w"/>
+                            <constraint firstItem="jvf-TF-oGb" firstAttribute="trailing" secondItem="haz-LF-bNi" secondAttribute="trailing" id="geT-Cl-cAO"/>
+                            <constraint firstItem="tlH-t9-T9g" firstAttribute="width" secondItem="XaI-SI-cZr" secondAttribute="width" id="hKa-NC-9Sd"/>
+                            <constraint firstItem="jvf-TF-oGb" firstAttribute="bottom" secondItem="haz-LF-bNi" secondAttribute="bottom" id="kE4-zN-5CU"/>
+                            <constraint firstItem="jvf-TF-oGb" firstAttribute="leading" secondItem="haz-LF-bNi" secondAttribute="leading" id="vvS-t4-B0G"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="haz-LF-bNi"/>
                     </view>
                     <navigationItem key="navigationItem" title="Payment" id="m2P-au-weT"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="Accname" destination="f6C-kb-L1y" id="4Yl-Ph-pVN"/>
                         <outlet property="Confirmbutton" destination="hPT-qP-RFL" id="Pbj-IO-AXO"/>
@@ -1024,21 +1050,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mje-SY-NoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5623.188405797102" y="4487.771739130435"/>
+            <point key="canvasLocation" x="-5728.985507246377" y="3881.2500000000005"/>
         </scene>
         <!--Registration-->
         <scene sceneID="RdS-FP-6pH">
             <objects>
                 <viewController storyboardIdentifier="StaffRegis" id="dbO-YO-jW2" customClass="StaffRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OoQ-Ae-c8q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Hs-kzc">
-                                <rect key="frame" x="0.0" y="64" width="414" height="836"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="1136"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLn-vs-bfd">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFe-1O-nsl">
                                                 <rect key="frame" x="122" y="30" width="170" height="170"/>
@@ -1133,7 +1159,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="900" id="Mfm-OF-fQY"/>
+                                            <constraint firstAttribute="height" constant="1200" id="Mfm-OF-fQY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1156,7 +1182,7 @@
                         <viewLayoutGuide key="safeArea" id="dcv-k3-oah"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="RgJ-LJ-woe"/>
-                    <size key="freeformSize" width="414" height="900"/>
+                    <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="ContactNumber" destination="u1P-i3-cCx" id="4HV-lV-C6c"/>
                         <outlet property="ContinueButton" destination="2BC-dl-6Ch" id="uqU-g0-jFL"/>
@@ -1182,14 +1208,14 @@
             <objects>
                 <viewController storyboardIdentifier="CompanyRegis" id="tEO-pY-VyE" customClass="CompanyRegisterViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HXE-Nd-CKR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-Py-s4X">
-                                <rect key="frame" x="0.0" y="64" width="414" height="936"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="1236"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeV-YW-xN9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company's name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tFf-jx-xqh">
                                                 <rect key="frame" x="36" y="277" width="342" height="30"/>
@@ -1278,7 +1304,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="wbN-d6-wjt"/>
+                                            <constraint firstAttribute="height" constant="1300" id="wbN-d6-wjt"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1301,7 +1327,7 @@
                         <viewLayoutGuide key="safeArea" id="tFl-qb-h9K"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="Cbs-V5-M1v"/>
-                    <size key="freeformSize" width="414" height="1000"/>
+                    <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="ContinueBtn" destination="Trh-bf-JnB" id="Xuh-0A-EbF"/>
                         <outlet property="companyDes" destination="oDk-Y2-um0" id="Fgq-dF-4yH"/>
