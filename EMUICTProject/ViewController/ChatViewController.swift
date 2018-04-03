@@ -11,7 +11,7 @@ import Firebase
 
 
 
-class ChatViewController: UIViewController,UINavigationControllerDelegate {
+class ChatViewController: UIViewController,UINavigationControllerDelegate, UITextFieldDelegate {
 
     var orderID:String!
     var buyerId:String!
@@ -29,6 +29,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //showRecieverName()
+        messageText.delegate = self
         
        
     }
@@ -173,5 +174,9 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
         DispatchQueue.main.asyncAfter(deadline: deadline) {
             completion()
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
