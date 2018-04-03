@@ -11,7 +11,7 @@ import Firebase
 
 
 
-class ChatViewController: UICollectionViewController,UINavigationControllerDelegate {
+class ChatViewController: UIViewController,UINavigationControllerDelegate {
 
     var orderID:String!
     var buyerId:String!
