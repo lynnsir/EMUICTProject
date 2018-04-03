@@ -1,18 +1,15 @@
 //
-//  ChatViewController.swift
+//  ChatLogCollectionViewCell.swift
 //  EMUICTProject
 //
-//  Created by Lynn on 3/29/2561 BE.
+//  Created by Teeraphon Issaranuluk on 4/4/2561 BE.
 //  Copyright © 2561 Sirinda. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-
-
-class ChatViewController: UIViewController,UINavigationControllerDelegate, UITextFieldDelegate, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+class ChatLogCollectionViewCell: UICollectionViewCell ,UINavigationControllerDelegate, UITextFieldDelegate {
+    
     var orderID:String!
     var buyerId:String!
     var sellerId:String!
@@ -22,10 +19,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     var senderid: String! //sender
     var recieverid: String! //reciever
     
-    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var messageText: UITextField! //message text
     
-    let cellId = "cellId"
     
     
     override func viewDidLoad() {
@@ -33,30 +28,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         //showRecieverName()
         messageText.delegate = self
         collectionView?.backgroundColor = UIColor.blue
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.delegate = self
-        collectionView.dataSource = self
         
-       
     }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = UIColor.red
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.height, height: 80)
-    }
-    
-    
-
-    
     
     override func viewWillAppear(_ animated: Bool) {
         let rootRef = Database.database().reference()
@@ -90,10 +63,10 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         let timestamp = Int(Date().timeIntervalSince1970)
         let messagetext = messageText.text
         let messagevalue: [String : Any] = ["textmessage": messagetext as AnyObject,
-                            "toid": toid as AnyObject,
-                            "fromid": fromid as AnyObject,
-                            "timestamp": timestamp as AnyObject
-            ] 
+                                            "toid": toid as AnyObject,
+                                            "fromid": fromid as AnyObject,
+                                            "timestamp": timestamp as AnyObject
+        ]
         //childRef.updateChildValues(messagevalue)
         childRef.updateChildValues(messagevalue) { (error, ref) in
             if error != nil{
@@ -107,12 +80,12 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             let receiverMessageRef = Database.database().reference().child("user-messages").child(toid)
             receiverMessageRef.updateChildValues([messageId:1]) //receiver message
         }
-    
+        
     }
     
-
+    
     @IBAction func seller(_ sender: Any) {
-
+        
         let OrderID = Database.database().reference().child("Order").childByAutoId().key
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/YYY"
@@ -120,8 +93,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         self.ordate = date
         
         // change!! when msg completes
-//        let sellerID = Auth.auth().currentUser!.uid
-//        let buyerID = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" //com001
+        //        let sellerID = Auth.auth().currentUser!.uid
+        //        let buyerID = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" //com001
         
         let sellerID = Auth.auth().currentUser!.uid
         let buyerID = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" //Lynn001@test
@@ -132,10 +105,10 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             "buyerID": buyerID as AnyObject,
             "status": "Not confirmed order"  as AnyObject,
             "s_b_o": sellerID + "_" + buyerID + "_" + "NCF"  as AnyObject,
-             "Date": date as AnyObject
+            "Date": date as AnyObject
         ]
         Database.database().reference().child("Order").child("\(OrderID)").setValue(postOrder)
-
+        
         
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Order") as? OrderViewController
             
@@ -149,24 +122,24 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     @IBAction func buyer(_ sender: Any) {
         print("Start getting OrderID")
         confirmOrder()
-      
+        
     }
     
     func confirmOrder(){
         getorderID()
     }
- 
+    
     
     func getorderID(){
         
         let bid = Auth.auth().currentUser?.uid
         let sid = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" // com001@test.com
         
-//        let bid = Auth.auth().currentUser?.uid
-//        let sid = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" // lynn001@test.com
+        //        let bid = Auth.auth().currentUser?.uid
+        //        let sid = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" // lynn001@test.com
         
         let sbo = sid + "_" + bid! + "_" + "NCF"
-
+        
         let rootRef = Database.database().reference()
         let query = rootRef.child("Order").queryOrdered(byChild: "s_b_o").queryEqual(toValue:sbo)
         query.observe(.value) { (snapshot) in
@@ -178,7 +151,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
                     self.orderID = orderid
                     self.buyerId = bid
                     self.sellerId = sid
-
+                    
                 }}}
         run(after: 2) {
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
@@ -188,7 +161,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
                 }
                 vc.oid = self.orderID
                 vc.sid = self.sellerId
-                vc.bid = self.buyerId   
+                vc.bid = self.buyerId
                 print(self.orderID)
             }
         }

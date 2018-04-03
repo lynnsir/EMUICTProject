@@ -259,7 +259,6 @@
 				85836DF32055247800117149 /* EditAlumniProfileViewController.swift */,
 				85836DF52055249700117149 /* EditStaffProfileViewController.swift */,
 				85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */,
-				855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */,
 				855DBCFA206E3C8C000A76B7 /* ConfirmOrderViewController.swift */,
 				855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */,
 				855DBCF8206E3C8C000A76B7 /* OrderViewController.swift */,
@@ -267,6 +266,7 @@
 				85C5BDD9206E26CE0097BE9A /* OrderListViewController.swift */,
 				85C5BDDB206E26EA0097BE9A /* OrderDetailViewController.swift */,
 				85C5BDDD206E28F70097BE9A /* OrderDetailPayViewController.swift */,
+				855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */,
 				0B5FBAAD20715AAE00881D02 /* AllMessageViewController.swift */,
 				0BC13C41206CB08F0036F66D /* Board */,
 			);
