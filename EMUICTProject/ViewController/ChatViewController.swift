@@ -57,6 +57,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
         
         //send message
         // store message in database
+        let ref = Database.database().reference().child("messages")
+        let childRef = ref.childByAutoId()
         let toid = recieverid! //reciever
         let fromid = senderid! //sender
         let timestamp = Int(Date().timeIntervalSince1970)
@@ -66,7 +68,19 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate {
                             "fromid": fromid as AnyObject,
                             "timestamp": timestamp as AnyObject
             ] 
-        Database.database().reference().child("messages").childByAutoId().updateChildValues(messagevalue)
+        //childRef.updateChildValues(messagevalue)
+        childRef.updateChildValues(messagevalue) { (error, ref) in
+            if error != nil{
+                print(error.debugDescription)
+                return
+            }
+            let userMessageRef = Database.database().reference().child("user-messages").child(fromid)
+            let messageId = childRef.key
+            userMessageRef.updateChildValues([messageId:1]) // sender message
+            
+            let receiverMessageRef = Database.database().reference().child("user-messages").child(toid)
+            receiverMessageRef.updateChildValues([messageId:1]) //receiver message
+        }
     
     }
     

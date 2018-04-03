@@ -23,25 +23,73 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
         super.viewDidLoad()
         
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
-        observeMessages()
+        //observeMessages()
+        reloadUserMessage()
+        //observeUserMessage()
         tableView.dataSource = self
         tableView.delegate = self
     }
+    private func reloadUserMessage(){
+        messages.removeAll()
+        messageDic.removeAll()
+        tableView.reloadData()
+        observeUserMessage()
+        
+    }
+    
+    func observeUserMessage(){
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference().child("user-messages").child(uid)
+        ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            let messageId = snapshot.key
+            let messageReference = Database.database().reference().child("messages").child(messageId)
+            messageReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+                if let dictionary = snapshot.value as? [String: AnyObject]{
+                    let message = Message(dictionary: dictionary)
+                    // group user chat
+                    if let toId = message.toid{
+                        self.messageDic[toId] = message
+                        self.messages = Array(self.messageDic.values)
+                        self.messages.sort(by: { (message1, message2) -> Bool in
+                            let timeMessage1: Int = (message1.timestamp?.intValue)!
+                            let timeMessage2: Int = (message2.timestamp?.intValue)!
+                            return timeMessage1 > timeMessage2
+                        })
+                        
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }, withCancel: nil)
+        }, withCancel: nil)
+        
+    }
+    
     func observeMessages(){
         let ref = Database.database().reference().child("messages")
         ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject]{
                  let message = Message(dictionary: dictionary)
-                //self.messages.append(message)
-                
+                // group user chat
                 if let toId = message.toid{
                     self.messageDic[toId] = message
                     self.messages = Array(self.messageDic.values)
+                    self.messages.sort(by: { (message1, message2) -> Bool in
+                        let timeMessage1: Int = (message1.timestamp?.intValue)!
+                        let timeMessage2: Int = (message2.timestamp?.intValue)!
+                        return timeMessage1 > timeMessage2
+
+                    })
+
                 }
-                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+               
             }
         }, withCancel: nil)
     }
@@ -56,8 +104,18 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
         let messchat = messages[indexPath.row]
         
-        if let toid = messchat.toid{
-            let ref = Database.database().reference().child("Alluser").child(toid)
+        // check chat partner
+        let chatPartnerId: String?
+        
+        if messchat.fromid == Auth.auth().currentUser?.uid{
+            chatPartnerId = messchat.toid
+        }else{
+            chatPartnerId = messchat.fromid
+        }
+        //end check partner
+        
+        if let id = chatPartnerId{
+            let ref = Database.database().reference().child("Alluser").child(id)
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject]{
                    
