@@ -6176,7 +6176,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLS-Bl-hfE">
-                                <rect key="frame" x="151" y="623" width="113" height="48"/>
+                                <rect key="frame" x="151" y="344" width="113" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Confirm"/>
                                 <connections>
