@@ -36,6 +36,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     var ref: DatabaseReference!
     var type = "Student"
     var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    var testid: String!
     let trackPicker = UIPickerView()
    
 
@@ -107,10 +108,47 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
         major.text = track[row]
         self.view.endEditing(false)
     }
-
+    func secoundAuth() -> Bool{
+        // Secound Auth
+        var check: Bool?
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("FacMembers").child(idNumber.text!)
+        //let useridnumber = self.idNumber.text!
+        
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                if let idnumber = uservalue["idnum"] as? String{
+                    print(idnumber)
+                    DispatchQueue.main.async {
+                         self.testid = idnumber
+                         check = true
+                    }
+                }
+            }
+        }
+        print(testid)
+        if testid == nil{
+            check = false
+            return check!
+            
+        } else {
+            check = true
+            return check!
+           
+        }
+    }
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
+        
+        let checkauth = secoundAuth()
+        guard checkauth == true else{
+            print(checkauth)
+            displyAlertMessage(userMessage: "Not is faculty member")
+            return
+        }
         
 
         if fullname.text! == "" || studentID.text! == "" || username.text! == "" || password.text! == "" || conPassword.text! == "" || idNumber.text! == "" || contactNumber.text! == "" || email.text! == "" || birthdate.text! == "" {
@@ -122,26 +160,8 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
             username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != ""
             
             else { return }
-        // Secound Auth
-        let rootRef = Database.database().reference()
-        let query = rootRef.child("FacMembers").child(idNumber.text!)
-        var userIdnumber: String!
+       
         
-        query.observe(.value) { (snapshot) in
-            
-            if let uservalue = snapshot.value as? NSDictionary{
-                
-                let useridnumber = uservalue["idnum"] as? String ?? "id not found"
-                print(snapshot)
-                userIdnumber = useridnumber
-            }
-            
-        }
-        print("\(userIdnumber)")
-        guard userIdnumber != nil else{
-            displyAlertMessage(userMessage: "Not have data in fac database")
-            return
-        }
         
         
         if self.password.text == self.conPassword.text {
