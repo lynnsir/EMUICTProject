@@ -28,6 +28,7 @@ class PaymentViewController: UIViewController,UITextFieldDelegate,UINavigationCo
     
     
     @IBAction func bankPressed(_ sender: Any) {
+        
     }
     
     @IBAction func cardPressed(_ sender: Any) {
@@ -35,17 +36,29 @@ class PaymentViewController: UIViewController,UITextFieldDelegate,UINavigationCo
     
     
     @IBAction func confirmPressed(_ sender: Any) {
-    
-      //  displyAlertMessage(userMessage: "Payment is confirmed!")
-        
-        let alert = UIAlertController(title: "Success", message:   "Payment is confirmed!", preferredStyle: .alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
-            _ = self.navigationController?.popToRootViewController(animated: true)
-        })
-        
-        alert.addAction(OKAction)
-        self.present(alert, animated: true){}
+        if bankAcc.text != "" && Accname.text != "" {
+            let alert = UIAlertController(title: "Success", message:   "Payment is confirmed!", preferredStyle: .alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
+                _ = self.navigationController?.popToRootViewController(animated: true)
+            })
+            alert.addAction(OKAction)
+            self.present(alert, animated: true){}
+        }
+        else if cardNum.text != "" && cardName.text != "" && expireMM.text != "" && expireYY.text != "" && cvv.text != "" {
+            
+            let alert = UIAlertController(title: "Success", message:   "Payment is confirmed!", preferredStyle: .alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
+                _ = self.navigationController?.popToRootViewController(animated: true)
+            })
+            alert.addAction(OKAction)
+            self.present(alert, animated: true){}
+        }
+
+        else{
+            displyAlertMessage(userMessage: "Please fill in payment information")
+        }
 
         
     }
@@ -69,7 +82,7 @@ class PaymentViewController: UIViewController,UITextFieldDelegate,UINavigationCo
     
     
     func displyAlertMessage(userMessage:String){
-        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let myAlert = UIAlertController(title:"", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         
         myAlert.addAction(okAction);

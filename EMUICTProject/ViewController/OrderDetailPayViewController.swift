@@ -111,6 +111,7 @@ class OrderDetailPayViewController: UIViewController, UINavigationControllerDele
                 navigator.show(vc, sender: true)
             }
             vc.total = totalPrice
+            vc.oid = oid
             print(totalPrice)
         }
         
