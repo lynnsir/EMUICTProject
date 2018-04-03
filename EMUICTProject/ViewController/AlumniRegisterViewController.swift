@@ -102,121 +102,112 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
 
     
     @IBAction func ContinuePressed(_ sender: Any) {
-        guard fullName.text != "",
-            studentID.text != "",
-            username.text != "", password.text != "", conPassword.text != "", idNumber.text != "", contactNumber.text != "", email.text != "",  birthdate.text != ""
-            
-            else { return }
         
-        // Secound Auth
-        let rootRef = Database.database().reference()
-        let query = rootRef.child("FacMembers").child(idNumber.text!)
-        var userIdnumber: String!
-        
-        query.observe(.value) { (snapshot) in
-            
-            if let uservalue = snapshot.value as? NSDictionary{
-                
-                let useridnumber = uservalue["idnum"] as? String ?? "id not found"
-                print(snapshot)
-                userIdnumber = useridnumber
-            }
-            
-        }
-        print("\(userIdnumber)")
-        guard userIdnumber != nil else{
-            displyAlertMessage(userMessage: "Not have data in fac database")
-            return
-        }
-        if password.text == conPassword.text {
-            if fullName.text == "" || studentID.text == "" || username.text == "" || password.text == "" || conPassword.text == "" || idNumber.text == "" || contactNumber.text == "" || email.text == "" ||  birthdate.text == "" {
-                self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
-            }
-            Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
-                
-                if let error = error{
-                    print(error.localizedDescription)
-                }
-                
-                if let user = user{
-                    let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
-                    changeRequest.displayName = self.username.text!
-                    changeRequest.commitChanges(completion: nil)
+        let idnum: String!
+        idnum = idNumber.text!
+        if let id = idnum{
+            let ref = Database.database().reference().child("FacMembers")
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild(id){ // second Auth
                     
-                    let imageRef = self.userStorage.child("\(user.uid).jpg")
-                    
-                    let data = UIImageJPEGRepresentation(self.imageView.image!, 0.5)
-                    
-                    let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
-                        if err != nil{
-                            print(err!.localizedDescription)
-                        }
+                    guard self.fullName.text != "",
+                        self.studentID.text != "",
+                        self.username.text != "", self.password.text != "", self.conPassword.text != "", self.idNumber.text != "", self.contactNumber.text != "", self.email.text != "",  self.birthdate.text != ""
                         
-                        imageRef.downloadURL(completion: { (url, er) in
-                            if er != nil {
-                                print(er!.localizedDescription)
+                        else { return }
+                    
+                    if self.password.text == self.conPassword.text {
+                        if self.fullName.text == "" || self.studentID.text == "" || self.username.text == "" || self.password.text == "" || self.conPassword.text == "" || self.idNumber.text == "" || self.contactNumber.text == "" || self.email.text == "" ||  self.birthdate.text == "" {
+                            self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
+                        }
+                        Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!, completion: { (user, error) in
+                            
+                            if let error = error{
+                                print(error.localizedDescription)
                             }
                             
-                            if let url = url {
-                                let userInfo: [String : Any] = [ "uid" : user.uid,
-                                                                 "Full name" : self.fullName.text!,
-                                    
-                                                                 "Student ID": self.studentID.text!,
-                                                                 
-                                                                 "Username": self.username.text!,
-                                                                 
-                                                                 "ID Number" : self.idNumber.text!,
-                                                                 
-                                                                 "Contact number": self.contactNumber.text!,
-                                                                 
-                                                                 "Career" : self.career.text!,
-                                                                 "Major": self.major.text!,
-                                                                 
-                                                                 "Career_Major": self.career.text! + "_" + self.major.text!,
-
-                                                                 "Email" : self.email.text!,
-                                                                 "BirthDate": self.birthdate.text!,
-                                                                 "Type": self.type,
-                                                                 "urlToImage": url.absoluteString
-                                    
-                                ]
-                                self.ref.child("Alumni user").child(user.uid).setValue(userInfo)
-                                //insert to alluser
-                                self.ref.child("Alluser").child(user.uid).setValue(userInfo)
+                            if let user = user{
+                                let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
+                                changeRequest.displayName = self.username.text!
+                                changeRequest.commitChanges(completion: nil)
                                 
-                                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
-                                    
-                                {
-                                    if let navigator = self.navigationController {
-                                        navigator.show(vc, sender: true)
+                                let imageRef = self.userStorage.child("\(user.uid).jpg")
+                                
+                                let data = UIImageJPEGRepresentation(self.imageView.image!, 0.5)
+                                
+                                let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
+                                    if err != nil{
+                                        print(err!.localizedDescription)
                                     }
                                     
-                                    vc.name = self.fullName.text
-                                    vc.type = "Alumni"
+                                    imageRef.downloadURL(completion: { (url, er) in
+                                        if er != nil {
+                                            print(er!.localizedDescription)
+                                        }
+                                        
+                                        if let url = url {
+                                            let userInfo: [String : Any] = [ "uid" : user.uid,
+                                                                             "Full name" : self.fullName.text!,
+                                                                             
+                                                                             "Student ID": self.studentID.text!,
+                                                                             
+                                                                             "Username": self.username.text!,
+                                                                             
+                                                                             "ID Number" : self.idNumber.text!,
+                                                                             
+                                                                             "Contact number": self.contactNumber.text!,
+                                                                             
+                                                                             "Career" : self.career.text!,
+                                                                             "Major": self.major.text!,
+                                                                             
+                                                                             "Career_Major": self.career.text! + "_" + self.major.text!,
+                                                                             
+                                                                             "Email" : self.email.text!,
+                                                                             "BirthDate": self.birthdate.text!,
+                                                                             "Type": self.type,
+                                                                             "urlToImage": url.absoluteString
+                                                
+                                            ]
+                                            self.ref.child("Alumni user").child(user.uid).setValue(userInfo)
+                                            //insert to alluser
+                                            self.ref.child("Alluser").child(user.uid).setValue(userInfo)
+                                            
+                                            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
+                                                
+                                            {
+                                                if let navigator = self.navigationController {
+                                                    navigator.show(vc, sender: true)
+                                                }
+                                                
+                                                vc.name = self.fullName.text
+                                                vc.type = "Alumni"
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    })
                                     
-                                    
-                                    
-                                }
-
+                                })
+                                uploadTask.resume()
                             }
                             
                         })
                         
-                    })
-                    uploadTask.resume()
+                    }
+                        
+                        
+                    else{
+                        print("Password doesn't match!")
+                    }
+                    
+                    
+                }else{
+                    self.displyAlertMessage(userMessage: "Not found data in Fac member")
+                    return
                 }
-                
-            })
-            
+            }, withCancel: nil)
         }
-            
-            
-        else{
-            print("Password doesn't match!")
-        }
-        
-        
-        
     }
     
     

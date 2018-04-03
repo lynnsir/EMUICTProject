@@ -82,109 +82,103 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
     
     
     @IBAction func ContinuePressed(_ sender: Any) {
-        if fullname.text! == "" || Username.text! == "" || password.text! == "" || conPassword.text! == "" || IDnumber.text! == "" || ContactNumber.text! == "" || Email.text! == "" || Position.text! == "" || date.text! == "" {
-            self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
-        }
-        guard fullname.text != "", Username.text != "", password.text != "", conPassword.text != "", IDnumber.text != "", ContactNumber.text != "", Email.text != "", Position.text != "", date.text != ""
-            
-            else { return }
-        // Secound Auth
-        let rootRef = Database.database().reference()
-        let query = rootRef.child("FacMembers").child(IDnumber.text!)
-        var userIdnumber: String!
         
-        query.observe(.value) { (snapshot) in
-            
-            if let uservalue = snapshot.value as? NSDictionary{
-                
-                let useridnumber = uservalue["idnum"] as? String ?? "id not found"
-                print(snapshot)
-                userIdnumber = useridnumber
-            }
-            
-        }
-        print("\(userIdnumber)")
-        guard userIdnumber != nil else{
-            displyAlertMessage(userMessage: "Not have data in fac database")
-            return
-        }
-        if password.text == conPassword.text {
-            Auth.auth().createUser(withEmail: Email.text!, password: password.text!, completion: { (user, error) in
-                
-                if let error = error{
-                    print(error.localizedDescription)
-                }
-                
-                if let user = user{
-                    let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
-                    changeRequest.displayName = self.Username.text!
-                    changeRequest.commitChanges(completion: nil)
+        let idnum: String!
+        idnum = IDnumber.text!
+        if let id = idnum{
+            let ref = Database.database().reference().child("FacMembers")
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild(id){ // second Auth
                     
-                    let imageRef = self.userStorage.child("\(user.uid).jpg")
-                    
-                    let data = UIImageJPEGRepresentation(self.imageView.image!, 0.5)
-                    
-                    let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
-                        if err != nil{
-                            print(err!.localizedDescription)
-                        }
+                    if self.fullname.text! == "" || self.Username.text! == "" || self.password.text! == "" || self.conPassword.text! == "" || self.IDnumber.text! == "" || self.ContactNumber.text! == "" || self.Email.text! == "" || self.Position.text! == "" || self.date.text! == "" {
+                        self.displyAlertMessage(userMessage: "Please fill in your information in required fields")
+                    }
+                    guard self.fullname.text != "", self.Username.text != "", self.password.text != "", self.conPassword.text != "", self.IDnumber.text != "", self.ContactNumber.text != "", self.Email.text != "", self.Position.text != "", self.date.text != ""
                         
-                        imageRef.downloadURL(completion: { (url, er) in
-                            if er != nil {
-                                print(er!.localizedDescription)
+                        else { return }
+                    
+                    if self.password.text == self.conPassword.text {
+                        Auth.auth().createUser(withEmail: self.Email.text!, password: self.password.text!, completion: { (user, error) in
+                            
+                            if let error = error{
+                                print(error.localizedDescription)
                             }
                             
-                            if let url = url {
-                                let userInfo: [String : Any] = [ "uid" : user.uid,
-                                                                 "Full name" : self.fullname.text!,
-                                    
-                                                                 "Username": self.Username.text!,
-                                                                 
-                                                                 "ID Number" : self.IDnumber.text!,
-                                                                 
-                                                                 "Contact number": self.ContactNumber.text!,
-                                                                 "Email": self.Email.text!,
-                                                                 "Position" : self.Position.text!,
-                                                                 "BirthDate": self.date.text!,                                                           
-                                                                 "Type": self.type,
-                                                                 "urlToImage": url.absoluteString
-                                    
-                                ]
-                                self.ref.child("Staff user").child(user.uid).setValue(userInfo)
-                                //insert to alluser
-                                self.ref.child("Alluser").child(user.uid).setValue(userInfo)
-                                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
-                                    
-                                {
-                                    if let navigator = self.navigationController {
-                                        navigator.show(vc, sender: true)
+                            if let user = user{
+                                let changeRequest = Auth.auth().currentUser!.createProfileChangeRequest()
+                                changeRequest.displayName = self.Username.text!
+                                changeRequest.commitChanges(completion: nil)
+                                
+                                let imageRef = self.userStorage.child("\(user.uid).jpg")
+                                
+                                let data = UIImageJPEGRepresentation(self.imageView.image!, 0.5)
+                                
+                                let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
+                                    if err != nil{
+                                        print(err!.localizedDescription)
                                     }
                                     
-                                    vc.name = self.fullname.text
-                                    vc.type = "Staff"
+                                    imageRef.downloadURL(completion: { (url, er) in
+                                        if er != nil {
+                                            print(er!.localizedDescription)
+                                        }
+                                        
+                                        if let url = url {
+                                            let userInfo: [String : Any] = [ "uid" : user.uid,
+                                                                             "Full name" : self.fullname.text!,
+                                                                             
+                                                                             "Username": self.Username.text!,
+                                                                             
+                                                                             "ID Number" : self.IDnumber.text!,
+                                                                             
+                                                                             "Contact number": self.ContactNumber.text!,
+                                                                             "Email": self.Email.text!,
+                                                                             "Position" : self.Position.text!,
+                                                                             "BirthDate": self.date.text!,
+                                                                             "Type": self.type,
+                                                                             "urlToImage": url.absoluteString
+                                                
+                                            ]
+                                            self.ref.child("Staff user").child(user.uid).setValue(userInfo)
+                                            //insert to alluser
+                                            self.ref.child("Alluser").child(user.uid).setValue(userInfo)
+                                            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
+                                                
+                                            {
+                                                if let navigator = self.navigationController {
+                                                    navigator.show(vc, sender: true)
+                                                }
+                                                
+                                                vc.name = self.fullname.text
+                                                vc.type = "Staff"
+                                                
+                                                
+                                                
+                                            }
+                                        }
+                                        
+                                    })
                                     
-                                    
-                                    
-                                }
+                                })
+                                uploadTask.resume()
                             }
                             
                         })
                         
-                    })
-                    uploadTask.resume()
+                    }
+                        
+                        
+                    else{
+                        print("Password doesn't match!")
+                    }
+                    
+                    
+                }else{
+                    self.displyAlertMessage(userMessage: "Not found data in Fac member")
+                    return
                 }
-                
-            })
-            
+            }, withCancel: nil)
         }
-            
-            
-        else{
-            print("Password doesn't match!")
-        }
-        
-        
-        
     }
     
     
