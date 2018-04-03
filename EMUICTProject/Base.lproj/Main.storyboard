@@ -5669,7 +5669,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="cc-number"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card's Holder Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6A-oN-ZLI">
                                 <rect key="frame" x="65" y="491" width="329" height="30"/>
@@ -5697,7 +5697,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expired Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvH-Yx-46P">
                                 <rect key="frame" x="65" y="534" width="91" height="21"/>
@@ -5720,6 +5720,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="bankPressed:" destination="W8L-dK-AEC" eventType="touchUpInside" id="xfJ-Ol-bpj"/>
                                     <action selector="bankPressed:" destination="lJa-UP-bRv" eventType="touchUpInside" id="zdv-K1-3bF"/>
                                     <outletCollection property="otherButtons" destination="IIF-Ri-eVp" id="rKH-88-Rep"/>
                                 </connections>
@@ -5732,6 +5733,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cardPressed:" destination="lJa-UP-bRv" eventType="touchUpInside" id="Q1T-pw-zMS"/>
+                                    <action selector="cardPressed:" destination="W8L-dK-AEC" eventType="touchUpInside" id="thi-m3-1Ak"/>
                                     <outletCollection property="otherButtons" destination="MsM-9G-k4f" id="az0-mn-exa"/>
                                 </connections>
                             </button>
@@ -5749,6 +5751,16 @@
                         <viewLayoutGuide key="safeArea" id="Jis-ht-rmK"/>
                     </view>
                     <connections>
+                        <outlet property="Accname" destination="KOJ-6u-wZ3" id="ORI-v0-B9e"/>
+                        <outlet property="Confirmbutton" destination="LC0-F6-GUB" id="6hd-gs-9Vz"/>
+                        <outlet property="bank" destination="MsM-9G-k4f" id="4ag-6k-OGX"/>
+                        <outlet property="bankAcc" destination="Q1n-dx-Qxe" id="ceH-Ya-BiR"/>
+                        <outlet property="card" destination="IIF-Ri-eVp" id="edD-Pr-w4b"/>
+                        <outlet property="cardName" destination="J6A-oN-ZLI" id="Ps9-lx-gjA"/>
+                        <outlet property="cardNum" destination="1k1-ZE-WD5" id="n7t-Co-Gu7"/>
+                        <outlet property="cvv" destination="FXF-Hm-inb" id="b2g-eq-SBP"/>
+                        <outlet property="expireMM" destination="tK7-X9-u4a" id="Qbd-11-wHl"/>
+                        <outlet property="expireYY" destination="Z6Z-xg-LxV" id="Dma-xz-55s"/>
                         <outlet property="price" destination="WGk-Zq-Pm1" id="VJd-cE-im2"/>
                     </connections>
                 </viewController>
