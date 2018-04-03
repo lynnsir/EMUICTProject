@@ -23,9 +23,7 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
         super.viewDidLoad()
         
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
-        //observeMessages()
         reloadUserMessage()
-        //observeUserMessage()
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -54,9 +52,11 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                         self.messageDic[toId] = message
                         self.messages = Array(self.messageDic.values)
                         self.messages.sort(by: { (message1, message2) -> Bool in
-                            let timeMessage1: Int = (message1.timestamp?.intValue)!
-                            let timeMessage2: Int = (message2.timestamp?.intValue)!
-                            return timeMessage1 > timeMessage2
+                            let timeMessage1 = message1.timestamp?.intValue
+                            let timeMessage2 = message2.timestamp?.intValue
+                            let timeMessage1int = Int(timeMessage1!)
+                            let timeMessage2int = Int(timeMessage2!)
+                            return timeMessage1int > timeMessage2int
                         })
                         
                     }
@@ -68,35 +68,28 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
         }, withCancel: nil)
         
     }
-    
-    func observeMessages(){
-        let ref = Database.database().reference().child("messages")
-        ref.observe(.childAdded, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject]{
-                 let message = Message(dictionary: dictionary)
-                // group user chat
-                if let toId = message.toid{
-                    self.messageDic[toId] = message
-                    self.messages = Array(self.messageDic.values)
-                    self.messages.sort(by: { (message1, message2) -> Bool in
-                        let timeMessage1: Int = (message1.timestamp?.intValue)!
-                        let timeMessage2: Int = (message2.timestamp?.intValue)!
-                        return timeMessage1 > timeMessage2
-
-                    })
-
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-               
-            }
-        }, withCancel: nil)
-    }
    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let message = messages[indexPath.row]
+        
+        guard let chatPartnerId = message.chatPartnerId() else {
+            print("chatPartnerid is nil")
+            return
+        }
+        let ref = Database.database().reference().child("Alluser").child(chatPartnerId)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: AnyObject] else{
+                return
+            }
+            let user = User(dictionary: dictionary)
+            user.id = chatPartnerId
+            self.showChatControllerUser(user)
+        }, withCancel: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,17 +97,7 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
         let messchat = messages[indexPath.row]
         
-        // check chat partner
-        let chatPartnerId: String?
-        
-        if messchat.fromid == Auth.auth().currentUser?.uid{
-            chatPartnerId = messchat.toid
-        }else{
-            chatPartnerId = messchat.fromid
-        }
-        //end check partner
-        
-        if let id = chatPartnerId{
+        if let id = messchat.chatPartnerId(){ // check chat partner
             let ref = Database.database().reference().child("Alluser").child(id)
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject]{
@@ -138,4 +121,22 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    func showChatControllerUser(_ user: User) {
+       
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+            let senderid = Auth.auth().currentUser!.uid
+            let recieverid = user.id
+            
+            
+            vc.senderid = senderid
+            vc.recieverid = recieverid
+            
+    }
+
+}
 }

@@ -220,22 +220,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAc-Al-9wS">
-                                <rect key="frame" x="174" y="185" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="buyer"/>
-                                <connections>
-                                    <action selector="buyer:" destination="Y9X-Wt-Lm3" eventType="touchUpInside" id="O84-lI-7NR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5p-g3-Jvg">
-                                <rect key="frame" x="175" y="377" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="seller"/>
-                                <connections>
-                                    <action selector="seller:" destination="Y9X-Wt-Lm3" eventType="touchUpInside" id="9MV-AJ-AV1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="CNH-QV-ZqT"/>
@@ -282,13 +266,7 @@
                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Rda-gk-Sqj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Message" id="1EF-3S-F2a">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UcB-Vh-TP0">
-                            <connections>
-                                <segue destination="Y9X-Wt-Lm3" kind="show" id="3e8-YW-jDV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Message" id="1EF-3S-F2a"/>
                     <connections>
                         <outlet property="tableView" destination="ADs-Kq-Idd" id="Wh5-DQ-wha"/>
                     </connections>
@@ -6113,7 +6091,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="cfw-AK-89x"/>
         <segue reference="UIi-Sh-fzB"/>
-        <segue reference="3e8-YW-jDV"/>
+        <segue reference="IRC-pV-Uhx"/>
         <segue reference="HNH-zn-Ges"/>
     </inferredMetricsTieBreakers>
 </document>
