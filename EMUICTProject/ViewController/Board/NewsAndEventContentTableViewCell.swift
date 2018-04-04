@@ -180,7 +180,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                        query2.observe(.value, with: {(snapshot2) in
                         
                         if let userinfo = snapshot2.value as? NSDictionary{
-                            let userName = userinfo["Full name"] as? String ?? "Not found user name"
+                            let userName = userinfo["Username"] as? String ?? "Not found user name"
                             
                                 pcomment.userName = userName
                                 self.comment.append(pcomment)
