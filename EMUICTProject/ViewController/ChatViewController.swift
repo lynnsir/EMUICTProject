@@ -21,6 +21,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     var boardid:String!
     var senderid: String! //sender
     var recieverid: String! //reciever
+    var uid = Auth.auth().currentUser?.uid
+    var type:String!
     
     @IBOutlet var messageText: UITextField! //message text
     
@@ -28,7 +30,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //showRecieverName()
+        getType()
         messageText.delegate = self
         
        
@@ -54,6 +56,19 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         }
     }
     
+    @IBAction func orderPressed(_ sender: Any) {
+        if uid == recieverid {
+            print("Set order")
+            setOrder()
+        }
+        else if uid == senderid {
+            print("Get order")
+            getorderID()
+        }
+        else if self.type == "Company" || self.type == "Admin" {
+            displyAlertMessage(userMessage: "Can't access")
+        }
+    }
     
     @IBAction func sendMessageButt(_ sender: Any) {
         
@@ -85,10 +100,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         }
     
     }
-    
 
-    @IBAction func seller(_ sender: Any) {
-
+    func setOrder(){
         let OrderID = Database.database().reference().child("Order").childByAutoId().key
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/YYY"
@@ -96,8 +109,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         self.ordate = date
         
         // change!! when msg completes
-//        let sellerID = Auth.auth().currentUser!.uid
-//        let buyerID = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" //com001
+        //        let sellerID = Auth.auth().currentUser!.uid
+        //        let buyerID = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" //com001
         
         let sellerID = Auth.auth().currentUser!.uid
         let buyerID = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" //Lynn001@test
@@ -108,10 +121,10 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             "buyerID": buyerID as AnyObject,
             "status": "Not confirmed order"  as AnyObject,
             "s_b_o": sellerID + "_" + buyerID + "_" + "NCF"  as AnyObject,
-             "Date": date as AnyObject
+            "Date": date as AnyObject
         ]
         Database.database().reference().child("Order").child("\(OrderID)").setValue(postOrder)
-
+        
         
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Order") as? OrderViewController
             
@@ -122,16 +135,6 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             vc.orderID = OrderID
         }
     }
-    @IBAction func buyer(_ sender: Any) {
-        print("Start getting OrderID")
-        confirmOrder()
-      
-    }
-    
-    func confirmOrder(){
-        getorderID()
-    }
- 
     
     func getorderID(){
         
@@ -178,5 +181,26 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
+    }
+    
+    func getType(){
+        
+        //if the user is logged in get the profile data
+        let rootRef = Database.database().reference()
+        if let userID = Auth.auth().currentUser?.uid{
+            rootRef.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
+                //create a dictionary of users profile data
+                let values = snapshot.value as? NSDictionary
+                self.type = values?["Type"] as? String
+            })
+        }
     }
 }
