@@ -41,6 +41,7 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
         }
         let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            
             let messageId = snapshot.key
             let messageReference = Database.database().reference().child("messages").child(messageId)
             messageReference.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -48,8 +49,8 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                 if let dictionary = snapshot.value as? [String: AnyObject]{
                     let message = Message(dictionary: dictionary)
                     // group user chat
-                    if let toId = message.toid{
-                        self.messageDic[toId] = message
+                    if let chatPartnetId = message.chatPartnerId(){
+                        self.messageDic[chatPartnetId] = message
                         self.messages = Array(self.messageDic.values)
                         self.messages.sort(by: { (message1, message2) -> Bool in
                             let timeMessage1 = message1.timestamp?.intValue
@@ -60,6 +61,7 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                         })
                         
                     }
+                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -109,11 +111,12 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                             DispatchQueue.main.async {
                                  cell.textLabel?.text = dictionary["Username"] as? String
                                  cell.postedImg.image = UIImage(data: data!)
-                                 cell.detailTextLabel?.text = messchat.textmessage
+//                                 cell.detailTextLabel?.text = messchat.textmessage
                             }
                         }).resume()                    }
                 }
             }, withCancel: nil)
+            cell.detailTextLabel?.text = messchat.textmessage
         }
         return cell
     }

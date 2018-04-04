@@ -26,32 +26,110 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     @IBOutlet var messageText: UITextField! //message text
     
     let cellId = "cellId"
+    var messages = [Message]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //showRecieverName()
         messageText.delegate = self
-        collectionView?.backgroundColor = UIColor.blue
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        observeMessages()
+        collectionView?.contentInset = UIEdgeInsetsMake(9, 0, 58, 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(9, 0, 50, 0)
+        collectionView?.alwaysBounceVertical = true
+        collectionView?.register(ChatmessageCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.delegate = self
         collectionView.dataSource = self
         
        
     }
     
+    func observeMessages(){
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let userMessageRef = Database.database().reference().child("user-messages").child(uid)
+        userMessageRef.observe(.childAdded, with: { (snapshot) in
+            let messageId = snapshot.key
+            let messagesRef = Database.database().reference().child("messages").child(messageId)
+            messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                guard let dictionary = snapshot.value as? [String: AnyObject] else{
+                    return
+                }
+                let message = Message(dictionary: dictionary)
+                if message.chatPartnerId() == self.recieverid{
+                    self.messages.append(message)
+                    DispatchQueue.main.async {
+                        self.collectionView?.reloadData()
+                    }
+                }
+               
+            }, withCancel: nil)
+        }, withCancel: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return messages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = UIColor.red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatmessageCollectionViewCell
+        //cell.backgroundColor = UIColor.red
+        let message = messages[indexPath.item]
+        setupCell(cell: cell, message: message)
+        cell.textView.text = message.textmessage
+        cell.bubbleWidthAnchor?.constant = estimateFrameForText(text: message.textmessage!).width + 32
         return cell
     }
+    private func setupCell(cell: ChatmessageCollectionViewCell, message: Message){
+        
+        if let id = message.chatPartnerId(){ // check chat partner
+            let ref = Database.database().reference().child("Alluser").child(id)
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject]{
+                    
+                    if let profileImageUrl = dictionary["urlToImage"] as? String{
+                        let url = URL(string: profileImageUrl)
+                        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                            if error != nil{print(error.debugDescription)}
+                            DispatchQueue.main.async {
+                                cell.profileImageView.image = UIImage(data: data!)
+                            }
+                        }).resume()
+                     }
+                }
+                
+            }, withCancel: nil)
+           
+        }
+        
+        if message.fromid == Auth.auth().currentUser?.uid{
+            cell.bubbleView.backgroundColor = ChatmessageCollectionViewCell.aquarColor
+            cell.profileImageView.isHidden = true
+        }else{
+            cell.bubbleView.backgroundColor = UIColor.lightGray
+            cell.profileImageView.isHidden = false
+            cell.bubbleViewRightAnchor?.isActive = false
+            cell.bubbleViewLeftAnchor?.isActive = true
+        }    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.height, height: 80)
+        
+        var height: CGFloat = 80
+        
+        if let text = messages[indexPath.item].textmessage{
+            height = estimateFrameForText(text: text).height + 20
+        }
+        
+        return CGSize(width: view.frame.width, height: height)
+    }
+    
+    private func estimateFrameForText(text: String) -> CGRect{
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+    
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil)
+        
     }
     
     
@@ -100,6 +178,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
                 print(error.debugDescription)
                 return
             }
+            self.messageText.text = nil
             let userMessageRef = Database.database().reference().child("user-messages").child(fromid)
             let messageId = childRef.key
             userMessageRef.updateChildValues([messageId:1]) // sender message
