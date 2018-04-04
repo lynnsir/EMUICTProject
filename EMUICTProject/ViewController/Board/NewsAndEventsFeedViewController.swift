@@ -8,15 +8,20 @@
 import UIKit
 import Firebase
 
-class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
    
     @IBOutlet var InsertNAEpost: UIBarButtonItem!
     
+    @IBOutlet var searchBar: UISearchBar!
+    
     let cellId = "NewsAndEventPostCell"
 
     var board = [PostBoard]()
+    var filteredData = [PostBoard]()
+    var searchActive : Bool = false
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,8 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
         getPost()
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,25 +98,45 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchActive{
+            return filteredData.count
+        }
         return board.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
-        let post = board[indexPath.row]
         
-        if let postimgUrl = post.imagePost{
-            let url = URL(string: postimgUrl)
-            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-                if error != nil{print(error.debugDescription)}
-                DispatchQueue.main.async {
-                    cell.textLabel?.text = post.title
-                    cell.detailTextLabel?.text = post.content
-                    cell.postedImg.image = UIImage(data: data!)
-                    
-                }
-            }).resume()
+        if searchActive {
+            let post = filteredData[indexPath.row]
+            if let postimgUrl = post.imagePost{
+                let url = URL(string: postimgUrl)
+                URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                    if error != nil{print(error.debugDescription)}
+                    DispatchQueue.main.async {
+                        cell.textLabel?.text = post.title
+                        cell.detailTextLabel?.text = post.content
+                        cell.postedImg.image = UIImage(data: data!)
+                        
+                    }
+                }).resume()
+            }
+        }else{
+             let post = board[indexPath.row]
+            if let postimgUrl = post.imagePost{
+                let url = URL(string: postimgUrl)
+                URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                    if error != nil{print(error.debugDescription)}
+                    DispatchQueue.main.async {
+                        cell.textLabel?.text = post.title
+                        cell.detailTextLabel?.text = post.content
+                        cell.postedImg.image = UIImage(data: data!)
+                        
+                    }
+                }).resume()
+            }
         }
         return cell
     }
@@ -135,5 +162,34 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                vc.boardId = post.postId
                
         }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard !searchText.isEmpty else{
+            filteredData = board
+            tableView.reloadData()
+            return
+        }
+        
+        filteredData = board.filter({ (PostBoard) -> Bool in
+            PostBoard.title.lowercased().contains(searchText.lowercased())
+            
+        })
+        filteredData = board.filter({ (PostBoard) -> Bool in
+            PostBoard.content.lowercased().contains(searchText.lowercased())
+            
+        })
+        
+        if(filteredData.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
     }
 }
