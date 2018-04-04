@@ -163,11 +163,12 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             print("Set order")
             setOrder()
         }
-        else if uid == senderid {
-            print("Get order")
-            getorderID()
-        }
+
         else if self.type == "Company" || self.type == "Admin" {
+            displyAlertMessage(userMessage: "Can't access")
+        }
+        
+        else{
             displyAlertMessage(userMessage: "Can't access")
         }
     }
