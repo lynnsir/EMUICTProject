@@ -93,10 +93,10 @@ class AccountMenuViewController: UIViewController {
     
     
     
-//    @IBAction func OrderPressed(_ sender: Any) {
-//        if self.type == "Company"{
-//            displyAlertMessage(userMessage: "Can't access this menu")
-//        }
+    @IBAction func OrderPressed(_ sender: Any) {
+        if self.type == "Company"{
+            displyAlertMessage(userMessage: "Can't access this menu")
+        }
 //        else if self.type == "Admin"{
 //          if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "....") as? ......ViewController
 //
@@ -107,17 +107,17 @@ class AccountMenuViewController: UIViewController {
 //                }
 //            }
 //    }
-//        else {
-//
-//            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderList") as? OrderListViewController
-//
-//            {
-//                if let navigator = self.navigationController {
-//                    navigator.show(vc, sender: true)
-//                }
-//            }
-//        }
-//    }
+        else {
+
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderList") as? OrderListViewController
+
+            {
+                if let navigator = self.navigationController {
+                    navigator.show(vc, sender: true)
+                }
+            }
+        }
+    }
     
     
     @IBAction func LogoutPressd(_ sender: Any) {
