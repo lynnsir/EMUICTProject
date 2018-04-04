@@ -108,35 +108,25 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
-        
+        var post = PostBoard()
         if searchActive {
-            let post = filteredData[indexPath.row]
-            if let postimgUrl = post.imagePost{
-                let url = URL(string: postimgUrl)
-                URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-                    if error != nil{print(error.debugDescription)}
-                    DispatchQueue.main.async {
-                        cell.textLabel?.text = post.title
-                        cell.detailTextLabel?.text = post.content
-                        cell.postedImg.image = UIImage(data: data!)
-                        
-                    }
-                }).resume()
-            }
+            post = filteredData[indexPath.row]
         }else{
-             let post = board[indexPath.row]
-            if let postimgUrl = post.imagePost{
-                let url = URL(string: postimgUrl)
-                URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
-                    if error != nil{print(error.debugDescription)}
-                    DispatchQueue.main.async {
-                        cell.textLabel?.text = post.title
-                        cell.detailTextLabel?.text = post.content
-                        cell.postedImg.image = UIImage(data: data!)
-                        
-                    }
-                }).resume()
-            }
+            post = board[indexPath.row]
+        }
+//        let post = board[indexPath.row]
+        
+        if let postimgUrl = post.imagePost{
+            let url = URL(string: postimgUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+                if error != nil{print(error.debugDescription)}
+                DispatchQueue.main.async {
+                    cell.textLabel?.text = post.title
+                    cell.detailTextLabel?.text = post.content
+                    cell.postedImg.image = UIImage(data: data!)
+                    
+                }
+            }).resume()
         }
         return cell
     }
@@ -168,6 +158,17 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
         searchActive = true;
     }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         guard !searchText.isEmpty else{
