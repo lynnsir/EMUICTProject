@@ -169,7 +169,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         }
         
         else{
-            displyAlertMessage(userMessage: "Can't access")
+            displyAlertMessage(userMessage: "Using for order generating only")
         }
     }
     
