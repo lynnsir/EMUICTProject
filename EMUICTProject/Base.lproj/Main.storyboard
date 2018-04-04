@@ -1697,7 +1697,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrO-Gm-WZ8">
-                                                <rect key="frame" x="69" y="124" width="278" height="155"/>
+                                                <rect key="frame" x="151" y="297" width="112" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="insert"/>
                                                 <connections>
@@ -2100,12 +2100,12 @@
                                                 <rect key="frame" x="68" y="68" width="278" height="183"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-Xr-vfw">
-                                                <rect key="frame" x="68" y="77" width="278" height="174"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBw-Qr-Q84">
+                                                <rect key="frame" x="192" y="625" width="31" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="insert"/>
+                                                <state key="normal" title="Post"/>
                                                 <connections>
-                                                    <action selector="InsertPhotoButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="WCH-Ve-4hv"/>
+                                                    <action selector="BoardPostButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="JYt-68-cgr"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOo-aU-63t">
@@ -2123,12 +2123,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBw-Qr-Q84">
-                                                <rect key="frame" x="192" y="625" width="31" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-Xr-vfw">
+                                                <rect key="frame" x="151" y="242" width="112" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Post"/>
+                                                <state key="normal" title="insert"/>
                                                 <connections>
-                                                    <action selector="BoardPostButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="JYt-68-cgr"/>
+                                                    <action selector="InsertPhotoButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="WCH-Ve-4hv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2325,12 +2325,12 @@
                                                 <rect key="frame" x="68" y="67" width="278" height="182"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3w-dL-1RL">
-                                                <rect key="frame" x="67" y="82" width="278" height="152"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0U-Bo-QE1">
+                                                <rect key="frame" x="192" y="641" width="31" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="insert"/>
+                                                <state key="normal" title="Post"/>
                                                 <connections>
-                                                    <action selector="InsertPhotoButtom:" destination="lPz-IW-nUd" eventType="touchUpInside" id="BHg-63-U8o"/>
+                                                    <action selector="BoardPostButtom:" destination="lPz-IW-nUd" eventType="touchUpInside" id="1gz-YK-Lxa"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6B-SE-zdH">
@@ -2348,12 +2348,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0U-Bo-QE1">
-                                                <rect key="frame" x="192" y="641" width="31" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3w-dL-1RL">
+                                                <rect key="frame" x="150" y="240" width="112" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Post"/>
+                                                <state key="normal" title="insert"/>
                                                 <connections>
-                                                    <action selector="BoardPostButtom:" destination="lPz-IW-nUd" eventType="touchUpInside" id="1gz-YK-Lxa"/>
+                                                    <action selector="InsertPhotoButtom:" destination="lPz-IW-nUd" eventType="touchUpInside" id="BHg-63-U8o"/>
                                                 </connections>
                                             </button>
                                         </subviews>
