@@ -247,7 +247,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="XwO-LX-k67">
                         <barButtonItem key="rightBarButtonItem" image="invoice" id="pqs-Po-2m5">
-                            <inset key="imageInsets" minX="0.0" minY="-5" maxX="-55" maxY="0.0"/>
+                            <inset key="imageInsets" minX="0.0" minY="-8" maxX="-55" maxY="10"/>
+                            <connections>
+                                <action selector="orderPressed:" destination="Y9X-Wt-Lm3" id="FoM-LO-rHH"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -5212,12 +5215,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="104.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHj-uq-Nqz">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHj-uq-Nqz">
                                                     <rect key="frame" x="22" y="11" width="80" height="80"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="Qer-sl-SmE"/>
-                                                        <constraint firstAttribute="width" constant="80" id="r1h-hg-Hn8"/>
-                                                    </constraints>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ax5-se-OPk">
                                                     <rect key="frame" x="134" y="33" width="265" height="2"/>
