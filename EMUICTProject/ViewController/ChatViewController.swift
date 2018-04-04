@@ -211,12 +211,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         let date = formatter.string(from: Date())
         self.ordate = date
         
-        // change!! when msg completes
-        //        let sellerID = Auth.auth().currentUser!.uid
-        //        let buyerID = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" //com001
-        
         let sellerID = Auth.auth().currentUser!.uid
-        let buyerID = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" //Lynn001@test
+        let buyerID = senderid!
         
         let postOrder: [String:Any] = [
             "orderID" : OrderID as AnyObject,
@@ -242,11 +238,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     func getorderID(){
         
         let bid = Auth.auth().currentUser?.uid
-        let sid = "JKy0SZ5RC8RIOKbRPzIRFZEL4X83" // com001@test.com
-        
-//        let bid = Auth.auth().currentUser?.uid
-//        let sid = "Fgp0F4XN71dzCMpdqhhtlFm7Jz23" // lynn001@test.com
-        
+        let sid = recieverid!
+
         let sbo = sid + "_" + bid! + "_" + "NCF"
 
         let rootRef = Database.database().reference()
