@@ -13,6 +13,7 @@
 		0B5FBAAE20715AAE00881D02 /* AllMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FBAAD20715AAE00881D02 /* AllMessageViewController.swift */; };
 		0B5FBAB02071C31800881D02 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FBAAF2071C31800881D02 /* Message.swift */; };
 		0B5FBAB22073E4AC00881D02 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FBAB12073E4AC00881D02 /* User.swift */; };
+		0B5FBAB620745C3200881D02 /* ChatmessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FBAB520745C3200881D02 /* ChatmessageCollectionViewCell.swift */; };
 		0B91D2CC20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */; };
 		0B91D2CE20494116005C8D6F /* CreateBusinessPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */; };
 		0B91D2D020494240005C8D6F /* CreateJobAndInternshipPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */; };
@@ -92,6 +93,7 @@
 		0B5FBAAD20715AAE00881D02 /* AllMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMessageViewController.swift; sourceTree = "<group>"; };
 		0B5FBAAF2071C31800881D02 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		0B5FBAB12073E4AC00881D02 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0B5FBAB520745C3200881D02 /* ChatmessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatmessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAndEventsPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessPostViewController.swift; sourceTree = "<group>"; };
 		0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobAndInternshipPostViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				85C5BDD3206E24B80097BE9A /* OrderListTableViewCell.swift */,
 				85C5BDD5206E251F0097BE9A /* OrderDetailTableViewCell.swift */,
 				85C5BDDF206E29520097BE9A /* OrderDetailPayTableViewCell.swift */,
+				0B5FBAB520745C3200881D02 /* ChatmessageCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -249,9 +252,9 @@
 				85E82116203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift */,
 				85E82118203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift */,
 				85D922CE2045372500B94951 /* InvoiceViewController.swift */,
-				85D922C72045157200B94951 /* PaymentViewController.swift */,
 				856BC4E620335D9B00AC712A /* AccountMenuViewController.swift */,
 				85836DE72054296800117149 /* MyProfileStudentViewController.swift */,
+				85D922C72045157200B94951 /* PaymentViewController.swift */,
 				85836DEB205429D500117149 /* MyProfileAlumniViewController.swift */,
 				85836DED205429E300117149 /* MyProfileStaffViewController.swift */,
 				85836DEF205429F800117149 /* MyProfileCompanyViewController.swift */,
@@ -259,7 +262,6 @@
 				85836DF32055247800117149 /* EditAlumniProfileViewController.swift */,
 				85836DF52055249700117149 /* EditStaffProfileViewController.swift */,
 				85836DF7205524A800117149 /* EditCompanyProfileViewController.swift */,
-				855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */,
 				855DBCFA206E3C8C000A76B7 /* ConfirmOrderViewController.swift */,
 				855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */,
 				855DBCF8206E3C8C000A76B7 /* OrderViewController.swift */,
@@ -267,6 +269,7 @@
 				85C5BDD9206E26CE0097BE9A /* OrderListViewController.swift */,
 				85C5BDDB206E26EA0097BE9A /* OrderDetailViewController.swift */,
 				85C5BDDD206E28F70097BE9A /* OrderDetailPayViewController.swift */,
+				855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */,
 				0B5FBAAD20715AAE00881D02 /* AllMessageViewController.swift */,
 				0BC13C41206CB08F0036F66D /* Board */,
 			);
@@ -481,6 +484,7 @@
 				0BCE4B2A204BBD600066A55B /* NAEcomment.swift in Sources */,
 				855DBD04206E3CB5000A76B7 /* Order.swift in Sources */,
 				856BC4ED20348E4400AC712A /* StaffReportViewController.swift in Sources */,
+				0B5FBAB620745C3200881D02 /* ChatmessageCollectionViewCell.swift in Sources */,
 				85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */,
 				0BCE4B26204A6EE60066A55B /* NewsAndEventFeedTableViewCell.swift in Sources */,
 				85EF1FFC202030AF00F39134 /* LoginViewController.swift in Sources */,
@@ -682,7 +686,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SEF4KAHA7J;
+				DEVELOPMENT_TEAM = J38H528F4A;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -703,7 +707,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SEF4KAHA7J;
+				DEVELOPMENT_TEAM = J38H528F4A;
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
