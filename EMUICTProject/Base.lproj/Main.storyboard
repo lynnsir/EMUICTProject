@@ -1604,9 +1604,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="JeW-oB-kaR" kind="showDetail" id="HYf-Gj-OEV"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1976,6 +1973,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="L4T-lz-qhh" id="FSD-di-XEl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weX-rx-3vb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2517,6 +2517,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="3pr-t4-lmJ" id="54U-fm-cA5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIC-RE-Cka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
