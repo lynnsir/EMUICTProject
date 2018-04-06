@@ -21,6 +21,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     var boardid:String!
     var senderid: String! //sender
     var recieverid: String! //reciever
+    var creator:String!
     var uid = Auth.auth().currentUser?.uid
     var type:String!
     
@@ -136,10 +137,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         
     }
     
-    
-
-    
-    
+   
     override func viewWillAppear(_ animated: Bool) {
         let rootRef = Database.database().reference()
         let query = rootRef.child("Alluser").child(recieverid!)
@@ -161,7 +159,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     }
     
     @IBAction func orderPressed(_ sender: Any) {
-        if uid == recieverid {
+        if uid == creator {
             print("Set order")
             setOrder()
         }
