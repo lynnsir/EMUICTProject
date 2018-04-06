@@ -41,7 +41,7 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         
         postBoardContent(Title: title!,Content: content!)
         
-        performSegue(withIdentifier: "NAEFeed", sender: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func InsertPhotoButtom(_ sender: Any) {
@@ -96,9 +96,6 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
 }

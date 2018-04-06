@@ -40,6 +40,7 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
         let content = BoardContent.text
         
         postBoardContent(Title: title!,Content: content!)
+         _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func InsertPhotoButtom(_ sender: Any) {
@@ -94,9 +95,6 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
     
 }

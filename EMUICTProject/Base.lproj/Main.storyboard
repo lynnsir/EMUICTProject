@@ -1681,9 +1681,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="JFR-cI-jSN" kind="show" action="showDetailViewController:sender:" id="A0o-2h-iW6"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1713,7 +1710,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ia3-rK-eS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3140.579710144928" y="4541.576086956522"/>
+            <point key="canvasLocation" x="3865" y="4520"/>
         </scene>
         <!--Create New And Events Post View Controller-->
         <scene sceneID="kIm-yL-8MY">
@@ -1724,7 +1721,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRs-6p-VBC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="987"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e88-hc-8Ug">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1028"/>
@@ -1739,7 +1736,6 @@
                                                 <state key="normal" title="Post"/>
                                                 <connections>
                                                     <action selector="BoardPostButtom:" destination="AWY-xx-kqF" eventType="touchUpInside" id="r4y-nk-QpV"/>
-                                                    <segue destination="8gc-Mf-94l" kind="show" identifier="NAEFeed" id="NGD-N2-7zG"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gi-9l-pgB">
@@ -1801,7 +1797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tb0-SY-CdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608.6956521739135" y="5498.6413043478269"/>
+            <point key="canvasLocation" x="3526" y="5517"/>
         </scene>
         <!--Detail-->
         <scene sceneID="IZI-Lc-ewc">
@@ -1957,7 +1953,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5L-Uq-8dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2873.913043478261" y="5627.4456521739139"/>
+            <point key="canvasLocation" x="4364" y="5645"/>
         </scene>
         <!--Business-->
         <scene sceneID="Saa-Pi-kDC">
@@ -2005,7 +2001,6 @@
                     <connections>
                         <outlet property="searchBar" destination="kdk-Mn-4hN" id="3cf-NQ-Ur4"/>
                         <outlet property="tableView" destination="L4T-lz-qhh" id="nIH-iH-yoP"/>
-                        <segue destination="dKM-Aw-s90" kind="show" id="x2u-FR-BAs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weX-rx-3vb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2191,7 +2186,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgv-Dh-58q">
-                                <rect key="frame" x="0.0" y="20" width="414" height="1016"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="923"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn7-2l-qfj">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
@@ -2206,7 +2201,6 @@
                                                 <state key="normal" title="Post"/>
                                                 <connections>
                                                     <action selector="BoardPostButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="JYt-68-cgr"/>
-                                                    <segue destination="bS9-nu-7lv" kind="showDetail" id="W9T-Dc-jEl"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOo-aU-63t">
@@ -2452,7 +2446,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3E-gL-fy1">
-                                <rect key="frame" x="0.0" y="20" width="414" height="1016"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="923"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gd4-11-HcI">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
@@ -2467,7 +2461,6 @@
                                                 <state key="normal" title="Post"/>
                                                 <connections>
                                                     <action selector="BoardPostButtom:" destination="lPz-IW-nUd" eventType="touchUpInside" id="1gz-YK-Lxa"/>
-                                                    <segue destination="TJp-Yl-GqI" kind="showDetail" id="FTJ-B9-xlO"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g6B-SE-zdH">
@@ -2529,7 +2522,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcQ-Or-emF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2165" y="5535"/>
+            <point key="canvasLocation" x="2248" y="5518"/>
         </scene>
         <!--Job & Internship-->
         <scene sceneID="zbb-lL-KL6">
@@ -2579,7 +2572,6 @@
                     <connections>
                         <outlet property="searchBar" destination="G3a-OT-1Na" id="ifD-cy-j4g"/>
                         <outlet property="tableView" destination="3pr-t4-lmJ" id="AAR-2B-pN7"/>
-                        <segue destination="QVr-mc-liJ" kind="show" id="XnW-BF-I6d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIC-RE-Cka" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6599,10 +6591,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="orO-AY-arq"/>
-        <segue reference="W9T-Dc-jEl"/>
-        <segue reference="FTJ-B9-xlO"/>
-        <segue reference="NGD-N2-7zG"/>
-        <segue reference="YH1-Gf-tfj"/>
+        <segue reference="IRC-pV-Uhx"/>
         <segue reference="t6i-tO-Ti2"/>
     </inferredMetricsTieBreakers>
 </document>

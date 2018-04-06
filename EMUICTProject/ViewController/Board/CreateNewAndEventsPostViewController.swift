@@ -41,6 +41,7 @@ class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerContr
         let content = BoardContent.text
         
         postBoardContent(Title: title!,Content: content!)
+         _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func InsertPhotoButtom(_ sender: Any) {
