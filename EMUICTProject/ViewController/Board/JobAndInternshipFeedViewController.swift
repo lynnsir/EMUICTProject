@@ -9,13 +9,17 @@
 import UIKit
 import Firebase
 
-class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet var searchBar: UISearchBar!
 
     let cellId = "NewsAndEventPostCell"
     
     var board = [PostBoard]()
+    var filteredData = [PostBoard]()
+    var searchActive : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,8 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
         checkInsertPriority()
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
     }
     func checkInsertPriority(){
         // set admin priority
@@ -64,13 +70,21 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchActive{
+            return filteredData.count
+        }
         return board.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
-        let post = board[indexPath.row]
+        var post = PostBoard()
+        if searchActive {
+            post = filteredData[indexPath.row]
+        }else{
+            post = board[indexPath.row]
+        }
         
         if let postimgUrl = post.imagePost{
             let url = URL(string: postimgUrl)
@@ -107,5 +121,45 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
             vc.creator = post.creator
             vc.boardId = post.postId
         }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard !searchText.isEmpty else{
+            filteredData = board
+            tableView.reloadData()
+            return
+        }
+        
+        filteredData = board.filter({ (PostBoard) -> Bool in
+            PostBoard.title.lowercased().contains(searchText.lowercased())
+            
+        })
+        filteredData = board.filter({ (PostBoard) -> Bool in
+            PostBoard.content.lowercased().contains(searchText.lowercased())
+            
+        })
+        
+        if(filteredData.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
     }
 }
