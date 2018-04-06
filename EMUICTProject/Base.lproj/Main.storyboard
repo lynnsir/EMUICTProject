@@ -70,6 +70,14 @@
                                     <action selector="ForgetPwd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="alV-ur-0tt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSI-cO-ej6">
+                                <rect key="frame" x="108" y="679" width="199" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Not pay for membership yet?"/>
+                                <connections>
+                                    <segue destination="KfB-zt-hZa" kind="show" id="12n-OK-h8e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99279254669999994" green="1" blue="0.94874161479999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Zek-Ym-4Of"/>
@@ -86,6 +94,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112" y="124"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="579-R1-z3A">
+            <objects>
+                <viewController id="KfB-zt-hZa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p0e-Ef-zDc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="membership" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vq-LD-FGw">
+                                <rect key="frame" x="159" y="188" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="IZW-Th-jzX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0az-L8-Ns7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="311"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jsB-Vc-Sq5">
@@ -520,7 +552,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dee-8V-wmj">
-                                                <rect key="frame" x="164" y="890" width="86" height="39"/>
+                                                <rect key="frame" x="259" y="880" width="86" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
@@ -604,6 +636,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nL-Ra-Zf4">
+                                                <rect key="frame" x="69" y="880" width="86" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Cancel"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -756,14 +793,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8U-kB-xCX">
-                                                <rect key="frame" x="164" y="839" width="86" height="39"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Continue"/>
-                                                <connections>
-                                                    <action selector="ContinuePressed:" destination="tjv-aj-MBz" eventType="touchUpInside" id="S0X-qg-CSQ"/>
-                                                </connections>
-                                            </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iLJ-k3-UYY">
                                                 <rect key="frame" x="36" y="354" width="342" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -771,6 +800,19 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8U-kB-xCX">
+                                                <rect key="frame" x="259" y="853" width="86" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Continue"/>
+                                                <connections>
+                                                    <action selector="ContinuePressed:" destination="tjv-aj-MBz" eventType="touchUpInside" id="S0X-qg-CSQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtU-AA-tvw">
+                                                <rect key="frame" x="69" y="853" width="86" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Cancel"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -818,7 +860,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZv-nI-ud9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6239.130434782609" y="1952.4456521739132"/>
+            <point key="canvasLocation" x="-6233" y="1981"/>
         </scene>
         <!--Payment-->
         <scene sceneID="clK-a8-5pu">
@@ -883,12 +925,22 @@
                                 <color key="backgroundColor" red="1" green="0.87069172090000002" blue="0.81761466760000001" alpha="0.77525684930000005" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-vE-QAS">
-                                <rect key="frame" x="148" y="659" width="119" height="57"/>
+                                <rect key="frame" x="255" y="572" width="119" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Confirm" image="Confirm"/>
                                 <connections>
                                     <action selector="confirmPressed:" destination="Zxo-xH-bG4" eventType="touchUpInside" id="X9L-SJ-5MW"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWS-Lq-Hs9">
+                                <rect key="frame" x="40" y="572" width="119" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Cancel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG5-Vi-6f4">
+                                <rect key="frame" x="177" y="686" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pay later"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99279254669999994" green="1" blue="0.94874161479999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1112,12 +1164,17 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BC-dl-6Ch">
-                                                <rect key="frame" x="164" y="776" width="86" height="39"/>
+                                                <rect key="frame" x="259" y="776" width="86" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Continue"/>
                                                 <connections>
                                                     <action selector="ContinuePressed:" destination="dbO-YO-jW2" eventType="touchUpInside" id="MTG-hE-eTU"/>
                                                 </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HX6-pG-vaO">
+                                                <rect key="frame" x="69" y="776" width="86" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Cancel"/>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID number:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FL2-ge-4fs">
                                                 <rect key="frame" x="36" y="480" width="342" height="30"/>
@@ -1228,7 +1285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZII-9i-dxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5268.115942028986" y="1931.2500000000002"/>
+            <point key="canvasLocation" x="-5235" y="1981"/>
         </scene>
         <!--Registration-->
         <scene sceneID="YM7-kH-w1H">
@@ -1291,7 +1348,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Compny's description" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-Y2-um0">
-                                                <rect key="frame" x="36" y="531" width="342" height="142"/>
+                                                <rect key="frame" x="36" y="531" width="342" height="67"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
@@ -1304,14 +1361,6 @@
                                                 <state key="normal" title="insert"/>
                                                 <connections>
                                                     <action selector="insertImagePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="9hJ-Zr-u7C"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Trh-bf-JnB">
-                                                <rect key="frame" x="164" y="864" width="86" height="39"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Continue"/>
-                                                <connections>
-                                                    <action selector="ContinuePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="Dy9-MX-MeB"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact number:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8B3-ts-1fd">
@@ -1328,6 +1377,19 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Trh-bf-JnB">
+                                                <rect key="frame" x="259" y="812" width="86" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Continue"/>
+                                                <connections>
+                                                    <action selector="ContinuePressed:" destination="tEO-pY-VyE" eventType="touchUpInside" id="Dy9-MX-MeB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmB-yo-urO">
+                                                <rect key="frame" x="69" y="812" width="86" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Cancel"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1372,7 +1434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONu-Fv-dN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4329" y="1972"/>
+            <point key="canvasLocation" x="-4313.04347826087" y="2021.7391304347827"/>
         </scene>
         <!--Type-->
         <scene sceneID="70G-d4-cV4">
@@ -1689,7 +1751,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRs-6p-VBC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="987"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e88-hc-8Ug">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1028"/>
@@ -1976,6 +2038,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="dKM-Aw-s90" kind="show" id="x2u-FR-BAs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weX-rx-3vb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1990,7 +2055,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pc-ke-bvR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1301"/>
                                 <subviews>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nek-yu-JUt">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
@@ -2144,7 +2209,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgv-Dh-58q">
-                                <rect key="frame" x="0.0" y="20" width="414" height="1016"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="923"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn7-2l-qfj">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
@@ -2233,7 +2298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUr-c6-O94">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1301"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HL5-Em-SXA">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
@@ -2517,6 +2582,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="QVr-mc-liJ" kind="show" id="aYv-3K-Dph"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIC-RE-Cka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -6333,9 +6401,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="orO-AY-arq"/>
-        <segue reference="W9T-Dc-jEl"/>
+        <segue reference="BtR-50-ZX6"/>
         <segue reference="ua9-Pp-JVc"/>
-        <segue reference="NGD-N2-7zG"/>
+        <segue reference="UIi-Sh-fzB"/>
         <segue reference="IRC-pV-Uhx"/>
         <segue reference="HNH-zn-Ges"/>
     </inferredMetricsTieBreakers>

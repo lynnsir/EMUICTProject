@@ -34,6 +34,10 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil{
                     print("Successful")
+                    
+                    let uid = Auth.auth().currentUser?.uid
+                    
+                    
            
                     let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -58,6 +62,7 @@ class LoginViewController: UIViewController {
             })
         }
        
+      
        
     }
     
