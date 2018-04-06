@@ -1509,7 +1509,7 @@
         <!--Detail-->
         <scene sceneID="Dap-bd-fWv">
             <objects>
-                <viewController id="JeW-oB-kaR" customClass="HomePageContentViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomePageContent" id="JeW-oB-kaR" customClass="HomePageContentViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="71L-K4-9W9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1618,7 +1618,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BvU-8L-ixG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1765.217391304348" y="3768.7500000000005"/>
+            <point key="canvasLocation" x="-1765" y="3792"/>
         </scene>
         <!--Home-->
         <scene sceneID="0z8-x2-2kA">
@@ -1786,7 +1786,11 @@
                         <viewLayoutGuide key="safeArea" id="vSq-HY-uYS"/>
                     </view>
                     <navigationItem key="navigationItem" id="7RN-nr-ooE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Vi7-to-2gc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Vi7-to-2gc">
+                            <connections>
+                                <action selector="cancelPressed:" destination="AWY-xx-kqF" id="nTU-qD-9kQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1036"/>
                     <connections>
@@ -2251,7 +2255,11 @@
                         <viewLayoutGuide key="safeArea" id="ZCH-eN-TVB"/>
                     </view>
                     <navigationItem key="navigationItem" id="AXK-dv-fCN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="fH5-DA-O9k"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fH5-DA-O9k">
+                            <connections>
+                                <action selector="cancelPressed:" destination="KUv-wy-jGV" id="fKa-wW-Fbi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1036"/>
                     <connections>
@@ -2511,12 +2519,17 @@
                         <viewLayoutGuide key="safeArea" id="hxQ-yf-CyT"/>
                     </view>
                     <navigationItem key="navigationItem" id="87z-Ul-sOv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Dm0-NH-Tjo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Dm0-NH-Tjo">
+                            <connections>
+                                <action selector="cancelPressed:" destination="lPz-IW-nUd" id="Tmo-ca-5ev"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1036"/>
                     <connections>
                         <outlet property="BoardContent" destination="mHb-57-gfV" id="evi-KO-xlF"/>
                         <outlet property="BoardTitle" destination="g6B-SE-zdH" id="HXz-8Y-fqt"/>
+                        <outlet property="cancelPressed" destination="Dm0-NH-Tjo" id="MpQ-mB-MGc"/>
                         <outlet property="imgView" destination="BHS-bs-Bu4" id="itP-nG-rDt"/>
                     </connections>
                 </viewController>

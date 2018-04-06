@@ -33,7 +33,10 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         userStorage = storage.child("Business")
         
     }
-    
+
+    @IBAction func cancelPressed(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func BoardPostButtom(_ sender: Any) {
         let title = BoardTitle.text
