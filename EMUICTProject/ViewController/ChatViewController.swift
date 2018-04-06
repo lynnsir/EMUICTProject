@@ -17,6 +17,9 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     var buyerId:String!
     var sellerId:String!
     var ordate:String!
+    var buyID:String!
+    var saleID:String!
+    
     
     var boardid:String!
     var senderid: String! //sender
@@ -35,6 +38,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         getType()
+        //print("Creator: " + creator)
         messageText.delegate = self
         observeMessages()
         collectionView?.contentInset = UIEdgeInsetsMake(9, 0, 58, 0)
@@ -43,8 +47,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         collectionView?.register(ChatmessageCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-       
+
     }
     
     func observeMessages(){
@@ -159,7 +162,9 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     }
     
     @IBAction func orderPressed(_ sender: Any) {
-        if uid == creator {
+        print("buyID" + buyID)
+        print("saleID" + saleID)
+        if uid == self.saleID {
             print("Set order")
             setOrder()
         }
@@ -206,70 +211,87 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     }
 
     func setOrder(){
-        let OrderID = Database.database().reference().child("Order").childByAutoId().key
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/YYY"
-        let date = formatter.string(from: Date())
-        self.ordate = date
         
-        let sellerID = Auth.auth().currentUser!.uid
-        let buyerID = senderid!
+        let bid = self.buyID
+        let sid = Auth.auth().currentUser?.uid
+        print("bid: " + bid!)
+        print("sid: " + sid!)
         
-        let postOrder: [String:Any] = [
-            "orderID" : OrderID as AnyObject,
-            "sellerID" : sellerID as AnyObject,
-            "buyerID": buyerID as AnyObject,
-            "seller_status": "Unconfirmed order"  as AnyObject,
-            "buyer_status": "Unconfirmed order"  as AnyObject,
-            "s_b_o": sellerID + "_" + buyerID + "_" + "NCF"  as AnyObject,
-            "Date": date as AnyObject
-        ]
-        Database.database().reference().child("Order").child("\(OrderID)").setValue(postOrder)
-        
-        
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Order") as? OrderViewController
-            
-        {
-            if let navigator = navigationController {
-                navigator.show(vc, sender: true)
-            }
-            vc.orderID = OrderID
+        if sid == bid {
+            displyAlertMessage(userMessage: "Error")
         }
-    }
-    
-    func getorderID(){
-        
-        let bid = Auth.auth().currentUser?.uid
-        let sid = recieverid!
-
-        let sbo = sid + "_" + bid! + "_" + "NCF"
-
-        let rootRef = Database.database().reference()
-        let query = rootRef.child("Order").queryOrdered(byChild: "s_b_o").queryEqual(toValue:sbo)
-        query.observe(.value) { (snapshot) in
-            for child in snapshot.children.allObjects as! [DataSnapshot] {
-                if let value = child.value as? NSDictionary {
-                    let orderid = value["orderID"] as? String ?? "not found"
-                    let sid = value["sellerID"] as? String ?? "not found"
-                    let bid = value["buyerID"] as? String ?? "not found"
-                    self.orderID = orderid
-                    self.buyerId = bid
-                    self.sellerId = sid
-
-                }}}
-        run(after: 2) {
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
+        else{
+            let OrderID = Database.database().reference().child("Order").childByAutoId().key
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/YYY"
+            let date = formatter.string(from: Date())
+            self.ordate = date
+            
+            
+            let postOrder: [String:Any] = [
+                "orderID" : OrderID as AnyObject,
+                "sellerID" : sid as AnyObject,
+                "buyerID": bid as AnyObject,
+                "seller_status": "Unconfirmed order"  as AnyObject,
+                "buyer_status": "Unconfirmed order"  as AnyObject,
+                "s_b_o": sid! + "_" + bid! + "_" + "NCF"  as AnyObject,
+                "Date": date as AnyObject
+            ]
+            Database.database().reference().child("Order").child("\(OrderID)").setValue(postOrder)
+            
+            
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Order") as? OrderViewController
+                
             {
-                if let navigator = self.navigationController {
+                if let navigator = navigationController {
                     navigator.show(vc, sender: true)
                 }
-                vc.oid = self.orderID
-                vc.sid = self.sellerId
-                vc.bid = self.buyerId   
-                print(self.orderID)
+                vc.orderID = OrderID
             }
         }
+        
     }
+    
+//    func getorderID(){
+//
+//        let bid = self.buyID
+//        let sid = Auth.auth().currentUser?.uid
+//
+//        if sid == bid {
+//            displyAlertMessage(userMessage: "Error")
+//        }
+//        else{
+//            let sbo = sid! + "_" + bid! + "_" + "NCF"
+//
+//            let rootRef = Database.database().reference()
+//            let query = rootRef.child("Order").queryOrdered(byChild: "s_b_o").queryEqual(toValue:sbo)
+//            query.observe(.value) { (snapshot) in
+//                for child in snapshot.children.allObjects as! [DataSnapshot] {
+//                    if let value = child.value as? NSDictionary {
+//                        let orderid = value["orderID"] as? String ?? "not found"
+//                        let sid = value["sellerID"] as? String ?? "not found"
+//                        let bid = value["buyerID"] as? String ?? "not found"
+//                        self.orderID = orderid
+//                        self.buyerId = bid
+//                        self.sellerId = sid
+//
+//                    }}}
+//            run(after: 2) {
+//                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
+//                {
+//                    if let navigator = self.navigationController {
+//                        navigator.show(vc, sender: true)
+//                    }
+//                    vc.oid = self.orderID
+//                    vc.sid = self.sellerId
+//                    vc.bid = self.buyerId
+//                    print(self.orderID)
+//                }
+//            }
+//        }
+//
+//
+//    }
     func run(after seconds: Int, completion: @escaping () -> Void){
         let deadline = DispatchTime.now() + .seconds(seconds)
         DispatchQueue.main.asyncAfter(deadline: deadline) {
