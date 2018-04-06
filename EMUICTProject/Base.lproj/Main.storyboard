@@ -2029,6 +2029,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="kdk-Mn-4hN" id="3cf-NQ-Ur4"/>
+                        <outlet property="tableView" destination="L4T-lz-qhh" id="nIH-iH-yoP"/>
                         <segue destination="dKM-Aw-s90" kind="show" id="x2u-FR-BAs"/>
                     </connections>
                 </viewController>
@@ -2605,6 +2607,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="G3a-OT-1Na" id="ifD-cy-j4g"/>
+                        <outlet property="tableView" destination="3pr-t4-lmJ" id="AAR-2B-pN7"/>
                         <segue destination="QVr-mc-liJ" kind="show" id="XnW-BF-I6d"/>
                     </connections>
                 </viewController>

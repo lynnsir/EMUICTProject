@@ -26,14 +26,10 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
         
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
         getPost()
-        checkInsertPriority()
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
-    }
-    func checkInsertPriority(){
-        // set admin priority
     }
     
     func getPost(){
