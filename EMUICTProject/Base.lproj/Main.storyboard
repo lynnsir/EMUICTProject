@@ -2360,9 +2360,6 @@
                                                 <state key="normal" title="Send Message"/>
                                                 <connections>
                                                     <action selector="SendMessageBut:" destination="dKM-Aw-s90" eventType="touchUpInside" id="8NA-fK-Qed"/>
-                                                    <segue destination="Y9X-Wt-Lm3" kind="show" id="IRC-pV-Uhx">
-                                                        <nil key="action"/>
-                                                    </segue>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb8-mL-1sy">
@@ -6602,7 +6599,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cfw-AK-89x"/>
-        <segue reference="IRC-pV-Uhx"/>
         <segue reference="t6i-tO-Ti2"/>
     </inferredMetricsTieBreakers>
 </document>

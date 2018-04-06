@@ -39,6 +39,7 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
         _ = navigationController?.popViewController(animated: true)
     }
     
+
     @IBAction func BoardPostButtom(_ sender: Any) {
         let title = BoardTitle.text
         let content = BoardContent.text
