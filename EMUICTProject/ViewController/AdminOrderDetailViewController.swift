@@ -84,6 +84,7 @@ class AdminOrderDetailViewController: UIViewController {
     
     @IBAction func updateStatus(_ sender: Any) {
         updateStatus()
+         _ = navigationController?.popViewController(animated: true)
     }
     
     func updateStatus(){
