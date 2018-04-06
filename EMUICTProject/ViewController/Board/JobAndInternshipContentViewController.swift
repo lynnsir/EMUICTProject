@@ -99,7 +99,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
             vc.senderid = senderid
             vc.recieverid = recieverid
             vc.boardid = boardid
-            
+            vc.creator = creator
         }
     }
     

@@ -100,7 +100,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
             vc.senderid = senderid
             vc.recieverid = recieverid
             vc.boardid = boardid
-            
+            vc.creator = creator
         }
     }
     

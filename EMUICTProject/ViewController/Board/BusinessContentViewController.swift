@@ -99,6 +99,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
             vc.senderid = senderid
             vc.recieverid = recieverid
             vc.boardid = boardid
+            vc.creator = creator
             
         }
     }
