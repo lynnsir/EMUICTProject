@@ -2257,7 +2257,7 @@
                     <navigationItem key="navigationItem" id="AXK-dv-fCN">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="fH5-DA-O9k">
                             <connections>
-                                <action selector="cancelPressed:" destination="KUv-wy-jGV" id="fKa-wW-Fbi"/>
+                                <action selector="cancelPressed:" destination="KUv-wy-jGV" id="hnI-ab-Yks"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2529,7 +2529,6 @@
                     <connections>
                         <outlet property="BoardContent" destination="mHb-57-gfV" id="evi-KO-xlF"/>
                         <outlet property="BoardTitle" destination="g6B-SE-zdH" id="HXz-8Y-fqt"/>
-                        <outlet property="cancelPressed" destination="Dm0-NH-Tjo" id="MpQ-mB-MGc"/>
                         <outlet property="imgView" destination="BHS-bs-Bu4" id="itP-nG-rDt"/>
                     </connections>
                 </viewController>
