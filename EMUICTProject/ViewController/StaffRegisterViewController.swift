@@ -182,6 +182,9 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
     }
     
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
     
     
     

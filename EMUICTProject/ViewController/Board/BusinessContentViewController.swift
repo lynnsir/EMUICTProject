@@ -25,7 +25,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     
     @IBOutlet weak var postedImg: UIImageView!
     @IBOutlet weak var postContent: UITextView!
-    @IBOutlet weak var commentText: UITextField!
+    @IBOutlet weak var commentText: UITextView!
     
     @IBOutlet weak var ReportBut: UIButton!
     @IBOutlet weak var ReportLab: UILabel!

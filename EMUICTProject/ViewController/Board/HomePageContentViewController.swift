@@ -24,7 +24,7 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
     
     @IBOutlet weak var postedImg: UIImageView!
     @IBOutlet weak var postContent: UITextView!
-    @IBOutlet weak var commentText: UITextField!
+    @IBOutlet weak var commentText: UITextView!
     
     
     @IBAction func commentButt(_ sender: Any) {

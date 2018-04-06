@@ -25,7 +25,8 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet weak var postedImg: UIImageView!
     @IBOutlet weak var postContent: UITextView!
-    @IBOutlet weak var commentText: UITextField!
+    @IBOutlet weak var commentText: UITextView!
+    
     
     @IBOutlet weak var ReportPostBut: UIButton!
     @IBOutlet weak var ReportPost: UILabel!

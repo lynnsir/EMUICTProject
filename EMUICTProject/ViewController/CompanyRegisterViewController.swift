@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate {
+class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var companyName: UITextField!
     @IBOutlet weak var username: UITextField!
@@ -20,11 +20,12 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var contactNumber: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageBG: UIView!
-    @IBOutlet weak var companyDes: UITextField!
+   @IBOutlet weak var companyDes: UITextView!
     @IBOutlet weak var contactName: UITextField!
     @IBOutlet weak var insertImageBtn: UIButton!
     @IBOutlet weak var ContinueBtn: UIButton!
-
+   
+    
     
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
@@ -155,6 +156,9 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
      
     }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
     
     
     func displyAlertMessage(userMessage:String){

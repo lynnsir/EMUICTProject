@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class EditCompanyProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate {
+class EditCompanyProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
@@ -35,7 +35,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
     @IBOutlet weak var ConNumber: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var conName: UITextField!
-    @IBOutlet weak var comdescription: UITextField!
+    @IBOutlet weak var comdescription: UITextView!
     @IBOutlet weak var save: UIButton!
 
     override func viewDidLoad() {

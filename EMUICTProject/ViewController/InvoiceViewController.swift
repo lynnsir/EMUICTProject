@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class InvoiceViewController: UIViewController {
 
+    var userStorage: StorageReference!
+   
     var name:String!
     var type:String!
-    
+  
     @IBOutlet weak var fullname: UILabel!
     @IBOutlet weak var memberType: UILabel!
     @IBOutlet weak var price: UILabel!
@@ -46,13 +49,45 @@ class InvoiceViewController: UIViewController {
             if let navigator = self.navigationController {
                 navigator.show(vc, sender: true)
             }
-            
-            vc.totalPrice = price.text
-            
-            
+            vc.totalPrice = price.text            
         }
     }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        let user2 = Auth.auth().currentUser?.uid
+        let user3 = user2
+        
+        let imageRef = userStorage.child(user2!+".jpg")
+        print(user2!+".jpg")
+        imageRef.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Company user: delete image from Storage")
+            }
+        })
+        
+        user?.delete { error in
+            if let error = error {
+                print(error)
+            } else {
+                Database.database().reference(withPath: "Company user").child(user3!).removeValue()
+                print("Company:Delete db")
+                
+                Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
+                print("Alluser:Delete db")
+                
+                print("delete account success")
+                
+                
+                
+            }
+        }
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
     
 
+    
+    
 }

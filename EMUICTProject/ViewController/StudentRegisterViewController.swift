@@ -220,6 +220,9 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     }
 
 
+    @IBAction func cancelPressed(_ sender: Any) {
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

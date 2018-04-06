@@ -15,7 +15,7 @@ import Firebase
 class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var BoardTitle: UITextField!
-    @IBOutlet weak var BoardContent: UITextField!
+    @IBOutlet weak var BoardContent: UITextView!
     @IBOutlet weak var imgView: UIImageView!
     
     let picker = UIImagePickerController()

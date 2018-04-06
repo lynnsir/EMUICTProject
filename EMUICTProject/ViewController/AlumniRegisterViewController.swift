@@ -211,6 +211,9 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
     }
     
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
