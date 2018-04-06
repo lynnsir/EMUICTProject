@@ -221,7 +221,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             "orderID" : OrderID as AnyObject,
             "sellerID" : sellerID as AnyObject,
             "buyerID": buyerID as AnyObject,
-            "status": "Not confirmed order"  as AnyObject,
+            "seller_status": "Unconfirmed order"  as AnyObject,
+            "buyer_status": "Unconfirmed order"  as AnyObject,
             "s_b_o": sellerID + "_" + buyerID + "_" + "NCF"  as AnyObject,
             "Date": date as AnyObject
         ]

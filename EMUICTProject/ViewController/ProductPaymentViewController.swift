@@ -87,7 +87,9 @@ var oid:String!
 
         
         let newUpdateStatus: [String : Any] = [
-            "status": "Verified Payment"  ]
+            "seller_status": "Verified Payment",
+            "buyer_status": "Verified Payment"
+            ]
         
         rootRef.child("Order").child("\(oid!)").updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in
             if let error = error{

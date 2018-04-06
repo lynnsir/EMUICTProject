@@ -97,16 +97,16 @@ class AccountMenuViewController: UIViewController {
         if self.type == "Company"{
             displyAlertMessage(userMessage: "Can't access this menu")
         }
-//        else if self.type == "Admin"{
-//          if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "....") as? ......ViewController
-//
-//                {
-//                    if let navigator = self.navigationController {
-//                        navigator.show(vc, sender: true)
-//                    }
-//                }
-//            }
-//    }
+        else if self.type == "Admin"{
+          if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdminOrder") as? AdminOrderViewController
+
+                {
+                    if let navigator = self.navigationController {
+                        navigator.show(vc, sender: true)
+                    }
+                }
+            }
+
         else {
 
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderList") as? OrderListViewController

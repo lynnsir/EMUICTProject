@@ -103,7 +103,8 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
          self.totalMoney = String(totalPrice)
 
         let newUpdateStatus: [String : Any] = [
-            "status": "Confirmed Order",
+            "seller_status": "Confirmed order",
+            "buyer_status": "Confirmed order",
             "totalPrice": self.totalMoney
         ]
         

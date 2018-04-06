@@ -29,6 +29,7 @@
 		0BCE4B2C204CCAAB0066A55B /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */; };
 		1AB4BAD2EC8D65B4156D7EC2 /* Pods_EMUICTProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */; };
 		8528374A2077BC3600DA58FB /* AdminOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852837492077BC3600DA58FB /* AdminOrderViewController.swift */; };
+		8528374C2077CDA100DA58FB /* AdminOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8528374B2077CDA100DA58FB /* AdminOrderDetailViewController.swift */; };
 		8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */; };
 		855DBCF6206E3C3E000A76B7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */; };
 		855DBCFB206E3C8C000A76B7 /* GenOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */; };
@@ -110,6 +111,7 @@
 		0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		293828B53FA2DAD9F6CD750C /* Pods_EMUICTProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMUICTProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		852837492077BC3600DA58FB /* AdminOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrderViewController.swift; sourceTree = "<group>"; };
+		8528374B2077CDA100DA58FB /* AdminOrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrderDetailViewController.swift; sourceTree = "<group>"; };
 		8536B497202F6C84003BB909 /* StaffRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRegisterViewController.swift; sourceTree = "<group>"; };
 		855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		855DBCF7206E3C8B000A76B7 /* GenOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenOrderViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				855DBCF5206E3C3E000A76B7 /* ChatViewController.swift */,
 				0B5FBAAD20715AAE00881D02 /* AllMessageViewController.swift */,
 				852837492077BC3600DA58FB /* AdminOrderViewController.swift */,
+				8528374B2077CDA100DA58FB /* AdminOrderDetailViewController.swift */,
 				0BC13C41206CB08F0036F66D /* Board */,
 			);
 			path = ViewController;
@@ -495,6 +498,7 @@
 				0BC13C3F206CB03B0036F66D /* JobAndInternshipContentViewController.swift in Sources */,
 				8536B498202F6C84003BB909 /* StaffRegisterViewController.swift in Sources */,
 				85E82115203DB9F600ADD576 /* StaffIndividualSearchViewController.swift in Sources */,
+				8528374C2077CDA100DA58FB /* AdminOrderDetailViewController.swift in Sources */,
 				85E82117203DBA0400ADD576 /* AlumniIndividualSearchViewController.swift in Sources */,
 				85C5BDD6206E251F0097BE9A /* OrderDetailTableViewCell.swift in Sources */,
 				85C5BDDA206E26CE0097BE9A /* OrderListViewController.swift in Sources */,

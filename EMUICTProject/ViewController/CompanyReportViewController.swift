@@ -27,8 +27,7 @@ class CompanyReportViewController: UIViewController, UITableViewDelegate, UITabl
         else {
             getUser()
         }
-        
-        
+  
     }
     
     

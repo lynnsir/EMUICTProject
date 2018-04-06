@@ -30,21 +30,19 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
      
 
     }
-
-    
+  
     @IBAction func segmentPressed(_ sender: Any) {
         if segmentControl.selectedSegmentIndex == 0 {
             tableView.reloadData()
             print("SellerSelected")
             getSellerOrder()
         }
-            
+    
         else  {
             tableView.reloadData()
             print("BuyerSelected")
             getBuyerOrder()
         }
-
     }
     
     func getSellerOrder(){
@@ -59,7 +57,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     let orders = Order()
                     let orderid = value["orderID"] as? String ?? "not found"
                     let total = value["totalPrice"] as? String ?? "not found"
-                    let status = value["status"] as? String ?? "not found"
+                    let status = value["seller_status"] as? String ?? "not found"
                     let date = value["Date"] as? String ?? "not found"
                     let bid = value["buyerID"] as? String ?? "not found"
                     let sid = value["sellerID"] as? String ?? "not found"
@@ -90,7 +88,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     let orders = Order()
                     let orderid = value["orderID"] as? String ?? "not found"
                     let total = value["totalPrice"] as? String ?? "not found"
-                    let status = value["status"] as? String ?? "not found"
+                    let status = value["buyer_status"] as? String ?? "not found"
                     let date = value["Date"] as? String ?? "not found"
                     
                     self.oid = orderid
@@ -111,7 +109,6 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         else{
             return order.count
         }
-        
 
             }
     
@@ -149,9 +146,9 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                         vc.oid = oid
                         
                     }
-                }
+        }
                 
-                else if status == "Not confirmed order" {
+                else if status == "Unconfirmed order" {
                     if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
                         
                     {
@@ -162,8 +159,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                         vc.oid = oid
                         vc.sid = sid
                         vc.bid = bid
-                        
-                        
+ 
                     }
                 }
                 
