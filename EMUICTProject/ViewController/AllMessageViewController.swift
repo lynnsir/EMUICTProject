@@ -40,11 +40,11 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
             return
         }
         let ref = Database.database().reference().child("user-messages").child(uid)
-        ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+        ref.observe(.childAdded , with: { (snapshot) in
             
             let messageId = snapshot.key
             let messageReference = Database.database().reference().child("messages").child(messageId)
-            messageReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            messageReference.observe(.value, with: { (snapshot) in
                 print(snapshot)
                 if let dictionary = snapshot.value as? [String: AnyObject]{
                     let message = Message(dictionary: dictionary)
@@ -53,18 +53,21 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                         self.messageDic[chatPartnetId] = message
                         self.messages = Array(self.messageDic.values)
                         self.messages.sort(by: { (message1, message2) -> Bool in
-                            let timeMessage1 = message1.timestamp?.intValue
-                            let timeMessage2 = message2.timestamp?.intValue
-                            let timeMessage1int = Int(timeMessage1!)
-                            let timeMessage2int = Int(timeMessage2!)
-                            return timeMessage1int > timeMessage2int
+                            if let timestamp1 = message1.timestamp, let timestamp2 = message2.timestamp {
+                                return timestamp1.intValue > timestamp2.intValue
+                            } else {
+                                //At least one of your timestamps is nil.  You have to decide how to sort here.
+                                return true
+                            }
+
                         })
                         
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     }
                     
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
+                    
                 }
             }, withCancel: nil)
         }, withCancel: nil)
@@ -111,12 +114,13 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                             DispatchQueue.main.async {
                                  cell.textLabel?.text = dictionary["Username"] as? String
                                  cell.postedImg.image = UIImage(data: data!)
-//                                 cell.detailTextLabel?.text = messchat.textmessage
+                                 cell.detailTextLabel?.text = messchat.textmessage
+                                self.tableView.reloadData()
                             }
                         }).resume()                    }
                 }
             }, withCancel: nil)
-            cell.detailTextLabel?.text = messchat.textmessage
+            
         }
         return cell
     }

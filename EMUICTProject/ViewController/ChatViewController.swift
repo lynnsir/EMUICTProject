@@ -108,6 +108,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         if message.fromid == Auth.auth().currentUser?.uid{
             cell.bubbleView.backgroundColor = ChatmessageCollectionViewCell.aquarColor
             cell.profileImageView.isHidden = true
+            cell.bubbleViewRightAnchor?.isActive = true
+            cell.bubbleViewLeftAnchor?.isActive = false
         }else{
             cell.bubbleView.backgroundColor = UIColor.lightGray
             cell.profileImageView.isHidden = false
