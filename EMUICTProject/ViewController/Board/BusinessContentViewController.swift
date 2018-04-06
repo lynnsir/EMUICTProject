@@ -31,7 +31,8 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     @IBOutlet weak var ReportLab: UILabel!
     
     @IBOutlet weak var DeleteBut: UIButton!
-    @IBOutlet weak var DeleteLab: UILabel!
+    @IBOutlet weak var sendMessBut: UIButton!
+
     
     @IBAction func reportBut(_ sender: Any) {
         //For Gen user
@@ -61,6 +62,15 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
                 print(error.debugDescription)
             }
         })
+        displyAlertMessage(userMessage: "Delete successful")
+        // send to feed page
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Buainessboard") as? BusinessFeedViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+        }
     }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
@@ -75,6 +85,22 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     
     @IBAction func SendMessageBut(_ sender: Any) {
         // send message to board creator
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+            
+            let senderid = Auth.auth().currentUser!.uid
+            let recieverid = creator!
+            let boardid = boardId!
+            
+            vc.senderid = senderid
+            vc.recieverid = recieverid
+            vc.boardid = boardid
+            
+        }
     }
     
     @IBAction func Addwatchlist(_ sender: Any) {
@@ -114,6 +140,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     }
     
     override func viewWillAppear(_ animated: Bool) {
+         // check admin status
         let uid = Auth.auth().currentUser!.uid
         let rootRef = Database.database().reference()
         let query = rootRef.child("Alluser").child("\(uid)")
@@ -124,22 +151,28 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
                 
                 usertype = uservalue["Type"] as? String ?? "Type not found"
                 
-                if(usertype == "admin"){
+                if(usertype == "Admin"){
                     //user is admin
                     self.ReportBut.isHidden = true
                     self.ReportLab.isHidden = true
-                    self.DeleteLab.isHidden = true
                     
                 }else{
                     //user is gen user
                     self.DeleteBut.isHidden = true
-                    self.DeleteLab.isHidden = true
                     self.ReportLab.isHidden = true
                 }
                 
             }
             
         }
+        //check current user who are board creator
+        let creatorid = creator!
+        if uid == creatorid{
+            self.sendMessBut.isEnabled = false
+        }else{
+            self.sendMessBut.isEnabled = true
+        }
+        
         
     }
     // get comment and owner name

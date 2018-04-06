@@ -30,7 +30,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var ReportLab: UILabel!
     
     @IBOutlet weak var DeleteBut: UIButton!
-    @IBOutlet weak var DeleteLab: UILabel!
+    @IBOutlet weak var sendMessBut: UIButton!
     
     @IBAction func reportBut(_ sender: Any) {
         //For Gen user
@@ -60,7 +60,18 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                 print(error.debugDescription)
             }
         })
+        displyAlertMessage(userMessage: "Delete successful")
+        // send to feed page
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NAEboard") as? NewsAndEventsFeedViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+        }
+        
     }
+    
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
         let commentOwner = Auth.auth().currentUser!.uid
@@ -129,6 +140,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // check admin status
         let uid = Auth.auth().currentUser!.uid
         let rootRef = Database.database().reference()
         let query = rootRef.child("Alluser").child("\(uid)")
@@ -139,21 +151,26 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                 
                 usertype = uservalue["Type"] as? String ?? "Type not found"
                 
-                if(usertype == "admin"){
+                if(usertype == "Admin"){
                     //user is admin
                     self.ReportBut.isHidden = true
                     self.ReportLab.isHidden = true
-                    self.DeleteLab.isHidden = true
                     
                 }else{
                     //user is gen user
                     self.DeleteBut.isHidden = true
-                    self.DeleteLab.isHidden = true
                     self.ReportLab.isHidden = true
                 }
                
             }
             
+        }
+        //check current user who are board creator
+        let creatorid = creator!
+        if uid == creatorid{
+            self.sendMessBut.isEnabled = false
+        }else{
+            self.sendMessBut.isEnabled = true
         }
         
     }

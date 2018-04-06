@@ -1686,7 +1686,7 @@
         <!--News & Events-->
         <scene sceneID="3Xm-ng-edg">
             <objects>
-                <viewController id="8gc-Mf-94l" customClass="NewsAndEventsFeedViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NAEboard" id="8gc-Mf-94l" customClass="NewsAndEventsFeedViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H4C-k8-9rK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1937,13 +1937,6 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bv-Gp-xzh">
-                                                <rect key="frame" x="10" y="415" width="56" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1979,13 +1972,13 @@
                     <size key="freeformSize" width="414" height="1350"/>
                     <connections>
                         <outlet property="DeleteBut" destination="D7u-rm-gHm" id="kc5-yr-yT2"/>
-                        <outlet property="DeleteLab" destination="5Bv-Gp-xzh" id="CcL-0e-l9O"/>
                         <outlet property="ReportBut" destination="v4a-5n-IvZ" id="TKo-wZ-iav"/>
                         <outlet property="ReportLab" destination="LSb-EY-BQN" id="AT2-i0-mLb"/>
                         <outlet property="TableView" destination="hGZ-sB-Ycz" id="W2r-PI-wgT"/>
                         <outlet property="commentText" destination="2LP-28-5Tp" id="fKR-Bb-uxS"/>
                         <outlet property="postContent" destination="n8b-l6-wqq" id="4f6-ko-8Fd"/>
                         <outlet property="postedImg" destination="UKC-2k-BcP" id="hMG-wz-QZL"/>
+                        <outlet property="sendMessBut" destination="E3E-xz-6ex" id="N8u-sD-IoW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5L-Uq-8dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1995,7 +1988,7 @@
         <!--Business-->
         <scene sceneID="Saa-Pi-kDC">
             <objects>
-                <viewController id="TJp-Yl-GqI" customClass="BusinessFeedViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusinessBoard" id="TJp-Yl-GqI" customClass="BusinessFeedViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s4X-f5-IAi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2119,6 +2112,9 @@
                                                         <rect key="frame" x="174" y="148" width="67" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Comment"/>
+                                                        <connections>
+                                                            <action selector="commentButt:" destination="QVr-mc-liJ" eventType="touchUpInside" id="ITc-8N-14S"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2135,34 +2131,34 @@
                                                 <rect key="frame" x="301" y="418" width="101" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Send Message"/>
+                                                <connections>
+                                                    <action selector="SendMessageBut:" destination="QVr-mc-liJ" eventType="touchUpInside" id="PDU-PR-txB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcQ-R8-ZdM">
-                                                <rect key="frame" x="12" y="418" width="45" height="30"/>
+                                                <rect key="frame" x="23" y="415" width="45" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="DeleteBut:" destination="QVr-mc-liJ" eventType="touchUpInside" id="SbK-pZ-3BS"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHO-xg-6Nc">
-                                                <rect key="frame" x="65" y="421" width="56" height="21"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMh-h4-vmu">
+                                                <rect key="frame" x="23" y="414" width="47" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="Report"/>
+                                                <connections>
+                                                    <action selector="reportBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="2CQ-B3-5kT"/>
+                                                    <action selector="reportBut:" destination="QVr-mc-liJ" eventType="touchUpInside" id="xku-od-y7l"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-YN-5R1">
-                                                <rect key="frame" x="129" y="421" width="47" height="21"/>
+                                                <rect key="frame" x="23" y="419" width="47" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMh-h4-vmu">
-                                                <rect key="frame" x="184" y="418" width="47" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Report"/>
-                                                <connections>
-                                                    <action selector="reportBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="2CQ-B3-5kT"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2189,9 +2185,23 @@
                         <viewLayoutGuide key="safeArea" id="e0y-3a-PZp"/>
                     </view>
                     <navigationItem key="navigationItem" id="S3x-pN-Wsg">
-                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="qwW-YB-qJX"/>
+                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="qwW-YB-qJX">
+                            <connections>
+                                <action selector="Addwatchlist:" destination="QVr-mc-liJ" id="AfL-VQ-rDx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1350"/>
+                    <connections>
+                        <outlet property="DeleteBut" destination="GcQ-R8-ZdM" id="L56-nt-ICU"/>
+                        <outlet property="ReportBut" destination="dMh-h4-vmu" id="pLC-PA-vRg"/>
+                        <outlet property="ReportLab" destination="2bS-YN-5R1" id="JC2-et-ZbP"/>
+                        <outlet property="TableView" destination="QrW-0Q-Ni9" id="kfh-Hv-L97"/>
+                        <outlet property="commentText" destination="0Dl-bx-Ry9" id="SJc-64-PvU"/>
+                        <outlet property="postContent" destination="pX1-8a-hgw" id="SXQ-W6-r1R"/>
+                        <outlet property="postedImg" destination="rqy-bK-sw3" id="dl4-cp-wNK"/>
+                        <outlet property="sendMessBut" destination="IQ1-nB-SA2" id="DwG-3h-ZPZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsu-wT-pQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2362,6 +2372,9 @@
                                                         <rect key="frame" x="174" y="148" width="67" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Comment"/>
+                                                        <connections>
+                                                            <action selector="commentButt:" destination="dKM-Aw-s90" eventType="touchUpInside" id="beN-na-61q"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2371,15 +2384,11 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Send Message"/>
                                                 <connections>
+                                                    <action selector="SendMessageBut:" destination="dKM-Aw-s90" eventType="touchUpInside" id="8NA-fK-Qed"/>
                                                     <segue destination="Y9X-Wt-Lm3" kind="show" id="IRC-pV-Uhx">
                                                         <nil key="action"/>
                                                     </segue>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjD-Tc-b4b">
-                                                <rect key="frame" x="8" y="409" width="45" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Delete"/>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vb8-mL-1sy">
                                                 <rect key="frame" x="17" y="227" width="380" height="174"/>
@@ -2389,26 +2398,28 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hZ-dP-EYT">
-                                                <rect key="frame" x="61" y="412" width="56" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzQ-Pq-FC5">
-                                                <rect key="frame" x="125" y="412" width="47" height="21"/>
+                                                <rect key="frame" x="17" y="410" width="47" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAh-1y-AUp">
-                                                <rect key="frame" x="180" y="409" width="47" height="30"/>
+                                                <rect key="frame" x="17" y="407" width="47" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Report"/>
                                                 <connections>
                                                     <action selector="reportBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="8n3-BV-jPE"/>
+                                                    <action selector="reportBut:" destination="dKM-Aw-s90" eventType="touchUpInside" id="EZr-ik-N3r"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjD-Tc-b4b">
+                                                <rect key="frame" x="18" y="407" width="45" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="DeleteBut:" destination="dKM-Aw-s90" eventType="touchUpInside" id="V1v-GB-nPK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2437,9 +2448,23 @@
                         <viewLayoutGuide key="safeArea" id="Iuk-6l-2Zn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="rYp-8x-Xm3">
-                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="Taz-2W-ITj"/>
+                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="Taz-2W-ITj">
+                            <connections>
+                                <action selector="Addwatchlist:" destination="dKM-Aw-s90" id="UbO-sH-Ktf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1350"/>
+                    <connections>
+                        <outlet property="DeleteBut" destination="qjD-Tc-b4b" id="yn3-PM-wll"/>
+                        <outlet property="ReportBut" destination="dAh-1y-AUp" id="tRq-aD-JJ4"/>
+                        <outlet property="ReportLab" destination="qzQ-Pq-FC5" id="Q41-ho-gei"/>
+                        <outlet property="TableView" destination="gL5-Vh-IUW" id="cw3-bk-a44"/>
+                        <outlet property="commentText" destination="aLn-4D-rka" id="cv6-Ld-ClD"/>
+                        <outlet property="postContent" destination="Vb8-mL-1sy" id="U1r-AH-8Bf"/>
+                        <outlet property="postedImg" destination="ea1-2T-49p" id="eCM-if-JE0"/>
+                        <outlet property="sendMessBut" destination="3ZE-po-d3m" id="VEI-le-jkx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKg-jh-yfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2537,7 +2562,7 @@
         <!--Job & Internship-->
         <scene sceneID="zbb-lL-KL6">
             <objects>
-                <viewController id="bS9-nu-7lv" customClass="JobAndInternshipFeedViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JAIboard" id="bS9-nu-7lv" customClass="JobAndInternshipFeedViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oBi-Ed-3Ma">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5204,7 +5229,7 @@
         <!--Watchlist-->
         <scene sceneID="d0T-of-ZOu">
             <objects>
-                <viewController id="RE0-kD-eTM" customClass="WatchListViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="watchlistfeed" id="RE0-kD-eTM" customClass="WatchListViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="imQ-f5-pEb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5441,22 +5466,21 @@
                                                     <action selector="ReportPostBut:" destination="zmk-bW-teM" eventType="touchUpInside" id="6g4-f2-hqk"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-gP-Q2U">
-                                                <rect key="frame" x="128" y="414" width="56" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oS-UD-D4Z">
                                                 <rect key="frame" x="305" y="393" width="101" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Send Message"/>
+                                                <connections>
+                                                    <action selector="SendMessageBut:" destination="zmk-bW-teM" eventType="touchUpInside" id="LhJ-tN-ILp"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGE-wz-BC5">
-                                                <rect key="frame" x="78" y="409" width="45" height="30"/>
+                                                <rect key="frame" x="19" y="411" width="45" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="DeleteBut:" destination="zmk-bW-teM" eventType="touchUpInside" id="j0j-3v-w20"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5486,12 +5510,14 @@
                     <navigationItem key="navigationItem" id="RyT-CD-65j"/>
                     <size key="freeformSize" width="414" height="1050"/>
                     <connections>
+                        <outlet property="DeleteBut" destination="FGE-wz-BC5" id="wgi-nI-gtc"/>
                         <outlet property="ReportPost" destination="kPC-cN-BXz" id="YnD-Jx-fo4"/>
                         <outlet property="ReportPostBut" destination="eLs-iD-nDg" id="fkO-uu-UWy"/>
                         <outlet property="TableView" destination="U8i-Qw-fZE" id="IG9-M3-Nuq"/>
                         <outlet property="commentText" destination="2kI-xN-fR0" id="gZV-KJ-ByF"/>
                         <outlet property="postContent" destination="O86-x0-TI5" id="AtS-dd-oU1"/>
                         <outlet property="postedImg" destination="ird-fW-r0c" id="WWl-72-ME5"/>
+                        <outlet property="sendMessBut" destination="2oS-UD-D4Z" id="YTP-WI-vEf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1V-2o-NUd" userLabel="First Responder" sceneMemberID="firstResponder"/>

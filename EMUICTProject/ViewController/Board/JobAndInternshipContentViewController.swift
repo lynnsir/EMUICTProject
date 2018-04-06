@@ -31,7 +31,8 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     @IBOutlet weak var ReportLab: UILabel!
     
     @IBOutlet weak var DeleteBut: UIButton!
-    @IBOutlet weak var DeleteLab: UILabel!
+    @IBOutlet weak var sendMessBut: UIButton!
+
     
     @IBAction func reportBut(_ sender: Any) {
         //For Gen user
@@ -61,6 +62,15 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
                 print(error.debugDescription)
             }
         })
+        displyAlertMessage(userMessage: "Delete successful")
+        // send to feed page
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JAIboard") as? JobAndInternshipFeedViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+        }
     }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
@@ -75,6 +85,22 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     
     @IBAction func SendMessageBut(_ sender: Any) {
         // send message to board creator
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+            
+            let senderid = Auth.auth().currentUser!.uid
+            let recieverid = creator!
+            let boardid = boardId!
+            
+            vc.senderid = senderid
+            vc.recieverid = recieverid
+            vc.boardid = boardid
+            
+        }
     }
     
     @IBAction func Addwatchlist(_ sender: Any) {
@@ -124,21 +150,26 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
                 
                 usertype = uservalue["Type"] as? String ?? "Type not found"
                 
-                if(usertype == "admin"){
+                if(usertype == "Admin"){
                     //user is admin
                     self.ReportBut.isHidden = true
                     self.ReportLab.isHidden = true
-                    self.DeleteLab.isHidden = true
                     
                 }else{
                     //user is gen user
                     self.DeleteBut.isHidden = true
-                    self.DeleteLab.isHidden = true
                     self.ReportLab.isHidden = true
                 }
                 
             }
             
+        }
+        //check current user who are board creator
+        let creatorid = creator!
+        if uid == creatorid{
+            self.sendMessBut.isEnabled = false
+        }else{
+            self.sendMessBut.isEnabled = true
         }
         
     }

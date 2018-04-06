@@ -30,6 +30,9 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var ReportPostBut: UIButton!
     @IBOutlet weak var ReportPost: UILabel!
     
+    @IBOutlet weak var DeleteBut: UIButton!
+    @IBOutlet weak var sendMessBut: UIButton!
+    
     
     @IBAction func ReportPostBut(_ sender: Any) {
         // for gen user
@@ -49,6 +52,46 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         Database.database().reference().child("BoardReport").child("\(BoardId)").setValue(BoardReport)
         displyAlertMessage(userMessage: "Our system recieved your Report")
         
+    }
+    
+    @IBAction func SendMessageBut(_ sender: Any) {
+        // send message to board creator
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+            
+            let senderid = Auth.auth().currentUser!.uid
+            let recieverid = creator!
+            let boardid = boardId!
+            
+            vc.senderid = senderid
+            vc.recieverid = recieverid
+            vc.boardid = boardid
+            
+        }
+    }
+    @IBAction func DeleteBut(_ sender: Any) {
+        //delete post for admin
+        let boardid = boardId!
+        let boardtype = boardType!
+        let ref = Database.database().reference().child("\(boardtype)").child("\(boardid)")
+        ref.removeValue(completionBlock: {(error, ref) in
+            if(error != nil){
+                print(error.debugDescription)
+            }
+        })
+        displyAlertMessage(userMessage: "Delete successful")
+        // send to feed page
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "watchlistfeed") as? WatchListViewController
+            
+        {
+            if let navigator = navigationController {
+                navigator.show(vc, sender: true)
+            }
+        }
     }
     
     @IBAction func deleteFromWatchlist(_ sender: Any) {
@@ -95,9 +138,37 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        //hide lable
-        ReportPost.isHidden = true
-       
+        let uid = Auth.auth().currentUser!.uid
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child("\(uid)")
+        var usertype: String!
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                usertype = uservalue["Type"] as? String ?? "Type not found"
+                
+                if(usertype == "Admin"){
+                    //user is admin
+                    self.ReportPostBut.isHidden = true
+                    self.ReportPost.isHidden = true
+                    
+                }else{
+                    //user is gen user
+                    self.DeleteBut.isHidden = true
+                    self.ReportPost.isHidden = true
+                }
+                
+            }
+            
+        }
+        //check current user who are board creator
+        let creatorid = creator!
+        if uid == creatorid{
+            self.sendMessBut.isEnabled = false
+        }else{
+            self.sendMessBut.isEnabled = true
+        }
     }
     
     // get comment and owner name
@@ -125,7 +196,7 @@ class WatchListContentViewController: UIViewController, UITableViewDelegate, UIT
                     query2.observe(.value, with: {(snapshot2) in
                         
                         if let userinfo = snapshot2.value as? [String : Any]{
-                            let userName = userinfo["Full name"] as? String ?? "Not found user name"
+                            let userName = userinfo["Username"] as? String ?? "Not found user name"
                            
                             pcomment.userName = userName
     
