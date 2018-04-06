@@ -5238,12 +5238,11 @@
                     <navigationItem key="navigationItem" title="Watchlist" id="8KD-mx-elC">
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="5fZ-R4-gRs">
                             <connections>
-                                <action selector="clearButtom:" destination="RE0-kD-eTM" id="USL-3S-fSk"/>
+                                <action selector="clearButton:" destination="RE0-kD-eTM" id="QbG-FU-786"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="TableView" destination="PTG-Yp-afR" id="gFO-rq-Y0m"/>
                         <outlet property="tableView" destination="PTG-Yp-afR" id="Ujm-4S-zQl"/>
                     </connections>
                 </viewController>
@@ -6603,7 +6602,7 @@
         <image name="watchlist-icon" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="orO-AY-arq"/>
+        <segue reference="cfw-AK-89x"/>
         <segue reference="IRC-pV-Uhx"/>
         <segue reference="t6i-tO-Ti2"/>
     </inferredMetricsTieBreakers>

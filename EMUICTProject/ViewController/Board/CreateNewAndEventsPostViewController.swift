@@ -35,6 +35,9 @@ class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerContr
 
     }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func BoardPostButtom(_ sender: Any) {
         let title = BoardTitle.text

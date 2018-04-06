@@ -26,8 +26,11 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
-    @IBAction func clearButtom(_ sender: Any) {
-        //clear all data in watch list
+    @IBAction func clearButton(_ sender: Any) {
+        let uid = Auth.auth().currentUser?.uid
+        let rootRef = Database.database().reference()
+        rootRef.child("Watchlist").child("\(uid!)").removeValue()
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func getPost(){
