@@ -17,8 +17,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     var buyerId:String!
     var sellerId:String!
     var ordate:String!
-    var buyID:String!
-    var saleID:String!
+    var sabstatus:String!
+
     
     
     var boardid:String!
@@ -27,6 +27,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     var creator:String!
     var uid = Auth.auth().currentUser?.uid
     var type:String!
+    var sab:String!
+    var cPartner:String!
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var messageText: UITextField! //message text
@@ -38,7 +40,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         getType()
-        //print("Creator: " + creator)
+       
         messageText.delegate = self
         observeMessages()
         collectionView?.contentInset = UIEdgeInsetsMake(9, 0, 58, 0)
@@ -162,19 +164,17 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     }
     
     @IBAction func orderPressed(_ sender: Any) {
-        print("buyID" + buyID)
-        print("saleID" + saleID)
-        if uid == self.saleID {
-            print("Set order")
-            setOrder()
-        }
 
-        else if self.type == "Company" || self.type == "Admin" {
+        print("Order Pressed")
+ 
+
+        if self.type == "Company" || self.type == "Admin" {
             displyAlertMessage(userMessage: "Can't access")
         }
         
         else{
-            displyAlertMessage(userMessage: "Using for order generating only")
+            print("Set order")
+            self.getSAB()
         }
     }
     
@@ -210,17 +210,20 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     
     }
 
+
     func setOrder(){
         
-        let bid = self.buyID
-        let sid = Auth.auth().currentUser?.uid
-        print("bid: " + bid!)
-        print("sid: " + sid!)
+        let buyID = buyerId
+        let seller = sellerId
+        print("bid: " + buyID!)
+        print("sid: " + seller!)
         
-        if sid == bid {
+        if seller == buyID{
             displyAlertMessage(userMessage: "Error")
         }
-        else{
+            
+        else {
+           
             let OrderID = Database.database().reference().child("Order").childByAutoId().key
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/YYY"
@@ -230,11 +233,11 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             
             let postOrder: [String:Any] = [
                 "orderID" : OrderID as AnyObject,
-                "sellerID" : sid as AnyObject,
-                "buyerID": bid as AnyObject,
+                "sellerID" : seller! as AnyObject,
+                "buyerID": buyID as AnyObject,
                 "seller_status": "Unconfirmed order"  as AnyObject,
                 "buyer_status": "Unconfirmed order"  as AnyObject,
-                "s_b_o": sid! + "_" + bid! + "_" + "NCF"  as AnyObject,
+                "s_b_o": seller! + "_" + buyID! + "_" + "NCF"  as AnyObject,
                 "Date": date as AnyObject
             ]
             Database.database().reference().child("Order").child("\(OrderID)").setValue(postOrder)
@@ -251,47 +254,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         }
         
     }
-    
-//    func getorderID(){
-//
-//        let bid = self.buyID
-//        let sid = Auth.auth().currentUser?.uid
-//
-//        if sid == bid {
-//            displyAlertMessage(userMessage: "Error")
-//        }
-//        else{
-//            let sbo = sid! + "_" + bid! + "_" + "NCF"
-//
-//            let rootRef = Database.database().reference()
-//            let query = rootRef.child("Order").queryOrdered(byChild: "s_b_o").queryEqual(toValue:sbo)
-//            query.observe(.value) { (snapshot) in
-//                for child in snapshot.children.allObjects as! [DataSnapshot] {
-//                    if let value = child.value as? NSDictionary {
-//                        let orderid = value["orderID"] as? String ?? "not found"
-//                        let sid = value["sellerID"] as? String ?? "not found"
-//                        let bid = value["buyerID"] as? String ?? "not found"
-//                        self.orderID = orderid
-//                        self.buyerId = bid
-//                        self.sellerId = sid
-//
-//                    }}}
-//            run(after: 2) {
-//                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
-//                {
-//                    if let navigator = self.navigationController {
-//                        navigator.show(vc, sender: true)
-//                    }
-//                    vc.oid = self.orderID
-//                    vc.sid = self.sellerId
-//                    vc.bid = self.buyerId
-//                    print(self.orderID)
-//                }
-//            }
-//        }
-//
-//
-//    }
+
     func run(after seconds: Int, completion: @escaping () -> Void){
         let deadline = DispatchTime.now() + .seconds(seconds)
         DispatchQueue.main.asyncAfter(deadline: deadline) {
@@ -323,4 +286,31 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             })
         }
     }
+
+    func getSAB(){
+        let userID = Auth.auth().currentUser?.uid
+        print(userID!)
+        print(recieverid)
+        let sab = userID! + "_" + recieverid!
+        
+            let rootRef = Database.database().reference()
+            
+            rootRef.child("SAB").child("\(sab)").observe(.value, with: { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                self.buyerId = values?["Buyer"] as? String
+                self.sellerId = values?["Seller"] as? String
+                print("Buyer: " + self.buyerId)
+                print("Seller: " + self.sellerId)
+            })
+        run(after: 3) {
+            self.setOrder()
+            print("Order")
+        }
+ 
+    }
+    
+ 
+    
+
+
 }

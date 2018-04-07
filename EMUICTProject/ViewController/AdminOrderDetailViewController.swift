@@ -21,7 +21,10 @@ class AdminOrderDetailViewController: UIViewController {
     var buyerID:String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(oid)
+        print(orderid)
         BuyerName()
+        
     }
     
     func OrderDetail(){
@@ -35,29 +38,37 @@ class AdminOrderDetailViewController: UIViewController {
                 self.total.text = values?["totalPrice"] as? String
                 self.buyerID = values?["buyerID"] as? String
                 
-                if self.oid.text == "" {
-                    
-                    let alert = UIAlertController(title: "Success", message:   "Payment is confirmed!", preferredStyle: .alert)
-                    
-                    let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
-                        _ = self.navigationController?.popViewController(animated: true)
-                    })
-                    alert.addAction(OKAction)
-                    self.present(alert, animated: true){}
-                }
-            })}
+       
+            })
+       
+    }
     
 
     
     
     func BuyerName(){
         OrderDetail()
-        let rootRef = Database.database().reference()
-        rootRef.child("Alluser").child(buyerID).observe(.value, with: { (snapshot) in
-            
-            let values = snapshot.value as? NSDictionary
-            self.buyerName.text = values?["Full name"] as? String
-        })
+        run(after: 2) {
+            if self.buyerID != nil{
+                let rootRef = Database.database().reference()
+                print("buyerID : " + self.buyerID)
+                rootRef.child("Alluser").child(self.buyerID).observe(.value, with: { (snapshot) in
+                    
+                    let values = snapshot.value as? NSDictionary
+                    self.buyerName.text = values?["Full name"] as? String
+                })
+            }
+            else{
+                let alert = UIAlertController(title: "Success", message:   "No order!", preferredStyle: .alert)
+                
+                                let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
+                                    _ = self.navigationController?.popViewController(animated: true)
+                                })
+                                alert.addAction(OKAction)
+                                self.present(alert, animated: true){}
+            }
+
+        }
     }
   
     @IBAction func cancelPressed(_ sender: Any) {
@@ -89,20 +100,38 @@ class AdminOrderDetailViewController: UIViewController {
     
     func updateStatus(){
         let rootRef = Database.database().reference()
-        
-        
+
         let newUpdateStatus: [String : Any] = [
             "seller_status": "Transfer to vendor"
-           
-            ]
+        ]
         
-        rootRef.child("Order").child("\(orderid)").updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in
+        rootRef.child("Order").child(orderid).updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in
             if let error = error{
                 print(error)
                 //return
             }
-            print("Update success")
+            print("Confirm success")
+
         })
+        
+    }
+    
+  
+    
+    func run(after seconds: Int, completion: @escaping () -> Void){
+        let deadline = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            completion()
+        }
+    }
+    
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
     }
     
 }

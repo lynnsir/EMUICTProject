@@ -90,7 +90,11 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     let total = value["totalPrice"] as? String ?? "not found"
                     let status = value["buyer_status"] as? String ?? "not found"
                     let date = value["Date"] as? String ?? "not found"
+                    let bid = value["buyerID"] as? String ?? "not found"
+                    let sid = value["sellerID"] as? String ?? "not found"
                     
+                    self.sid = sid
+                    self.bid = bid 
                     self.oid = orderid
                     self.total = total
                     self.status = status
@@ -132,7 +136,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             if role == "buyer"{
                 
-                if status == "Confirmed Order" {
+                if status == "Confirmed order" {
                     
                     if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailPay") as? OrderDetailPayViewController
                         
@@ -157,6 +161,8 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                         }
                         
                         vc.oid = oid
+                        print("Helo: " + sid)
+                        print(bid)
                         vc.sid = sid
                         vc.bid = bid
  

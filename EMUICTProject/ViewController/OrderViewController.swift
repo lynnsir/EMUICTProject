@@ -9,6 +9,10 @@
 import UIKit
 import Firebase
 
+protocol DataEnteredDelegate: class {
+    func userDidEnterInformation(info: String)
+}
+
 class OrderViewController: UIViewController,UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource  {
 
     

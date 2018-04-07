@@ -30,6 +30,7 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
         let uid = Auth.auth().currentUser?.uid
         let rootRef = Database.database().reference()
         rootRef.child("Watchlist").child("\(uid!)").removeValue()
+        self.viewDidLoad()
 
     }
     

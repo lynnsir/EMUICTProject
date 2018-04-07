@@ -84,6 +84,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     }
     
     @IBAction func SendMessageBut(_ sender: Any) {
+        getbuyerAndseller()
         // send message to board creator
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatViewController
             
@@ -99,11 +100,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
             vc.senderid = senderid
             vc.recieverid = recieverid
             vc.boardid = boardid
-            vc.buyID = Auth.auth().currentUser?.uid
-            print("SaleID: " + creator)
-            print("BuyID: " + senderid)
-            vc.saleID = creator
-            
+           
         }
     }
     
@@ -212,6 +209,21 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
                 }
             }
         }
+    }
+    
+    func getbuyerAndseller(){
+        let buyer = Auth.auth().currentUser?.uid
+        let seller = creator
+        print("SaleID: " + seller!)
+        print("BuyID: " + buyer!)
+        let sab = seller! + "_" + buyer!
+   
+        let postProduct: [String : Any] = [
+            "Buyer" : buyer!,
+            "Seller": seller!
+        ]
+        Database.database().reference().child("SAB").child("\(sab)").setValue(postProduct)
+
     }
     
     func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
