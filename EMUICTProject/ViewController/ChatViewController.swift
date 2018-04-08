@@ -49,8 +49,36 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         collectionView?.register(ChatmessageCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.delegate = self
         collectionView.dataSource = self
-
+ 
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -190, up: true)
+    }
+    
+    // Finish Editing The Text Field
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -190, up: false)
+    }
+    
+    // Hide the keyboard when the return key pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Move the text field in a pretty animation!
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+
     
     func observeMessages(){
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -207,20 +235,22 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             let receiverMessageRef = Database.database().reference().child("user-messages").child(toid)
             receiverMessageRef.updateChildValues([messageId:1]) //receiver message
         }
+         messageText.delegate = self
     
     }
 
 
     func setOrder(){
-        
+
         let buyID = buyerId
         let seller = sellerId
-        print("bid: " + buyID!)
-        print("sid: " + seller!)
+
         
-        if seller == buyID{
-            displyAlertMessage(userMessage: "Error")
+        if senderid + "_" + recieverid != sab {
+            print("Not match")
+            displyAlertMessage(userMessage: "Only vendor can access")
         }
+        
             
         else {
            
@@ -261,10 +291,10 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
             completion()
         }
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
     func displyAlertMessage(userMessage:String){
         let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
@@ -299,8 +329,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
                 let values = snapshot.value as? NSDictionary
                 self.buyerId = values?["Buyer"] as? String
                 self.sellerId = values?["Seller"] as? String
-                print("Buyer: " + self.buyerId)
-                print("Seller: " + self.sellerId)
+//                print("Buyer: " + self.buyerId)
+//                print("Seller: " + self.sellerId)
             })
         run(after: 3) {
             self.setOrder()

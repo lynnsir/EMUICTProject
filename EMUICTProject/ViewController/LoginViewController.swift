@@ -34,11 +34,8 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil{
                     print("Successful")
+
                     
-                    let uid = Auth.auth().currentUser?.uid
-                    
-                    
-           
                     let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     
@@ -94,13 +91,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
