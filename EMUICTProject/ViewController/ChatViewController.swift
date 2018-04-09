@@ -27,6 +27,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     var creator:String!
     var uid = Auth.auth().currentUser?.uid
     var type:String!
+    var rectype:String!
     var sab:String!
     var cPartner:String!
     
@@ -40,38 +41,44 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         getType()
+        getRecType()
        
         messageText.delegate = self
         observeMessages()
+        collectionView.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
         collectionView?.contentInset = UIEdgeInsetsMake(9, 0, 58, 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(9, 0, 50, 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.register(ChatmessageCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.delegate = self
         collectionView.dataSource = self
- 
+
+       // setupKeyboardObservers()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -190, up: true)
-    }
     
+
+    }
+
     // Finish Editing The Text Field
     func textFieldDidEndEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -190, up: false)
+
     }
-    
+
     // Hide the keyboard when the return key pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
+
     // Move the text field in a pretty animation!
     func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
         let moveDuration = 0.3
         let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
-        
+
         UIView.beginAnimations("animateTextField", context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(moveDuration)
@@ -114,9 +121,11 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         let message = messages[indexPath.item]
         setupCell(cell: cell, message: message)
         cell.textView.text = message.textmessage
+        cell.textView.isEditable = false
         cell.bubbleWidthAnchor?.constant = estimateFrameForText(text: message.textmessage!).width + 32
         return cell
     }
+    
     private func setupCell(cell: ChatmessageCollectionViewCell, message: Message){
         
         if let id = message.chatPartnerId(){ // check chat partner
@@ -140,12 +149,13 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         }
         
         if message.fromid == Auth.auth().currentUser?.uid{
-            cell.bubbleView.backgroundColor = ChatmessageCollectionViewCell.aquarColor
+            cell.bubbleView.backgroundColor = ChatmessageCollectionViewCell.greenColor
             cell.profileImageView.isHidden = true
             cell.bubbleViewRightAnchor?.isActive = true
             cell.bubbleViewLeftAnchor?.isActive = false
         }else{
-            cell.bubbleView.backgroundColor = UIColor.lightGray
+        
+            cell.bubbleView.backgroundColor = UIColor(red:0.22, green:0.51, blue:0.50, alpha:1.0)
             cell.profileImageView.isHidden = false
             cell.bubbleViewRightAnchor?.isActive = false
             cell.bubbleViewLeftAnchor?.isActive = true
@@ -196,7 +206,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         print("Order Pressed")
  
 
-        if self.type == "Company" || self.type == "Admin" {
+        if self.type == "Company" || self.type == "Admin" || self.rectype == "Company" || self.rectype == "Admin" {
             displyAlertMessage(userMessage: "Can't access")
         }
         
@@ -216,25 +226,31 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         let fromid = senderid! //sender
         let timestamp = Int(Date().timeIntervalSince1970)
         let messagetext = messageText.text
-        let messagevalue: [String : Any] = ["textmessage": messagetext as AnyObject,
-                            "toid": toid as AnyObject,
-                            "fromid": fromid as AnyObject,
-                            "timestamp": timestamp as AnyObject
-            ] 
-        //childRef.updateChildValues(messagevalue)
-        childRef.updateChildValues(messagevalue) { (error, ref) in
-            if error != nil{
-                print(error.debugDescription)
-                return
-            }
-            self.messageText.text = nil
-            let userMessageRef = Database.database().reference().child("user-messages").child(fromid)
-            let messageId = childRef.key
-            userMessageRef.updateChildValues([messageId:1]) // sender message
-            
-            let receiverMessageRef = Database.database().reference().child("user-messages").child(toid)
-            receiverMessageRef.updateChildValues([messageId:1]) //receiver message
+        if messagetext == ""{
+            return
         }
+        else{
+            let messagevalue: [String : Any] = ["textmessage": messagetext as AnyObject,
+                                                "toid": toid as AnyObject,
+                                                "fromid": fromid as AnyObject,
+                                                "timestamp": timestamp as AnyObject
+            ]
+            //childRef.updateChildValues(messagevalue)
+            childRef.updateChildValues(messagevalue) { (error, ref) in
+                if error != nil{
+                    print(error.debugDescription)
+                    return
+                }
+                self.messageText.text = nil
+                let userMessageRef = Database.database().reference().child("user-messages").child(fromid)
+                let messageId = childRef.key
+                userMessageRef.updateChildValues([messageId:1]) // sender message
+                
+                let receiverMessageRef = Database.database().reference().child("user-messages").child(toid)
+                receiverMessageRef.updateChildValues([messageId:1]) //receiver message
+            }
+        }
+     
          messageText.delegate = self
     
     }
@@ -315,6 +331,19 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
                 self.type = values?["Type"] as? String
             })
         }
+    }
+    
+    func getRecType(){
+        
+        //if the user is logged in get the profile data
+        let rootRef = Database.database().reference()
+    
+            rootRef.child("Alluser").child(recieverid).observe(.value, with: { (snapshot) in
+                //create a dictionary of users profile data
+                let values = snapshot.value as? NSDictionary
+                self.rectype = values?["Type"] as? String
+            })
+        
     }
 
     func getSAB(){

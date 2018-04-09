@@ -14,15 +14,15 @@ class ChatmessageCollectionViewCell: UICollectionViewCell {
         let tv = UITextView()
         tv.text = "DUMMY TEXT"
         tv.font = UIFont.systemFont(ofSize: 16)
-        tv.textColor = UIColor.black
+        tv.textColor = UIColor.white
         tv.backgroundColor = UIColor.clear
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
-    static let aquarColor = UIColor.init(red: 0, green: 137, blue: 249, alpha: 0.5)
+    static let greenColor = UIColor(red:0.09, green:0.43, blue:0.42, alpha:1.0)
     let bubbleView: UIView = {
         let view = UIView()
-        view.backgroundColor = aquarColor
+        view.backgroundColor = greenColor
         view.layer.cornerRadius = 16
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -65,6 +65,7 @@ class ChatmessageCollectionViewCell: UICollectionViewCell {
         //textView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         textView.leftAnchor.constraint(equalTo: bubbleView.leftAnchor, constant: 8).isActive = true
         textView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        
         //textView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         textView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
         textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
