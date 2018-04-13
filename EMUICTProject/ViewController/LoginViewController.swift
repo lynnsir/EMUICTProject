@@ -11,7 +11,12 @@ import Firebase
 
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
-
+    
+    var status:String!
+    var userStorage: StorageReference!
+    var type:String!
+    var db:String!
+    
      @IBOutlet weak var email: UITextField!
      @IBOutlet weak var password: UITextField!
      @IBOutlet weak var loginButton: UIButton!
@@ -33,16 +38,23 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil{
-                    print("Successful")
-
-                    
-                    let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    
-                    appDelegate.window?.rootViewController = myTabBar
+                    self.getStatus()
+                    if self.status == "Pay"{
+                        print("Successful")
+                        
+                        
+                        let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        
+                        appDelegate.window?.rootViewController = myTabBar
+                    }
+                    else{
+                        self.delete()
+                    }
+               
                 }
                 else{
-            
+                  
                     self.displyAlertMessage(userMessage:"Wrong password")
                     if let myError = error?.localizedDescription
                     {
@@ -85,7 +97,87 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
      
     }
+    func getStatus(){
+       
+        let ref = Database.database().reference()
+        if let userID = Auth.auth().currentUser?.uid{
+            ref.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
+                //create a dictionary of users profile data
+                let values = snapshot.value as? NSDictionary
+                self.status = values?["Status"] as? String ?? "Not found"
+            })
+        }
+    }
+    func getType(){
+        
+        //if the user is logged in get the profile data
+        let rootRef = Database.database().reference()
+        if let userID = Auth.auth().currentUser?.uid{
+            rootRef.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
+                //create a dictionary of users profile data
+                let values = snapshot.value as? NSDictionary
+                self.type = values?["Type"] as? String
+            })
+        }
+    }
+    func delete(){
+        getType()
+        
+                if self.type == "Student"{
+                    self.db = "Student user"
+                    self.deleteUser()
+                    
+        }
+                else if self.type == "Alumni"{
+                    self.db = "Alumni user"
+                    self.deleteUser()
+        }
+        
+                else if self.type == "Company"{
+                    self.db = "Company user"
+                    self.deleteUser()
+        }
+                else if self.type == "Staff"{
+                    self.db = "Staff user"
+                    self.deleteUser()
+        }
+        
+    }
     
+    func deleteUser(){
+        let user = Auth.auth().currentUser
+        let user2 = Auth.auth().currentUser?.uid
+        let user3 = user2
+          let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+            userStorage = storage.child(self.db)
+            let imageRef = userStorage.child(user2!+".jpg")
+            print(user2!+".jpg")
+        
+            imageRef.delete(completion: { error in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("delete image from Storage")
+                }
+            })
+  
+        user?.delete { error in
+            if let error = error {
+                print(error)
+            } else {
+                Database.database().reference(withPath:self.db).child(user3!).removeValue()
+                print("Delete db")
+                
+                 Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
+                  print("Alluser:Delete db")
+                
+                print("delete account success")
+                
+                
+                
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
