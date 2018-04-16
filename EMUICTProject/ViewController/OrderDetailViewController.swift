@@ -61,11 +61,6 @@ class OrderDetailViewController: UIViewController, UINavigationControllerDelegat
                     products.quantity = quant
                     products.price = prices
                     
-                    print(products.name)
-                    print(products.quantity)
-                    print(products.price)
-                    
-                    
                     self.product.append(products)
                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }}}}
@@ -80,11 +75,7 @@ class OrderDetailViewController: UIViewController, UINavigationControllerDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailCell") as! OrderDetailTableViewCell
         
        let products = product[indexPath.row]
-        print("printCell")
-        print(products.name)
-        print(products.quantity)
-        print(products.price)
-        
+
         cell.name.text = products.name!
         cell.quantity.text = "x" + products.quantity!
         cell.price.text = products.price!

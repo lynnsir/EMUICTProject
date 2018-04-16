@@ -20,6 +20,7 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
         getPost()
         tableView.dataSource = self
         tableView.delegate = self
@@ -84,6 +85,7 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
+         cell.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
         let post = board[indexPath.row]
         
         if let postimgUrl = post.imagePost{

@@ -252,7 +252,6 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
         }
      
          messageText.delegate = self
-    
     }
 
 

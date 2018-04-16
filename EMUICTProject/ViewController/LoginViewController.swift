@@ -23,57 +23,43 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        
         if email.text == "" || password.text == ""
         {
             displyAlertMessage(userMessage:"Please sign in")
         }
-        
-        else if email.text == "" && password.text == ""
-        {
-            displyAlertMessage(userMessage:"Please sign in")
-        }
-        
         else if email.text != "" && password.text != ""
         {
             Auth.auth().signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if user != nil{
+        
                     self.getStatus()
-                    if self.status == "Pay"{
-                        print("Successful")
-                        
-                        
-                        let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        
-                        appDelegate.window?.rootViewController = myTabBar
-                    }
-                    else{
-                        self.delete()
-                    }
-               
+                    self.run(after: 2, completion: {
+                        if self.status == "Pay"{
+                            let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            
+                            appDelegate.window?.rootViewController = myTabBar
+                            print("Login complete")
+                        }
+                        else{
+                            self.delete()
+                            self.displyAlertMessage(userMessage: "No user found!")
+                        }
+                    })
+        
                 }
                 else{
-                  
                     self.displyAlertMessage(userMessage:"Wrong password")
                     if let myError = error?.localizedDescription
                     {
                         self.displyAlertMessage(userMessage: "Please sign in again")
                         print(myError)
-                        
                     }
                     else{
                         self.displyAlertMessage(userMessage:"Wrong password")
                         print("Error")
                         
-                    }
-                }
-            })
-        }
-       
-      
-       
-    }
+                        }}})}}
     
     
     @IBAction func ForgetPwd(_ sender: Any) {
@@ -91,25 +77,21 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 
             }
         }else{
-            
              displyAlertMessage(userMessage: "Please fill in your email")
         }
         
      
     }
     func getStatus(){
-       
         let ref = Database.database().reference()
         if let userID = Auth.auth().currentUser?.uid{
             ref.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
                 //create a dictionary of users profile data
                 let values = snapshot.value as? NSDictionary
                 self.status = values?["Status"] as? String ?? "Not found"
-            })
-        }
-    }
+            })}}
+    
     func getType(){
-        
         //if the user is logged in get the profile data
         let rootRef = Database.database().reference()
         if let userID = Auth.auth().currentUser?.uid{
@@ -117,9 +99,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 //create a dictionary of users profile data
                 let values = snapshot.value as? NSDictionary
                 self.type = values?["Type"] as? String
-            })
-        }
-    }
+            })}}
+    
     func delete(){
         getType()
         
@@ -185,6 +166,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         email.delegate = self
         password.delegate = self
 
+    }
+    func run(after seconds: Int, completion: @escaping () -> Void){
+        let deadline = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            completion()
+        }
     }
 
     

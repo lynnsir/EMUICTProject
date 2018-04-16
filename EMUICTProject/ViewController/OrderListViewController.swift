@@ -27,7 +27,7 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         getSellerOrder()
-     
+        tableView.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
 
     }
   

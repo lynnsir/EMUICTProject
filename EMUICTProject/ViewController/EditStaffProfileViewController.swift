@@ -151,15 +151,8 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
                 print(error)
             } else {
                 Database.database().reference(withPath: "Staff user").child(user3!).removeValue()
-                print("Staff:Delete db")
-                
-                // Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
-                //  print("Alluser:Delete db")
-                
-                print("delete account success")
-                
-                
-                
+                Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
+
             }
         }
         
@@ -186,29 +179,19 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
     }
     
     func updateUsersProfile(){
-        //check to see if the user is logged in
         if let user = Auth.auth().currentUser?.uid{
-            //create an access point for the Firebase storage
             let imageRef = userStorage.child("\(user).jpg")
-            //get the image uploaded from photo library ***
-            //guard let image = imgPro.image else {return}
-            
-            
             let data = UIImageJPEGRepresentation(self.imgPro.image!, 0.5)
-            
             let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
                 if err != nil{
                     print(err!.localizedDescription)
                 }
-                //upload to firebase storage
-                
                 imageRef.downloadURL(completion: { (url, error) in
                     if error != nil{
                         print(error!)
                         return
                     }
                     if let imageURL = url?.absoluteString{
-                        
                         let newUpdatedProfile:[String : Any] =
                             [
                                 "Fullname": self.fullname.text!,
@@ -221,7 +204,6 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
                         ]
                         //update the firebase database for that user
                         self.imageUR = imageURL
-                        
                         self.ref.child("Alluser").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
                             if error != nil{
                                 print(error!)

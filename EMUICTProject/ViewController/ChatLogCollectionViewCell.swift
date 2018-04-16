@@ -122,7 +122,6 @@ class ChatLogCollectionViewCell: UICollectionViewCell ,UINavigationControllerDel
     @IBAction func buyer(_ sender: Any) {
         print("Start getting OrderID")
         confirmOrder()
-        
     }
     
     func confirmOrder(){
@@ -166,6 +165,7 @@ class ChatLogCollectionViewCell: UICollectionViewCell ,UINavigationControllerDel
             }
         }
     }
+    
     func run(after seconds: Int, completion: @escaping () -> Void){
         let deadline = DispatchTime.now() + .seconds(seconds)
         DispatchQueue.main.asyncAfter(deadline: deadline) {

@@ -82,15 +82,8 @@ class MyProfileCompanyViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.imgPro.image = photo
                     }}}
-        }
-        
-      
-
-     })
-  }
- 
+        }}) }}
     
-    }
     
     func getImage(url: String, completion: @escaping (UIImage?) -> ()) {
         URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in

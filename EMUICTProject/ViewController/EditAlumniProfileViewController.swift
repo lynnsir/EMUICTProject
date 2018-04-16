@@ -159,15 +159,7 @@ class EditAlumniProfileViewController: UIViewController,UIImagePickerControllerD
                 print(error)
             } else {
                 Database.database().reference(withPath: "Alumni user").child(user3!).removeValue()
-                print("Alumni:Delete db")
-                
                 Database.database().reference(withPath: "Alluser").child(user3!).removeValue()
-                print("Alluser:Delete db")
-                
-                print("delete account success")
-                
-                
-                
             }
         }
         

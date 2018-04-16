@@ -108,6 +108,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
+        cell.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
         var post = PostBoard()
         if searchActive {
             post = filteredData[indexPath.row]
@@ -179,13 +180,10 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
         
         filteredData = board.filter({ (PostBoard) -> Bool in
             PostBoard.title.lowercased().contains(searchText.lowercased())
-            
         })
         filteredData = board.filter({ (PostBoard) -> Bool in
             PostBoard.content.lowercased().contains(searchText.lowercased())
-            
         })
-        
         if(filteredData.count == 0){
             searchActive = false;
         } else {

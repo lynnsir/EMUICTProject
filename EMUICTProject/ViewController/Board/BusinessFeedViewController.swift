@@ -76,6 +76,7 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsAndEventFeedTableViewCell
+         cell.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
         var post = PostBoard()
         if searchActive {
             post = filteredData[indexPath.row]

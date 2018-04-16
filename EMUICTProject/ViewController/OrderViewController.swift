@@ -126,12 +126,11 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as! OrderTableViewCell
         let products = product[indexPath.row]
-        
+
         cell.name.text = products.name
         cell.quantity.text = "x" + products.quantity
         cell.price.text = products.price
-        
-      
+
         return cell
         
     }
