@@ -14,7 +14,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     let cellId = "NewsAndEventPostCell"
-    
+    var type:String!
     var board = [PostBoard]()
     var ref = Database.database().reference(withPath:"NewAndEventPost")
     
@@ -22,7 +22,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
-        
+        tableView.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
         // admin check
         let uid = Auth.auth().currentUser!.uid
         let rootRef = Database.database().reference()
@@ -64,6 +64,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     let boardid = child.key
                     let boardtype = value["BoardType"] as? String ?? "board type not found"
+                    self.type = boardtype
                     
                     let query2 = Database.database().reference().child("\(boardtype)").child("\(boardid)")
                     
@@ -170,6 +171,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
             vc.content = post.content
             vc.creator = post.creator
             vc.boardId = post.postId
+            vc.type = self.type
         }
     }
 }

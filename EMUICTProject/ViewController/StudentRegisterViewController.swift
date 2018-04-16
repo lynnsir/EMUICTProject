@@ -177,14 +177,38 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
                                                                              
                                                                              "Year" : self.year.text!,
                                                                              "Major" : self.major.text!,
-                                                                             "Year_Major" : self.year.text! + "_" + self.major.text!,
                                                                              "Email" : self.email.text!,
                                                                              "BirthDate": self.birthdate.text!,
                                                                              "Type" : self.type,
                                                                              "urlToImage": url.absoluteString
                                                 
                                             ]
-                                            self.ref.child("Student user").child(user.uid).setValue(userInfo)
+                                            
+                                            let studentInfo: [String:Any] = ["uid" : user.uid,
+                                                                             "Full name" : self.fullname.text!,
+                                                                             "Student ID": self.studentID.text!,
+                                                                             "Username": self.username.text!,
+                                                                             "ID Number" : self.idNumber.text!,
+                                                                             "Contact number": self.contactNumber.text!,
+                                                                             "Year" : self.year.text!,
+                                                                             "Major" : self.major.text!,
+                                                                             "Student ID_Full name":self.studentID.text! + "_" + self.fullname.text!,
+                                                                             "Student ID_Year" :self.studentID.text! + "_" + self.year.text!,
+                                                                             "Student ID_Major" :self.studentID.text! + "_" + self.major.text!,
+                                                                             "Student ID_Full name_Year" :self.studentID.text! + "_" + self.fullname.text! + "_" + self.year.text!,
+                                                                             "Student ID_Full name_Major" :self.studentID.text! + "_" + self.fullname.text! + "_" + self.major.text!,
+                                                                             "Full name_Year_Major" :self.fullname.text! + "_" + self.year.text! + "_" + self.major.text!,
+                                                                             "Student ID_Year_Major" :self.studentID.text! + "_" + self.year.text! + "_" + self.major.text!,
+                                                                             "Student ID_Full name_Year_Major" :self.studentID.text! + "_" + self.fullname.text! + "_" + self.year.text! + "_" + self.major.text!,
+                                                                             "Full name_Year" :self.fullname.text! + "_" + self.year.text!,
+                                                                             "Full name_Major" :self.fullname.text! + "_" + self.major.text!,
+                                                                             "Year_Major" : self.year.text! + "_" + self.major.text!,
+                                                                             "Email" : self.email.text!,
+                                                                             "BirthDate": self.birthdate.text!,
+                                                                             "Type" : self.type,
+                                                                             "urlToImage": url.absoluteString]
+                                            
+                                            self.ref.child("Student user").child(user.uid).setValue(studentInfo)
                                             //insert to alluser
                                             self.ref.child("Alluser").child(user.uid).setValue(userInfo)
                                             

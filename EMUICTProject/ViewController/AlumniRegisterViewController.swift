@@ -159,7 +159,38 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                                                              
                                                                              "Career" : self.career.text!,
                                                                              "Major": self.major.text!,
+                                                                             "Email" : self.email.text!,
+                                                                             "BirthDate": self.birthdate.text!,
+                                                                             "Type": self.type,
+                                                                             "urlToImage": url.absoluteString
+                                                
+                                            ]
+                                            
+                                            let alumniInfo: [String : Any] = [ "uid" : user.uid,
+                                                                             "Full name" : self.fullName.text!,
                                                                              
+                                                                             "Student ID": self.studentID.text!,
+                                                                             
+                                                                             "Username": self.username.text!,
+                                                                             
+                                                                             "ID Number" : self.idNumber.text!,
+                                                                             
+                                                                             "Contact number": self.contactNumber.text!,
+                                                                             
+                                                                             "Career" : self.career.text!,
+                                                                             "Major": self.major.text!,
+                                                                             
+                                                                             "Student ID_Full name":self.studentID.text! + "_" + self.fullName.text!,
+                                                                             "Student ID_Career" :self.studentID.text! + "_" + self.career.text!,
+                                                                             "Student ID_Major" :self.studentID.text! + "_" + self.major.text!,
+                                                                             "Full name_Career" :self.fullName.text! + "_" + self.career.text!,
+                                                                             "Full name_Major" :self.fullName.text! + "_" + self.major.text!,
+                                                                             "Student ID_Full name_Career" :self.studentID.text! + "_" + self.fullName.text! + "_" + self.career.text!,
+                                                                             "Student ID_Full name_Major" :self.studentID.text! + "_" + self.fullName.text! + "_" + self.major.text!,
+                                                                             "Full name_Career_Major" :self.fullName.text! + "_" + self.career.text! + "_" + self.major.text!,
+                                                                             "Student ID_Career_Major" :self.studentID.text! + "_" + self.career.text! + "_" + self.major.text!,
+                                                                             "Student ID_Full name_Career_Major" :self.studentID.text! + "_" + self.fullName.text! + "_" + self.career.text! + "_" + self.major.text!,
+    
                                                                              "Career_Major": self.career.text! + "_" + self.major.text!,
                                                                              
                                                                              "Email" : self.email.text!,
@@ -168,7 +199,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
                                                                              "urlToImage": url.absoluteString
                                                 
                                             ]
-                                            self.ref.child("Alumni user").child(user.uid).setValue(userInfo)
+                                            self.ref.child("Alumni user").child(user.uid).setValue(alumniInfo)
                                             //insert to alluser
                                             self.ref.child("Alluser").child(user.uid).setValue(userInfo)
                                             

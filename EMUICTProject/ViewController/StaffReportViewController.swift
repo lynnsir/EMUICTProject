@@ -36,6 +36,9 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
         else if pos != "" && fname == "" {
             getPos()
         }
+        else if pos != "" && fname != ""{
+            getNamePos()
+        }
        
         
     }
@@ -102,6 +105,34 @@ class StaffReportViewController: UIViewController, UITableViewDelegate, UITableV
         let query3 = rootRef3.child("Staff user").queryOrdered(byChild: "Position").queryEqual(toValue: pos)
         
         query3.observe(.value) { (snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                if let value = child.value as? NSDictionary {
+                    
+                    let user = PersonReport()
+                    let uid = value["uid"] as? String ?? "not found"
+                    let fullname = value["Full name"] as? String ?? "Full name not found"
+                    let Position = value["Position"] as? String ?? "Position not found"
+                    let email = value["Email"] as? String ?? "email not found"
+                    let imagePath = value["urlToImage"] as? String ?? "Image not found"
+                    user.fullname = fullname
+                    user.uid = uid
+                    user.position = Position
+                    user.email = email
+                    user.imageProfile = imagePath
+                    self.staffReport.append(user)
+                    
+                    DispatchQueue.main.async { self.tableView.reloadData() }
+                }
+            }
+        }
+    }
+    
+    func getNamePos(){
+        
+        let rootRef2 = Database.database().reference()
+        let query2 = rootRef2.child("Staff user").queryOrdered(byChild: "Full name_Position").queryEqual(toValue: fname + "_" + pos)
+        
+        query2.observe(.value) { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     

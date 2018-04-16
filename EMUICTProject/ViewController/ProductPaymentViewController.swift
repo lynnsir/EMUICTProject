@@ -50,6 +50,7 @@ var oid:String!
     
     @IBAction func confirmPressed(_ sender: Any) {
         if bankAcc.text != "" && Accname.text != "" {
+            self.updateStatus()
             let alert = UIAlertController(title: "Success", message:   "Payment is confirmed!", preferredStyle: .alert)
             
             let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
@@ -59,7 +60,7 @@ var oid:String!
             self.present(alert, animated: true){}
         }
         else if cardNum.text != "" && cardName.text != "" && expireMM.text != "" && expireYY.text != "" && cvv.text != "" {
-            
+            self.updateStatus()
             let alert = UIAlertController(title: "Success", message:   "Payment is confirmed!", preferredStyle: .alert)
             
             let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in

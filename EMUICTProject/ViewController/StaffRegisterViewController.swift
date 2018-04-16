@@ -131,6 +131,7 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                                                                              
                                                                              "ID Number" : self.IDnumber.text!,
                                                                              
+                                                                             
                                                                              "Contact number": self.ContactNumber.text!,
                                                                              "Email": self.Email.text!,
                                                                              "Position" : self.Position.text!,
@@ -139,7 +140,20 @@ class StaffRegisterViewController: UIViewController, UIImagePickerControllerDele
                                                                              "urlToImage": url.absoluteString
                                                 
                                             ]
-                                            self.ref.child("Staff user").child(user.uid).setValue(userInfo)
+                                            let staffInfo: [String : Any] = [ "uid" : user.uid,
+                                                                             "Full name" : self.fullname.text!,
+                                                                             "Username": self.Username.text!,
+                                                                             "ID Number" : self.IDnumber.text!,
+                                                                             "Full name_Position": self.fullname.text! + "_" + self.Position.text!,
+                                                                             "Contact number": self.ContactNumber.text!,
+                                                                             "Email": self.Email.text!,
+                                                                             "Position" : self.Position.text!,
+                                                                             "BirthDate": self.date.text!,
+                                                                             "Type": self.type,
+                                                                             "urlToImage": url.absoluteString
+                                            ]
+                                            
+                                            self.ref.child("Staff user").child(user.uid).setValue(staffInfo)
                                             //insert to alluser
                                             self.ref.child("Alluser").child(user.uid).setValue(userInfo)
                                             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "regisPayment") as? InvoiceViewController
