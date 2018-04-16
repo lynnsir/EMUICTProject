@@ -255,20 +255,88 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
     }
 
 
-    func setOrder(){
 
+    func run(after seconds: Int, completion: @escaping () -> Void){
+        let deadline = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            completion()
+        }
+    }
+
+    func displyAlertMessage(userMessage:String){
+        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert,animated: true, completion:nil)
+    }
+    
+    func getType(){
+        
+        //if the user is logged in get the profile data
+        let rootRef = Database.database().reference()
+        if let userID = Auth.auth().currentUser?.uid{
+            rootRef.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
+                //create a dictionary of users profile data
+                let values = snapshot.value as? NSDictionary
+                self.type = values?["Type"] as? String
+            })
+        }
+    }
+    
+    func getRecType(){
+        
+        //if the user is logged in get the profile data
+        let rootRef = Database.database().reference()
+        if recieverid == nil{
+            return
+        }
+        else{
+            rootRef.child("Alluser").child(recieverid).observe(.value, with: { (snapshot) in
+                //create a dictionary of users profile data
+                let values = snapshot.value as? NSDictionary
+                self.rectype = values?["Type"] as? String
+            })
+        }
+    
+    }
+
+    func getSAB(){
+        let userID = Auth.auth().currentUser?.uid
+        print(userID!)
+        print(recieverid)
+        let sab = userID! + "_" + recieverid!
+        
+            let rootRef = Database.database().reference()
+            
+            rootRef.child("SAB").child("\(sab)").observe(.value, with: { (snapshot) in
+                let values = snapshot.value as? NSDictionary
+                self.buyerId = values?["Buyer"] as? String
+                self.sellerId = values?["Seller"] as? String
+//                print("Buyer: " + self.buyerId)
+//                print("Seller: " + self.sellerId)
+            })
+        run(after: 3) {
+            if self.buyerId != nil && self.sellerId != nil{
+                self.setOrder()
+                print("setting Order")
+            }
+            else{
+                self.displyAlertMessage(userMessage: "Only vendor can access")
+            }
+        }
+ 
+    }
+    func setOrder(){
+        
         let buyID = buyerId
         let seller = sellerId
+        let sb = senderid + "_" + recieverid
+        print("sb: " + sb)
+      
 
-        
-        if senderid + "_" + recieverid != sab {
-            print("Not match")
-            displyAlertMessage(userMessage: "Only vendor can access")
-        }
-        
-            
-        else {
-           
+            print("Order set success")
             let OrderID = Database.database().reference().child("Order").childByAutoId().key
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/YYY"
@@ -296,75 +364,8 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
                 }
                 vc.orderID = OrderID
             }
-        }
         
-    }
-
-    func run(after seconds: Int, completion: @escaping () -> Void){
-        let deadline = DispatchTime.now() + .seconds(seconds)
-        DispatchQueue.main.asyncAfter(deadline: deadline) {
-            completion()
-        }
-    }
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-    func displyAlertMessage(userMessage:String){
-        let myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertControllerStyle.alert);
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         
-        myAlert.addAction(okAction);
-        
-        self.present(myAlert,animated: true, completion:nil)
-    }
-    
-    func getType(){
-        
-        //if the user is logged in get the profile data
-        let rootRef = Database.database().reference()
-        if let userID = Auth.auth().currentUser?.uid{
-            rootRef.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
-                //create a dictionary of users profile data
-                let values = snapshot.value as? NSDictionary
-                self.type = values?["Type"] as? String
-            })
-        }
-    }
-    
-    func getRecType(){
-        
-        //if the user is logged in get the profile data
-        let rootRef = Database.database().reference()
-    
-            rootRef.child("Alluser").child(recieverid).observe(.value, with: { (snapshot) in
-                //create a dictionary of users profile data
-                let values = snapshot.value as? NSDictionary
-                self.rectype = values?["Type"] as? String
-            })
-        
-    }
-
-    func getSAB(){
-        let userID = Auth.auth().currentUser?.uid
-        print(userID!)
-        print(recieverid)
-        let sab = userID! + "_" + recieverid!
-        
-            let rootRef = Database.database().reference()
-            
-            rootRef.child("SAB").child("\(sab)").observe(.value, with: { (snapshot) in
-                let values = snapshot.value as? NSDictionary
-                self.buyerId = values?["Buyer"] as? String
-                self.sellerId = values?["Seller"] as? String
-//                print("Buyer: " + self.buyerId)
-//                print("Seller: " + self.sellerId)
-            })
-        run(after: 3) {
-            self.setOrder()
-            print("Order")
-        }
- 
     }
     
  
