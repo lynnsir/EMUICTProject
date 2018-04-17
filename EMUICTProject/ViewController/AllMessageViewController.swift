@@ -114,8 +114,8 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                         URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
                             if error != nil{print(error.debugDescription)}
                             DispatchQueue.main.async {
-                                 cell.textLabel?.text = dictionary["Username"] as? String
-                                if cell.textLabel?.text == ""
+                                 cell.textLabel?.text = dictionary["Username"] as? String ?? "Notfound"
+                                if cell.textLabel?.text == "Notfound"
                                 { cell.textLabel?.text = "Empty"
                                   cell.postedImg.image = #imageLiteral(resourceName: "user-icon")
                                 }
@@ -126,7 +126,7 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                                 }
                             
                             }
-                        }).resume()                    }
+                        }).resume()}
                 }
             }, withCancel: nil)
             
