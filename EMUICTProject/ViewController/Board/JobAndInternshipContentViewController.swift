@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class JobAndInternshipContentViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+class JobAndInternshipContentViewController: UIViewController , UITableViewDelegate, UITableViewDataSource,UITextViewDelegate{
     
     let cellId = "CommentCell"
     var img : String!
@@ -19,6 +19,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     var boardId: String!
     var userType:String!
     var userStorage: StorageReference!
+    var ref: DatabaseReference!
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!
@@ -27,12 +28,48 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     @IBOutlet weak var postContent: UITextView!
     @IBOutlet weak var commentText: UITextView!
     
+    @IBOutlet weak var editBut: UIButton!
+    @IBOutlet weak var saveBut: UIButton!
     @IBOutlet weak var ReportBut: UIButton!
     @IBOutlet weak var ReportLab: UILabel!
     
     @IBOutlet weak var DeleteBut: UIButton!
     @IBOutlet weak var sendMessBut: UIButton!
 
+    @IBAction func editPressed(_ sender: Any) {
+        editBut.isEnabled = true
+        editBut.isHidden = true
+        postContent.isEditable = true
+        saveBut.isHidden = false
+    }
+    
+    @IBAction func savePressed(_ sender: Any) {
+        saveBut.isEnabled = true
+        updateBoard()
+       
+    }
+    
+    func updateBoard(){
+        let rootRef = Database.database().reference()
+        let newUpdatedPost:[String : Any] = [
+            "Content": postContent.text as AnyObject
+        ]
+        
+        rootRef.child("JobAndInternshipPost").child("\(boardId!)").updateChildValues(newUpdatedPost, withCompletionBlock: { (error, ref) in
+            if let error = error{
+                print(error)
+                //return
+            }
+            print("Board is updated!")
+        })
+             _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
+    
+    
+    
     
     @IBAction func reportBut(_ sender: Any) {
         //For Gen user
@@ -127,7 +164,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        postContent.delegate = self
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
         getImage(url: img) { photo in
@@ -153,6 +190,9 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
             self.DeleteBut.isEnabled = true
             self.ReportBut.isHidden = true
             self.ReportLab.isHidden = true
+            self.editBut.isHidden = false
+            self.saveBut.isHidden = true
+
         }else
         {
             if(userType == "Admin"){
@@ -163,6 +203,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
                 self.ReportBut.isHidden = true
                 self.ReportLab.isHidden = true
                 self.sendMessBut.isEnabled = true
+                 self.editBut.isHidden = true
                 
             }else{
                 print(userType)
@@ -170,6 +211,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
                 self.DeleteBut.isHidden = true
                 self.ReportLab.isHidden = true
                 self.sendMessBut.isEnabled = true
+                 self.editBut.isHidden = true
             }
         }
         
@@ -243,5 +285,11 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
         
         self.present(myAlert,animated: true, completion:nil)
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

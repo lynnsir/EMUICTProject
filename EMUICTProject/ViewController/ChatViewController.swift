@@ -191,7 +191,7 @@ class ChatViewController: UIViewController,UINavigationControllerDelegate, UITex
                 
                 if let uservalue = snapshot.value as? NSDictionary{
                     
-                    let recieverName = uservalue["Username"] as? String ?? "Type not found"
+                    let recieverName = uservalue["Username"] as? String ?? "Empty"
                     print(snapshot)
                     
                     self.navigationItem.title = recieverName

@@ -1753,10 +1753,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e88-hc-8Ug">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1028"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-sR-k0a">
-                                                <rect key="frame" x="68" y="68" width="278" height="182"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQS-zE-Ydx">
                                                 <rect key="frame" x="158" y="633" width="98" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1787,6 +1783,10 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-sR-k0a">
+                                                <rect key="frame" x="68" y="57" width="278" height="182"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99309235809999996" green="1" blue="0.94821459050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1795,10 +1795,10 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="e88-hc-8Ug" secondAttribute="bottom" constant="8" id="C0a-Pt-Epd"/>
+                                    <constraint firstAttribute="bottom" secondItem="e88-hc-8Ug" secondAttribute="bottom" id="C0a-Pt-Epd"/>
                                     <constraint firstItem="e88-hc-8Ug" firstAttribute="top" secondItem="NRs-6p-VBC" secondAttribute="top" id="FBA-Z7-v23"/>
                                     <constraint firstItem="e88-hc-8Ug" firstAttribute="leading" secondItem="NRs-6p-VBC" secondAttribute="leading" id="PAA-3T-rA1"/>
-                                    <constraint firstAttribute="trailing" secondItem="e88-hc-8Ug" secondAttribute="trailing" constant="8" id="pmt-AF-RA7"/>
+                                    <constraint firstAttribute="trailing" secondItem="e88-hc-8Ug" secondAttribute="trailing" id="pmt-AF-RA7"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1850,7 +1850,7 @@
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKC-2k-BcP">
-                                                <rect key="frame" x="52" y="35" width="311" height="176"/>
+                                                <rect key="frame" x="60" y="40" width="294" height="176"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
@@ -1903,9 +1903,6 @@
                                                 <rect key="frame" x="8" y="416" width="47" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Report"/>
-                                                <connections>
-                                                    <action selector="reportBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="Z7R-gE-fwA"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3E-xz-6ex">
                                                 <rect key="frame" x="297" y="416" width="101" height="30"/>
@@ -1938,12 +1935,28 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ2-Xa-TvP">
+                                                <rect key="frame" x="190" y="416" width="34" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="savePressed:" destination="JFR-cI-jSN" eventType="touchUpInside" id="8Vf-Ce-9Ri"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1350" id="u4a-Zu-9Ii"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5D-R6-Xmd">
+                                        <rect key="frame" x="371" y="18" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editPressed:" destination="JFR-cI-jSN" eventType="touchUpInside" id="vQJ-91-qJy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="oZq-GZ-zw1" secondAttribute="bottom" id="NKi-Sf-iqc"/>
@@ -1977,8 +1990,10 @@
                         <outlet property="ReportLab" destination="LSb-EY-BQN" id="AT2-i0-mLb"/>
                         <outlet property="TableView" destination="hGZ-sB-Ycz" id="W2r-PI-wgT"/>
                         <outlet property="commentText" destination="tBo-KR-eyO" id="k5G-N7-05L"/>
+                        <outlet property="editbut" destination="h5D-R6-Xmd" id="ykm-Ra-DgZ"/>
                         <outlet property="postContent" destination="n8b-l6-wqq" id="4f6-ko-8Fd"/>
                         <outlet property="postedImg" destination="UKC-2k-BcP" id="hMG-wz-QZL"/>
+                        <outlet property="savebut" destination="eZ2-Xa-TvP" id="8yx-3b-Qmc"/>
                         <outlet property="sendMessBut" destination="E3E-xz-6ex" id="N8u-sD-IoW"/>
                     </connections>
                 </viewController>
@@ -2052,10 +2067,6 @@
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nek-yu-JUt">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqy-bK-sw3">
-                                                <rect key="frame" x="52" y="37" width="311" height="176"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dDW-RO-lBw">
                                                 <rect key="frame" x="0.0" y="456" width="414" height="8"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2149,7 +2160,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Report"/>
                                                 <connections>
-                                                    <action selector="reportBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="2CQ-B3-5kT"/>
                                                     <action selector="reportBut:" destination="QVr-mc-liJ" eventType="touchUpInside" id="xku-od-y7l"/>
                                                 </connections>
                                             </button>
@@ -2160,6 +2170,26 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iY3-lx-C8a">
+                                                <rect key="frame" x="371" y="18" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Edit"/>
+                                                <connections>
+                                                    <action selector="editPressed:" destination="QVr-mc-liJ" eventType="touchUpInside" id="1np-W7-fxg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1O-Re-ePL">
+                                                <rect key="frame" x="190" y="418" width="34" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="savePressed:" destination="QVr-mc-liJ" eventType="touchUpInside" id="OUY-Ef-LyC"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqy-bK-sw3">
+                                                <rect key="frame" x="60" y="40" width="294" height="176"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2199,14 +2229,16 @@
                         <outlet property="ReportLab" destination="2bS-YN-5R1" id="JC2-et-ZbP"/>
                         <outlet property="TableView" destination="QrW-0Q-Ni9" id="kfh-Hv-L97"/>
                         <outlet property="commentText" destination="SsL-Sm-2vq" id="cEk-mJ-58B"/>
+                        <outlet property="editBut" destination="iY3-lx-C8a" id="75R-V6-1eF"/>
                         <outlet property="postContent" destination="pX1-8a-hgw" id="SXQ-W6-r1R"/>
                         <outlet property="postedImg" destination="rqy-bK-sw3" id="dl4-cp-wNK"/>
+                        <outlet property="saveBut" destination="G1O-Re-ePL" id="iG7-0k-RQY"/>
                         <outlet property="sendMessBut" destination="IQ1-nB-SA2" id="DwG-3h-ZPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsu-wT-pQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="5614"/>
+            <point key="canvasLocation" x="7" y="5612"/>
         </scene>
         <!--Create Job And Internship Post View Controller-->
         <scene sceneID="ZeC-Oq-HSZ">
@@ -2222,10 +2254,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn7-2l-qfj">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-Lf-Vg8">
-                                                <rect key="frame" x="68" y="68" width="278" height="183"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOo-aU-63t">
                                                 <rect key="frame" x="35" y="289" width="345" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2256,6 +2284,10 @@
                                                     <action selector="BoardPostButtom:" destination="KUv-wy-jGV" eventType="touchUpInside" id="JYt-68-cgr"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-Lf-Vg8">
+                                                <rect key="frame" x="68" y="51" width="278" height="183"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99309235809999996" green="1" blue="0.94821459050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2267,7 +2299,7 @@
                                     <constraint firstItem="dn7-2l-qfj" firstAttribute="leading" secondItem="wgv-Dh-58q" secondAttribute="leading" id="MqI-zo-sJr"/>
                                     <constraint firstAttribute="bottom" secondItem="dn7-2l-qfj" secondAttribute="bottom" id="OI5-EP-88a"/>
                                     <constraint firstItem="dn7-2l-qfj" firstAttribute="top" secondItem="wgv-Dh-58q" secondAttribute="top" id="QJc-Rh-v9j"/>
-                                    <constraint firstAttribute="trailing" secondItem="dn7-2l-qfj" secondAttribute="trailing" constant="8" id="kPI-yb-Ck9"/>
+                                    <constraint firstAttribute="trailing" secondItem="dn7-2l-qfj" secondAttribute="trailing" id="kPI-yb-Ck9"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -2314,7 +2346,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1350"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ea1-2T-49p">
-                                                <rect key="frame" x="52" y="28" width="311" height="176"/>
+                                                <rect key="frame" x="60" y="40" width="294" height="176"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sIH-j8-j65">
@@ -2421,12 +2453,28 @@
                                                     <action selector="DeleteBut:" destination="dKM-Aw-s90" eventType="touchUpInside" id="V1v-GB-nPK"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhl-ie-PDp">
+                                                <rect key="frame" x="190" y="407" width="34" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="savePressed:" destination="dKM-Aw-s90" eventType="touchUpInside" id="yIz-Vd-K37"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1350" id="6R0-Bi-aX8"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSa-gb-Y2K">
+                                        <rect key="frame" x="371" y="18" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editPressed:" destination="dKM-Aw-s90" eventType="touchUpInside" id="Uca-Kg-l5g"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="HL5-Em-SXA" firstAttribute="top" secondItem="pUr-c6-O94" secondAttribute="top" id="6Rl-fh-LE7"/>
@@ -2460,8 +2508,10 @@
                         <outlet property="ReportLab" destination="qzQ-Pq-FC5" id="Q41-ho-gei"/>
                         <outlet property="TableView" destination="gL5-Vh-IUW" id="cw3-bk-a44"/>
                         <outlet property="commentText" destination="pLC-0B-32J" id="8rs-L9-HpW"/>
+                        <outlet property="editbut" destination="uSa-gb-Y2K" id="Q17-FV-17V"/>
                         <outlet property="postContent" destination="Vb8-mL-1sy" id="U1r-AH-8Bf"/>
                         <outlet property="postedImg" destination="ea1-2T-49p" id="eCM-if-JE0"/>
+                        <outlet property="savebut" destination="Jhl-ie-PDp" id="TKh-xk-1Wp"/>
                         <outlet property="sendMessBut" destination="3ZE-po-d3m" id="VEI-le-jkx"/>
                     </connections>
                 </viewController>
@@ -2483,10 +2533,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gd4-11-HcI">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BHS-bs-Bu4">
-                                                <rect key="frame" x="68" y="67" width="278" height="182"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0U-Bo-QE1">
                                                 <rect key="frame" x="158" y="633" width="98" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2517,6 +2563,10 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BHS-bs-Bu4">
+                                                <rect key="frame" x="67" y="50" width="278" height="182"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99309235809999996" green="1" blue="0.94821459050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -6124,8 +6174,8 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="cqM-ag-Rvz" secondAttribute="trailing" constant="8" id="ANV-NQ-YaV"/>
-                                    <constraint firstAttribute="bottom" secondItem="cqM-ag-Rvz" secondAttribute="bottom" constant="8" id="B7Z-d9-BOR"/>
+                                    <constraint firstAttribute="trailing" secondItem="cqM-ag-Rvz" secondAttribute="trailing" id="ANV-NQ-YaV"/>
+                                    <constraint firstAttribute="bottom" secondItem="cqM-ag-Rvz" secondAttribute="bottom" id="B7Z-d9-BOR"/>
                                     <constraint firstItem="cqM-ag-Rvz" firstAttribute="top" secondItem="a3Q-Jy-yxi" secondAttribute="top" id="rs2-Ph-AIG"/>
                                     <constraint firstItem="cqM-ag-Rvz" firstAttribute="leading" secondItem="a3Q-Jy-yxi" secondAttribute="leading" id="tV5-DR-f4y"/>
                                 </constraints>

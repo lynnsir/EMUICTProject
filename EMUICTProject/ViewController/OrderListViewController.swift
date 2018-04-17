@@ -63,17 +63,19 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     let bid = value["buyerID"] as? String ?? "not found"
                     let sid = value["sellerID"] as? String ?? "not found"
                     
-                    self.sid = sid
-                    self.bid = bid
-                    self.oid = orderid
-                    self.total = total
-                    self.status = status
-                    self.date = date
+                    orders.sellerID = sid
+                    orders.buyerID = bid
+                    orders.orderID = orderid
+                    orders.total = total
+                    orders.status = status
+                    orders.date = date
                     self.role = "seller"
+                    
                     print(orderid)
                     print(total)
+                    
                     self.order.append(orders)
-                                  DispatchQueue.main.async { self.tableView.reloadData() }
+                    DispatchQueue.main.async { self.tableView.reloadData() }
                 }}}}
     
     
@@ -82,9 +84,9 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         let uid = Auth.auth().currentUser?.uid
         let rootRef = Database.database().reference()
         let query = rootRef.child("Order").queryOrdered(byChild: "buyerID").queryEqual(toValue:uid)
-        self.order2.removeAll()
+        
         query.observe(.value) { (snapshot) in
-            self.order2.removeAll()
+                self.order2.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     let orders = Order()
@@ -95,16 +97,16 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                     let bid = value["buyerID"] as? String ?? "not found"
                     let sid = value["sellerID"] as? String ?? "not found"
                     
-                    self.sid = sid
-                    self.bid = bid 
-                    self.oid = orderid
-                    self.total = total
-                    self.status = status
-                    self.date = date
+                    orders.sellerID = sid
+                    orders.buyerID = bid
+                    orders.orderID = orderid
+                    orders.total = total
+                    orders.status = status
+                    orders.date = date
                     self.role = "buyer"
                     print(orderid)
                     self.order2.append(orders)
-                                 DispatchQueue.main.async { self.tableView.reloadData() }
+                  DispatchQueue.main.async { self.tableView.reloadData() }
                     
                 }}}}
     
@@ -119,15 +121,29 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
     
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+              
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListCell") as! OrderListTableViewCell
-      
+                let order = self.order[indexPath.row]
+                let order2 = self.order2[indexPath.row]
+                
+                if segmentControl.selectedSegmentIndex == 1{
+                    cell.img.image = #imageLiteral(resourceName: "orderimg")
+                    cell.status.text = order2.status
+                    print(status)
+                    cell.total.text = order2.total
+                    cell.date.text = order2.date
+                }
+                else{
+                    
+                    cell.img.image = #imageLiteral(resourceName: "orderimg")
+                    cell.status.text = order.status
+                    print(status)
+                    cell.total.text = order.total
+                    cell.date.text = order.date
+                }
+                
         
-                cell.img.image = #imageLiteral(resourceName: "orderimg")
-                cell.status.text = status
-                print(status)
-                cell.total.text = total
-                cell.date.text = date
+             
         
                 return cell
             }

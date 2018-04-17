@@ -26,12 +26,43 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var postContent: UITextView!
     @IBOutlet weak var commentText: UITextView!
     
-    
+    @IBOutlet weak var editbut: UIButton!
+    @IBOutlet weak var savebut: UIButton!
     @IBOutlet weak var ReportBut: UIButton!
     @IBOutlet weak var ReportLab: UILabel!
     
     @IBOutlet weak var DeleteBut: UIButton!
     @IBOutlet weak var sendMessBut: UIButton!
+    
+    @IBAction func editPressed(_ sender: Any) {
+        editbut.isEnabled = true
+        editbut.isHidden = true
+        postContent.isEditable = true
+        savebut.isHidden = false
+    }
+    
+
+    @IBAction func savePressed(_ sender: Any) {
+        savebut.isEnabled = true
+        updateBoard()
+    }
+    
+    func updateBoard(){
+        let rootRef = Database.database().reference()
+        let newUpdatedPost:[String : Any] = [
+            "Content": postContent.text as AnyObject
+        ]
+        
+        rootRef.child("NewAndEventPost").child("\(boardId!)").updateChildValues(newUpdatedPost, withCompletionBlock: { (error, ref) in
+            if let error = error{
+                print(error)
+                //return
+            }
+            print("Board is updated!")
+        })
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     
     @IBAction func reportBut(_ sender: Any) {
         //For Gen user
@@ -161,11 +192,14 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                     //user is admin
                     self.ReportBut.isHidden = true
                     self.ReportLab.isHidden = true
+                    self.editbut.isHidden = false
+                    self.savebut.isHidden = true
                     
                 }else{
                     //user is gen user
                     self.DeleteBut.isHidden = true
                     self.ReportLab.isHidden = true
+                    self.editbut.isHidden = true
                 }
                
             }

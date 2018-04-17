@@ -193,10 +193,7 @@ class StudentReportViewController: UIViewController, UITableViewDelegate, UITabl
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "StudentCell")
         let user = studentReport[indexPath.row]
-  
-
-        
-        
+ 
         cell.textLabel?.text = user.fullname
         return cell
         

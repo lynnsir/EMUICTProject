@@ -115,9 +115,16 @@ class AllMessageViewController: UIViewController , UITableViewDelegate, UITableV
                             if error != nil{print(error.debugDescription)}
                             DispatchQueue.main.async {
                                  cell.textLabel?.text = dictionary["Username"] as? String
-                                 cell.postedImg.image = UIImage(data: data!)
-                                 cell.detailTextLabel?.text = messchat.textmessage
-                                self.tableView.reloadData()
+                                if cell.textLabel?.text == ""
+                                { cell.textLabel?.text = "Empty"
+                                  cell.postedImg.image = #imageLiteral(resourceName: "user-icon")
+                                }
+                                else{
+                                    cell.postedImg.image = UIImage(data: data!)
+                                    cell.detailTextLabel?.text = messchat.textmessage
+                                    self.tableView.reloadData()
+                                }
+                            
                             }
                         }).resume()                    }
                 }
