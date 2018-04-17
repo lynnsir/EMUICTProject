@@ -30,7 +30,7 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
         ref = Database.database().reference()
-        userStorage = storage.child("JobAndInternship")
+        userStorage = storage.child("JobAndInternshipPost")
         
     }
     

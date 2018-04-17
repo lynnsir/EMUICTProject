@@ -16,7 +16,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     var content: String!
     var creator: String!
     var boardId: String!
-    
+   var userStorage: StorageReference!
     
     var comment = [NAEcomment]()
    
@@ -52,24 +52,28 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         displyAlertMessage(userMessage: "Our system recieved your Report")    }
     
     @IBAction func DeleteBut(_ sender: Any) {
-        //delete post for admin
-        let boardid = boardId!
-        let boardtype = "NewAndEventPost"
-        let ref = Database.database().reference().child("\(boardtype)").child("\(boardid)")
-        ref.removeValue(completionBlock: {(error, ref) in
-            if(error != nil){
-                print(error.debugDescription)
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+        let imageRef = storage.child("NewAndEventPost").child(boardId + ".jpg")
+        
+        print(boardId + ".jpg")
+        imageRef.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("delete image from Storage")
             }
         })
-        displyAlertMessage(userMessage: "Delete successful")
-        // send to feed page
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NAEboard") as? NewsAndEventsFeedViewController
-            
-        {
-            if let navigator = navigationController {
-                navigator.show(vc, sender: true)
-            }
-        }
+        
+        Database.database().reference(withPath: "NewAndEventPost").child(boardId).removeValue()
+        print("Delete db")
+        print("delete account success")
+  
+        let alert = UIAlertController(title: "Success", message:   "Delete successful", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        })
+        alert.addAction(OKAction)
+        self.present(alert, animated: true){}
         
     }
     
@@ -152,6 +156,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                 
                 usertype = uservalue["Type"] as? String ?? "Type not found"
                 
+                
                 if(usertype == "Admin"){
                     //user is admin
                     self.ReportBut.isHidden = true
@@ -170,6 +175,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         let creatorid = creator!
         if uid == creatorid{
             self.sendMessBut.isEnabled = false
+             self.DeleteBut.isHidden = false
         }else{
             self.sendMessBut.isEnabled = true
         }

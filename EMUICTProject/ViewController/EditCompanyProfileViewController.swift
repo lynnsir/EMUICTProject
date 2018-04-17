@@ -144,6 +144,7 @@ class EditCompanyProfileViewController: UIViewController,UIImagePickerController
         let user3 = user2
    
         let imageRef = userStorage.child(user2!+".jpg")
+        
         print(user2!+".jpg")
         imageRef.delete(completion: { error in
             if let error = error {

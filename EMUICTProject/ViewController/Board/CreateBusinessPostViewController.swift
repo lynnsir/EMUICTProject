@@ -30,7 +30,7 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
         
         ref = Database.database().reference()
-        userStorage = storage.child("Business")
+        userStorage = storage.child("BusinessPost")
         
     }
 

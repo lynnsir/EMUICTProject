@@ -20,10 +20,11 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
     var board = [PostBoard]()
     var filteredData = [PostBoard]()
     var searchActive : Bool = false
+    var type:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getType()
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
         getPost()
         tableView.dataSource = self
@@ -111,12 +112,12 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
                 navigator.show(vc, sender: true)
             }
             let post = board[indexPath.row]
-            
             vc.img = post.imagePost
             vc.Title = post.title
             vc.content = post.content
             vc.creator = post.creator
             vc.boardId = post.postId
+            vc.userType = type
         }
     }
     
@@ -158,5 +159,18 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
             searchActive = true;
         }
         self.tableView.reloadData()
+    }
+    func getType(){
+        
+        //if the user is logged in get the profile data
+        let rootRef = Database.database().reference()
+        if let userID = Auth.auth().currentUser?.uid{
+            rootRef.child("Alluser").child(userID).observe(.value, with: { (snapshot) in
+                //create a dictionary of users profile data
+                let values = snapshot.value as? NSDictionary
+                self.type = values?["Type"] as? String
+            
+            })
+        }
     }
 }

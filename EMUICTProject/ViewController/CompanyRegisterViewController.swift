@@ -114,7 +114,8 @@ class CompanyRegisterViewController: UIViewController, UIImagePickerControllerDe
                                     vc.type = "Company"
                                 }}})})
                     uploadTask.resume() }})}
-        else{ print("Password doesn't match!") } }
+        else{
+            self.displyAlertMessage(userMessage:"Password doesn't match!") } }
     
     @IBAction func cancelPressed(_ sender: Any) {
         _ = self.navigationController?.popToRootViewController(animated: true)

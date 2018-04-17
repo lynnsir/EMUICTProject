@@ -151,7 +151,7 @@ class AlumniReportViewController: UIViewController, UITableViewDelegate, UITable
         let rootRef2 = Database.database().reference()
         print(path)
         print(word)
-        let query = rootRef2.child("Student user").queryOrdered(byChild: path).queryEqual(toValue:word)
+        let query = rootRef2.child("Alumni user").queryOrdered(byChild: path).queryEqual(toValue:word)
         query.observe(.value) { (snapshot) in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {

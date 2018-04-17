@@ -17,7 +17,8 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     var content: String!
     var creator: String!
     var boardId: String!
-    
+    var usertype:String!
+    var userStorage: StorageReference!
     
     var comment = [NAEcomment]()
     
@@ -53,24 +54,30 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
         displyAlertMessage(userMessage: "Our system recieved your Report")    }
     
     @IBAction func DeleteBut(_ sender: Any) {
-        //delete post for admin
-        let boardid = boardId!
-        let boardtype = "BusinessPost"
-        let ref = Database.database().reference().child("\(boardtype)").child("\(boardid)")
-        ref.removeValue(completionBlock: {(error, ref) in
-            if(error != nil){
-                print(error.debugDescription)
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+        let imageRef = storage.child("BusinessPost").child(boardId + ".jpg")
+        
+        print(boardId + ".jpg")
+        imageRef.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("delete image from Storage")
             }
         })
-        displyAlertMessage(userMessage: "Delete successful")
-        // send to feed page
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Buainessboard") as? BusinessFeedViewController
-            
-        {
-            if let navigator = navigationController {
-                navigator.show(vc, sender: true)
-            }
-        }
+ 
+        Database.database().reference(withPath: "BusinessPost").child(boardId).removeValue()
+        print("Delete db")
+        print("delete account success")
+        
+        
+        let alert = UIAlertController(title: "Success", message:   "Delete successful", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        })
+        alert.addAction(OKAction)
+        self.present(alert, animated: true){}
+    
     }
     @IBAction func commentButt(_ sender: Any) {
         let comment = commentText.text
@@ -141,38 +148,37 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         // check admin status
-        let uid = Auth.auth().currentUser!.uid
-        let rootRef = Database.database().reference()
-        let query = rootRef.child("Alluser").child("\(uid)")
-        var usertype: String!
-        query.observe(.value) { (snapshot) in
-            
-            if let uservalue = snapshot.value as? NSDictionary{
-                
-                usertype = uservalue["Type"] as? String ?? "Type not found"
-                
-                if(usertype == "Admin"){
-                    //user is admin
-                    self.ReportBut.isHidden = true
-                    self.ReportLab.isHidden = true
-                    
-                }else{
-                    //user is gen user
-                    self.DeleteBut.isHidden = true
-                    self.ReportLab.isHidden = true
-                }
-                
-            }
-            
-        }
-        //check current user who are board creator
+        let uid = Auth.auth().currentUser?.uid
         let creatorid = creator!
         if uid == creatorid{
+            
             self.sendMessBut.isEnabled = false
-        }else{
-            self.sendMessBut.isEnabled = true
+            self.DeleteBut.isEnabled = true
+            self.ReportBut.isHidden = true
+            self.ReportLab.isHidden = true
+        }else
+        {
+            
+            if(usertype == "Admin"){
+                print(usertype)
+                //user is admin
+                self.DeleteBut.isHidden = false
+                self.DeleteBut.isEnabled = true
+                self.ReportBut.isHidden = true
+                self.ReportLab.isHidden = true
+                self.sendMessBut.isEnabled = true
+                
+            }else{
+                print(usertype)
+                //user is gen user
+                self.DeleteBut.isHidden = true
+                self.ReportLab.isHidden = true
+                self.sendMessBut.isEnabled = true
+            }
         }
+        
+      
+ 
         
         
     }

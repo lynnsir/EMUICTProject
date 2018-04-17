@@ -17,10 +17,11 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
     var type:String!
     var board = [PostBoard]()
     var ref = Database.database().reference(withPath:"NewAndEventPost")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.reloadData()
         tableView.register(NewsAndEventFeedTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
         // admin check
@@ -57,6 +58,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
         let query = rootRef.child("BoardReport")
         
         query.observe(.value) { (snapshot) in
+             self.board.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     
@@ -159,7 +161,6 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomePageContent") as? HomePageContentViewController
-            
         {
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)

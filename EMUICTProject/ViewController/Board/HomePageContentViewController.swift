@@ -18,87 +18,59 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
     var creator: String!
     var boardId: String!
     var type:String!
+    var userStorage: StorageReference!
+
     
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!
-    
     @IBOutlet weak var postedImg: UIImageView!
     @IBOutlet weak var postContent: UITextView!
     @IBOutlet weak var commentText: UITextView!
     @IBOutlet weak var sendMsg: UIButton!
     @IBOutlet weak var delete: UIButton!
     
-    override func viewWillAppear(_ animated: Bool) {
-        // check admin status
-        let uid = Auth.auth().currentUser!.uid
-        let rootRef = Database.database().reference()
-        let query = rootRef.child("Alluser").child("\(uid)")
-        var usertype: String!
-        query.observe(.value) { (snapshot) in
-            
-            if let uservalue = snapshot.value as? NSDictionary{
-                
-                usertype = uservalue["Type"] as? String ?? "Type not found"
-                
-                if(usertype == "Admin"){
-                    //user is admin
-                    self.sendMsg.isHidden = true
-                    self.delete.isHidden = true
-                    
-                }else{
-                    //user is gen user
-                    self.sendMsg.isHidden = true
-                    self.delete.isHidden = true
-                }
-                
-            }
-            
-        }
-        //check current user who are board creator
-        let creatorid = creator!
-        if uid == creatorid{
-            self.sendMsg.isEnabled = false
-        }else
-        {
-            self.sendMsg.isEnabled = true
-        }
-        
-    }
-    
+
     @IBAction func deletePressed(_ sender: Any) {
-        //delete post for admin
-        let boardid = boardId!
-        let ref = Database.database().reference().child("\(type)").child("\(boardid)")
-        ref.removeValue(completionBlock: {(error, ref) in
-            if(error != nil){
-                print(error.debugDescription)
+        let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
+        let imageRef = storage.child(type).child(boardId + ".jpg")
+        print(boardId + ".jpg")
+        imageRef.delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("delete image from Storage")
             }
         })
-        displyAlertMessage(userMessage: "Delete successful")
-        // send to feed page
-       _ = navigationController?.popViewController(animated: true)
+
+                Database.database().reference(withPath: "BoardReport").child(boardId).removeValue()
+                print("Delete db")
+
+                Database.database().reference(withPath: type).child(boardId).removeValue()
+                print("Delete db")
+                print("delete account success")
+
+        
+        let alert = UIAlertController(title: "Success", message:   "Delete successful", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ -> Void in
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        })
+        alert.addAction(OKAction)
+        self.present(alert, animated: true){}
     }
     
     @IBAction func sendmsg(_ sender: Any) {
         // send message to board creator
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Chat") as? ChatViewController
-            
         {
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
-            
-            
             vc.senderid = Auth.auth().currentUser?.uid
             vc.recieverid = creator!
-            
         }
     }
-    
-  
-    
-    
+
     @IBAction func commentButt(_ sender: Any) {
         
         let uid = Auth.auth().currentUser!.uid
@@ -130,18 +102,38 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
                         "Comment": comment as AnyObject
                     ]
                     Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
-                }
-                
-            }
-            
-        }
-        
-
-    }
-    
+                }}}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // check admin status
+        let uid = Auth.auth().currentUser!.uid
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child("\(uid)")
+        var usertype: String!
+        query.observe(.value) { (snapshot) in
+            if let uservalue = snapshot.value as? NSDictionary{
+                usertype = uservalue["Type"] as? String ?? "Type not found"
+                if(usertype == "Admin"){
+                    //user is admin
+                    self.sendMsg.isHidden = false
+                    self.delete.isHidden = false
+                    
+                }else{
+                    //user is gen user
+                    self.sendMsg.isHidden = true
+                    self.delete.isHidden = true
+                } } }
+        
+        //check current user who are board creator
+        let creatorid = creator!
+        if uid == creatorid{
+            self.sendMsg.isEnabled = false
+        }else
+        {
+            self.sendMsg.isEnabled = true
+        }
+        
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
         getImage(url: img) { photo in
@@ -155,6 +147,7 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
         getcomment()
         TableView.dataSource = self
         TableView.delegate = self
+        
         
         
     }
