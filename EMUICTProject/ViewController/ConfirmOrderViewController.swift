@@ -114,20 +114,20 @@ class ConfirmOrderViewController: UIViewController,UINavigationControllerDelegat
                 //return
             }
             print("Confirm success")
-            self.deleteSAB()
-            print("DeleteSAB")
+//            self.deleteSAB()
+//            print("DeleteSAB")
         })
 
     }
-    func deleteSAB(){
-        
-        let buyer = self.bid
-        let seller = self.sid
-        let sab = seller! + "_" + buyer!
-        
-        Database.database().reference().child("SAB").child("\(sab)").removeValue()
-        print("delete success")
-    }
+//    func deleteSAB(){
+//
+//        let buyer = self.bid
+//        let seller = self.sid
+//        let sab = seller! + "_" + buyer!
+//
+//        Database.database().reference().child("SAB").child("\(sab)").removeValue()
+//        print("delete success")
+//    }
 
     
     
