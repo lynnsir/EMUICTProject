@@ -57,6 +57,7 @@ class MyProfileStudentViewController: UIViewController {
             vc.mj = major.text
             vc.mail = email.text
             vc.bd = birthday.text
+            vc.studentID = studentID.text!
   
         }
     }

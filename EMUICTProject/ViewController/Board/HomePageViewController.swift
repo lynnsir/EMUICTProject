@@ -12,6 +12,7 @@ import Firebase
 class HomePageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     let cellId = "NewsAndEventPostCell"
     var type:String!
@@ -38,13 +39,14 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                 if(usertype == "admin"){
                     //user is admin
                     self.navigationItem.title = "Board Reported"
+                    self.refreshButton.isEnabled = true
                     self.getReport()
                     
                 }else{
                     //user is gen user
                     self.getPost()
+                    self.refreshButton.isEnabled = false
                 }
-                
             }
             
         }
@@ -52,6 +54,25 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // deselect the selected row if any
+        let selectedRow: IndexPath? = tableView.indexPathForSelectedRow
+        if let selectedRowNotNill = selectedRow {
+            tableView.deselectRow(at: selectedRowNotNill, animated: true)
+        }
+    }
+    
+    @IBAction func refreshBut(_ sender: Any) {
+        board.removeAll()
+        tableView.reloadData()
+        print("Refresh")
+     getReport()
+        
+    }
+    
     func getReport(){
         
         let rootRef = Database.database().reference()

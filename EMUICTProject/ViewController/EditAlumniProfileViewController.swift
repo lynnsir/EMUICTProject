@@ -28,6 +28,7 @@ class EditAlumniProfileViewController: UIViewController,UIImagePickerControllerD
     var mail: String!
     var mj:String!
     var bd: String!
+    var studentID:String!
     
     @IBOutlet weak var imgPro: UIImageView!
     @IBOutlet weak var imageBG: UIView!
@@ -214,10 +215,32 @@ class EditAlumniProfileViewController: UIViewController,UIImagePickerControllerD
                                 "Contact number":self.ConNumber.text!,
                                 "Email":self.email.text!,
                                 "Career": self.career.text!,
-                                "BirthDate":self.birthdate.text!,
-                                "Career_Major":self.career.text! + "_" + self.mj,
+                                "BirthDate":self.birthdate.text!,            
                                 "urlToImage":imageURL
                         ]
+                        let mix = self.studentID + "_" + self.fullname.text! + "_" + self.career.text! + "_" + self.mj
+                        let newUpdatedAlumniProfile:[String : Any] =
+                            [
+                                "Fullname": self.fullname.text!,
+                                "Username": self.username.text!,
+                                "Contact number":self.ConNumber.text!,
+                                "Email":self.email.text!,
+                                "Career": self.career.text!,
+                                "BirthDate":self.birthdate.text!,
+                                "Career_Major":self.career.text! + "_" + self.mj,
+                                "urlToImage":imageURL,
+                                "Student ID_Full name":self.studentID + "_" + self.fullname.text!,
+                                "Student ID_Career" :self.studentID + "_" + self.career.text!,
+                                "Student ID_Major" :self.studentID + "_" + self.mj,
+                                "Full name_Career" :self.fullname.text! + "_" + self.career.text!,
+                                "Full name_Major" :self.fullname.text! + "_" + self.mj,
+                                "Student ID_Full name_Career" :self.studentID + "_" + self.fullname.text! + "_" + self.career.text!,
+                                "Student ID_Full name_Major" :self.studentID + "_" + self.fullname.text! + "_" + self.mj,
+                                "Full name_Career_Major" :self.fullname.text! + "_" + self.career.text! + "_" + self.mj,
+                                "Student ID_Career_Major" :self.studentID + "_" + self.career.text! + "_" + self.mj,
+                                "Student ID_Full name_Career_Major" : mix
+                        ]
+               
                         //update the firebase database for that user
                         self.imageUR = imageURL
                         
@@ -228,7 +251,7 @@ class EditAlumniProfileViewController: UIViewController,UIImagePickerControllerD
                             }
                             print("Profile Successfully Update in All user")
                         })
-                        self.ref.child("Alumni user").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
+                        self.ref.child("Alumni user").child(user).updateChildValues(newUpdatedAlumniProfile, withCompletionBlock: { (error, ref) in
                             if error != nil{
                                 print(error!)
                                 return

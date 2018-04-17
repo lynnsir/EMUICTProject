@@ -57,6 +57,7 @@ class MyProfileAlumniViewController: UIViewController {
             vc.mail = email.text
             vc.mj = major.text
             vc.bd = birthdate.text
+            vc.studentID = studentID.text!
         }
     }
     func getProfile(){

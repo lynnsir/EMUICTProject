@@ -1670,8 +1670,15 @@
                         <viewLayoutGuide key="safeArea" id="nEz-gb-PZC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="BYO-DU-KCT"/>
-                    <navigationItem key="navigationItem" title="Home" id="h2k-Z5-QSb"/>
+                    <navigationItem key="navigationItem" title="Home" id="h2k-Z5-QSb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="IYH-Ds-hnw">
+                            <connections>
+                                <action selector="refreshBut:" destination="fqv-5L-vOP" id="Ajh-Am-vjQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="IYH-Ds-hnw" id="2DZ-W5-o7i"/>
                         <outlet property="tableView" destination="JoR-t7-4AG" id="uVI-Mx-JTN"/>
                     </connections>
                 </viewController>

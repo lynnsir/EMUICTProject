@@ -50,8 +50,9 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         let uid = Auth.auth().currentUser?.uid
         let rootRef = Database.database().reference()
         let query = rootRef.child("Order").queryOrdered(byChild: "sellerID").queryEqual(toValue:uid)
+  
         query.observe(.value) { (snapshot) in
-            self.order.removeAll()
+           self.order.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     let orders = Order()
@@ -81,8 +82,9 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
         let uid = Auth.auth().currentUser?.uid
         let rootRef = Database.database().reference()
         let query = rootRef.child("Order").queryOrdered(byChild: "buyerID").queryEqual(toValue:uid)
+        self.order2.removeAll()
         query.observe(.value) { (snapshot) in
-              self.order2.removeAll()
+            self.order2.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     let orders = Order()

@@ -200,6 +200,7 @@ class EditStaffProfileViewController: UIViewController,UIImagePickerControllerDe
                                 "Email":self.email.text!,
                                 "Position": self.position.text!,
                                 "BirthDate":self.birthdate.text!,
+                                "Fullname_Position": self.fullname.text! + "_" + self.position.text!,
                                 "urlToImage":imageURL
                         ]
                         //update the firebase database for that user

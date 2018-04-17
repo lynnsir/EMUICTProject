@@ -28,6 +28,7 @@ class EditStudentProfileViewController: UIViewController,UIImagePickerController
     var mj: String!
     var mail: String!
     var bd: String!
+    var studentID:String!
 
     
     @IBOutlet weak var imgPro: UIImageView!
@@ -199,6 +200,8 @@ class EditStudentProfileViewController: UIViewController,UIImagePickerController
     }
     
     func updateUsersProfile(){
+        
+        let mix = self.studentID + "_" + self.fullname.text! + "_" + self.year.text! + "_" + self.major.text!
         //check to see if the user is logged in
         if let user = Auth.auth().currentUser?.uid{
             //create an access point for the Firebase storage
@@ -230,10 +233,33 @@ class EditStudentProfileViewController: UIViewController,UIImagePickerController
                                 "Email":self.email.text!,
                                 "Year":self.year.text!,
                                 "Major":self.major.text!,
-                                  "Year_Major":self.year.text! + "_" + self.major.text!,
                                 "BirthDate":self.birthdate.text!,
                                 "urlToImage":imageURL
                         ]
+                        
+                        let newupdatedStudentProfile:[String : Any] =
+                           [
+                                "Fullname": self.fullname.text!,
+                                "Username": self.username.text!,
+                                "Contact number":self.ConNumber.text!,
+                                "Email":self.email.text!,
+                                "Year":self.year.text!,
+                                "Major":self.major.text!,
+                                "Year_Major":self.year.text! + "_" + self.major.text!,
+                                "BirthDate":self.birthdate.text!,
+                                "urlToImage":imageURL,
+                                "Student ID_Full name":self.studentID + "_" + self.fullname.text!,
+                                "Student ID_Year" :self.studentID + "_" + self.year.text!,
+                                "Student ID_Major" :self.studentID + "_" + self.major.text!,
+                                "Student ID_Full name_Year" :self.studentID + "_" + self.fullname.text! + "_" + self.year.text!,
+                                "Student ID_Full name_Major" :self.studentID + "_" + self.fullname.text! + "_" + self.major.text!,
+                                "Full name_Year_Major" :self.fullname.text! + "_" + self.year.text! + "_" + self.major.text!,
+                                "Student ID_Year_Major" :self.studentID + "_" + self.year.text! + "_" + self.major.text!,
+                                "Student ID_Full name_Year_Major" :mix ,
+                                "Full name_Year" :self.fullname.text! + "_" + self.year.text!,
+                                "Full name_Major" :self.fullname.text! + "_" + self.major.text!
+                        ]
+                        
                         //update the firebase database for that user
                         self.imageUR = imageURL
                         
@@ -244,7 +270,7 @@ class EditStudentProfileViewController: UIViewController,UIImagePickerController
                             }
                             print("Profile Successfully Update in All user")
                         })
-                        self.ref.child("Student user").child(user).updateChildValues(newUpdatedProfile, withCompletionBlock: { (error, ref) in
+                        self.ref.child("Student user").child(user).updateChildValues(newupdatedStudentProfile, withCompletionBlock: { (error, ref) in
                             if error != nil{
                                 print(error!)
                                 return
