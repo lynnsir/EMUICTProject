@@ -200,6 +200,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
                     self.DeleteBut.isHidden = true
                     self.ReportLab.isHidden = true
                     self.editbut.isHidden = true
+                    self.savebut.isHidden = true
                 }
                
             }

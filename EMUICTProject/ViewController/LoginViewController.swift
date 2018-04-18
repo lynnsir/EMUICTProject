@@ -165,8 +165,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         email.delegate = self
         password.delegate = self
-
     }
+    
     func run(after seconds: Int, completion: @escaping () -> Void){
         let deadline = DispatchTime.now() + .seconds(seconds)
         DispatchQueue.main.asyncAfter(deadline: deadline) {

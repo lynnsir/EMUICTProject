@@ -92,6 +92,11 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
                 if error != nil{print(error.debugDescription)}
                 DispatchQueue.main.async {
                     cell.textLabel?.text = post.title
+//                    let content = post.content!
+//                    let indexEndOfText = content.index(content.endIndex, offsetBy: -30)
+//                    let subdetail = content[..<indexEndOfText]
+//                    let sdetail = subdetail + " ...More"
+//                    print(String(sdetail))
                     cell.detailTextLabel?.text = post.content
                     cell.postedImg.image = UIImage(data: data!)
                     

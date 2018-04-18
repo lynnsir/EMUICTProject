@@ -204,6 +204,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
                 self.ReportLab.isHidden = true
                 self.sendMessBut.isEnabled = true
                  self.editBut.isHidden = true
+                self.saveBut.isHidden = true
                 
             }else{
                 print(userType)
@@ -212,6 +213,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
                 self.ReportLab.isHidden = true
                 self.sendMessBut.isEnabled = true
                  self.editBut.isHidden = true
+                self.saveBut.isHidden = true
             }
         }
         

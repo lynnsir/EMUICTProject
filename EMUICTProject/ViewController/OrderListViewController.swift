@@ -12,7 +12,6 @@ import Firebase
 class OrderListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     var order = [Order]()
-    var order2 = [Order]()
     var total:String!
     var status:String!
     var oid:String!
@@ -21,38 +20,25 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     var date:String!
     var role:String!
 
-    @IBOutlet weak var segmentControl: UISegmentedControl!
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        print("Seller")
         super.viewDidLoad()
         getSellerOrder()
         tableView.backgroundColor = UIColor(red:0.99, green:1.00, blue:0.95, alpha:1.0)
 
     }
   
-    @IBAction func segmentPressed(_ sender: Any) {
-        if segmentControl.selectedSegmentIndex == 0 {
-            tableView.reloadData()
-            print("SellerSelected")
-            getSellerOrder()
-        }
-    
-        else  {
-            tableView.reloadData()
-            print("BuyerSelected")
-            getBuyerOrder()
-        }
-    }
-    
     func getSellerOrder(){
         
         let uid = Auth.auth().currentUser?.uid
         let rootRef = Database.database().reference()
         let query = rootRef.child("Order").queryOrdered(byChild: "sellerID").queryEqual(toValue:uid)
-  
+        
         query.observe(.value) { (snapshot) in
-           self.order.removeAll()
+            self.order.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 if let value = child.value as? NSDictionary {
                     let orders = Order()
@@ -80,38 +66,6 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
                 }}}}
     
     
-    func getBuyerOrder(){
-        
-        let uid = Auth.auth().currentUser?.uid
-        let rootRef = Database.database().reference()
-        let query = rootRef.child("Order").queryOrdered(byChild: "buyerID").queryEqual(toValue:uid)
-        
-        query.observe(.value) { (snapshot) in
-                self.order.removeAll()
-            for child in snapshot.children.allObjects as! [DataSnapshot] {
-                if let value = child.value as? NSDictionary {
-                    let orders = Order()
-                    let orderid = value["orderID"] as? String ?? "not found"
-                    let total = value["totalPrice"] as? String ?? "not found"
-                    let status = value["buyer_status"] as? String ?? "not found"
-                    let date = value["Date"] as? String ?? "not found"
-                    let bid = value["buyerID"] as? String ?? "not found"
-                    let sid = value["sellerID"] as? String ?? "not found"
-                    
-                    orders.sellerID = sid
-                    orders.buyerID = bid
-                    orders.orderID = orderid
-                    orders.total = total
-                    orders.status = status
-                    orders.date = date
-                    self.role = "buyer"
-                    print("getBuyerOrder: " + orderid)
-                     print("getBuyerOrder: " + status)
-                    self.order.append(orders)
-                  DispatchQueue.main.async { self.tableView.reloadData() }
-                    
-                }}}}
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
             return order.count
@@ -135,82 +89,24 @@ class OrderListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
         {
-           
             let order = self.order[indexPath.row]
             self.status = order.status
             
-            if role == "buyer"{
+            print("Goto: OrderDetailViewController")
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController
                 
-                if status == "Confirmed order" {
-                      print("Goto: OrderDetailPayViewController")
-                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailPay") as? OrderDetailPayViewController
-                        
-                    {
-                        if let navigator = navigationController {
-                            navigator.show(vc, sender: true)
-                        }
-                         let order = self.order[indexPath.row]
-                        vc.Orderdate = order.date
-                        vc.Orderstatus = order.status
-                        vc.oid = order.orderID
-                        
-                    }
-        }
-                
-                else if status == "Unconfirmed order" {
-                    print("Goto: ConfirmOrderViewController")
-                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfirmOrder") as? ConfirmOrderViewController
-                        
-                    {
-                        if let navigator = navigationController {
-                            navigator.show(vc, sender: true)
-                        }
-                        let order = self.order[indexPath.row]
-                        vc.oid = order.orderID
-                        vc.sid = order.sellerID
-                        vc.bid = order.buyerID
- 
-                    }
+            {
+                if let navigator = navigationController {
+                    navigator.show(vc, sender: true)
                 }
                 
-                else {
-                    print("Goto: OrderDetailViewController")
-                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController
-                        
-                    {
-                        if let navigator = navigationController {
-                            navigator.show(vc, sender: true)
-                        }
-                         let order = self.order[indexPath.row]
-                        vc.Orderdate = order.date
-                        vc.Orderstatus = order.status
-                        vc.oid = order.orderID
-                        
-                    }
-                }
-             
+                let order = self.order[indexPath.row]
+                vc.Orderdate = order.date
+                vc.Orderstatus = order.status
+                vc.oid = order.orderID
+
             }
-            else{
-                print("Goto: OrderDetailViewController")
-                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController
     
-                {
-                    if let navigator = navigationController {
-                        navigator.show(vc, sender: true)
-                    }
-    
-                    let order = self.order[indexPath.row]
-                    vc.Orderdate = order.date
-                    vc.Orderstatus = order.status
-                    vc.oid = order.orderID
-
-
-                }
-            }
-
-        }
-    
-    
- 
+    }
     
 }

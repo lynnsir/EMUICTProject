@@ -202,6 +202,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
                 self.ReportLab.isHidden = true
                 self.sendMessBut.isEnabled = true
                  self.editbut.isHidden = true
+                self.savebut.isHidden = true
                 
             }else{
                 print(usertype)
@@ -210,6 +211,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
                 self.ReportLab.isHidden = true
                 self.sendMessBut.isEnabled = true
                  self.editbut.isHidden = true
+                self.savebut.isHidden = true
             }
         }
         
