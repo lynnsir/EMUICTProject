@@ -36,7 +36,7 @@ class StudentRegisterViewController: UIViewController, UIImagePickerControllerDe
     var userStorage: StorageReference!
     var ref: DatabaseReference!
     var type = "Student"
-    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    var track = ["","Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
     var testid: String!
     let trackPicker = UIPickerView()
    

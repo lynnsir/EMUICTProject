@@ -33,7 +33,7 @@ class AlumniRegisterViewController: UIViewController, UIImagePickerControllerDel
     var userStorage: StorageReference!
     var ref: DatabaseReference!
     var type = "Alumni"
-    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    var track = ["","Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
     
     let trackPicker = UIPickerView()
     

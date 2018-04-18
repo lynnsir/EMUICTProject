@@ -10,7 +10,7 @@ import UIKit
 
 class AlumniSearchViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate {
     
-    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    var track = ["","Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
     let trackPicker = UIPickerView()
     
     @IBOutlet weak var fullname: UITextField!

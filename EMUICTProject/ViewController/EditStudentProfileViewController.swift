@@ -15,7 +15,7 @@ class EditStudentProfileViewController: UIViewController,UIImagePickerController
     let datePicker = UIDatePicker()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
-    var track = ["Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
+    var track = ["","Database & Intelligent Systems", "Software Engineering", "Computer Science" , "Computer Network" , "Multimedia" , "E-Business" , "Management Information System" , "Health Information Technology" ]
     let trackPicker = UIPickerView()
     
     var imageUR:String!
