@@ -94,7 +94,11 @@ class WatchListViewController: UIViewController, UITableViewDelegate, UITableVie
                 if error != nil{print(error.debugDescription)}
                 DispatchQueue.main.async {
                     cell.textLabel?.text = post.title
-                    cell.detailTextLabel?.text = post.content
+                    let content = post.content!
+                    let indexEndOfText = content.index(content.startIndex, offsetBy: 40)
+                    let subdetail = content[..<indexEndOfText]
+                    let sdetail = String(subdetail) + " ...More"
+                    cell.detailTextLabel?.text = sdetail
                     cell.postedImg.image = UIImage(data: data!)
 
                 }
