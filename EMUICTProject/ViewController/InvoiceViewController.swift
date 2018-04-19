@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import OmiseSDK
 
 class InvoiceViewController: UIViewController {
 
