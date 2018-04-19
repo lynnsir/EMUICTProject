@@ -18,7 +18,7 @@ class AdminOrderDetailViewController: UIViewController {
     @IBOutlet weak var total: UILabel!
     
     var orderid:String!
-    var buyerID:String!
+    var sellerID:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         print(oid)
@@ -36,7 +36,7 @@ class AdminOrderDetailViewController: UIViewController {
                 self.date.text = values?["Date"] as? String
                 self.status.text = values?["seller_status"] as? String
                 self.total.text = values?["totalPrice"] as? String
-                self.buyerID = values?["buyerID"] as? String
+                self.sellerID = values?["sellerID"] as? String
                 
        
             })
@@ -49,10 +49,10 @@ class AdminOrderDetailViewController: UIViewController {
     func BuyerName(){
         OrderDetail()
         run(after: 2) {
-            if self.buyerID != nil{
+            if self.sellerID != nil{
                 let rootRef = Database.database().reference()
-                print("buyerID : " + self.buyerID)
-                rootRef.child("Alluser").child(self.buyerID).observe(.value, with: { (snapshot) in
+                print("sellerID : " + self.sellerID)
+                rootRef.child("Alluser").child(self.sellerID).observe(.value, with: { (snapshot) in
                     
                     let values = snapshot.value as? NSDictionary
                     self.buyerName.text = values?["Full name"] as? String
@@ -87,7 +87,7 @@ class AdminOrderDetailViewController: UIViewController {
             
 
             vc.senderid = Auth.auth().currentUser?.uid
-            vc.recieverid = buyerID
+            vc.recieverid = sellerID
             
         }
     }

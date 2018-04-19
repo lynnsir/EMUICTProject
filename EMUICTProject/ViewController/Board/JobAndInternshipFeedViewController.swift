@@ -91,10 +91,13 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
                 DispatchQueue.main.async {
                     cell.textLabel?.text = post.title
                     let content = post.content!
-                    let indexEndOfText = content.index(content.startIndex, offsetBy: 40)
-                    let subdetail = content[..<indexEndOfText]
-                    let sdetail = String(subdetail) + " ...More"
-                    cell.detailTextLabel?.text = sdetail
+                    if content.count > 40{
+                        let indexEndOfText = content.index(content.startIndex, offsetBy: 40)
+                        let subdetail = content[..<indexEndOfText]
+                        let sdetail = String(subdetail) + " ...More"
+                        cell.detailTextLabel?.text = sdetail
+                    }
+                    cell.detailTextLabel?.text = content
                     cell.postedImg.image = UIImage(data: data!)
                     
                 }
