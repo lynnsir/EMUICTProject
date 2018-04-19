@@ -18,7 +18,7 @@ class OrderDetailPayViewController: UIViewController, CreditCardFormDelegate, UI
     var Orderdate:String!
     var Orderstatus:String!
     var oid:String!
-    var totalPrice = 0.00
+    var totalPrice = 0
     
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var status: UILabel!
@@ -69,7 +69,7 @@ class OrderDetailPayViewController: UIViewController, CreditCardFormDelegate, UI
         
         query.observe(.value) { (snapshot) in
             self.product.removeAll()
-            self.totalPrice = 0.00
+            self.totalPrice = 0
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 
                 if let value = child.value as? NSDictionary {
@@ -78,7 +78,7 @@ class OrderDetailPayViewController: UIViewController, CreditCardFormDelegate, UI
                     let quant = value["Quantity"] as? String
                     let prices = value["Price"] as? String
                     
-                    self.totalPrice = self.totalPrice + Double(prices!)!
+                    self.totalPrice = self.totalPrice + Int(prices!)!
                     print(self.totalPrice)
                     self.price.text = String(self.totalPrice)
                     
@@ -154,7 +154,7 @@ class OrderDetailPayViewController: UIViewController, CreditCardFormDelegate, UI
             
             let url:NSURL = NSURL(string: "http://127.0.0.1/php-test/services/chargeService.php")!
             let session = URLSession.shared
-            let priceNew = Double(self.totalPrice)
+            let priceNew = Int(self.totalPrice)
             let pricethb = priceNew * 100
             let description = self.oid!
             let request = NSMutableURLRequest(url:url as URL)

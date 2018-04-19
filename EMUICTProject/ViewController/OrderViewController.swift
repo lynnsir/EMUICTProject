@@ -17,7 +17,7 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
 
     
     var orderID : String!
-    var totalPrice = 0.00
+    var totalPrice = 0
      var totalMoney:String!
 
     
@@ -69,7 +69,7 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
       
         query.observe(.value) { (snapshot) in
             self.product.removeAll()
-            self.totalPrice = 0.00
+            self.totalPrice = 0
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 
                 if let value = child.value as? NSDictionary {
@@ -78,7 +78,7 @@ class OrderViewController: UIViewController,UINavigationControllerDelegate, UITa
                     let quant = value["Quantity"] as? String
                     let prices = value["Price"] as? String
      
-                    self.totalPrice = self.totalPrice + Double(prices!)!
+                    self.totalPrice = self.totalPrice + Int(prices!)!
                     print(self.totalPrice)
                     self.price.text = String(self.totalPrice)
                     products.name = pdname

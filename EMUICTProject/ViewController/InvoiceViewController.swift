@@ -55,19 +55,19 @@ class InvoiceViewController: UIViewController, CreditCardFormDelegate, UINavigat
         self.memberType.text = type
         
         if memberType.text == "Student"{
-            price.text = "150.00"
+            price.text = "150"
             self.db = "Student user"
         }
         else if memberType.text == "Staff"{
-            price.text = "250.00"
+            price.text = "250"
             self.db = "Staff user"
         }
         else if memberType.text == "Alumni"{
-            price.text = "200.00"
+            price.text = "200"
             self.db = "Alumni user"
         }
         else if memberType.text == "Company"{
-            price.text = "300.00"
+            price.text = "300"
             self.db = "Company user"
         }
         
@@ -131,7 +131,7 @@ class InvoiceViewController: UIViewController, CreditCardFormDelegate, UINavigat
             let url:NSURL = NSURL(string: "http://127.0.0.1/php-test/services/chargeService.php")!
             let session = URLSession.shared
             let price: String =  (self.price?.text)!
-            let priceNew = Double(price)
+            let priceNew = Int(price)
             let pricethb = priceNew! * 100
             let memberDes = self.memberType.text! + " " + "  Membership fee"
             let request = NSMutableURLRequest(url:url as URL)
