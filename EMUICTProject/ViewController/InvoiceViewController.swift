@@ -136,7 +136,7 @@ class InvoiceViewController: UIViewController, CreditCardFormDelegate, UINavigat
             let memberDes = self.memberType.text! + " " + "  Membership fee"
             let request = NSMutableURLRequest(url:url as URL)
             request.httpMethod = "POST"
-            
+           
             let datatoken = "token=\(token.tokenId!)&total=\(pricethb)&description=\(memberDes)"
             request.httpBody = datatoken.data(using: String.Encoding.utf8)
             
@@ -147,10 +147,11 @@ class InvoiceViewController: UIViewController, CreditCardFormDelegate, UINavigat
                     self.dismissCreditCardForm()
                     return
                 }
-                if let data = data { // can charge 
+                if let data = data { // can charge
                     let string = String(data: data, encoding: String.Encoding.utf8)
                     print(response!)
                     print("Test: " + string!) //JSONSerialization
+                    print(pricethb)
                     self.updateStatus()
                     self.displyAlertMessage(userMessage: "Payment Successful")
                 }
