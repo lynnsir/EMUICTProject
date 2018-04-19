@@ -166,12 +166,14 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                 if error != nil{print(error.debugDescription)}
                 DispatchQueue.main.async {
                     cell.textLabel?.text = post.title
-                                        let content = post.content!
-                                        let indexEndOfText = content.index(content.startIndex, offsetBy: 40)
-                                        let subdetail = content[..<indexEndOfText]
-                                        let sdetail = String(subdetail) + " ...More"
-                                        print(sdetail)
-                    cell.detailTextLabel?.text = sdetail
+                    let content = post.content!
+                    if content.count > 40{
+                        let indexEndOfText = content.index(content.startIndex, offsetBy: 40)
+                        let subdetail = content[..<indexEndOfText]
+                        let sdetail = String(subdetail) + " ...More"
+                        cell.detailTextLabel?.text = sdetail
+                    }
+                    cell.detailTextLabel?.text = content
                     cell.postedImg.image = UIImage(data: data!)
                     
                 }
