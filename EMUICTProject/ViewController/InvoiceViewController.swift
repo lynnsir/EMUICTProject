@@ -130,23 +130,24 @@ class InvoiceViewController: UIViewController, CreditCardFormDelegate, UINavigat
             
             let url:NSURL = NSURL(string: "http://127.0.0.1/php-test/services/chargeService.php")!
             let session = URLSession.shared
-            
+            let price: String =  (self.price?.text)!
+            let priceNew = Double(price)
+            let pricethb = priceNew! * 100
+            let memberDes = self.memberType.text! + " " + "  Membership fee"
             let request = NSMutableURLRequest(url:url as URL)
             request.httpMethod = "POST"
             
-            let datatoken = "token=\(token.tokenId!)&total=\(self.price.text!)"
+            let datatoken = "token=\(token.tokenId!)&total=\(pricethb)&description=\(memberDes)"
             request.httpBody = datatoken.data(using: String.Encoding.utf8)
             
             let task = session.dataTask(with: request as URLRequest){(data,response,error) in
-                guard error == nil else{
-                    //print(response!)
+                guard error == nil else{ //Have error
                     print(error!)
-                    //_ = self.navigationController?.popToRootViewController(animated: true)
                     self.displyAlertMessage(userMessage: "Paymernt Error!")
                     self.dismissCreditCardForm()
                     return
                 }
-                if let data = data {
+                if let data = data { // can charge 
                     let string = String(data: data, encoding: String.Encoding.utf8)
                     print(response!)
                     print("Test: " + string!) //JSONSerialization
