@@ -120,6 +120,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
             "Comment": comment as AnyObject
         ]
         Database.database().reference().child("BusinessPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
+        self.commentText.text = nil //clear comment text
     }
     
     @IBAction func SendMessageBut(_ sender: Any) {

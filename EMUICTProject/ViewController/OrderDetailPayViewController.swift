@@ -186,19 +186,20 @@ class OrderDetailPayViewController: UIViewController, CreditCardFormDelegate, UI
     }
     func updateStatus(){
         let rootRef = Database.database().reference()
-        let uid = Auth.auth().currentUser?.uid
-        let newUpdateStatus: [String : Any] = [
-            "Status": "Pay",
-            ]
         
-        rootRef.child("Alluser").child("\(uid!)").updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in
+        
+        let newUpdateStatus: [String : Any] = [
+            "seller_status": "Verified Payment",
+            "buyer_status": "Verified Payment"
+        ]
+        
+        rootRef.child("Order").child("\(oid!)").updateChildValues(newUpdateStatus, withCompletionBlock: { (error, ref) in
             if let error = error{
                 print(error)
                 //return
             }
             print("Payment success")
         })
-        
         
     }
     

@@ -11,7 +11,7 @@ import Firebase
 
 class ProductPaymentViewController: UIViewController {
     
-var total = 0.00
+var total = 0
 var totalText:String!
 var oid:String!
     

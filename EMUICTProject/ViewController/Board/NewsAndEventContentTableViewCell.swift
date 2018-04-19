@@ -117,6 +117,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
             "Comment": comment as AnyObject
                  ]
         Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
+        self.commentText.text = nil //clear comment text
     }
     
     @IBAction func SendMessageBut(_ sender: Any) {
