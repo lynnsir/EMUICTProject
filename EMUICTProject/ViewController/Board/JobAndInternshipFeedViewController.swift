@@ -155,10 +155,10 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
             PostBoard.title.lowercased().contains(searchText.lowercased())
             
         })
-        filteredData = board.filter({ (PostBoard) -> Bool in
-            PostBoard.content.lowercased().contains(searchText.lowercased())
-            
-        })
+//        filteredData = board.filter({ (PostBoard) -> Bool in
+//            PostBoard.content.lowercased().contains(searchText.lowercased())
+//            
+//        })
         
         if(filteredData.count == 0){
             searchActive = false;

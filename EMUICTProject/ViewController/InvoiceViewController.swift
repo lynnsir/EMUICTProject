@@ -127,13 +127,13 @@ class InvoiceViewController: UIViewController, CreditCardFormDelegate, UINavigat
         dismissCreditCardFormWithCompletion({
             // Sends `OmiseToken` to your server for creating a charge, or a customer object.
             //Send to HTTP request
-            
+            //let uid = Auth.auth().currentUser?.uid
             let url:NSURL = NSURL(string: "http://127.0.0.1/php-test/services/chargeService.php")!
             let session = URLSession.shared
             let price: String =  (self.price?.text)!
             let priceNew = Int(price)
             let pricethb = priceNew! * 100
-            let memberDes = self.memberType.text! + " " + "  Membership fee"
+            let memberDes = "Name :" + self.fullname.text! + " " + self.memberType.text! + " " + "  Membership fee"
             let request = NSMutableURLRequest(url:url as URL)
             request.httpMethod = "POST"
            
