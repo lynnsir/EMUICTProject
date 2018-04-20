@@ -151,7 +151,12 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
-            let post = board[indexPath.row]
+            var post = PostBoard()
+            if searchActive {
+                post = filteredData[indexPath.row]
+            }else{
+                post = board[indexPath.row]
+            }
 
                vc.img = post.imagePost
                vc.Title = post.title

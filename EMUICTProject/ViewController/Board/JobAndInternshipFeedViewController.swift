@@ -118,7 +118,12 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
-            let post = board[indexPath.row]
+            var post = PostBoard()
+            if searchActive {
+                post = filteredData[indexPath.row]
+            }else{
+                post = board[indexPath.row]
+            }
             vc.img = post.imagePost
             vc.Title = post.title
             vc.content = post.content

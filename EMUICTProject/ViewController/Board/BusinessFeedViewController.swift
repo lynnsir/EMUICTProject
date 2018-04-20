@@ -9,7 +9,11 @@
 import UIKit
 import Firebase
 
-class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
+class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate{
+   
+    
+  
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var InsertBusinessButt: UIBarButtonItem!
@@ -31,8 +35,10 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
         getPost()
         tableView.dataSource = self
         tableView.delegate = self
+        
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -149,7 +155,14 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
             if let navigator = navigationController {
                 navigator.show(vc, sender: true)
             }
-            let post = board[indexPath.row]
+            var post = PostBoard()
+            if searchActive {
+                post = filteredData[indexPath.row]
+            }else{
+                post = board[indexPath.row]
+            }
+            
+            
             vc.img = post.imagePost
             vc.Title = post.title
             vc.content = post.content
@@ -168,6 +181,9 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
+    }
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

@@ -14,7 +14,7 @@ class AdminOrderDetailViewController: UIViewController {
     @IBOutlet weak var oid: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var status: UILabel!
-    @IBOutlet weak var buyerName: UILabel!
+    @IBOutlet weak var sellername: UILabel!
     @IBOutlet weak var total: UILabel!
     
     var orderid:String!
@@ -55,7 +55,7 @@ class AdminOrderDetailViewController: UIViewController {
                 rootRef.child("Alluser").child(self.sellerID).observe(.value, with: { (snapshot) in
                     
                     let values = snapshot.value as? NSDictionary
-                    self.buyerName.text = values?["Full name"] as? String
+                    self.sellername.text = values?["Full name"] as? String
                 })
             }
             else{
