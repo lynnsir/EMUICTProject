@@ -12,7 +12,8 @@ import Firebase
 class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet var InsertBusinessButt: UIBarButtonItem!
+    
     @IBOutlet var searchBar: UISearchBar!
     
     let cellId = "NewsAndEventPostCell"
@@ -32,6 +33,34 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
         tableView.delegate = self
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let uid = Auth.auth().currentUser!.uid
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child("\(uid)")
+        var usertype: String!
+        query.observe(.value) { (snapshot) in
+            
+            if let uservalue = snapshot.value as? NSDictionary{
+                
+                usertype = uservalue["Type"] as? String ?? "Type not found"
+                
+                if(usertype == "Company"){
+                    //user is admin
+                    self.InsertBusinessButt.isEnabled = true
+                    
+                }else{
+                    //user is gen user
+                    self.InsertBusinessButt.isEnabled = false
+                    
+                }
+                
+            }
+            
+        }
+        
     }
    
     

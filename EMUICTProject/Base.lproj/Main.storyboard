@@ -2047,6 +2047,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="InsertBusinessButt" destination="DSj-Ex-VCY" id="jYP-5b-ijw"/>
                         <outlet property="searchBar" destination="kdk-Mn-4hN" id="3cf-NQ-Ur4"/>
                         <outlet property="tableView" destination="L4T-lz-qhh" id="nIH-iH-yoP"/>
                     </connections>
