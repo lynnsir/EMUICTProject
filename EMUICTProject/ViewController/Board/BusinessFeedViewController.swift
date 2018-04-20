@@ -48,12 +48,12 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
                 usertype = uservalue["Type"] as? String ?? "Type not found"
                 
                 if(usertype == "Company"){
-                    //user is admin
-                    self.InsertBusinessButt.isEnabled = true
+                    //user is company : cannot post on Business
+                    self.InsertBusinessButt.isEnabled = false
                     
                 }else{
-                    //user is gen user
-                    self.InsertBusinessButt.isEnabled = false
+                    //user is gen user : can post on Business
+                    self.InsertBusinessButt.isEnabled = true
                     
                 }
                 
