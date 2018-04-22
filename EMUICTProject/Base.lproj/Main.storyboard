@@ -126,9 +126,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mh7-Ny-2SF">
-                                <rect key="frame" x="44" y="130" width="64" height="64"/>
+                                <rect key="frame" x="62" y="129" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="news"/>
+                                <state key="normal" image="news-menu"/>
                                 <connections>
                                     <segue destination="8gc-Mf-94l" kind="show" id="UIi-Sh-fzB">
                                         <nil key="action"/>
@@ -136,19 +136,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvX-vW-mYd">
-                                <rect key="frame" x="178" y="131" width="64" height="64"/>
+                                <rect key="frame" x="270" y="321" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="business"/>
-                                <connections>
-                                    <segue destination="TJp-Yl-GqI" kind="show" id="ua9-Pp-JVc">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
+                                <state key="normal" image="business-menu"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0m-fM-lk4">
-                                <rect key="frame" x="304" y="130" width="64" height="64"/>
+                                <rect key="frame" x="62" y="321" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="job"/>
+                                <state key="normal" image="job-menu"/>
                                 <connections>
                                     <segue destination="bS9-nu-7lv" kind="show" id="BtR-50-ZX6">
                                         <nil key="action"/>
@@ -156,21 +151,36 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News &amp; Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukX-np-srW">
-                                <rect key="frame" x="19" y="202" width="115" height="21"/>
+                                <rect key="frame" x="52" y="232" width="115" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYh-dP-D0e">
-                                <rect key="frame" x="178" y="202" width="69" height="21"/>
+                                <rect key="frame" x="283" y="232" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job&amp;Internship" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZh-ad-MgJ">
-                                <rect key="frame" x="278" y="202" width="117" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMB-Xj-zdm">
+                                <rect key="frame" x="270" y="129" width="95" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="knowledge-menu"/>
+                                <connections>
+                                    <segue destination="Bsr-Fc-GDd" kind="show" id="cCP-AM-vYl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Knowledge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ud-nJ-Dp0">
+                                <rect key="frame" x="275" y="424" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job &amp; Internship" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZh-ad-MgJ">
+                                <rect key="frame" x="46" y="423" width="126" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -185,6 +195,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjC-Mf-nM2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1861" y="2760"/>
+        </scene>
+        <!--Knowledge View Controller-->
+        <scene sceneID="eCG-eS-ooo">
+            <objects>
+                <viewController id="Bsr-Fc-GDd" customClass="KnowledgeViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fn7-PQ-gJX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsI-Eo-C7e">
+                                <rect key="frame" x="0.0" y="64" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686270000003" green="1" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="h05-gw-aQS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q2N-tK-Eie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3101" y="2653"/>
+        </scene>
+        <!--Knowledge Content View Controller-->
+        <scene sceneID="ncc-Sn-QE9">
+            <objects>
+                <viewController id="TFA-i1-36H" customClass="KnowledgeContentViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WBf-Dx-M2G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="x6d-uM-3qL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ite-YV-Wbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4244" y="2339"/>
+        </scene>
+        <!--Create Knowledge Post View Controller-->
+        <scene sceneID="e0Y-Co-8cv">
+            <objects>
+                <viewController id="m5P-kt-Xfm" customClass="CreateKnowledgePostViewController" customModule="EMUICTProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jvj-un-RHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Yb8-Pj-0tc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJT-UQ-1bw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5287" y="2368"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="1ww-h9-Xxv">
@@ -2533,7 +2595,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3E-gL-fy1">
-                                <rect key="frame" x="0.0" y="64" width="414" height="923"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="1016"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gd4-11-HcI">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
@@ -6639,7 +6701,7 @@
         <image name="account" width="32" height="32"/>
         <image name="alumni" width="512" height="512"/>
         <image name="board" width="32" height="32"/>
-        <image name="business" width="64" height="64"/>
+        <image name="business-menu" width="237" height="236"/>
         <image name="buyerIcon" width="192" height="193"/>
         <image name="cancelOrder" width="152" height="82"/>
         <image name="comment" width="152" height="82"/>
@@ -6647,11 +6709,12 @@
         <image name="edit-icon" width="64" height="64"/>
         <image name="home" width="32" height="32"/>
         <image name="invoice" width="128" height="128"/>
-        <image name="job" width="64" height="64"/>
+        <image name="job-menu" width="256" height="256"/>
+        <image name="knowledge-menu" width="256" height="256"/>
         <image name="logo" width="2654" height="1967"/>
         <image name="logout-icon" width="872" height="874"/>
         <image name="message" width="32" height="32"/>
-        <image name="news" width="64" height="64"/>
+        <image name="news-menu" width="256" height="256"/>
         <image name="ok" width="152" height="82"/>
         <image name="order" width="64" height="64"/>
         <image name="pay" width="152" height="82"/>
