@@ -68,6 +68,9 @@
 		85C5BDDC206E26EA0097BE9A /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDDB206E26EA0097BE9A /* OrderDetailViewController.swift */; };
 		85C5BDDE206E28F70097BE9A /* OrderDetailPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDDD206E28F70097BE9A /* OrderDetailPayViewController.swift */; };
 		85C5BDE0206E29520097BE9A /* OrderDetailPayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5BDDF206E29520097BE9A /* OrderDetailPayTableViewCell.swift */; };
+		85C6D7A3208C708000034211 /* CreateKnowledgePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C6D7A2208C708000034211 /* CreateKnowledgePostViewController.swift */; };
+		85C6D7A5208C70A800034211 /* KnowledgeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C6D7A4208C70A800034211 /* KnowledgeContentViewController.swift */; };
+		85C6D7A7208C70B700034211 /* KnowledgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C6D7A6208C70B700034211 /* KnowledgeViewController.swift */; };
 		85D6B056203AD1D0005AE477 /* StudentReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B055203AD1D0005AE477 /* StudentReportTableViewCell.swift */; };
 		85D6B058203AD1E7005AE477 /* AlumniReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */; };
 		85D6B05A203AD1F4005AE477 /* StaffReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */; };
@@ -167,6 +170,9 @@
 		85C5BDDB206E26EA0097BE9A /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		85C5BDDD206E28F70097BE9A /* OrderDetailPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailPayViewController.swift; sourceTree = "<group>"; };
 		85C5BDDF206E29520097BE9A /* OrderDetailPayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailPayTableViewCell.swift; sourceTree = "<group>"; };
+		85C6D7A2208C708000034211 /* CreateKnowledgePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateKnowledgePostViewController.swift; sourceTree = "<group>"; };
+		85C6D7A4208C70A800034211 /* KnowledgeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeContentViewController.swift; sourceTree = "<group>"; };
+		85C6D7A6208C70B700034211 /* KnowledgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeViewController.swift; sourceTree = "<group>"; };
 		85D6B055203AD1D0005AE477 /* StudentReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentReportTableViewCell.swift; sourceTree = "<group>"; };
 		85D6B057203AD1E7005AE477 /* AlumniReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniReportTableViewCell.swift; sourceTree = "<group>"; };
 		85D6B059203AD1F4005AE477 /* StaffReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffReportTableViewCell.swift; sourceTree = "<group>"; };
@@ -227,6 +233,9 @@
 				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
 				0B16D874206A8B0D004CE7FB /* HomePageContentViewController.swift */,
 				0B16D872206A894F004CE7FB /* HomePageViewController.swift */,
+				85C6D7A2208C708000034211 /* CreateKnowledgePostViewController.swift */,
+				85C6D7A4208C70A800034211 /* KnowledgeContentViewController.swift */,
+				85C6D7A6208C70B700034211 /* KnowledgeViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -523,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85C6D7A5208C70A800034211 /* KnowledgeContentViewController.swift in Sources */,
 				0BC13C3D206CB0040036F66D /* BusinessContentViewController.swift in Sources */,
 				85950DCB20335440002D4A0B /* AlumniSearchViewController.swift in Sources */,
 				0B5FBAB02071C31800881D02 /* Message.swift in Sources */,
@@ -561,6 +571,7 @@
 				85D922CB204523CE00B94951 /* DLRadioButton.m in Sources */,
 				85E82119203DBA0F00ADD576 /* CompanyIndividualSearchViewController.swift in Sources */,
 				855DBD02206E3CA6000A76B7 /* OrderTableViewCell.swift in Sources */,
+				85C6D7A7208C70B700034211 /* KnowledgeViewController.swift in Sources */,
 				0BCE4B22204A62BB0066A55B /* NewsAndEventsFeedViewController.swift in Sources */,
 				856D6592208790ED0085D07E /* OrderListBuyerViewController.swift in Sources */,
 				85EF1FEC20202F9C00F39134 /* ViewController.swift in Sources */,
@@ -570,6 +581,7 @@
 				856BC4EB20348E3400AC712A /* CompanyReportViewController.swift in Sources */,
 				85C5BDDE206E28F70097BE9A /* OrderDetailPayViewController.swift in Sources */,
 				856BC4EF20348E5600AC712A /* AlumniReportViewController.swift in Sources */,
+				85C6D7A3208C708000034211 /* CreateKnowledgePostViewController.swift in Sources */,
 				855DBCFC206E3C8C000A76B7 /* OrderViewController.swift in Sources */,
 				85836DF42055247800117149 /* EditAlumniProfileViewController.swift in Sources */,
 				85E82113203DB9A500ADD576 /* StudentIndividualSearchViewController.swift in Sources */,
