@@ -100,6 +100,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                             let bTitle = value2["Title"] as? String ?? "Title not found"
                             let bContent = value2["Content"] as? String ?? "Content not found"
                             let imagePath = value2["urlToImage"] as? String ?? "Image not found"
+                            let timestamp = value["timestamp"] as? NSNumber
                             
                             post.imagePost = imagePath
                             post.title = bTitle
@@ -107,8 +108,23 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                             post.creator = creatorid
                             post.postId = postid
                             post.boardType = boardtype
+                            post.timestamp = timestamp
                             
                             self.board.append(post)
+                            
+                            self.board.sort(by: { (postboard1, postboard2) -> Bool in
+                                
+                                if let timestamp1 = postboard1.timestamp, let timestamp2 = postboard2.timestamp {
+                                    return timestamp1.intValue > timestamp2.intValue
+                                } else {
+                                    //At least one of your timestamps is nil.  You have to decide how to sort here.
+                                    return true
+                                }
+                                
+                                
+                            })
+                            
+                            
                             DispatchQueue.main.async { self.tableView.reloadData() }
                         }
                     })

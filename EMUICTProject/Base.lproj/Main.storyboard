@@ -139,6 +139,9 @@
                                 <rect key="frame" x="270" y="321" width="95" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="business-menu"/>
+                                <connections>
+                                    <segue destination="Bsr-Fc-GDd" kind="showDetail" id="0aP-dl-G6B"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0m-fM-lk4">
                                 <rect key="frame" x="62" y="321" width="95" height="95"/>
@@ -169,7 +172,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="knowledge-menu"/>
                                 <connections>
-                                    <segue destination="Bsr-Fc-GDd" kind="show" id="cCP-AM-vYl"/>
+                                    <segue destination="TJp-Yl-GqI" kind="showDetail" id="SXU-sD-FSw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Knowledge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ud-nJ-Dp0">
@@ -6734,7 +6737,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cfw-AK-89x"/>
-        <segue reference="IpU-4K-ivj"/>
+        <segue reference="YH1-Gf-tfj"/>
         <segue reference="HNH-zn-Ges"/>
     </inferredMetricsTieBreakers>
 </document>

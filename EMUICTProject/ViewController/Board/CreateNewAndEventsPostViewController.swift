@@ -69,6 +69,7 @@ class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerContr
         let postedId = Database.database().reference().child("NewAndEventPost").childByAutoId().key
         let imageRef = self.userStorage.child("\(postedId).jpg")
         let data = UIImageJPEGRepresentation(self.imgView.image!, 0.5)
+        let timestamp = Int(Date().timeIntervalSince1970)
         let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
             if err != nil{
                 print(err!.localizedDescription)
@@ -84,7 +85,9 @@ class CreateNewAndEventsPostViewController: UIViewController, UIImagePickerContr
                         "Title": title as AnyObject,
                         "Content": content as AnyObject,
                         "creator": uid as AnyObject,
-                        "urlToImage": url.absoluteString
+                        "urlToImage": url.absoluteString,
+                        "timestamp": timestamp as AnyObject
+                        
                         
                     ]
                     Database.database().reference().child("NewAndEventPost").child("\(postedId)").setValue(postData)
