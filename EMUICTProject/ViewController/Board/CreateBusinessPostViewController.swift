@@ -20,7 +20,7 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
-    
+    var createDate: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,12 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         
         let title = Title
         let content = Content
-        
+        //date add
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/YYY"
+        let date = formatter.string(from: Date())
+        self.createDate = date
+        //end date add
         let uid = Auth.auth().currentUser!.uid
         let postedId = Database.database().reference().child("BusinessPost").childByAutoId().key
         let imageRef = self.userStorage.child("\(postedId).jpg")
@@ -86,8 +91,8 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
                         "Content": content as AnyObject,
                         "creator": uid as AnyObject,
                         "urlToImage": url.absoluteString,
-                        "timestamp": timestamp as AnyObject
-                        
+                        "timestamp": timestamp as AnyObject,
+                        "CreateDate": date as AnyObject
                     ]
                     Database.database().reference().child("BusinessPost").child("\(postedId)").setValue(postData)
                     

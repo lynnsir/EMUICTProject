@@ -52,13 +52,15 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
                     let bContent = value["Content"] as? String ?? "Content not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     let timestamp = value["timestamp"] as? NSNumber
-                    
+                    let createDate = value["CreateDate"] as? String ?? "Not found create date"
+                
                     post.imagePost = imagePath
                     post.title = bTitle
                     post.content = bContent
                     post.creator = creatorid
                     post.postId = postid
                     post.timestamp = timestamp
+                    post.CreateDate = createDate
                     
                     self.board.append(post)
                     
@@ -144,6 +146,7 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
             vc.creator = post.creator
             vc.boardId = post.postId
             vc.userType = type
+            vc.BoardcreateDate = post.CreateDate
         }
     }
     

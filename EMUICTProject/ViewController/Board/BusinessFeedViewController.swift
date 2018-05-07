@@ -89,6 +89,7 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
                     let bContent = value["Content"] as? String ?? "Content not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     let timestamp = value["timestamp"] as? NSNumber
+                    let createDate = value["CreateDate"] as? String ?? "Not found create date"
                     
                     post.imagePost = imagePath
                     post.title = bTitle
@@ -96,6 +97,7 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
                     post.creator = creatorid
                     post.postId = postid
                     post.timestamp = timestamp
+                    post.CreateDate = createDate
                     
                     self.board.append(post)
                     
@@ -183,6 +185,7 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
             vc.creator = post.creator
             vc.boardId = post.postId
             vc.usertype = type
+            vc.BoardcreateDate = post.CreateDate
         }
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

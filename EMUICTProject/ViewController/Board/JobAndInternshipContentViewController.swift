@@ -20,6 +20,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     var userType:String!
     var userStorage: StorageReference!
     var ref: DatabaseReference!
+    var BoardcreateDate: String!
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!

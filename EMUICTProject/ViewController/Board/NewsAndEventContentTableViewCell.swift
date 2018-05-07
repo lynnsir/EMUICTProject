@@ -16,7 +16,8 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     var content: String!
     var creator: String!
     var boardId: String!
-   var userStorage: StorageReference!
+    var userStorage: StorageReference!
+    var BoardcreateDate: String!
     
     var comment = [NAEcomment]()
    

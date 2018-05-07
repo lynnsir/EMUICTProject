@@ -82,6 +82,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                     let bContent = value["Content"] as? String ?? "Content not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     let timestamp = value["timestamp"] as? NSNumber
+                    let createDate = value["CreateDate"] as? String ?? "Not found create date"
                     
                     post.imagePost = imagePath
                     post.title = bTitle
@@ -89,6 +90,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                     post.creator = creatorid
                     post.postId = postid
                     post.timestamp = timestamp
+                    post.CreateDate = createDate
                     
                    self.board.append(post)
                     
@@ -176,6 +178,7 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                vc.content = post.content
                vc.creator = post.creator
                vc.boardId = post.postId
+               vc.BoardcreateDate = post.CreateDate
                
         }
     }

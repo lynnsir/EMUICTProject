@@ -19,7 +19,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     var boardId: String!
     var usertype:String!
     var userStorage: StorageReference!
-    
+    var BoardcreateDate: String!
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!
