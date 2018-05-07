@@ -1642,7 +1642,7 @@
                                                 <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UlB-iH-yrf">
-                                                <rect key="frame" x="17" y="228" width="380" height="174"/>
+                                                <rect key="frame" x="17" y="257" width="379" height="145"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1666,6 +1666,20 @@
                                                     <action selector="deletePressed:" destination="JeW-oB-kaR" eventType="touchUpInside" id="bi2-jV-4sJ"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Board Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3a-qM-FRO">
+                                                <rect key="frame" x="20" y="228" width="83" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQb-4w-Gsq">
+                                                <rect key="frame" x="308" y="228" width="75" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1694,6 +1708,8 @@
                     <navigationItem key="navigationItem" title="Detail" id="BtR-bb-9OT"/>
                     <size key="freeformSize" width="414" height="1350"/>
                     <connections>
+                        <outlet property="BoardTitle" destination="o3a-qM-FRO" id="yKd-MO-QpB"/>
+                        <outlet property="PostDate" destination="vQb-4w-Gsq" id="wBR-5h-bgf"/>
                         <outlet property="TableView" destination="WYu-89-vR4" id="dNY-CN-bfl"/>
                         <outlet property="commentText" destination="Keq-lO-hk8" id="rV5-xt-LXE"/>
                         <outlet property="delete" destination="98h-0Y-f6N" id="8oQ-3j-SCh"/>
@@ -2017,6 +2033,20 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlX-MO-MFt">
+                                                <rect key="frame" x="17" y="237" width="0.0" height="0.0"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Board Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhU-Yq-8yD">
+                                                <rect key="frame" x="24" y="237" width="83" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2059,7 +2089,9 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1350"/>
                     <connections>
+                        <outlet property="BoardTitle" destination="AhU-Yq-8yD" id="wm1-yw-Ga7"/>
                         <outlet property="DeleteBut" destination="D7u-rm-gHm" id="kc5-yr-yT2"/>
+                        <outlet property="PostDate" destination="qkq-b1-8RF" id="yeP-Ln-QvX"/>
                         <outlet property="ReportBut" destination="v4a-5n-IvZ" id="TKo-wZ-iav"/>
                         <outlet property="ReportLab" destination="LSb-EY-BQN" id="AT2-i0-mLb"/>
                         <outlet property="TableView" destination="hGZ-sB-Ycz" id="W2r-PI-wgT"/>
@@ -2314,6 +2346,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1350"/>
                     <connections>
+                        <outlet property="DatePeriod" destination="rGT-dN-d4z" id="1pN-Qa-ORs"/>
                         <outlet property="DeleteBut" destination="GcQ-R8-ZdM" id="L56-nt-ICU"/>
                         <outlet property="ReportBut" destination="dMh-h4-vmu" id="pLC-PA-vRg"/>
                         <outlet property="ReportLab" destination="2bS-YN-5R1" id="JC2-et-ZbP"/>
@@ -2435,7 +2468,9 @@
                     <connections>
                         <outlet property="BoardContent" destination="TY9-xT-Xz1" id="flY-Ug-3eo"/>
                         <outlet property="BoardTitle" destination="iOo-aU-63t" id="fCF-lR-WDO"/>
+                        <outlet property="endDate" destination="ly6-SW-EQe" id="B2s-XW-1WB"/>
                         <outlet property="imgView" destination="VPp-Lf-Vg8" id="4RR-gx-Odz"/>
+                        <outlet property="startDate" destination="ERF-hT-cwa" id="In4-yT-opn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IL0-oV-WPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2637,6 +2672,8 @@
                     <size key="freeformSize" width="414" height="1350"/>
                     <connections>
                         <outlet property="DeleteBut" destination="qjD-Tc-b4b" id="yn3-PM-wll"/>
+                        <outlet property="PostDate" destination="4jB-4K-Rvg" id="aau-el-e1z"/>
+                        <outlet property="ProductName" destination="Sa2-D4-Nay" id="IoY-ty-D0J"/>
                         <outlet property="ReportBut" destination="dAh-1y-AUp" id="tRq-aD-JJ4"/>
                         <outlet property="ReportLab" destination="qzQ-Pq-FC5" id="Q41-ho-gei"/>
                         <outlet property="TableView" destination="gL5-Vh-IUW" id="cw3-bk-a44"/>
@@ -2690,7 +2727,7 @@
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mHb-57-gfV">
-                                                <rect key="frame" x="35" y="345" width="345" height="258"/>
+                                                <rect key="frame" x="35" y="386" width="345" height="217"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2700,6 +2737,13 @@
                                                 <rect key="frame" x="67" y="50" width="278" height="182"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPH-BZ-9p1">
+                                                <rect key="frame" x="35" y="333" width="345" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99309235809999996" green="1" blue="0.94821459050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2736,12 +2780,13 @@
                     <connections>
                         <outlet property="BoardContent" destination="mHb-57-gfV" id="evi-KO-xlF"/>
                         <outlet property="BoardTitle" destination="g6B-SE-zdH" id="HXz-8Y-fqt"/>
+                        <outlet property="PorductName" destination="iPH-BZ-9p1" id="IC0-wS-KzG"/>
                         <outlet property="imgView" destination="BHS-bs-Bu4" id="itP-nG-rDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcQ-Or-emF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2248" y="5518"/>
+            <point key="canvasLocation" x="2247.826086956522" y="5517.3913043478269"/>
         </scene>
         <!--Job & Internship-->
         <scene sceneID="zbb-lL-KL6">

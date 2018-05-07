@@ -35,6 +35,9 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var DeleteBut: UIButton!
     @IBOutlet weak var sendMessBut: UIButton!
     
+    @IBOutlet weak var PostDate: UILabel!
+    @IBOutlet weak var BoardTitle: UILabel!
+    
     @IBAction func editPressed(_ sender: Any) {
         editbut.isEnabled = true
         editbut.isHidden = true
@@ -162,6 +165,8 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
+        PostDate.text = BoardcreateDate
+        BoardTitle.text = Title
         getImage(url: img) { photo in
             if photo != nil {
                 DispatchQueue.main.async {

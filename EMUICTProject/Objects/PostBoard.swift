@@ -21,6 +21,7 @@ class PostBoard: NSObject {
     var CreateDate: String!
     var startDate: String!
     var endDate: String!
+    var productName: String!
     
     
 }

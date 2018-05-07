@@ -16,6 +16,7 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
     @IBOutlet weak var BoardTitle: UITextField!
     @IBOutlet weak var BoardContent: UITextView!
     @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var PorductName: UITextField!
     
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
@@ -64,6 +65,7 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         
         let title = Title
         let content = Content
+        let pName = PorductName.text!
         //date add
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/YYY"
@@ -88,6 +90,7 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
                 if let url = url {
                     let postData: [String : Any] = [
                         "Title": title as AnyObject,
+                        "ProductName": pName as AnyObject,
                         "Content": content as AnyObject,
                         "creator": uid as AnyObject,
                         "urlToImage": url.absoluteString,

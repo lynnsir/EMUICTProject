@@ -17,14 +17,22 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
     @IBOutlet weak var BoardContent: UITextView!
     @IBOutlet weak var imgView: UIImageView!
     
+    @IBOutlet weak var startDate: UITextField!
+    @IBOutlet weak var endDate: UITextField!
+    
+    let startdatepicker = UIDatePicker()
+    let enddatepicker = UIDatePicker()
+    
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
     var createDate: String!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        createStartDatePicker()
+        createendDatePicker()
         picker.delegate = self
         
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
@@ -71,6 +79,8 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
         let date = formatter.string(from: Date())
         self.createDate = date
         //end date add
+        let startdate = startDate.text
+        let enddate = endDate.text
         let uid = Auth.auth().currentUser!.uid
         let postedId = Database.database().reference().child("JobAndInternshipPost").childByAutoId().key
         let imageRef = self.userStorage.child("\(postedId).jpg")
@@ -93,7 +103,9 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
                         "creator": uid as AnyObject,
                         "urlToImage": url.absoluteString,
                         "timestamp": timestamp as AnyObject,
-                        "CreateDate": date as AnyObject
+                        "CreateDate": date as AnyObject,
+                        "startDate" : startdate as AnyObject,
+                        "endDate" : enddate as AnyObject
                         
                     ]
                     Database.database().reference().child("JobAndInternshipPost").child("\(postedId)").setValue(postData)
@@ -105,6 +117,59 @@ class CreateJobAndInternshipPostViewController: UIViewController, UIImagePickerC
         })
         uploadTask.resume()
         
+    }
+    
+    func createStartDatePicker() {
+
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donestartPressed))
+        toolbar.setItems([done], animated: false)
+
+        startDate.inputAccessoryView = toolbar
+        startDate.inputView = startdatepicker
+
+        // format picker for date
+        startdatepicker.datePickerMode = .date
+    }
+    @objc func donestartPressed() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: startdatepicker.date)
+
+        startDate.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
+    func createendDatePicker() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneendPressed))
+        toolbar.setItems([done], animated: false)
+        
+        endDate.inputAccessoryView = toolbar
+        endDate.inputView = enddatepicker
+        
+        // format picker for date
+        enddatepicker.datePickerMode = .date
+    }
+    @objc func doneendPressed() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: enddatepicker.date)
+        
+        endDate.text = "\(dateString)"
+        self.view.endEditing(true)
     }
     
     

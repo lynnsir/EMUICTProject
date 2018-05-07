@@ -90,9 +90,11 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     let timestamp = value["timestamp"] as? NSNumber
                     let createDate = value["CreateDate"] as? String ?? "Not found create date"
+                    let productName = value["ProductName"] as? String ?? "Not found product Name"
                     
                     post.imagePost = imagePath
                     post.title = bTitle
+                    post.productName = productName
                     post.content = bContent
                     post.creator = creatorid
                     post.postId = postid
@@ -186,6 +188,7 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
             vc.boardId = post.postId
             vc.usertype = type
             vc.BoardcreateDate = post.CreateDate
+            vc.Productname = post.productName
         }
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
