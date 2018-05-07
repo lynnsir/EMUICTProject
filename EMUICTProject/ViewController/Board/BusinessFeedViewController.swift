@@ -11,10 +11,7 @@ import Firebase
 
 class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate{
    
-    
-  
-    
-    
+ 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var InsertBusinessButt: UIBarButtonItem!
     
