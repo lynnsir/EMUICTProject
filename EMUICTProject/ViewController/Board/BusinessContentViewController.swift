@@ -169,7 +169,7 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
         ProductName.text = Productname
-        PostDate.text = BoardcreateDate
+        PostDate.text = "Post Date: " + BoardcreateDate!
         getImage(url: img) { photo in
             if photo != nil {
                 DispatchQueue.main.async {

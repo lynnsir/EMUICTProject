@@ -90,7 +90,7 @@ class CreateKnowledgePostViewController: UIViewController, UIImagePickerControll
                 
                 if let url = url {
                     let postData: [String : Any] = [
-                        "Topic": title as AnyObject,
+                        "title": title as AnyObject,
                         "Area": area as AnyObject,
                         "Content": content as AnyObject,
                         "creator": uid as AnyObject,

@@ -4,12 +4,13 @@
 //
 //  Created by Lynn on 4/22/2561 BE.
 //  Copyright © 2561 Sirinda. All rights reserved.
-//KnowledgeViewController
+//KnowledgeViewControllertableView
 import UIKit
 import Firebase
 
 class KnowledgeViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate{
     
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     
@@ -52,11 +53,12 @@ class KnowledgeViewController: UIViewController , UITableViewDelegate, UITableVi
                     
                     let postid = child.key
                     let creatorid = value["creator"] as? String ?? "Creator not found"
-                    let bTitle = value["Title"] as? String ?? "Title not found"
+                    let bTitle = value["title"] as? String ?? "Title not found"
                     let bContent = value["Content"] as? String ?? "Content not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     let timestamp = value["timestamp"] as? NSNumber
                     let createDate = value["CreateDate"] as? String ?? "Not found create date"
+                    let area = value["Area"] as? String ?? "Not found area"
 
                     
                     post.imagePost = imagePath
@@ -66,6 +68,7 @@ class KnowledgeViewController: UIViewController , UITableViewDelegate, UITableVi
                     post.postId = postid
                     post.timestamp = timestamp
                     post.CreateDate = createDate
+                    post.boardArea = area
                     
                     
                     self.board.append(post)
@@ -134,7 +137,7 @@ class KnowledgeViewController: UIViewController , UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Bcontent") as? BusinessContentViewController
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Kcontent") as? KnowledgeContentViewController
             
         {
             if let navigator = navigationController {
@@ -153,8 +156,9 @@ class KnowledgeViewController: UIViewController , UITableViewDelegate, UITableVi
             vc.content = post.content
             vc.creator = post.creator
             vc.boardId = post.postId
-            vc.usertype = type
+            vc.userType = type
             vc.BoardcreateDate = post.CreateDate
+            vc.BoardArea = post.boardArea
         }
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

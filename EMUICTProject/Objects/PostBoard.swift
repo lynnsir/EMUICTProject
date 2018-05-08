@@ -22,6 +22,7 @@ class PostBoard: NSObject {
     var startDate: String!
     var endDate: String!
     var productName: String!
+    var boardArea: String!
     
     
 }

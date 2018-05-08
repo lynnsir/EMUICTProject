@@ -238,10 +238,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="gsI-Eo-C7e" id="g7Z-hH-ZAw"/>
+                        <outlet property="tableView" destination="1sg-jF-H3f" id="hVx-6D-NGX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2N-tK-Eie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3045" y="2104"/>
+            <point key="canvasLocation" x="3044.9275362318845" y="2103.2608695652175"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="1ww-h9-Xxv">
@@ -6861,6 +6865,9 @@
                                                         <rect key="frame" x="162" y="161" width="90" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" image="comment"/>
+                                                        <connections>
+                                                            <action selector="commentButt:" destination="IUU-03-mFy" eventType="touchUpInside" id="aBj-tC-yRE"/>
+                                                        </connections>
                                                     </button>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yA0-29-wnh">
                                                         <rect key="frame" x="17" y="12" width="381" height="128"/>
@@ -6876,9 +6883,12 @@
                                                 <rect key="frame" x="297" y="409" width="101" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Send Message"/>
+                                                <connections>
+                                                    <action selector="SendMessageBut:" destination="IUU-03-mFy" eventType="touchUpInside" id="ZCa-mb-17V"/>
+                                                </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="13j-CU-DZs">
-                                                <rect key="frame" x="17" y="227" width="380" height="174"/>
+                                                <rect key="frame" x="17" y="277" width="381" height="124"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -6899,18 +6909,39 @@
                                                 <state key="normal" title="Report"/>
                                                 <connections>
                                                     <action selector="reportBut:" destination="JFR-cI-jSN" eventType="touchUpInside" id="yAn-0H-rRO"/>
+                                                    <action selector="reportBut:" destination="IUU-03-mFy" eventType="touchUpInside" id="yTC-eH-gxz"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-YQ-C4a">
                                                 <rect key="frame" x="18" y="407" width="45" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <action selector="DeleteBut:" destination="IUU-03-mFy" eventType="touchUpInside" id="3gz-el-59i"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXR-oJ-suE">
                                                 <rect key="frame" x="190" y="407" width="34" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="savePressed:" destination="IUU-03-mFy" eventType="touchUpInside" id="pRG-xS-7zA"/>
+                                                </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post by : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlq-QX-2Oc">
+                                                <rect key="frame" x="22" y="230" width="376" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Topic area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHK-Aq-S4Y">
+                                                <rect key="frame" x="22" y="259" width="376" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -6921,6 +6952,9 @@
                                         <rect key="frame" x="371" y="18" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editPressed:" destination="IUU-03-mFy" eventType="touchUpInside" id="aiw-o9-do5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -6942,13 +6976,31 @@
                         <viewLayoutGuide key="safeArea" id="yUZ-VR-ki9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="7za-lE-907">
-                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="RVi-xl-Zbs"/>
+                        <barButtonItem key="rightBarButtonItem" image="watchlist" id="RVi-xl-Zbs">
+                            <connections>
+                                <action selector="Addwatchlist:" destination="IUU-03-mFy" id="ztq-Dc-zpa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1350"/>
+                    <connections>
+                        <outlet property="DeleteBut" destination="Fex-YQ-C4a" id="5II-Fe-UgY"/>
+                        <outlet property="PostByAndDate" destination="Wlq-QX-2Oc" id="Guf-Hi-eAs"/>
+                        <outlet property="ReportBut" destination="PGp-Wi-QNd" id="wSO-fl-XNa"/>
+                        <outlet property="ReportLab" destination="kYT-T8-nq5" id="9Mc-PZ-dAX"/>
+                        <outlet property="TableView" destination="sYz-6G-GUj" id="jVh-76-HaY"/>
+                        <outlet property="TopicArea" destination="hHK-Aq-S4Y" id="rnN-yD-CRW"/>
+                        <outlet property="commentText" destination="yA0-29-wnh" id="Fsd-QL-FmK"/>
+                        <outlet property="editbut" destination="yiX-jF-3yd" id="D5Z-Fw-kuI"/>
+                        <outlet property="postContent" destination="13j-CU-DZs" id="efR-fa-Ves"/>
+                        <outlet property="postedImg" destination="kVg-cd-NaI" id="9wV-bn-uos"/>
+                        <outlet property="savebut" destination="QXR-oJ-suE" id="3UK-K0-1TY"/>
+                        <outlet property="sendMessBut" destination="n9s-JI-neR" id="E9n-wF-hJt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih5-kZ-C3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3964" y="3133"/>
+            <point key="canvasLocation" x="3963.7681159420295" y="3132.880434782609"/>
         </scene>
         <!--Create Knowledge Post View Controller-->
         <scene sceneID="MJ2-tp-80D">
@@ -6965,9 +7017,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1036"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZd-qo-KO5">
-                                                <rect key="frame" x="158" y="633" width="98" height="39"/>
+                                                <rect key="frame" x="157" y="719" width="98" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="post"/>
+                                                <connections>
+                                                    <action selector="BoardPostButtom:" destination="daJ-5j-AJj" eventType="touchUpInside" id="gWx-A2-dPm"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0JI-cn-t0T">
                                                 <rect key="frame" x="34" y="287" width="345" height="30"/>
@@ -6980,18 +7035,28 @@
                                                 <rect key="frame" x="150" y="240" width="112" height="27"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="insert"/>
+                                                <connections>
+                                                    <action selector="InsertPhotoButtom:" destination="daJ-5j-AJj" eventType="touchUpInside" id="cOe-qL-5AW"/>
+                                                </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="kRX-Mt-IjP">
+                                                <rect key="frame" x="67" y="50" width="278" height="182"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic area" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4B-BJ-vgB">
+                                                <rect key="frame" x="35" y="336" width="344" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FQ5-1J-XEI">
-                                                <rect key="frame" x="35" y="345" width="345" height="258"/>
+                                                <rect key="frame" x="35" y="389" width="345" height="258"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="picture-icon" translatesAutoresizingMaskIntoConstraints="NO" id="kRX-Mt-IjP">
-                                                <rect key="frame" x="67" y="50" width="278" height="182"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99309235809999996" green="1" blue="0.94821459050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -7018,13 +7083,23 @@
                         <viewLayoutGuide key="safeArea" id="M7E-na-OSH"/>
                     </view>
                     <navigationItem key="navigationItem" id="i03-hM-J91">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="c0W-xd-UWG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="c0W-xd-UWG">
+                            <connections>
+                                <action selector="cancelPressed:" destination="daJ-5j-AJj" id="ild-OD-YDA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1036"/>
+                    <connections>
+                        <outlet property="BoardContent" destination="FQ5-1J-XEI" id="8pd-G8-0lO"/>
+                        <outlet property="BoardTopic" destination="0JI-cn-t0T" id="iK9-5J-y6c"/>
+                        <outlet property="Boardarea" destination="o4B-BJ-vgB" id="FV1-Hr-AyI"/>
+                        <outlet property="imgView" destination="kRX-Mt-IjP" id="aDC-o8-PWg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jL2-nx-NNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3186" y="2984"/>
+            <point key="canvasLocation" x="3185.507246376812" y="2983.6956521739135"/>
         </scene>
     </scenes>
     <resources>

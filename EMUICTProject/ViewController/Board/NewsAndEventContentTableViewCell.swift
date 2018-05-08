@@ -165,7 +165,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
-        PostDate.text = BoardcreateDate
+        PostDate.text = "Post Date: " + BoardcreateDate!
         BoardTitle.text = Title
         getImage(url: img) { photo in
             if photo != nil {

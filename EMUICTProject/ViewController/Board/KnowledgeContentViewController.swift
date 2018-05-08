@@ -16,8 +16,10 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
     var content: String!
     var creator: String!
     var boardId: String!
+    var userType:String!
     var userStorage: StorageReference!
     var BoardcreateDate: String!
+    var BoardArea: String!
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!
@@ -33,6 +35,9 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet weak var DeleteBut: UIButton!
     @IBOutlet weak var sendMessBut: UIButton!
+    
+    @IBOutlet weak var PostByAndDate: UILabel!
+    @IBOutlet weak var TopicArea: UILabel!
     
     @IBAction func editPressed(_ sender: Any) {
         editbut.isEnabled = true
@@ -53,7 +58,7 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
             "Content": postContent.text as AnyObject
         ]
         
-        rootRef.child("NewAndEventPost").child("\(boardId!)").updateChildValues(newUpdatedPost, withCompletionBlock: { (error, ref) in
+        rootRef.child("KnowledgePost").child("\(boardId!)").updateChildValues(newUpdatedPost, withCompletionBlock: { (error, ref) in
             if let error = error{
                 print(error)
                 //return
@@ -72,7 +77,7 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
         
         let BoardId = boardId!
         let BoardTitle = Title!
-        let Boardtype = "NewAndEventPost"
+        let Boardtype = "KnowledgePost"
         let BoardCreator = creator!
         let BoardReport : [String : Any] = [
             "BoardTitle": BoardTitle as AnyObject,
@@ -84,7 +89,7 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func DeleteBut(_ sender: Any) {
         let storage = Storage.storage().reference(forURL:"gs://emuictproject-8baae.appspot.com")
-        let imageRef = storage.child("NewAndEventPost").child(boardId + ".jpg")
+        let imageRef = storage.child("KnowledgePost").child(boardId + ".jpg")
         
         print(boardId + ".jpg")
         imageRef.delete(completion: { error in
@@ -95,7 +100,7 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
             }
         })
         
-        Database.database().reference(withPath: "NewAndEventPost").child(boardId).removeValue()
+        Database.database().reference(withPath: "KnowledgePost").child(boardId).removeValue()
         print("Delete db")
         print("delete account success")
         
@@ -116,7 +121,7 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
             "Commentuid": commentOwner as AnyObject,
             "Comment": comment as AnyObject
         ]
-        Database.database().reference().child("NewAndEventPost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
+        Database.database().reference().child("KnowledgePost").child("\(BoardId)").child("comment").childByAutoId().setValue(postComment)
         self.commentText.text = nil //clear comment text
     }
     
@@ -145,7 +150,7 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
         let userid = Auth.auth().currentUser!.uid
         let boardid = boardId!
         let title = Title!
-        let boardType = "NewAndEventPost" // change to another board tyype
+        let boardType = "KnowledgePost" // change to another board tyype
         
         let addWatchlist : [String : Any] = [
             "BoardTitle": title as AnyObject,
@@ -159,6 +164,19 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // get creator name
+        let rootRef = Database.database().reference()
+        let query = rootRef.child("Alluser").child(creator!)
+        
+        query.observe(.value) { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let username = value?["Username"] as? String
+             DispatchQueue.main.async {
+                
+                self.PostByAndDate.text = "Post By: " + username! + " on " + self.BoardcreateDate!
+            }
+        }
+        TopicArea.text = "Post Area : " + BoardArea!
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
         getImage(url: img) { photo in
@@ -221,7 +239,7 @@ class KnowledgeContentViewController: UIViewController, UITableViewDelegate, UIT
     func getcomment(){
         let boardid = boardId!
         let rootRef = Database.database().reference()
-        let query = rootRef.child("NewAndEventPost").child("\(boardid)").child("comment")
+        let query = rootRef.child("KnowledgePost").child("\(boardid)").child("comment")
         
         query.observe(.value) { (snapshot) in
             self.comment.removeAll()
