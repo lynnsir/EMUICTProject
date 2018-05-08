@@ -150,7 +150,7 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
         TableView.dataSource = self
         TableView.delegate = self
         BoardTitle.text = "Title : " + Title!
-        PostDate.text = BoardcreateDate!
+        PostDate.text = "Post Date : " + BoardcreateDate!
         
     }
     // get comment and owner name

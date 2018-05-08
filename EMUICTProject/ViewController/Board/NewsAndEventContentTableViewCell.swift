@@ -166,7 +166,7 @@ class NewsAndEventContentTableViewCell: UIViewController, UITableViewDelegate, U
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
         PostDate.text = "Post Date: " + BoardcreateDate!
-        BoardTitle.text = Title
+        BoardTitle.text = "Title : " + Title!
         getImage(url: img) { photo in
             if photo != nil {
                 DispatchQueue.main.async {
