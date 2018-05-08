@@ -64,7 +64,8 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
 
     
     func getPost(){
-        
+//        let now = Int(Date().timeIntervalSince1970)
+//        let cutoff = now - 30 * 24 * 60 * 60 * 1000;
         let rootRef = Database.database().reference()
         let query = rootRef.child("NewAndEventPost")
         
@@ -84,6 +85,8 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                     let timestamp = value["timestamp"] as? NSNumber
                     let createDate = value["CreateDate"] as? String ?? "Not found create date"
                     
+                    
+                    
                     post.imagePost = imagePath
                     post.title = bTitle
                     post.content = bContent
@@ -92,7 +95,16 @@ class NewsAndEventsFeedViewController: UIViewController, UITableViewDelegate, UI
                     post.timestamp = timestamp
                     post.CreateDate = createDate
                     
-                   self.board.append(post)
+                    let now = Int(Date().timeIntervalSince1970)
+                    let cutoff = now - (60 * 60 * 24 * 30 * 10) // time limit in secound units
+                    if(Int(truncating: post.timestamp!) > cutoff){
+                        self.board.append(post)
+                        self.tableView.reloadData()
+                        print(now)
+                        print(cutoff)
+                        print(post.timestamp!)
+                    }
+                   
                     
                     self.board.sort(by: { (postboard1, postboard2) -> Bool in
                         
