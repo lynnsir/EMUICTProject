@@ -29,6 +29,8 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
     @IBOutlet weak var commentText: UITextView!
     @IBOutlet weak var sendMsg: UIButton!
     @IBOutlet weak var delete: UIButton!
+    @IBOutlet weak var BoardTitle: UILabel!
+    @IBOutlet weak var PostDate: UILabel!
     
 
     @IBAction func deletePressed(_ sender: Any) {

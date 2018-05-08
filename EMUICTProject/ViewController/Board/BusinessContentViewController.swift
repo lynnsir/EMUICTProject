@@ -19,7 +19,8 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     var boardId: String!
     var usertype:String!
     var userStorage: StorageReference!
-    
+    var BoardcreateDate: String!
+    var Productname: String!
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!
@@ -35,7 +36,9 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
     
     @IBOutlet weak var DeleteBut: UIButton!
     @IBOutlet weak var sendMessBut: UIButton!
-
+    @IBOutlet weak var ProductName: UILabel!
+    @IBOutlet weak var PostDate: UILabel!
+    
     @IBAction func editPressed(_ sender: Any) {
         editbut.isEnabled = true
         editbut.isHidden = true
@@ -165,6 +168,8 @@ class BusinessContentViewController: UIViewController , UITableViewDelegate, UIT
         super.viewDidLoad()
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
+        ProductName.text = Productname
+        PostDate.text = BoardcreateDate
         getImage(url: img) { photo in
             if photo != nil {
                 DispatchQueue.main.async {

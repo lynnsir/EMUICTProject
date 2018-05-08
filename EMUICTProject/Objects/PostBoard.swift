@@ -17,14 +17,13 @@ class PostBoard: NSObject {
     var creator : String!
     var image : UIImage?
     var boardType : String!
+    var timestamp : NSNumber?
+    var CreateDate: String!
+    var startDate: String!
+    var endDate: String!
+    var productName: String!
     
-//    init(PostId: String, ImageURL: String, Title: String, Content: String, BoardCreator: String) {
-//        postId = PostId
-//        imagePost = ImageURL
-//        title = Title
-//        content = Content
-//        creator = BoardCreator
-//    }
+    
 }
 
 

@@ -11,10 +11,7 @@ import Firebase
 
 class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate{
    
-    
-  
-    
-    
+ 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var InsertBusinessButt: UIBarButtonItem!
     
@@ -88,15 +85,33 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
                     let bTitle = value["Title"] as? String ?? "Title not found"
                     let bContent = value["Content"] as? String ?? "Content not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
+                    let timestamp = value["timestamp"] as? NSNumber
+                    let createDate = value["CreateDate"] as? String ?? "Not found create date"
+                    let productName = value["ProductName"] as? String ?? "Not found product Name"
                     
                     post.imagePost = imagePath
                     post.title = bTitle
+                    post.productName = productName
                     post.content = bContent
                     post.creator = creatorid
                     post.postId = postid
-                    
+                    post.timestamp = timestamp
+                    post.CreateDate = createDate
                     
                     self.board.append(post)
+                    
+                    self.board.sort(by: { (postboard1, postboard2) -> Bool in
+                        
+                        if let timestamp1 = postboard1.timestamp, let timestamp2 = postboard2.timestamp {
+                            return timestamp1.intValue > timestamp2.intValue
+                        } else {
+                            //At least one of your timestamps is nil.  You have to decide how to sort here.
+                            return true
+                        }
+                        
+                        
+                    })
+                    
                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }
             }
@@ -169,6 +184,8 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
             vc.creator = post.creator
             vc.boardId = post.postId
             vc.usertype = type
+            vc.BoardcreateDate = post.CreateDate
+            vc.Productname = post.productName
         }
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

@@ -223,19 +223,19 @@
 				0B91D2CB20493E27005C8D6F /* CreateNewAndEventsPostViewController.swift */,
 				0B91D2CD20494116005C8D6F /* CreateBusinessPostViewController.swift */,
 				0B91D2CF20494240005C8D6F /* CreateJobAndInternshipPostViewController.swift */,
-				0BC13C38206CAF4F0036F66D /* BusinessFeedViewController.swift */,
-				0BC13C3C206CB0040036F66D /* BusinessContentViewController.swift */,
-				0BC13C3A206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift */,
-				0BC13C3E206CB03B0036F66D /* JobAndInternshipContentViewController.swift */,
+				85C6D7A2208C708000034211 /* CreateKnowledgePostViewController.swift */,
 				0BCE4B21204A62BB0066A55B /* NewsAndEventsFeedViewController.swift */,
+				0BC13C38206CAF4F0036F66D /* BusinessFeedViewController.swift */,
+				0BC13C3A206CAF7F0036F66D /* JobAndInternshipFeedViewController.swift */,
+				85C6D7A6208C70B700034211 /* KnowledgeViewController.swift */,
 				0BCE4B27204B7DF60066A55B /* NewsAndEventContentTableViewCell.swift */,
+				0BC13C3C206CB0040036F66D /* BusinessContentViewController.swift */,
+				0BC13C3E206CB03B0036F66D /* JobAndInternshipContentViewController.swift */,
+				85C6D7A4208C70A800034211 /* KnowledgeContentViewController.swift */,
 				0BCE4B2B204CCAAB0066A55B /* WatchListViewController.swift */,
 				0B2592D62058AFF70012693E /* WatchListContentViewController.swift */,
 				0B16D874206A8B0D004CE7FB /* HomePageContentViewController.swift */,
 				0B16D872206A894F004CE7FB /* HomePageViewController.swift */,
-				85C6D7A2208C708000034211 /* CreateKnowledgePostViewController.swift */,
-				85C6D7A4208C70A800034211 /* KnowledgeContentViewController.swift */,
-				85C6D7A6208C70B700034211 /* KnowledgeViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -752,7 +752,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SEF4KAHA7J;
+				DEVELOPMENT_TEAM = J38H528F4A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -760,7 +760,7 @@
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EMUICTProject;
+				PRODUCT_BUNDLE_IDENTIFIER = EMUICTProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EMUICTProject/ViewController/EMUICTProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -777,7 +777,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SEF4KAHA7J;
+				DEVELOPMENT_TEAM = J38H528F4A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -785,7 +785,7 @@
 				INFOPLIST_FILE = EMUICTProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.EMUICTProject;
+				PRODUCT_BUNDLE_IDENTIFIER = EMUICTProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EMUICTProject/ViewController/EMUICTProject-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

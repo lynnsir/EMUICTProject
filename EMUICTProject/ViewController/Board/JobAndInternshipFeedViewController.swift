@@ -51,15 +51,35 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
                     let bTitle = value["Title"] as? String ?? "Title not found"
                     let bContent = value["Content"] as? String ?? "Content not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
-                    
+                    let timestamp = value["timestamp"] as? NSNumber
+                    let createDate = value["CreateDate"] as? String ?? "Not found create date"
+                    let startDate = value["startDate"] as? String ?? "Not found start date"
+                    let endDate = value["endDate"] as? String ?? "Not found end date"
+                
                     post.imagePost = imagePath
                     post.title = bTitle
                     post.content = bContent
                     post.creator = creatorid
                     post.postId = postid
-                    
+                    post.timestamp = timestamp
+                    post.CreateDate = createDate
+                    post.startDate = startDate
+                    post.endDate = endDate
                     
                     self.board.append(post)
+                    
+                    self.board.sort(by: { (postboard1, postboard2) -> Bool in
+                        
+                        if let timestamp1 = postboard1.timestamp, let timestamp2 = postboard2.timestamp {
+                            return timestamp1.intValue > timestamp2.intValue
+                        } else {
+                            //At least one of your timestamps is nil.  You have to decide how to sort here.
+                            return true
+                        }
+                        
+                        
+                    })
+                    
                     DispatchQueue.main.async { self.tableView.reloadData() }
                 }
             }
@@ -130,6 +150,9 @@ class JobAndInternshipFeedViewController: UIViewController, UITableViewDelegate,
             vc.creator = post.creator
             vc.boardId = post.postId
             vc.userType = type
+            vc.BoardcreateDate = post.CreateDate
+            vc.startD = post.startDate
+            vc.endD = post.endDate
         }
     }
     

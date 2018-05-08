@@ -16,11 +16,12 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
     @IBOutlet weak var BoardTitle: UITextField!
     @IBOutlet weak var BoardContent: UITextView!
     @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var PorductName: UITextField!
     
     let picker = UIImagePickerController()
     var userStorage: StorageReference!
     var ref: DatabaseReference!
-    
+    var createDate: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +65,17 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
         
         let title = Title
         let content = Content
-        
+        let pName = PorductName.text!
+        //date add
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/YYY"
+        let date = formatter.string(from: Date())
+        self.createDate = date
+        //end date add
         let uid = Auth.auth().currentUser!.uid
         let postedId = Database.database().reference().child("BusinessPost").childByAutoId().key
         let imageRef = self.userStorage.child("\(postedId).jpg")
+        let timestamp = Int(Date().timeIntervalSince1970)
         let data = UIImageJPEGRepresentation(self.imgView.image!, 0.5)
         let uploadTask = imageRef.putData(data!, metadata: nil, completion: { (metadata, err) in
             if err != nil{
@@ -82,10 +90,12 @@ class CreateBusinessPostViewController: UIViewController, UIImagePickerControlle
                 if let url = url {
                     let postData: [String : Any] = [
                         "Title": title as AnyObject,
+                        "ProductName": pName as AnyObject,
                         "Content": content as AnyObject,
                         "creator": uid as AnyObject,
-                        "urlToImage": url.absoluteString
-                        
+                        "urlToImage": url.absoluteString,
+                        "timestamp": timestamp as AnyObject,
+                        "CreateDate": date as AnyObject
                     ]
                     Database.database().reference().child("BusinessPost").child("\(postedId)").setValue(postData)
                     

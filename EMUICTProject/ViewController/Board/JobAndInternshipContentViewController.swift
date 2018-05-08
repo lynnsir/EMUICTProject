@@ -20,6 +20,10 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     var userType:String!
     var userStorage: StorageReference!
     var ref: DatabaseReference!
+    var BoardcreateDate: String!
+    var startD: String!
+    var endD: String!
+    
     var comment = [NAEcomment]()
     
     @IBOutlet weak var TableView: UITableView!
@@ -35,7 +39,8 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     
     @IBOutlet weak var DeleteBut: UIButton!
     @IBOutlet weak var sendMessBut: UIButton!
-
+    @IBOutlet var DatePeriod: UILabel!
+    
     @IBAction func editPressed(_ sender: Any) {
         editBut.isEnabled = true
         editBut.isHidden = true
@@ -166,6 +171,7 @@ class JobAndInternshipContentViewController: UIViewController , UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         postContent.delegate = self
+        DatePeriod.text = startD + " to " + endD
         TableView.register(commentCell.self, forCellReuseIdentifier: cellId)
         postContent.text = content
         getImage(url: img) { photo in
