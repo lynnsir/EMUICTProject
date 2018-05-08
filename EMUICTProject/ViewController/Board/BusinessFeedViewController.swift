@@ -199,9 +199,6 @@ class BusinessFeedViewController: UIViewController , UITableViewDelegate, UITabl
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
-    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
