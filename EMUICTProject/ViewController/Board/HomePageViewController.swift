@@ -101,6 +101,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                             let bContent = value2["Content"] as? String ?? "Content not found"
                             let imagePath = value2["urlToImage"] as? String ?? "Image not found"
                             let timestamp = value["timestamp"] as? NSNumber
+                            let createDate = value["CreateDate"] as? String ?? "Not found create date"
                             
                             post.imagePost = imagePath
                             post.title = bTitle
@@ -109,6 +110,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                             post.postId = postid
                             post.boardType = boardtype
                             post.timestamp = timestamp
+                            post.CreateDate = createDate
                             
                             self.board.append(post)
                             
@@ -152,6 +154,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                     let bContent = value["Content"] as? String ?? "Content not found"
                     let imagePath = value["urlToImage"] as? String ?? "Image not found"
                     let timestamp = value["timestamp"] as? NSNumber
+                    let createDate = value["CreateDate"] as? String ?? "Not found create date"
                     
                     post.imagePost = imagePath
                     post.title = bTitle
@@ -159,7 +162,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
                     post.creator = creatorid
                     post.postId = postid
                     post.timestamp = timestamp
-                    
+                    post.CreateDate = createDate
                     
                     self.board.append(post)
                     
@@ -232,6 +235,7 @@ class HomePageViewController: UIViewController, UITableViewDelegate, UITableView
             vc.creator = post.creator
             vc.boardId = post.postId
             vc.type = self.type
+            vc.BoardcreateDate = post.CreateDate
         }
     }
 }

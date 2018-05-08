@@ -19,7 +19,7 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
     var boardId: String!
     var type:String!
     var userStorage: StorageReference!
-
+    var BoardcreateDate: String!
     
     var comment = [NAEcomment]()
     
@@ -149,8 +149,8 @@ class HomePageContentViewController: UIViewController , UITableViewDelegate, UIT
         getcomment()
         TableView.dataSource = self
         TableView.delegate = self
-        
-        
+        BoardTitle.text = "Title : " + Title!
+        PostDate.text = BoardcreateDate!
         
     }
     // get comment and owner name
