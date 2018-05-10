@@ -69,9 +69,9 @@ class KnowledgeViewController: UIViewController , UITableViewDelegate, UITableVi
                     post.timestamp = timestamp
                     post.CreateDate = createDate
                     post.boardArea = area
-                    
+                    // fillter expirery post
                     let now = Int(Date().timeIntervalSince1970)
-                    let cutoff = now - (60 * 60 * 24 * 30 * 10) // time limit in secound units
+                    let cutoff = now - (60 * 60 * 24 * 30 * 10) // time limit expire date in secound units
                     if(Int(truncating: post.timestamp!) > cutoff){
                         self.board.append(post)
                         self.tableView.reloadData()
@@ -79,9 +79,6 @@ class KnowledgeViewController: UIViewController , UITableViewDelegate, UITableVi
                         print(cutoff)
                         print(post.timestamp!)
                     }
-                    
-                    
-                    //self.board.append(post)
                     
                     self.board.sort(by: { (postboard1, postboard2) -> Bool in
                         

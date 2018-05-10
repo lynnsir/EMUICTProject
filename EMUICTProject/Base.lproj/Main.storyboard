@@ -363,7 +363,7 @@
             </objects>
             <point key="canvasLocation" x="6500" y="3086"/>
         </scene>
-        <!--Report-->
+        <!--Search-->
         <scene sceneID="Zfy-9b-byt">
             <objects>
                 <viewController id="ppB-cm-SmW" sceneMemberID="viewController">
@@ -435,7 +435,7 @@
                         <color key="backgroundColor" red="0.9933821357" green="1" blue="0.94759231070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="IOc-PW-Cdh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Report" id="uGz-1p-I5Z"/>
+                    <navigationItem key="navigationItem" title="Search" id="uGz-1p-I5Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBN-jT-rJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2910,11 +2910,11 @@
             </objects>
             <point key="canvasLocation" x="6593" y="2206"/>
         </scene>
-        <!--Report-->
+        <!--Search-->
         <scene sceneID="s6e-Gy-bmE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fej-Bt-hz0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Report" image="report" id="luL-qP-Q67"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="report" id="luL-qP-Q67"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u7q-9y-afj">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
